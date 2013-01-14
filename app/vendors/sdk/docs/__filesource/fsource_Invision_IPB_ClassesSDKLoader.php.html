@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>File Source for SDKLoader.php</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+						<h1>Source for file SDKLoader.php</h1>
+<p>Documentation is available at <a href="../Invision/IPB/_Classes---SDKLoader.php.html">SDKLoader.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><span class="src-php">&lt;?php</span></div></li>
+<li><div class="src-line"><a name="a2"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a3"></a><span class="src-doc">&nbsp;*&nbsp;IP.Board&nbsp;3.0&nbsp;SDK</span></div></li>
+<li><div class="src-line"><a name="a4"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a5"></a><span class="src-doc">&nbsp;*&nbsp;Written&nbsp;by&nbsp;InvisionModding.com&nbsp;Staff&nbsp;Team</span></div></li>
+<li><div class="src-line"><a name="a6"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a7"></a><span class="src-doc">&nbsp;*&nbsp;Last&nbsp;Updated:&nbsp;$Date:&nbsp;2009-07-29&nbsp;12:08:39&nbsp;+0300&nbsp;(Wed,&nbsp;29&nbsp;Jul&nbsp;2009)&nbsp;$</span></div></li>
+<li><div class="src-line"><a name="a8"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a9"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@author</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Author:&nbsp;vadimg88&nbsp;$</span></div></li>
+<li><div class="src-line"><a name="a10"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@copyright</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;2009&nbsp;-&nbsp;InvisionModding.com</span></div></li>
+<li><div class="src-line"><a name="a11"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@license</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.invisionpower.com/community/board/license.html</span></div></li>
+<li><div class="src-line"><a name="a12"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@package</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invision&nbsp;Power&nbsp;Board</span></div></li>
+<li><div class="src-line"><a name="a13"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@subpackage</span><span class="src-doc">&nbsp;&nbsp;IPB&nbsp;SDK</span></div></li>
+<li><div class="src-line"><a name="a14"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@link</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.InvisionModding.com</span></div></li>
+<li><div class="src-line"><a name="a15"></a><span class="src-doc">&nbsp;*&nbsp;</span><span class="src-doc-coretag">@version</span><span class="src-doc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Rev:&nbsp;5&nbsp;$</span></div></li>
+<li><div class="src-line"><a name="a16"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a17"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a18"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a19"></a><span class="src-doc">/**</span></div></li>
+<li><div class="src-line"><a name="a20"></a><span class="src-doc">&nbsp;*&nbsp;Define&nbsp;the&nbsp;IPB&nbsp;SDK&nbsp;classes&nbsp;path</span></div></li>
+<li><div class="src-line"><a name="a21"></a><span class="src-doc">&nbsp;*</span></div></li>
+<li><div class="src-line"><a name="a22"></a><span class="src-doc">&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a24"></a><a href="http://www.php.net/define">define</a><span class="src-sym">(</span><span class="src-str">'SDK_CLASSES_PATH'</span><span class="src-sym">,&nbsp;</span><span class="src-id">SDK_ROOT_PATH&nbsp;</span>.&nbsp;<span class="src-str">'Classes/'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a27"></a><span class="src-comm">/*&nbsp;Make&nbsp;sure&nbsp;it's&nbsp;defined&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a28"></a><span class="src-key">if</span><span class="src-sym">(&nbsp;</span><span class="src-sym">!</span><a href="http://www.php.net/defined">defined</a><span class="src-sym">(</span><span class="src-str">'IPB_PATH'</span><span class="src-sym">)&nbsp;</span>||&nbsp;<span class="src-id"><a href="../Invision/IPB/_SDKConfig.php.html#defineIPB_PATH">IPB_PATH</a>&nbsp;</span>==&nbsp;<span class="src-str">''&nbsp;</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a29"></a><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">die</span><span class="src-sym">(</span><span class="src-str">&quot;You&nbsp;must&nbsp;define&nbsp;the&nbsp;full&nbsp;path&nbsp;to&nbsp;the&nbsp;IPB&nbsp;directory&nbsp;in&nbsp;the&nbsp;SDKConfig.php&nbsp;file.&quot;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a31"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a33"></a><span class="src-comm">/*&nbsp;Sort&nbsp;the&nbsp;path&nbsp;with&nbsp;the&nbsp;slashes&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a34"></a><span class="src-key">if</span><span class="src-sym">(&nbsp;</span><a href="http://www.php.net/substr">substr</a><span class="src-sym">(</span><span class="src-id"><a href="../Invision/IPB/_SDKConfig.php.html#defineIPB_PATH">IPB_PATH</a></span><span class="src-sym">,&nbsp;</span>-<span class="src-num">1</span><span class="src-sym">)&nbsp;</span>!=&nbsp;<span class="src-str">'/'&nbsp;</span><span class="src-sym">)</span></div></li>
+<li><div class="src-line"><a name="a35"></a><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/define">define</a><span class="src-sym">(</span><span class="src-str">'SDK_IPB_PATH'</span><span class="src-sym">,&nbsp;</span><span class="src-id">IPB_PATH&nbsp;</span>.&nbsp;<span class="src-str">'/'</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a37"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a38"></a><span class="src-key">else</span></div></li>
+<li><div class="src-line"><a name="a39"></a><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/define">define</a><span class="src-sym">(</span><span class="src-str">'SDK_IPB_PATH'</span><span class="src-sym">,&nbsp;</span><span class="src-id">IPB_PATH</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a41"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a43"></a><span class="src-comm">/*&nbsp;The&nbsp;path&nbsp;exists&nbsp;and&nbsp;valid?&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a44"></a><span class="src-key">if</span><span class="src-sym">(&nbsp;</span><span class="src-sym">!</span><a href="http://www.php.net/is_dir">is_dir</a><span class="src-sym">(</span><span class="src-id"><a href="../Invision/IPB/_Classes---SDKLoader.php.html#defineSDK_IPB_PATH">SDK_IPB_PATH</a></span><span class="src-sym">)&nbsp;</span>||&nbsp;<span class="src-sym">!</span><a href="http://www.php.net/is_file">is_file</a><span class="src-sym">(&nbsp;</span><span class="src-id"><a href="../Invision/IPB/_Classes---SDKLoader.php.html#defineSDK_IPB_PATH">SDK_IPB_PATH</a>&nbsp;</span>.&nbsp;<span class="src-str">'conf_global.php'&nbsp;</span><span class="src-sym">)&nbsp;)</span></div></li>
+<li><div class="src-line"><a name="a45"></a><span class="src-sym">{</span></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-key">die</span><span class="src-sym">(</span><a href="http://www.php.net/sprintf">sprintf</a><span class="src-sym">(</span><span class="src-str">&quot;Error:&nbsp;The&nbsp;path&nbsp;&lt;b&gt;%s&lt;/b&gt;&nbsp;does&nbsp;not&nbsp;exists&nbsp;or&nbsp;is&nbsp;not&nbsp;valid.&quot;</span><span class="src-sym">,&nbsp;</span><span class="src-id"><a href="../Invision/IPB/_Classes---SDKLoader.php.html#defineSDK_IPB_PATH">SDK_IPB_PATH</a></span><span class="src-sym">))</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a47"></a><span class="src-sym">}</span></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a49"></a><span class="src-comm">/*&nbsp;Load&nbsp;required&nbsp;IPB&nbsp;Files&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a50"></a><a href="http://www.php.net/define">define</a><span class="src-sym">(&nbsp;</span><span class="src-str">'IPB_THIS_SCRIPT'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'public'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a51"></a><span class="src-inc">require_once</span><span class="src-sym">(&nbsp;</span><span class="src-id">SDK_IPB_PATH&nbsp;</span>.&nbsp;<span class="src-str">'initdata.php'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a52"></a><span class="src-inc">require_once</span><span class="src-sym">(&nbsp;</span><span class="src-id">IPS_ROOT_PATH&nbsp;</span>.&nbsp;<span class="src-str">'sources/base/ipsRegistry.php'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a53"></a><span class="src-inc">require_once</span><span class="src-sym">(&nbsp;</span><span class="src-id">IPS_ROOT_PATH&nbsp;</span>.&nbsp;<span class="src-str">'sources/base/ipsController.php'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a55"></a><span class="src-comm">/*&nbsp;Load&nbsp;the&nbsp;registry&nbsp;instance&nbsp;*/</span></div></li>
+<li><div class="src-line"><a name="a56"></a><span class="src-var">$ipbRegistry&nbsp;&nbsp;&nbsp;&nbsp;</span>=&nbsp;<span class="src-id">ipsRegistry</span><span class="src-sym">::</span><span class="src-id">instance</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a57"></a><span class="src-var">$ipbRegistry</span><span class="src-sym">-&gt;</span><span class="src-id">init</span><span class="src-sym">(</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line"><a name="a58"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a59"></a><span class="src-comm">/*&nbsp;Done!&nbsp;*/</span></div></li>
+</ol></div>
+</div>
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 11 Aug 2009 12:24:13 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</body>
+</html>

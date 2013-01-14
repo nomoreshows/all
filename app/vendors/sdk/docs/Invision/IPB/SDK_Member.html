@@ -1,0 +1,1780 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class SDK_Member</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class SDK_Member</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">IP.</p>
+<p class="description"><p>IP.Board 3.0 SDK
+ Written by InvisionModding.com Staff Team
+ Last Updated: $Date: 2009-07-29 12:19:58 +0300 (Wed, 29 Jul 2009) $</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> $Author: vadimg88 $</li>
+				<li><span class="field">version:</span> $Rev: 7 $</li>
+				<li><span class="field">copyright:</span> (c) 2009 - InvisionModding.com</li>
+				<li><span class="field">link:</span> <a href="http://www.InvisionModding.com">http://www.InvisionModding.com</a></li>
+				<li><span class="field">license:</span> <a href="http://www.invisionpower.com/community/board/license.html">http://www.invisionpower.com/community/board/license.html</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_Classes---SDK_Member.php.html">/Classes/SDK_Member.php</a> (line <span class="field"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a19">19</a></span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																																												<div class="var-title">
+					static <span class="var-type">object</span>
+					<a href="#$_memberFunctions" title="details" class="var-name">$_memberFunctions</a>
+				</div>
+																				<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$cache" title="details" class="var-name">$cache</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$caches" title="details" class="var-name">$caches</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$DB" title="details" class="var-name">$DB</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$lang" title="details" class="var-name">$lang</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$member" title="details" class="var-name">$member</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$memberData" title="details" class="var-name">$memberData</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">Object</span>
+					<a href="#$registry" title="details" class="var-name">$registry</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$request" title="details" class="var-name">$request</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$returnAsBool" title="details" class="var-name">$returnAsBool</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">Mixed</span>
+					<a href="#$settings" title="details" class="var-name">$settings</a>
+				</div>
+																			</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																																																																												
+												<div class="method-definition">
+											<span class="method-result">SDK_Member</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$registry</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#buildAvatar" title="details" class="method-name">buildAvatar</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">null</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$no_cache</span> = <span class="var-default">0</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$overRide</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#buildDisplayData" title="details" class="method-name">buildDisplayData</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$_parseFlags</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#buildProfilePhoto" title="details" class="method-name">buildProfilePhoto</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">null</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkByEmail" title="details" class="method-name">checkByEmail</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkFriendStatus" title="details" class="method-name">checkFriendStatus</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$memberId</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$checkAgainst</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkIgnoredStatus" title="details" class="method-name">checkIgnoredStatus</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$memberId</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$checkAgainst</span> = <span class="var-default">0</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#checkNameExists" title="details" class="method-name">checkNameExists</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$member</span> = <span class="var-default">array()</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span> = <span class="var-default">'members_display_name'</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$ignore</span> = <span class="var-default">false</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$cleaned</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#checkPermissions" title="details" class="method-name">checkPermissions</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$perm</span> = <span class="var-default">&quot;&quot;</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$forumID</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#cleanAndCheckName" title="details" class="method-name">cleanAndCheckName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$member</span> = <span class="var-default">array()</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span> = <span class="var-default">'members_display_name'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createPermsFromGroup" title="details" class="method-name">createPermsFromGroup</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$in_group_ids</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#deleteMemberPhoto" title="details" class="method-name">deleteMemberPhoto</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#fetchSeoName" title="details" class="method-name">fetchSeoName</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$memberData</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#findIPAddresses" title="details" class="method-name">findIPAddresses</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">0</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$tables_to_check</span> = <span class="var-default">'all'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#fullCreateMember" title="details" class="method-name">fullCreateMember</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$tables</span> = <span class="var-default">array()</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$autoCreateName</span> = <span class="var-default">FALSE</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$bypassCfields</span> = <span class="var-default">FALSE</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateAutoLoginKey" title="details" class="method-name">generateAutoLoginKey</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$len</span> = <span class="var-default">60</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateCompiledPasshash" title="details" class="method-name">generateCompiledPasshash</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$salt</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$md5_once_password</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generatePasswordSalt" title="details" class="method-name">generatePasswordSalt</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$len</span> = <span class="var-default">5</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">object memberFunctions</span>
+										<a href="#getFunction" title="details" class="method-name">getFunction</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getHostedAvatarCategories" title="details" class="method-name">getHostedAvatarCategories</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getHostedAvatarsFromCategory" title="details" class="method-name">getHostedAvatarsFromCategory</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$catName</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isBanned" title="details" class="method-name">isBanned</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#load" title="details" class="method-name">load</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$extra_tables</span> = <span class="var-default">'all'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$key_type</span> = <span class="var-default">''</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#querySpamService" title="details" class="method-name">querySpamService</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$ip</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">'register'</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$test</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#remove" title="details" class="method-name">remove</a>
+											([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">0</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$check_admin</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">mixed</span>
+										<a href="#removeAvatar" title="details" class="method-name">removeAvatar</a>
+											([<span class="var-type">int</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#removeUploadedPhotos" title="details" class="method-name">removeUploadedPhotos</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$upload_path</span> = <span class="var-default">''</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#save" title="details" class="method-name">save</a>
+											([<span class="var-type">int</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">''</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$save</span> = <span class="var-default">array()</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Boolean/Mixed</span>
+										<a href="#saveNewAvatar" title="details" class="method-name">saveNewAvatar</a>
+											([<span class="var-type">INT</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$uploadFieldName</span> = <span class="var-default">'upload_avatar'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$urlFieldName</span> = <span class="var-default">'avatar_url'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$galleryFieldName</span> = <span class="var-default">'avatar_gallery'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$avatarGalleryImage</span> = <span class="var-default">'avatar_image'</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$gravatarFieldName</span> = <span class="var-default">'gravatar_email'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Object</span>
+										<a href="#setProperty" title="details" class="method-name">setProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#setUpGuest" title="details" class="method-name">setUpGuest</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'Guest'</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#updatePassword" title="details" class="method-name">updatePassword</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">null</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$new_md5_pass</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean/array</span>
+										<a href="#uploadMemberPhoto" title="details" class="method-name">uploadMemberPhoto</a>
+											([<span class="var-type">integer</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">Mixed</span>
+										<a href="#__get" title="details" class="method-name">__get</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__set" title="details" class="method-name">__set</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$_memberFunctions" id="$_memberFunctions"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">object</span>
+			<span class="var-name">$_memberFunctions</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a55">55</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">memberFunctions object reference</p>
+<p class="description"><p>memberFunctions object reference</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> private</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$cache" id="$cache"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$cache</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a46">46</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$caches" id="$caches"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$caches</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a47">47</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$DB" id="$DB"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$DB</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a41">41</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$lang" id="$lang"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$lang</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a43">43</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$member" id="$member"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$member</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a44">44</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$memberData" id="$memberData"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$memberData</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a45">45</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$registry" id="$registry"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">Object</span>
+			<span class="var-name">$registry</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a26">26</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">IPB Registry object</p>
+<p class="description"><p>IPB Registry object</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$request" id="$request"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$request</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a42">42</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$returnAsBool" id="$returnAsBool"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$returnAsBool</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a33">33</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the result as a boolean value?</p>
+<p class="description"><p>Return the result as a boolean value?</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$settings" id="$settings"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">Mixed</span>
+			<span class="var-name">$settings</span>
+						(line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a40">40</a></span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Shortcut keys for the registry</p>
+<p class="description"><p>Shortcut keys for the registry</p></p>
+	<ul class="tags">
+				<li><span class="field">var:</span> Object/Array</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a63">63</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor</p>
+<p class="description"><p>Constructor</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Vadim</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">SDK_Member</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$registry</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ipsRegistry</span>
+				<span class="var-name">$registry</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodbuildAvatar" id="buildAvatar"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">buildAvatar</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a668">668</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns user's avatar</p>
+<p class="description"><p>Returns user's avatar</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> HTML</li>
+				<li><span class="field">since:</span> 2.0</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			buildAvatar
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">null</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$no_cache</span> = <span class="var-default">0</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$overRide</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$member_key</span><span class="var-description">: [Optional] Member key: Either ID or email address                      If omitted then the current member id will be used</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$no_cache</span><span class="var-description">: Whether to avoid caching</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$overRide</span><span class="var-description">: Whether to show avatar even if view_avs is off for member</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodbuildDisplayData" id="buildDisplayData"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">buildDisplayData</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a645">645</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse a member for display</p>
+<p class="description"><p>Parse a member for display</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Parsed member data</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			buildDisplayData
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">null</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$_parseFlags</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$member_key</span><span class="var-description">: [Optional] Member key: Either ID or email address                  If omitted then the current member id will be used</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$_parseFlags</span><span class="var-description">: Array of flags to parse: 'signature', 'customFields', 'avatar', 'warn'</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodbuildProfilePhoto" id="buildProfilePhoto"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">buildProfilePhoto</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a624">624</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Parse a member's profile photo</p>
+<p class="description"><p>Parse a member's profile photo</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Member's photo details</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			buildProfilePhoto
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$member_key</span><span class="var-description">: [Optional] Member key: Either ID or email address                  If omitted then the current member id will be used</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckByEmail" id="checkByEmail"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkByEmail</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a687">687</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks for a DB row that matches $email</p>
+<p class="description"><p>Checks for a DB row that matches $email</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Record exists</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkByEmail
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span><span class="var-description">: Email address</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckFriendStatus" id="checkFriendStatus"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkFriendStatus</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a528">528</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determine if two members are friends</p>
+<p class="description"><p>Determine if two members are friends</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Whether they are friends or not</li>
+				<li><span class="field">author:</span> Brandon Farber</li>
+				<li><span class="field">since:</span> IPB 3.0</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkFriendStatus
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$memberId</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$checkAgainst</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$memberId</span><span class="var-description">: Member ID to check for</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$checkAgainst</span><span class="var-description">: Member ID to check against (defaults to current member id)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckIgnoredStatus" id="checkIgnoredStatus"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkIgnoredStatus</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a544">544</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Determine if a member is ignoring another member</p>
+<p class="description"><p>Determine if a member is ignoring another member</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Whether the member id to check for is being ignored by the member id to check against</li>
+				<li><span class="field">author:</span> Brandon Farber</li>
+				<li><span class="field">since:</span> IPB 3.0</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkIgnoredStatus
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$memberId</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$checkAgainst</span> = <span class="var-default">0</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$memberId</span><span class="var-description">: Member ID to check for</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$checkAgainst</span><span class="var-description">: Member ID to check against (defaults to current member id)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: Type of ignoring to check [messages|topics].  Omit to check any type.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckNameExists" id="checkNameExists"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkNameExists</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a162">162</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check for an existing display or user name</p>
+<p class="description"><p>Check for an existing display or user name</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Either an exception or ( true if name exists. False if name DOES NOT exist ) Error Codes: NO_PERMISSION        This user cannot change their display name at all NO_MORE_CHANGES        The user cannot change their display name again in this time period NO_NAME                No display name (or shorter than 3 chars was given) ILLEGAL_CHARS        The display name contains illegal characters</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			checkNameExists
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$member</span> = <span class="var-default">array()</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span> = <span class="var-default">'members_display_name'</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$ignore</span> = <span class="var-default">false</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$cleaned</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Name to check</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$member</span><span class="var-description">: [ Optional Member Array ]</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$field</span><span class="var-description">: name or members_display_name</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$ignore</span><span class="var-description">: Ignore display name changes check (e.g. for registration)</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$cleaned</span><span class="var-description">: Do not clean name again (e.g. coming from cleanAndCheckName)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheckPermissions" id="checkPermissions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">checkPermissions</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a584">584</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check forum permissions</p>
+<p class="description"><p>Check forum permissions
+ Forum perms can be: view read start reply upload download</p></p>
+	<ul class="tags">
+				<li><span class="field">since:</span> 2.0</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			checkPermissions
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$perm</span> = <span class="var-default">&quot;&quot;</span>], [<span class="var-type">int</span>&nbsp;<span class="var-name">$forumID</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$perm</span><span class="var-description">: Permission type</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$forumID</span><span class="var-description">: Forum ID to check against</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcleanAndCheckName" id="cleanAndCheckName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">cleanAndCheckName</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a141">141</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Cleans a username or display name, also checks for any errors</p>
+<p class="description"><p>Cleans a username or display name, also checks for any errors</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Returns an array with 2 keys: 'username' OR 'members_display_name' =&gt; the cleaned username, 'errors' =&gt; Any errors found</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			cleanAndCheckName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">array</span>&nbsp;<span class="var-name">$member</span> = <span class="var-default">array()</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span> = <span class="var-default">'members_display_name'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Username or display name to clean and check</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$member</span><span class="var-description">: [ Optional Member Array ]</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$field</span><span class="var-description">: name or members_display_name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreatePermsFromGroup" id="createPermsFromGroup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createPermsFromGroup</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a597">597</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check forum permissions</p>
+<p class="description"><p>Check forum permissions</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Comma delim of PERM MASK ids</li>
+				<li><span class="field">since:</span> 2.1.1</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createPermsFromGroup
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$in_group_ids</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$in_group_ids</span><span class="var-description">: Comma delim. of group IDs (2,4,5,6)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddeleteMemberPhoto" id="deleteMemberPhoto"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteMemberPhoto</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a185">185</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete personal photo function</p>
+<p class="description"><p>Delete personal photo function Assumes all security checks have been performed by this point</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> photo deleted or not</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			deleteMemberPhoto
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$member_id</span><span class="var-description">: [Optional] member id instead of current member</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfetchSeoName" id="fetchSeoName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fetchSeoName</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a508">508</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetches SEO name, updating the table if required</p>
+<p class="description"><p>Fetches SEO name, updating the table if required</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> SEO Name</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			fetchSeoName
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$memberData</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$memberData</span><span class="var-description">: Member data either an array of key value pairs or                      an integer of the member id, if ommited then it will use                      The current member id instead</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfindIPAddresses" id="findIPAddresses"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">findIPAddresses</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a557">557</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieve all IP addresses a user (or multiple users) have used</p>
+<p class="description"><p>Retrieve all IP addresses a user (or multiple users) have used</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Multi-dimensional array of found IP addresses in which sections</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			findIPAddresses
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">0</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$tables_to_check</span> = <span class="var-default">'all'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$id</span><span class="var-description">: [Integer] member ID or [Array] array of member ids</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$tables_to_check</span><span class="var-description">: Defaults to 'All', otherwise specify which tables to check (comma separated)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfullCreateMember" id="fullCreateMember"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">fullCreateMember</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a402">402</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create new member Very basic functionality at this point.</p>
+<p class="description"><p>Create new member Very basic functionality at this point.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Final member Data including member_id
+ Options aviable for the members table
+   members_l_username   joined   email   member_group_id   ip_address   members_created_remote   member_login_key   member_login_key_expire   view_sigs   email_pm   view_img   view_avs   restrict_post   view_pop   msg_count_total   msg_count_new   msg_show_notification   coppa_user   auto_track   last_visit   last_activity   language   members_editor_choice   members_pass_salt   members_pass_hash   members_display_name   members_l_display_name   fb_uid   fb_emailhash   members_seo_name   bw_is_spammer
+ EXCEPTION CODES CUSTOM_FIELDS_EMPTY    - Custom fields were not populated CUSTOM_FIELDS_INVALID  - Custom fields were invalid CUSTOM_FIELDS_TOOBIG   - Custom fields too big</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			fullCreateMember
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$tables</span> = <span class="var-default">array()</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$autoCreateName</span> = <span class="var-default">FALSE</span>], [<span class="var-type">bool</span>&nbsp;<span class="var-name">$bypassCfields</span> = <span class="var-default">FALSE</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$tables</span><span class="var-description">: Fields to save in the following format: array( 'members'      =&gt; array( 'email'     =&gt; 'test@test.com',                                                                                         'joined'   =&gt; time() ),                                                               'extendedProfile' =&gt; array( 'signature' =&gt; 'My signature' ) );                    Tables: members, pfields_content, profile_portal.                    You can also use the aliases: 'core [members]', 'extendedProfile [profile_portal]', and 'customFields [pfields_content]'</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$autoCreateName</span><span class="var-description">: Flag to attempt to auto create a name if the desired is taken</span>			</li>
+					<li>
+				<span class="var-type">bool</span>
+				<span class="var-name">$bypassCfields</span><span class="var-description">: Bypass custom field saving (if using the sso session integration this is required as member object isn't ready yet)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateAutoLoginKey" id="generateAutoLoginKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateAutoLoginKey</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a745">745</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates a log in key</p>
+<p class="description"><p>Generates a log in key</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> MD5 hash of random characters</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateAutoLoginKey
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$len</span> = <span class="var-default">60</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$len</span><span class="var-description">: Length of desired random chars to MD5</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateCompiledPasshash" id="generateCompiledPasshash"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateCompiledPasshash</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a720">720</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates a compiled passhash.</p>
+<p class="description"><p>Generates a compiled passhash. Returns a new MD5 hash of the supplied salt and MD5 hash of the password</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> MD5 hash of compiled salted password</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateCompiledPasshash
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$salt</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$md5_once_password</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$salt</span><span class="var-description">: User's salt (5 random chars)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$md5_once_password</span><span class="var-description">: User's MD5 hash of their password</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgeneratePasswordSalt" id="generatePasswordSalt"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generatePasswordSalt</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a733">733</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates a password salt.</p>
+<p class="description"><p>Generates a password salt. Returns n length string of any char except backslash</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> n character random string</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generatePasswordSalt
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$len</span> = <span class="var-default">5</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$len</span><span class="var-description">: Length of desired salt, 5 by default</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFunction" id="getFunction"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFunction</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a121">121</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Easy peasy way to grab a function from member/memberFunctions. without having to bother setting it up each time.</p>
+<p class="description"><p>Easy peasy way to grab a function from member/memberFunctions.php without having to bother setting it up each time.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> object</li>
+				<li><span class="field">author:</span> MattMecham</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">object memberFunctions</span>
+		<span class="method-name">
+			getFunction
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetHostedAvatarCategories" id="getHostedAvatarCategories"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHostedAvatarCategories</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a344">344</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Grab all hosted avatar gallery directories</p>
+<p class="description"><p>Grab all hosted avatar gallery directories</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Array of hosted avatar cats</li>
+				<li><span class="field">author:</span> Brandon Farber, Matt Mecham</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getHostedAvatarCategories
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetHostedAvatarsFromCategory" id="getHostedAvatarsFromCategory"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getHostedAvatarsFromCategory</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a332">332</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Grab all images within a particular avatar gallery directory</p>
+<p class="description"><p>Grab all images within a particular avatar gallery directory</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Array of image names</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getHostedAvatarsFromCategory
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$catName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$catName</span><span class="var-description">: Selected category name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisBanned" id="isBanned"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isBanned</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a758">758</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check to see if a member is banned (or not)</p>
+<p class="description"><p>Check to see if a member is banned (or not)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> TRUE (banned) - FALSE (not banned)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isBanned
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$string</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: Type of ban check (ip/ipAddress, name, email)</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$string</span><span class="var-description">: String to check</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodload" id="load"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">load</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a469">469</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Load member</p>
+<p class="description"><p>Load member</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Array containing member data <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-comm">#&nbsp;Single&nbsp;member</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$member&nbsp;</span>=&nbsp;<span class="src-id">IPSMember</span><span class="src-sym">::</span><span class="src-id">load</span><span class="src-sym">(&nbsp;</span><span class="src-num">1</span><span class="src-sym">,&nbsp;</span><span class="src-str">'extendedProfile,groups'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$member&nbsp;</span>=&nbsp;<span class="src-id">IPSMember</span><span class="src-sym">::</span><span class="src-id">load</span><span class="src-sym">(&nbsp;</span><span class="src-str">'matt@email.com'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'all'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$member&nbsp;</span>=&nbsp;<span class="src-id">IPSMember</span><span class="src-sym">::</span><span class="src-id">load</span><span class="src-sym">(&nbsp;</span><span class="src-str">'MattM'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'all'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'displayname'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;&nbsp;</span><span class="src-comm">//&nbsp;Can&nbsp;also&nbsp;use&nbsp;'username',&nbsp;'email'&nbsp;or&nbsp;'id'</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-comm">#&nbsp;Multiple&nbsp;members</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$members&nbsp;</span>=&nbsp;<span class="src-id">IPSMember</span><span class="src-sym">::</span><span class="src-id">load</span><span class="src-sym">(&nbsp;</span><span class="src-key">array</span><span class="src-sym">(&nbsp;</span><span class="src-num">1</span><span class="src-sym">,&nbsp;</span><span class="src-num">2</span><span class="src-sym">,&nbsp;</span><span class="src-num">10&nbsp;</span><span class="src-sym">)</span><span class="src-sym">,&nbsp;</span><span class="src-str">'all'&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-var">$members&nbsp;</span>=&nbsp;<span class="src-id">IPSMember</span><span class="src-sym">::</span><span class="src-id">load</span><span class="src-sym">(&nbsp;</span><span class="src-key">array</span><span class="src-sym">(&nbsp;</span><span class="src-str">'MattM,&nbsp;'</span><span class="src-id">JoeD</span><span class="src-str">',&nbsp;'</span><span class="src-id">DaveP</span><span class="src-str">'&nbsp;),&nbsp;'</span><span class="src-id">all</span><span class="src-str">',&nbsp;'</span><span class="src-id">displayname&nbsp;</span><span class="src-sym">)</span><span class="src-sym">;</span></div></li>
+</ol></div></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			load
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$extra_tables</span> = <span class="var-default">'all'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$key_type</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$member_key</span><span class="var-description">: [Optional] Member key: Either ID or email address OR array of IDs when $key_type is either ID or not set OR a list of $key_type strings (email address, name, etc)                  If omitted then the current member id will be used</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$extra_tables</span><span class="var-description">: Extra tables to load(all, none or comma delisted tables) Tables: members, pfields_content, profile_portal, groups, sessions, core_item_markers_storage.                    You can also use the aliases: 'extendedProfile', 'customFields' and 'itemMarkingStorage'</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key_type</span><span class="var-description">: Key type. Leave it blank to auto-detect or specify &quot;id&quot;, &quot;email&quot;, &quot;username&quot;, &quot;displayname&quot;.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodquerySpamService" id="querySpamService"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">querySpamService</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a772">772</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sends a query to the IPS Spam Service</p>
+<p class="description"><p>Sends a query to the IPS Spam Service</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			querySpamService
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$ip</span> = <span class="var-default">''</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">'register'</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$test</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span><span class="var-description">: Email address to check/report</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$ip</span><span class="var-description">: [$ip]        IP Address to check report, ipsRegistry::member()-&gt;ip_address will be used if the address is not specified</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: [$type]        Either register or markspam, register is default</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$test</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodremove" id="remove"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">remove</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a487">487</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete member(s)</p>
+<p class="description"><p>Delete member(s)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Action completed successfully</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			remove
+		</span>
+					([<span class="var-type">mixed</span>&nbsp;<span class="var-name">$id</span> = <span class="var-default">0</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$check_admin</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">mixed</span>
+				<span class="var-name">$id</span><span class="var-description">: [Integer] member ID or [Array] array of member ids</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$check_admin</span><span class="var-description">: Check if request is from an admin</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodremoveAvatar" id="removeAvatar"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">removeAvatar</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a263">263</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Remove member's avatar</p>
+<p class="description"><p>Remove member's avatar</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Exception or true <div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-id">Exception&nbsp;Codes</span>:</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">NO_MEMBER_ID</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">A&nbsp;valid&nbsp;<a href="../../Invision/IPB/SDK_Member.html#var$member">member</a>&nbsp;ID&nbsp;was&nbsp;not&nbsp;passed</span>.</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">NO_PERMISSION</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="src-id">You&nbsp;</span>do&nbsp;<span class="src-id">not&nbsp;have&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;avatar</span></div></li>
+</ol></div></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed</span>
+		<span class="method-name">
+			removeAvatar
+		</span>
+					([<span class="var-type">int</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$member_id</span><span class="var-description">: [Optional] member id instead of current member</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodremoveUploadedPhotos" id="removeUploadedPhotos"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">removeUploadedPhotos</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a242">242</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Remove member uploaded photos</p>
+<p class="description"><p>Remove member uploaded photos</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			removeUploadedPhotos
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$upload_path</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$member_id</span><span class="var-description">: [Optional] member id instead of current member</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$upload_path</span><span class="var-description">: [Optional] Directory to check</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsave" id="save"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">save</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a430">430</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Save member</p>
+<p class="description"><p>Save member</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> True if the save was successful
+ Exception Error Codes: NO_DATA           : No data to save NO_VALID_KEY    : No valid key to save NO_AUTO_LOAD    : Could not autoload the member as she does not exist INCORRECT_TABLE : Table one is attempting to save to does not exist NO_MEMBER_GROUP_ID: Member group ID is in the array but blank</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			save
+		</span>
+					([<span class="var-type">int</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">''</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$save</span> = <span class="var-default">array()</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$member_key</span><span class="var-description">: [Optional] Member key: Either Array, ID or email address. If it's an array, it must be in the format:                     array( 'core' =&gt; array( 'field' =&gt; 'member_id', 'value' =&gt; 1 ) ) - useful for passing custom fields through                   If omitted then the current member id will be used</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$save</span><span class="var-description">: Fields to save in the following format: array( 'members'      =&gt; array( 'email'     =&gt; 'test@test.com',                                                                                         'joined'   =&gt; time() ),                                                               'extendedProfile' =&gt; array( 'signature' =&gt; 'My signature' ) );                    Tables: members, pfields_content, profile_portal.                    You can also use the aliases: 'core [members]', 'extendedProfile [profile_portal]', and 'customFields [pfields_content]'</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsaveNewAvatar" id="saveNewAvatar"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveNewAvatar</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a304">304</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves the member's avatar</p>
+<p class="description"><p>Saves the member's avatar</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Boolean value if the $this-&gt;returnAsBool is true or the error message thrown                              or the array of the avatar information updated</li>
+				<li><span class="field">author:</span> Brandon Farber, Stolen By Matt 'Haxor' Mecham &lt;<a href="mailto:code">code</a>&gt; Excepton Codes: NO_MEMBER_ID:                A valid member ID was not passed. NO_PERMISSION:                You do not have permission to change the avatar UPLOAD_NO_IMAGE:                Nothing to upload UPLOAD_INVALID_FILE_EXT:        Incorrect file extension (not an image) UPLOAD_TOO_LARGE:            Upload is larger than allowed UPLOAD_CANT_BE_MOVED:        Upload cannot be moved into the uploads directory UPLOAD_NOT_IMAGE:            Upload is not an image, despite what the file extension says! NO_AVATAR_TO_SAVE:            Nothing to save! &lt;/code&gt;</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Boolean/Mixed</span>
+		<span class="method-name">
+			saveNewAvatar
+		</span>
+					([<span class="var-type">INT</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$uploadFieldName</span> = <span class="var-default">'upload_avatar'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$urlFieldName</span> = <span class="var-default">'avatar_url'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$galleryFieldName</span> = <span class="var-default">'avatar_gallery'</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$avatarGalleryImage</span> = <span class="var-default">'avatar_image'</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$gravatarFieldName</span> = <span class="var-default">'gravatar_email'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">INT</span>
+				<span class="var-name">$member_id</span><span class="var-description">: [Optional] member id instead of current member</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$uploadFieldName</span><span class="var-description">: Upload field name [Default is &quot;upload_avatar&quot;]</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$urlFieldName</span><span class="var-description">: Avatar URL Field [Default is &quot;avatar_url&quot;]</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$galleryFieldName</span><span class="var-description">: Gallery Avatar Directory Field [Default is &quot;avatar_gallery&quot;]</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$avatarGalleryImage</span><span class="var-description">: Gallery Avatar Image Field [Default is &quot;avatar_image&quot;]</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$gravatarFieldName</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetProperty" id="setProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setProperty</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a107">107</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set a property as a class member</p>
+<p class="description"><p>Set a property as a class member</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Object</span>
+		<span class="method-name">
+			setProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetUpGuest" id="setUpGuest"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setUpGuest</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a611">611</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set up defaults for a guest user</p>
+<p class="description"><p>Set up defaults for a guest user</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Guest record</li>
+				<li><span class="field">todo:</span> [Future] We may want to move this into the session class at some point</li>
+				<li><span class="field">since:</span> 2.0</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			setUpGuest
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span> = <span class="var-default">'Guest'</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: Guest name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodupdatePassword" id="updatePassword"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">updatePassword</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a701">701</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Updates member's DB row password</p>
+<p class="description"><p>Updates member's DB row password</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Update successful</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			updatePassword
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$member_key</span> = <span class="var-default">null</span>], <span class="var-type">string</span>&nbsp;<span class="var-name">$new_md5_pass</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$member_key</span><span class="var-description">: [Optional] Member key: Either ID or email address                      If omitted then the current member id will be used</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$new_md5_pass</span><span class="var-description">: MD5-once hash of new password</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoduploadMemberPhoto" id="uploadMemberPhoto"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">uploadMemberPhoto</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a223">223</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Upload personal photo function</p>
+<p class="description"><p>Upload personal photo function Assumes all security checks have been performed by this point the input file name must be called 'upload_photo' For example:
+ Right: &lt;input type='file' name='upload_photo' /&gt;
+ Wrong: &lt;input type='file' name='photoupload' /&gt; &lt;input type='file' name='photo' /&gt; &lt;input type='file' name='upload' /&gt;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Array consists of: final_location - final image location final_width - large image width final_height - large image height t_final_location - thumb image location t_final_width - thumb image width t_final_height - thumb image height status - status ok == true, fail == false error - error string key (ex: upload_to_big)</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean/array</span>
+		<span class="method-name">
+			uploadMemberPhoto
+		</span>
+					([<span class="var-type">integer</span>&nbsp;<span class="var-name">$member_id</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$member_id</span><span class="var-description">: [Optional] member id instead of current member</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__get" id="__get"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__get</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a83">83</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Magic method get</p>
+<p class="description"><p>Magic method get</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Vadim</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">Mixed</span>
+		<span class="method-name">
+			__get
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__set" id="__set"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__set</span> (line <span class="line-number"><a href="../../__filesource/fsource_Invision_IPB_ClassesSDK_Member.php.html#a95">95</a></span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Magic method set</p>
+<p class="description"><p>Magic method set</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Vadim</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__set
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 11 Aug 2009 12:24:23 +0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>
