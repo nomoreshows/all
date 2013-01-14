@@ -5,11 +5,6 @@ app/tmp/*
 app/[Cc]onfig/core.php
 app/[Cc]onfig/database.php
 !empty
-app/webroot/img/actors/*
-app/webroot/img/article/*
-app/webroot/img/charts/*
-app/webroot/img/charts1/*
-app/webroot/img/shows/*
-app/webroot/img/users/*
+app/webroot/img/*
 app/webroot/itw/*
 app/webroot/videos/*
