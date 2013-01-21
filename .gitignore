@@ -9,3 +9,4 @@ app/webroot/forum/*
 app/webroot/img/*
 app/webroot/itw/*
 app/webroot/videos/*
+.DS_Store
