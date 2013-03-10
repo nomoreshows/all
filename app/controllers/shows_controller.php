@@ -748,13 +748,215 @@ class ShowsController extends AppController {
 
 	
 	function admin_add() {
-		if (!empty($this->data)) {
-			$resultat = $this->Show->save($this->data);
-			if ($resultat) {
-				$this->Session->setFlash('La série a été ajouté.', 'growl');	
-				$this->redirect(array('controller' => 'shows', 'action' => 'index')); 
+			if (!empty($this->data)) {
+
+				//Verif que la serie n'a pas deja ete ajoutee
+				$shows = $this->Show->find('all',array(
+					'conditions' => array('Show.tvdb_id = ' => $this->data['Show']['tvdb_id'])));
+
+				if(empty($shows)){
+
+					//------ Get info depuis tvdb ------
+					App::import('Core', 'HttpSocket');
+					App::import('Core', 'Xml');
+
+					//Get distant data
+					$this->connection = new HttpSocket();
+					$urlFr = "http://thetvdb.com/api/DD4BA09218728061/series/".$this->data['Show']['tvdb_id']."/all/fr.xml";
+					
+					//Get data Fr
+					$responseFr = new Xml($this->connection->get($urlFr));
+					$responseFr = $responseFr->toArray();
+
+					//echo $this->data['Show']['nationalite'];
+
+					if(strncmp($this->data['Show']['nationalite'],"Française",4) != 0){
+						//Si serie autre que fraçaise, prise des données sur EN
+						$urlEn = "http://thetvdb.com/api/DD4BA09218728061/series/".$this->data['Show']['tvdb_id']."/all/en.xml";
+						//Get data en
+						$responseEn = new Xml($this->connection->get($urlEn));
+						$responseEn = $responseEn->toArray();
+
+						if($responseEn['Data']['Series']['SeriesName']){
+							$this->data['Show']['name'] = $responseEn['Data']['Series']['SeriesName'];	//series-name
+
+							//Url de la fiche serie : retire accents etc. et ajoute des - a la place des espaces, tout en minuscule
+							$substitut = array ('À'=>'a', 'Á'=>'a', 'Â'=>'a', 'Ã'=>'a', 'Ä'=>'a', 'Å'=>'a', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'Ò'=>'o', 'Ó'=>'o', 'Ô'=>'o', 'Õ'=>'o', 'Ö'=>'o', 'Ø'=>'o', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ø'=>'o', 'È'=>'e', 'É'=>'e', 'Ê'=>'e', 'Ë'=>'e', 'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'Ç'=>'c', 'ç'=>'c', 'Ì'=>'i', 'Í'=>'i', 'Î'=>'i', 'Ï'=>'i', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'Ù'=>'u', 'Ú'=>'u', 'Û'=>'u', 'Ü'=>'u', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ü'=>'u', 'ÿ'=>'y', 'Ñ'=>'n', 'ñ'=>'n', '('=>'', ')'=>'', '['=>'', ']'=>'', '\\'=>'', '\''=>'-', '"'=>'', '~'=>' ', '$'=>'', '&'=>'and', '%'=>'', '*'=>' ', '@'=>'', 'ç'=>'c', '!'=>'', '?'=>'', ';'=>'', ','=>'', ':'=>'', '/'=>'', '^'=>'', '€'=>'e', '¨'=>'', '{'=>'', '}'=>'', '<'=>'', '>'=>'', '|'=>'', '+'=>'', '.'=>'', '-'=>'-', '_'=>'-', ' '=>'-');
+							$this->data['Show']['menu'] = strtolower(strtr($responseEn['Data']['Series']['SeriesName'],$substitut));
+						}
+
+						if($responseEn['Data']['Series']['Network'])
+							$this->data['Show']['chaineus'] = $responseEn['Data']['Series']['Network'];	//chaine vo
+
+						//Date
+						if($responseEn['Data']['Series']['FirstAired']){
+							$date = explode('-',$responseEn['Data']['Series']['FirstAired']);
+							$this->data['Show']['annee'] = $date[0];	//annee de la serie
+							$this->data['Show']['diffusionus'] = $responseEn['Data']['Series']['FirstAired'];	//Premiere diffusion
+						}
+
+						//en cours
+						if($responseEn['Data']['Series']['Status'] == "Continuing"){
+							$this->data['Show']['encours'] = 1;
+						}else{
+							$this->data['Show']['encours'] = 0;
+						}
+
+					}else{
+						//Si série française, donnees uniquement française
+						if($responseFr['Data']['Series']['SeriesName']){
+							$this->data['Show']['name'] = $responseFr['Data']['Series']['SeriesName'];	//series-name
+							//Url de la fiche serie : retire accents etc. et ajoute des - a la place des espaces, tout en minuscule
+							$substitut = array ('À'=>'a', 'Á'=>'a', 'Â'=>'a', 'Ã'=>'a', 'Ä'=>'a', 'Å'=>'a', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'Ò'=>'o', 'Ó'=>'o', 'Ô'=>'o', 'Õ'=>'o', 'Ö'=>'o', 'Ø'=>'o', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ø'=>'o', 'È'=>'e', 'É'=>'e', 'Ê'=>'e', 'Ë'=>'e', 'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'Ç'=>'c', 'ç'=>'c', 'Ì'=>'i', 'Í'=>'i', 'Î'=>'i', 'Ï'=>'i', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'Ù'=>'u', 'Ú'=>'u', 'Û'=>'u', 'Ü'=>'u', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ü'=>'u', 'ÿ'=>'y', 'Ñ'=>'n', 'ñ'=>'n', '('=>'', ')'=>'', '['=>'', ']'=>'', '\\'=>'', '\''=>'-', '"'=>'', '~'=>' ', '$'=>'', '&'=>'et', '%'=>'', '*'=>' ', '@'=>'', 'ç'=>'c', '!'=>'', '?'=>'', ';'=>'', ','=>'', ':'=>' ', '/'=>'', '^'=>'', '€'=>'e', '¨'=>'', '{'=>'', '}'=>'', '<'=>'', '>'=>'', '|'=>'', '+'=>'', '.'=>'', '-'=>'-', '_'=>'-', ' '=>'-');
+							$this->data['Show']['menu'] = strtolower(strtr($responseFr['Data']['Series']['SeriesName'],$substitut));
+						}
+
+						if($responseFr['Data']['Series']['Network'])
+							$this->data['Show']['chaineus'] = $responseFr['Data']['Series']['Network'];	//chaine vo
+
+						//Date
+						if($responseFr['Data']['Series']['FirstAired']){
+							$date = explode('-',$responseFr['Data']['Series']['FirstAired']);
+							$this->data['Show']['annee'] = $date[0];	//annee de la serie
+							$this->data['Show']['diffusionus'] = $responseFr['Data']['Series']['FirstAired'];	//Premiere diffusion
+						}
+
+						//en cours
+						if($responseFr['Data']['Series']['Status'] == "Continuing"){
+							$this->data['Show']['encours'] = 1;
+						}else{
+							$this->data['Show']['encours'] = 0;
+						}
+
+					}
+
+
+					//Recup data a partir du xml
+					if($responseFr['Data']['Series']['Runtime'])
+						$this->data['Show']['format'] = $responseFr['Data']['Series']['Runtime']; //Incompatibilite minutage serieall
+
+					if($responseFr['Data']['Series']['SeriesName'])
+						$this->data['Show']['titrefr'] = $responseFr['Data']['Series']['SeriesName'];	//series-name
+
+					if($responseFr['Data']['Series']['Overview'])
+						$this->data['Show']['synopsis'] = $responseFr['Data']['Series']['Overview'];	//resume
+
+					//Save show data
+					$resultat = $this->Show->save($this->data);	
+
+					/*
+					if ($resultat) {
+					//Sauvegarde de la série ok.
+					$this->Session->setFlash('La série a été ajouté.', 'growl');
+					$i = 0;
+					$seasonAdded = array();
+					//Ajout des saisons
+					foreach($responseFr['Data']['Episode'] as $element){
+					//Verif de la présence de la saison courante
+					if(!in_array($element['SeasonNumber'],$seasonAdded) && $element['SeasonNumber']>0){
+					//La saison n'existe pas, on la creer
+					$dataSeason[$i]['name'] = $element['SeasonNumber'];
+					$dataSeason[$i]['tvdb_id'] = $element['seasonid'];
+					$dataSeason[$i]['show_id'] = $this->Show->id;
+
+					$seasonAdded[$i] = $element['SeasonNumber'];
+
+					$i++;
+					}
+					}
+					$resultat = $this->Show->Season->saveAll($dataSeason);
+					*/
+					if($resultat){
+						//Ajout ok des saisons
+
+						//Add episodes : distinguer VO et VF
+
+						$counterEpisode = 0;	
+						$dataEpisode= array();
+
+
+						$numSeason = array();	
+
+						//Creation des donnees pour chaque episode
+						$nbEpisodes = count($responseFr['Data']['Episode']);
+						for($i=0; $i< $nbEpisodes ; $i++){
+
+
+						$elementFr = $responseFr['Data']['Episode'][$i];
+
+						if(isset($responseEn)){
+							$elementEn = $responseEn['Data']['Episode'][$i];
+						}
+
+						if($elementFr['SeasonNumber']>0 && $elementFr['EpisodeNumber'] != 0){
+
+							//Check si saison deja cree en base sinon on l'ajoute
+							if(!isset($numSeason[$elementFr['SeasonNumber']])){
+								//La saison n'existe pas, on la creer
+								$dataSeason['name'] = $elementFr['SeasonNumber'];
+								$dataSeason['tvdb_id'] = $elementFr['seasonid'];
+								$dataSeason['show_id'] = $this->Show->id;
+
+								$this->Show->Season->create();
+								$resultat = $this->Show->Season->save($dataSeason);
+
+								if($resultat){
+									$numSeason[$elementFr['SeasonNumber']] = $this->Show->Season->id;
+								}	
+							}
+
+							//Ajout de l'épisode si ce n'est pas une saison 0 ou un épisode 0 (à rajouter à la main après si besoin)
+							$dataEpisode['tvdb_id'] = $elementFr['id'];
+							$dataEpisode['numero'] = $elementFr['EpisodeNumber'];
+
+							if($elementFr['EpisodeName']){
+								if(isset($elementEn)){
+									$dataEpisode['name'] = $elementEn['EpisodeName']; //Titre vo si série vo
+								}else{
+									$dataEpisode['name'] = $elementFr['EpisodeName']; //titre fr si série fr
+								}
+
+								$dataEpisode['titrefr'] = $elementFr['EpisodeName'];
+							}else{
+								$dataEpisode['name'] = 'TBA'; //TODO : liste des episodes vo
+							}
+
+							if($elementFr['Overview']){
+								$dataEpisode['resume'] = $elementFr['Overview']; //TODO : liste des episodes vo
+							}
+
+							if($elementFr['FirstAired']){
+								$dataEpisode['diffusionus'] = $elementFr['FirstAired']; //TODO : liste des episodes vo
+							}else{
+								$dataEpisode['diffusionus'] = '2000-01-01'; //Date par défaut
+							}
+
+							$dataEpisode['diffusionfr'] = '2000-01-01'; //Date par défaut
+
+							//Ajout si seulement la saison existe bel et bien en base
+							if($numSeason[$elementFr['SeasonNumber']]){
+								$dataEpisode['season_id'] = $numSeason[$elementFr['SeasonNumber']];
+
+								$counterEpisode ++;
+
+								//Save episode un par un : le saveall retourne une erreur lorsque le nombre d'épisode est trop grand.
+								$this->Show->Season->Episode->create();
+								$this->Show->Season->Episode->save($dataEpisode);
+							}
+						}
+					}
+
+
+
+					$this->redirect(array('controller' => 'shows', 'action' => 'index'));
+					}
+
+				}else{
+					//Serie deja ajoutee : on ne fait rien
+					$this->Session->setFlash('La série a déjà été ajouté.', 'growl');	
+					$this->redirect(array('controller' => 'shows', 'action' => 'index'));
+				}
 			}
-		}
 		$this->set('genres', $this->Show->Genre->find('list'));
 		$this->set('users', $this->Show->User->find('list', array('order' => 'User.role ASC')));
 	}
