@@ -2,6 +2,13 @@
 <table class="toolbar">
 	<tr>
     	<td><h1>Modifier un utilisateur</h1></td>
+    	
+    	<td width="50" class="center">
+			<?php if ($this->data['User']['role'] > 1) {
+				//Peut pas supprimer les admins
+				echo $html->link($html->image('icons/delete_32.png'). '<br />Supprimer', array('controller' => 'users', 'action' => 'delete', 'prefix' => 'admin', $this->data['User']['id']), array('escape' => false, 'title' => 'Supprimer l\'utilisateur'), "Etes-vous sûr de vouloir supprimer cet utilisateur ?"); 
+			} ?>
+		</td>
     	<td width="50" class="center">
 		<?php echo $html->link($html->image('icons/cancel.png') . '<br />Annuler', array('controller' => 'users', 'action' => 'index', 'prefix' => 'admin'), array('escape' => false)); ?>
         </td>

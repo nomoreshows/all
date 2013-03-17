@@ -20,13 +20,20 @@ class UsersController extends AppController {
   		$this->redirect($this->Auth->logout());
 	}
 	
+	function admin_temp() {
+		$user_id = $this->data['User']['user_id'];
+		$this->redirect(array('controller' => 'users', 'action' => 'edit', $user_id));
+	}
+	
 	function admin_administration() {
 		$this->layout = 'admin_default';
 	}
 	
 	function admin_index() {
+		$users = $this->User->find('list', array('order' => 'login ASC'));
+		//$this->set('users', $listUser);
 		
-		$users = $this->paginate('User');
+		//$users = $this->paginate('User');
 		$this->set(compact('users'));
 	}
 	
@@ -125,6 +132,14 @@ class UsersController extends AppController {
 	
 	
 	function admin_delete($id) {
+		//Suppression des notes de l'utilisateur
+		//$this->User->Show->Rate->deleteAll();
+		
+		//Suppression des réactions de l'utilisateur
+		
+		//Suppression des avis de l'utilisateur
+		
+		//Suppression de l'utilisateur
 		$this->User->del($id);
 		$this->Session->setFlash('L\'utilisateur a été supprimé.', 'growl');	
 		$this->redirect(array('controller' => 'users', 'action' => 'index'));
