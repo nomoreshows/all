@@ -28,6 +28,9 @@
 	echo $form->input('password_confirm', array('type' => 'password', 'label' => 'Confirmez le mot de passe'));
     echo $form->input('name', array('label' => 'Nom et prénom'));
 	echo $form->input('email', array('label' => 'Adresse mail :'));
+	echo $form->input('website', array('label' => 'Site web :'));
+	echo $form->input('twitter', array('label' => 'Twitter :'));
+	echo $form->input('facebook', array('label' => 'Facebook :'));
 	
 	echo $form->input('role', array('options' => array(
 		'1' => 'Administrateur',
@@ -35,6 +38,10 @@
 		'3' => 'Remplisseur',
 		'4' => 'Membre'
  	), 'label' => 'Rôle :'));
+ 	
+ 	echo $form->input('isRedac', array('label' => 'Est rédacteur'));
+ 	
+ 	echo $form->input('edito', array('label' => 'Edito'));
 	
     echo $form->end('Modifier');
 	echo '</fieldset>';
