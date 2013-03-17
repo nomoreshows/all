@@ -755,6 +755,9 @@ class ShowsController extends AppController {
 					'conditions' => array('Show.tvdb_id = ' => $this->data['Show']['tvdb_id'])));
 
 				if(empty($shows)){
+					
+					//Augmentation du temps d'execution à 1 minute (peut etre long parfois)
+					set_time_limit(60);
 
 					//------ Get info depuis tvdb ------
 					App::import('Core', 'HttpSocket');
