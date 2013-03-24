@@ -164,34 +164,61 @@ class CommentsController extends AppController {
 	
 	function addOk() {
 		$this->layout = 'none';
-		if (!empty($this->data['Comment']['text']) and strlen(trim($this->data['Comment']['text'])) > 100) {
+		
+		if (!empty($this->data['Comment']['text'])){
+			//Traitements sur la chaine
+			$txtComment = $this->data['Comment']['text']; //Recup chaine
 			
-			if (empty($this->data['Comment']['episode_id']) && empty($this->data['Comment']['season_id'])) {
-				// série
-				$alreadyavis = $this->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->data['Comment']['user_id'], 'Comment.show_id' => $this->data['Comment']['show_id'], 'Comment.season_id' => 0, 'Comment.episode_id' => 0)));
-			} elseif (empty($this->data['Comment']['episode_id'])) {
-				// saison
-				$alreadyavis = $this->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->data['Comment']['user_id'], 'Comment.show_id' => $this->data['Comment']['show_id'], 'Comment.season_id' => $this->data['Comment']['season_id'],'Comment.episode_id' => 0)));
-			} else {
-				// épisode
-				$alreadyavis = $this->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->data['Comment']['user_id'], 'Comment.show_id' => $this->data['Comment']['show_id'], 'Comment.season_id' => $this->data['Comment']['season_id'], 'Comment.episode_id' => $this->data['Comment']['episode_id'])));
-			}
+			//Remplacement des caractères en nombre plus important que 4 
+			//(Transforme les avis du genre : "kikoooooooooo !!!!!!!" en "kikoooo !!!!")
+			$txtComment = preg_replace('/((((.)\4)\4)\4)\4*/', '$1', $txtComment);
 			
-			if (!empty($alreadyavis)) {
-				$result = 'Votre avis a été changé.';
-				// Changement de l'avis éventuel de l'utilisateur
-				$this->Comment->id = $alreadyavis['Comment']['id'];
-				$this->Comment->saveField('text', $this->data['Comment']['text']);
-				$this->Comment->saveField('thumb', $this->data['Comment']['thumb']);
-			} else {
-				$resultat = $this->Comment->save($this->data);
-				if ($resultat) {
-					$result = 'Votre avis a été ajouté. Merci !';
+			
+			
+			//Suppression des espaces en debut et fin de chaine
+			$txtComment = trim($txtComment);
+			
+			//Suppression des espaces superflus en milieu de chaine
+			$txtComment = preg_replace('/ +/', ' ', $txtComment);
+			
+			if(strlen($txtComment) > 100){
+			
+				//Modif de $this->data['Comment']['text']) avant sauvegarde pour prendre les nouveaux avis
+				$this->data['Comment']['text'] = $txtComment;
+				
+			
+				if (empty($this->data['Comment']['episode_id']) && empty($this->data['Comment']['season_id'])) {
+					// série
+					$alreadyavis = $this->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->data['Comment']['user_id'], 'Comment.show_id' => $this->data['Comment']['show_id'], 'Comment.season_id' => 0, 'Comment.episode_id' => 0)));
+				} elseif (empty($this->data['Comment']['episode_id'])) {
+					// saison
+					$alreadyavis = $this->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->data['Comment']['user_id'], 'Comment.show_id' => $this->data['Comment']['show_id'], 'Comment.season_id' => $this->data['Comment']['season_id'],'Comment.episode_id' => 0)));
 				} else {
-					$result = 'Un problème est survenu lors de l\'ajout de votre avis.';	
+					// épisode
+					$alreadyavis = $this->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->data['Comment']['user_id'], 'Comment.show_id' => $this->data['Comment']['show_id'], 'Comment.season_id' => $this->data['Comment']['season_id'], 'Comment.episode_id' => $this->data['Comment']['episode_id'])));
 				}
+				
+				if (!empty($alreadyavis)) {
+					$result = 'Votre avis a été changé.';
+					// Changement de l'avis éventuel de l'utilisateur
+					$this->Comment->id = $alreadyavis['Comment']['id'];
+					$this->Comment->saveField('text', $this->data['Comment']['text']);
+					$this->Comment->saveField('thumb', $this->data['Comment']['thumb']);
+				} else {
+					$resultat = $this->Comment->save($this->data);
+					if ($resultat) {
+						$result = 'Votre avis a été ajouté. Merci !';
+					} else {
+						$result = 'Un problème est survenu lors de l\'ajout de votre avis.';	
+					}
+				}
+				$this->set(compact('result'));
+				
+			}else{
+				//Commentaire pas assez long
+				$result = 'Vous devez écrire un commentaire expliquant votre avis (100 caractères min.).';		
+				$this->set(compact('result'));
 			}
-			$this->set(compact('result'));
 		
 		// Pas de commentaires
 		} else {

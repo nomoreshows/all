@@ -69,9 +69,6 @@ class ShowsController extends AppController {
 	}
 	
 	
-	
-	
-	
 	function admin_index() {
 		$shows = $this->Show->find('list');
 		$this->set('shows', $shows);
