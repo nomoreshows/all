@@ -881,7 +881,9 @@ class ArticlesController extends AppController {
 			//Modif Elpio : automatisation du remplissage du champ pour eviter les soucis d'urls : on recup le titre 
 			//et retire accents etc., ajoute des - a la place des espaces, tout en minuscule
 			$substitut = array ('À'=>'a', 'Á'=>'a', 'Â'=>'a', 'Ã'=>'a', 'Ä'=>'a', 'Å'=>'a', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'Ò'=>'o', 'Ó'=>'o', 'Ô'=>'o', 'Õ'=>'o', 'Ö'=>'o', 'Ø'=>'o', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ø'=>'o', 'È'=>'e', 'É'=>'e', 'Ê'=>'e', 'Ë'=>'e', 'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'Ç'=>'c', 'ç'=>'c', 'Ì'=>'i', 'Í'=>'i', 'Î'=>'i', 'Ï'=>'i', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'Ù'=>'u', 'Ú'=>'u', 'Û'=>'u', 'Ü'=>'u', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ü'=>'u', 'ÿ'=>'y', 'Ñ'=>'n', 'ñ'=>'n', '('=>'', ')'=>'', '['=>'', ']'=>'', '\\'=>'', '\''=>'-', '"'=>'', '~'=>'', '$'=>'', '&'=>'and', '%'=>'', '*'=>'', '@'=>'', 'ç'=>'c', '!'=>'', '?'=>'', ';'=>'', ','=>'', ':'=>'', '/'=>'', '^'=>'', '€'=>'e', '¨'=>'', '{'=>'', '}'=>'', '<'=>'', '>'=>'', '|'=>'', '+'=>'', '.'=>'', '-'=>'-', '_'=>'-', ' '=>'-');
-			$this->data['Article']['url'] = strtolower(strtr($this->data['Article']['name'],$substitut));
+			$urlArticle = strtolower(strtr($this->data['Article']['name'],$substitut));
+			$urlArticle = preg_replace('/(([-])\2)\2*/', '-', $urlArticle);//retrait des doublons de tirets
+			$this->data['Article']['url'] = $urlArticle;
 				
 			$this->data['Article']['url'] = $this->data['Article']['url'] . '_a' . $lastid; //=> old code : ajoute l'id au bout
 			
