@@ -2,7 +2,7 @@
 class CommentsController extends AppController {
 	
 	var $name = "Comments";
-	var $layout = "admin_serie";
+	var $layout = "admin_users";
 	
 	public function beforeFilter() {
    		parent::beforeFilter();
@@ -291,6 +291,144 @@ class CommentsController extends AppController {
 				$this->redirect($this->Session->read('Temp.referer'));
 			}
 		}
+	}
+	
+	/**
+	 * Arrivée sur la page de base pour la gestion des commenatires depuis l'admin.
+	 * Affichera un formulaire de recherche de la série/siason/épisode puis déclenchera la rechercher
+	 */
+	function admin_index(){
+		$shows = $this->Comment->Show->find('list', array('order' => 'name ASC'));
+
+		$this->set(compact('shows'));
+	}
+	
+
+	/**
+	 * Effectue la recherche des avis en fonction des infos récupérées via le formulaire (admin_index).
+	 * Affiche les résultats sous forme d'un tableau proposant l'édition et la suppression des avis.
+	 */ 
+	function admin_searchresult(){
+		$arrayCondition = array();
+		$arrayCondition['Comment.show_id =' ]= $this->data['Comment']['show_id'];
+		
+		
+		if(empty($this->data['Comment']['season_id'])){
+			//Pas de saison renseignée : recherche sur les avis séries
+			$arrayCondition['Comment.season_id =' ] = 0;
+			$arrayCondition['Comment.episode_id =' ] = 0;
+		}else{
+			//recherche sur la saison voulue
+			$arrayCondition['Comment.season_id =' ] = $this->data['Comment']['season_id'];
+			if(empty($this->data['Comment']['episode_id'])){
+				//Pas d'épisode renseigné : recherche sur les avis saison
+				$arrayCondition['Comment.episode_id =' ] = 0;
+			}else{
+				//Recherche des vais sur l'épisode demandé
+				$arrayCondition['Comment.episode_id =' ] = $this->data['Comment']['episode_id'];
+			}
+		}
+		
+		//Requete de recherche des commentaires
+		$liste_comments = $this->Comment->find('all',array(
+			'conditions' => $arrayCondition,
+			'order' => 'Comment.created DESC'));
+	
+		$this->set('comments', $liste_comments);
+	}
+	
+	/**
+	 * Traitement pour l'edition des commentaires.
+	 * Si pas de data post, affichage de la fiche du commentaire et des infos liées, récupérées depuis la BDD.
+	 * Si data en post, sauvegarde des data du formulaire en base.
+	 */ 
+	function admin_edit($id){
+		$this->Comment->id = $id;
+		
+		// Si aucun données envoyées en POST, affichage de l'edit
+		if (empty($this->data)) {	
+			$this->data = $this->Comment->read();
+			
+			$this->set('shows', $this->Comment->Show->find('list'));
+			$this->set('seasons', $this->Comment->Season->find('list', 
+				array('conditions' => array('Season.show_id =' => $this->data['Comment']['show_id'] ),
+						'order' => 'Season.id ASC')));
+			$this->set('episodes', $this->Comment->Episode->find('list', 
+				array('conditions' => array('Episode.season_id =' => $this->data['Comment']['season_id'] ),
+						'order' => 'Episode.numero ASC')));
+		}else{
+			//Modif des données season_id et episode_id si valeur vide (0 au lieu d'une chaine vide qui fait planter)
+			if(empty($this->data['Comment']['season_id'])){
+				$this->data['Comment']['season_id'] = 0;
+			}
+			
+			if(empty($this->data['Comment']['episode_id'])){
+				$this->data['Comment']['episode_id'] = 0;
+			}
+			
+			//Enregistrement
+			if ($this->Comment->save( $this->data)) {
+					$this->Session->setFlash('Paramètres sauvegardés.', 'growl');	
+					$this->redirect(array('controller' => 'comments', 'action' => 'index'));
+				} else {
+					$this->Session->setFlash('Problème de sauvegarde.', 'growl', array('type' => 'error'));	
+					$this->redirect(array('controller' => 'comments', 'action' => 'index'));
+				}
+		}
+		
+		 $this->set(compact('id'));
+	}
+	
+	/**
+	 * Fonction appelée via requete Ajax lorsque l'utilisateur change la série dans la liste des séries (fiche édition d'avis
+	 * ou formulaire de recher). Cherche et charge les saisons et épisodes liés à la nouvelle série, pour mettre à jour le form dans la vue ensuite.
+	 */
+	function admin_changeshowedit(){
+		$this->layout = 'none';
+		//Recup nouvelles saisons de la série
+		$seasons = $this->Comment->Season->find('list', 
+				array('conditions' => array('Season.show_id =' => $this->data['Comment']['show_id'] ),
+						'order' => 'Season.id ASC'));
+		$this->set('seasons', $seasons );
+
+		//Recup episodes de la saison 1
+		$this->set('episodes', $this->Comment->Episode->find('list', 
+				array('conditions' => array('Episode.season_id =' => key($seasons)), //Remise à 1 par défaut (this->data contient une vieille valeur)
+						'order' => 'Episode.id ASC')));				
+
+	}
+	
+	/**
+	 * Fonction appelée via requete Ajax lorsque l'utilisateur change la saison dans la liste des saison (fiche édition d'avis
+	 * ou formulaire de recher). Cherche et charge les épisodes liés à la nouvelle saison, pour mettre à jour le form dans la vue ensuite.
+	 */ 
+	function admin_changeseasonedit(){
+		$this->layout = 'none';
+
+		$this->set('episodes', $this->Comment->Episode->find('list', 
+				array('conditions' => array('Episode.season_id =' => $this->data['Comment']['season_id']), 
+						'order' => 'Episode.id ASC')));				
+		
+	}
+	
+	/**
+	 * Supprime un commentaire.
+	 * @param $id : id du comment à supprimer
+	 */ 
+	function admin_delete($id){
+		$this->Comment->del($id);
+		$this->Session->setFlash('L\'avis a été supprimé.'.$moyennes, 'growl');	
+		$this->redirect(array('controller' => 'comments', 'action' => 'index'));
+	}
+	
+	function admin_commentindex(){
+		$shows = $this->Comment->Show->find('list', array('order' => 'name ASC'));
+		$this->set(compact('shows'));
+		
+		$this->set('categories', $this->Comment->Article->find('list',
+			array('fields'=> array('Article.category'),
+				'group' => array('Article.category'))));
+		
 	}
 
 }
