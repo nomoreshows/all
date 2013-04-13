@@ -416,7 +416,7 @@ class CommentsController extends AppController {
 	 * @param $id : id du comment à supprimer
 	 */ 
 	function admin_delete($id){
-		$this->Comment->del($id);
+		$this->Comment->del($id, true);
 		$this->Session->setFlash('L\'avis a été supprimé.'.$moyennes, 'growl');	
 		$this->redirect(array('controller' => 'comments', 'action' => 'index'));
 	}

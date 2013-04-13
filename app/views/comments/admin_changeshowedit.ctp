@@ -3,6 +3,7 @@
 	$options = array('url' => array('controller' => 'comments', 'action' => 'changeseasonedit', 'prefix' => 'admin'), 
 			'update' => 'episodeId');
     echo $ajax->observeField('CommentSeasonId', $options);
+	
 	echo '<div id="episodeId">'.$form->input('Comment.episode_id', 
 			array('label' => 'Episode :','type'=>'select', 'options'=>$episodes, 'empty' => '(Aucun épisode)')).'</div>';
 	?>
