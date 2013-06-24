@@ -3,7 +3,6 @@
 	<!-- Main package loaded by all .html files -->
 	<package id="core">
 		<file path="js/utils/domain.js" />
-		<file path="js/jquery/jquery.js" />
 		<file path="js/jquery/jquery.i18n.js" />
 		<file path="js/jquery/jquery.dialog.js" />
 		<file path="js/jquery/jquery.dialog.status.js" />

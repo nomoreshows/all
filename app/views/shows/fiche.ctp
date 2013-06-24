@@ -383,8 +383,7 @@
                  }
                  ?>
 								<br />
-								<?php echo $html->link($html->image('offre-himym.png'), 'http://track.effiliation.com/servlet/effi.redir?id_compteur=12448608&url=http://www.priceminister.com/offer?action=desc&aid=596726894', array('escape' => false, 'target' => 'blank')); ?>
-                <br /></div>
+				</div>
                 
                 </div>
                 

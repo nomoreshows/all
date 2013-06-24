@@ -7,12 +7,22 @@
 					if (!empty($programme)) { 
 						foreach($programme as $i => $episode) { 
 							if ($i == 0) {
-								echo $html->image('show/' . $episode['Season']['Show']['menu'] . '_w_serie.jpg', array('class' => 'planning-une', 'alt' => $episode['Season']['Show']['name']));
+								$nomImgSerie = 'no-image'; //nom du fichier de l'image par defaut
+								if(file_exists(APP.'webroot/img/show/'.$episode['Season']['Show']['menu'].'_w_serie.jpg')){
+									//image de la serie existe
+									$nomImgSerie = $episode['Season']['Show']['menu'];
+								}
+								echo $html->image('show/' . $nomImgSerie . '_w_serie.jpg', array('class' => 'planning-une', 'alt' => $episode['Season']['Show']['name']));
 								echo '<br />';
 							} else {
 								if ($i < 4) {
-								echo $html->image('show/' . $episode['Season']['Show']['menu'] . '_t_serie.jpg', array('class' => 'planning-others', 'width' => 38, 'alt' => $episode['Season']['Show']['name']));	
-								echo ' ';
+									$nomImgSerie = 'no-image'; //nom du fichier de l'image par defaut
+									if(file_exists(APP.'webroot/img/show/'.$episode['Season']['Show']['menu'].'_t_serie.jpg')){
+										//image de la serie existe
+										$nomImgSerie = $episode['Season']['Show']['menu'];
+									}
+									echo $html->image('show/' . $nomImgSerie . '_t_serie.jpg', array('class' => 'planning-others', 'width' => 38, 'alt' => $episode['Season']['Show']['name']));	
+									echo ' ';
 								}
 							}
 						}

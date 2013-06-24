@@ -53,7 +53,180 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 		echo $html->css('jquery.jgrowl');
 		echo $html->css('nivo-slider');
 		
-		echo $javascript->link('jquery-1.3.2.min', true);
+		echo $javascript->link('jquery-1.3.2.min', true);	
+	?>
+        
+	
+		
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+</head>
+
+<body>
+	<div id="header">
+    	<div id="menu">
+            <div class="width">
+                <ul class="menu">
+                    <li class="nobleft"><?php echo $html->link('<span>Accueil</span>', '/', array('escape' => false)); ?></li>
+                    <li><?php echo $html->link('<span>Séries TV</span>', '/series-tv', array('escape' => false)); ?></li>
+                    <li><?php echo $html->link('<span>Planning US</span>', '/planning-series-tv', array('escape' => false)); ?></li>
+                    <li><?php echo $html->link('<span>Classements</span>', '/classement-series-tv', array('escape' => false)); ?></li>
+                    <li><?php echo $html->link('<span>Articles ▼</span>', '#', array('escape' => false)); ?>
+                    	<ul class="dropdown">
+                        	<li><?php echo $html->link('Critiques', '/critiques', array('escape' => false)); ?></li>
+                            <li><?php echo $html->link('Actualité', '/actualite', array('escape' => false)); ?></li>
+                            <li><?php echo $html->link('Vidéos', '/videos-trailers', array('escape' => false)); ?></li>
+                            <li><?php echo $html->link('Dossiers', '/dossiers', array('escape' => false)); ?></li>
+                            <li><?php echo $html->link('Focus', '/focus', array('escape' => false)); ?></li>
+                            <li><?php echo $html->link('Bilans', '/bilans', array('escape' => false)); ?></li>
+                            <li><?php echo $html->link('Portraits', '/portraits', array('escape' => false)); ?></li>
+                        </ul>                    
+                    </li>
+                </ul>
+                
+                <cake:nocache>
+                <ul class="right menu">
+                	<?php if ($session->read('Auth.User.role') > 0) { ?><li class="<?php if($nbnotifications > 0) echo 'notif-new'; ?>"><?php echo $html->link('<span class="notif-badge">' .  $nbnotifications . '</span>', '/profil/'. $session->read('Auth.User.login') . '/notifications', array('escape' => false, 'title' => $nbnotifications . ' notification(s)')); ?></li><?php } ?>
+                    <li><?php echo $html->link('<span>Forum</span>', '/forum', array('escape' => false)); ?></li>
+                    <li><?php if($session->read('Auth.User.role') > 0) echo $html->link('<span>Profil</span>', '/profil/' . $session->read('Auth.User.login'), array('escape' => false)); else echo $html->link('<span>Connexion</span>', '#connexion', array('rel' => 'facebox','escape' => false)); ?></li>
+                    <li class="current nobright"><?php if($session->read('Auth.User.role') > 0) echo $html->link('<span>Déconnexion</span>', '/users/logout', array('escape' => false)); else echo $html->link('<span>Inscription</span>', '/inscription', array('escape' => false)); ?></li>
+                </ul>
+                </cake:nocache>
+            </div>
+        </div>
+    </div>
+	
+            
+	<div id="toolbar">
+    	<table width="100%">
+        <tr>
+            <td class="td-logo" rowspan="2">
+                <div id="logo"><?php echo $html->link($html->image('logo_v2.png', array('alt' => 'actualite series tv - serieall')), '/', array('escape'=> false)); ?></div>
+            </td>
+            <td class="td-twitter" rowspan="2">
+                <?php
+				echo '&laquo; ' . $slogan['Slogan']['name'] . ' &raquo; ';
+				if(!empty($slogan['Slogan']['url'])) {
+					echo '<span class="slogan-source">'. $html->link($slogan['Slogan']['source'], $slogan['Slogan']['url']) . '</span>';
+				} else {
+					echo '<span class="slogan-source">'. $slogan['Slogan']['source'] . '</span>';
+				}
+                ?>
+            </td>
+            <td colspan="2">&nbsp;
+            	
+            </td>
+        <tr>
+        	<td>&nbsp;</td>
+        	<td>&nbsp;</td>
+        	<td width="150">
+            	<?php echo $this->element('quickaccess'); ?>
+            </td>
+            <td class="td-right">
+                <?php 
+				echo '&nbsp;&nbsp;';
+				echo $html->link($html->image('icons/facebook.png', array('alt' => 'facebook', 'title' => 'Compte Facebook', 'border' => 0, 'align' => 'absmiddle')), 'http://www.facebook.com/SerieAll', array('escape' => false));
+				echo '&nbsp;&nbsp;';
+				echo $html->link($html->image('icons/twitter.png', array('alt' => 'twitter', 'title' => 'Compte Twitter', 'border' => 0, 'align' => 'absmiddle')), 'http://twitter.com/serieall', array('escape' => false));
+				echo '&nbsp;&nbsp;';
+				echo $html->link($html->image('icons/googlePlus.png', array('alt' => 'google plus', 'title' => 'Compte Google +', 'border' => 0, 'align' => 'absmiddle')), 'https://plus.google.com/u/0/104705584593645730861', array('escape' => false));
+				echo '&nbsp;&nbsp;';
+                echo $html->link($html->image('icons/spotify.png', array('alt' => 'playlist bo series spotify', 'title' => 'Profil Spotify', 'border' => 0, 'align' => 'absmiddle')), 'http://serieall.fr/article/playlist-bo-series-tv-spotify_a435.html', array('escape' => false));
+                echo '&nbsp;&nbsp;';
+                echo $html->link($html->image('icons/rss.png', array('alt' => 'rss', 'title' => 'Flux RSS', 'border' => 0, 'align' => 'absmiddle')), 'http://feeds.feedburner.com/SerieAllArticles', array('escape' => false));
+                echo '&nbsp;&nbsp;';
+                ?>
+                <?php // echo $form->text('Show.name', array('id' => 'autoComplete', 'value' => 'Bientôt disponible ...')); ?>
+            </td>
+        </tr>
+        </table>
+                
+        <div id="connexion" style="display:none">
+        <?php
+		echo $form->create('User', array( 'action' => 'login')); 
+		echo '<fieldset><legend>Informations à remplir</legend><br /><br />'; 
+		e($form->input('login', array('label' => 'Identifiant :')));
+		e($form->input('password', array('label' => 'Mot de passe :')));
+		e($form->end("Connexion"));
+		echo '</fieldset>';
+		?>
+        </div>
+    </div>
+    
+    <div id="contentTop"></div>
+    <div id="content">
+    
+		<?php echo $content_for_layout; ?>
+        
+        <div class="spacer"></div>
+    </div>
+    
+    <div id="contentBottom"></div>
+    <div id="footer">
+    <table class="footer" width="100%">
+    <tr>
+        <td width="15%" class="td-borderright">
+        	<strong>Serie All</strong> <br /><br />
+            <ul style="list-style-type:none">
+            	<li><?php echo $html->link('A propos', '/a-propos'); ?></li>
+                <li><?php echo $html->link('Notre équipe', '/notre-equipe'); ?></li>
+                <li><?php echo $html->link('Mentions légales', '/mentions-legales'); ?></li>
+				<li><?php echo $html->link('Nous contacter', '/contacts/index'); ?></li>
+            </ul>
+        </td>
+        <td width="15%" class="td-borders">
+        	<strong>Communauté</strong> <br /><br />
+            <ul style="list-style-type:none">
+            	<li><?php echo $html->link('Liste des membres', '/membres'); ?></li>
+                <li><?php echo $html->link('Forum', '/forum'); ?></li>
+                <li><?php echo $html->link('Devenir rédacteur', '/contacts/index'); ?></li>
+            </ul>
+        </td>
+        <td width="15%" class="td-borders">
+        	<strong>Réseaux sociaux</strong> <br /><br />
+            <ul style="list-style-type:none">
+                <li><?php echo $html->link('Facebook', 'http://www.facebook.com/SerieAll'); ?></li>
+                <li><?php echo $html->link('Twitter', 'http://twitter.com/serieall'); ?></li>
+                <li><?php echo $html->link('Google +', 'http://plus.google.com/u/0/104705584593645730861'); ?></li>
+            </ul>
+        </td>
+        <td width="15%" class="td-borders">
+        	<strong>Rubriques</strong> <br /><br />
+            <ul style="list-style-type:none">
+            	<li><?php echo $html->link('Critiques', '/critiques'); ?></li>
+                <li><?php echo $html->link('News', '/actualite'); ?></li>
+                <li><?php echo $html->link('Vidéos', '/videos-trailers'); ?></li>
+                <li><?php echo $html->link('Dossiers', '/dossiers'); ?></li>
+                <li><?php echo $html->link('Bilans', '/bilans'); ?></li>
+                <li><?php echo $html->link('Focus', '/focus'); ?></li>
+                <li><?php echo $html->link('Portraits', '/portraits'); ?></li>
+            </ul>
+        </td>
+        <td width="15%" class="td-borders">
+        	<strong>Votre compte</strong> <br /><br />
+            <ul style="list-style-type:none">
+            	<li><?php echo $html->link('Inscription', '/inscription'); ?></li>
+                <li><?php echo $html->link('Connexion', '#connexion'); ?></li>
+            </ul>
+        </td>
+        <td width="15%" class="td-borderleft">
+        	<strong>Partenaires</strong> <br /><br />
+            <ul style="list-style-type:none">
+            	<li><?php echo $html->link('Bande annonce', 'http://trailerhd.tv', array('title' => 'Bande annonce')); ?></li>
+            	<li><?php echo $html->link('Dzik', 'http://dzik.fr', array('title' => 'Dzik')); ?></li>
+                <li><?php echo $html->link('Mes Webséries', 'http://www.meswebseries.fr/', array('title' => 'Mes Webséries')); ?></li>
+            </ul>
+        </td>
+        <td width="30%">
+        </td>
+    </tr>
+    </table>
+    </div>
+            
+
+<?php if ($session->check('Message.flash')) {	$session->flash();} 
+
+
 		echo $javascript->link('jquery-ui-1.7.2.custom.min', true);
 		echo $javascript->link('jquery.jgrowl', true);
 		echo $javascript->link('jquery.easing.1.3', true);
@@ -108,183 +281,22 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 		});
 		</script>
         <?php } ?>
-        
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		
+	<script type="text/javascript">
 
-<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-11059857-1']);
+	  _gaq.push(['_trackPageview']);
+	  _gaq.push(['_setAllowAnchor', true]);
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-11059857-1']);
-  _gaq.push(['_trackPageview']);
-  _gaq.push(['_setAllowAnchor', true]);
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
 
-  (function() {
-	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script> 
-</head>
-
-<body>
-	<div id="header">
-    	<div id="menu">
-            <div class="width">
-                <ul class="menu">
-                    <li class="nobleft"><?php echo $html->link('<span>Accueil</span>', '/', array('escape' => false)); ?></li>
-                    <li><?php echo $html->link('<span>Séries TV</span>', '/series-tv', array('escape' => false)); ?></li>
-                    <li><?php echo $html->link('<span>Planning US</span>', '/planning-series-tv', array('escape' => false)); ?></li>
-                    <li><?php echo $html->link('<span>Classements</span>', '/classement-series-tv', array('escape' => false)); ?></li>
-                    <li><?php echo $html->link('<span>Articles ▼</span>', '#', array('escape' => false)); ?>
-                    	<ul class="dropdown">
-                        	<li><?php echo $html->link('Critiques', '/critiques', array('escape' => false)); ?></li>
-                            <li><?php echo $html->link('Actualité', '/actualite', array('escape' => false)); ?></li>
-                            <li><?php echo $html->link('Vidéos', '/videos-trailers', array('escape' => false)); ?></li>
-                            <li><?php echo $html->link('Dossiers', '/dossiers', array('escape' => false)); ?></li>
-                            <li><?php echo $html->link('Focus', '/focus', array('escape' => false)); ?></li>
-                            <li><?php echo $html->link('Bilans', '/bilans', array('escape' => false)); ?></li>
-                            <li><?php echo $html->link('Portraits', '/portraits', array('escape' => false)); ?></li>
-                        </ul>                    
-                    </li>
-                    <li class="notif-new"><?php echo $html->link('<span>Rentrée 2012</span>', '/nouvelles-series-2012-2013', array('title' => 'Découvrez les nouvelles séries de la rentrée 2012-2013', 'escape' => false)); ?></li>
-                </ul>
-                
-                <cake:nocache>
-                <ul class="right menu">
-                	<?php if ($session->read('Auth.User.role') > 0) { ?><li class="<?php if($nbnotifications > 0) echo 'notif-new'; ?>"><?php echo $html->link('<span class="notif-badge">' .  $nbnotifications . '</span>', '/profil/'. $session->read('Auth.User.login') . '/notifications', array('escape' => false, 'title' => $nbnotifications . ' notification(s)')); ?></li><?php } ?>
-                    <li><?php echo $html->link('<span>Forum</span>', '/forum', array('escape' => false)); ?></li>
-                    <li><?php if($session->read('Auth.User.role') > 0) echo $html->link('<span>Profil</span>', '/profil/' . $session->read('Auth.User.login'), array('escape' => false)); else echo $html->link('<span>Connexion</span>', '#connexion', array('rel' => 'facebox','escape' => false)); ?></li>
-                    <li class="current nobright"><?php if($session->read('Auth.User.role') > 0) echo $html->link('<span>Déconnexion</span>', '/users/logout', array('escape' => false)); else echo $html->link('<span>Inscription</span>', '/inscription', array('escape' => false)); ?></li>
-                </ul>
-                </cake:nocache>
-            </div>
-        </div>
-    </div>
-	
-            
-	<div id="toolbar">
-    	<table width="100%">
-        <tr>
-            <td class="td-logo" rowspan="2">
-                <div id="logo"><?php echo $html->link($html->image('logo_v2.png', array('alt' => 'actualite series tv - serieall')), '/', array('escape'=> false)); ?></div>
-            </td>
-            <td class="td-twitter" rowspan="2">
-                <?php
-				echo '&laquo; ' . $slogan['Slogan']['name'] . ' &raquo; ';
-				if(!empty($slogan['Slogan']['url'])) {
-					echo '<span class="slogan-source">'. $html->link($slogan['Slogan']['source'], $slogan['Slogan']['url']) . '</span>';
-				} else {
-					echo '<span class="slogan-source">'. $slogan['Slogan']['source'] . '</span>';
-				}
-                ?>
-            </td>
-            <td colspan="2">&nbsp;
-            	
-            </td>
-        <tr>
-        	<td>&nbsp;</td>
-        	<td width="160">
-            	<?php echo $this->element('quickaccess'); ?>
-            </td>
-            <td class="td-right">
-                <?php 
-				echo $html->link($html->image('icons/twitter.png', array('alt' => 'twitter', 'title' => 'Compte Twitter', 'border' => 0, 'align' => 'absmiddle')), 'http://twitter.com/serieall', array('escape' => false));
-				echo '&nbsp;&nbsp;';
-                echo $html->link($html->image('icons/spotify.png', array('alt' => 'playlist bo series spotify', 'title' => 'Profil Spotify', 'border' => 0, 'align' => 'absmiddle')), 'http://serieall.fr/article/playlist-bo-series-tv-spotify_a435.html', array('escape' => false));
-                echo '&nbsp;&nbsp;';
-                echo $html->link($html->image('icons/rss.png', array('alt' => 'rss', 'title' => 'Flux RSS', 'border' => 0, 'align' => 'absmiddle')), 'http://feeds.feedburner.com/SerieAllArticles', array('escape' => false));
-                echo '&nbsp;&nbsp;';
-                ?>
-                <?php // echo $form->text('Show.name', array('id' => 'autoComplete', 'value' => 'Bientôt disponible ...')); ?>
-            </td>
-        </tr>
-        </table>
-                
-        <div id="connexion" style="display:none">
-        <?php
-		echo $form->create('User', array( 'action' => 'login')); 
-		echo '<fieldset><legend>Informations à remplir</legend><br /><br />'; 
-		e($form->input('login', array('label' => 'Identifiant :')));
-		e($form->input('password', array('label' => 'Mot de passe :')));
-		e($form->end("Connexion"));
-		echo '</fieldset>';
-		?>
-        </div>
-    </div>
-    
-    <div id="contentTop"></div>
-    <div id="content">
-    
-		<?php echo $content_for_layout; ?>
-        
-        <div class="spacer"></div>
- 		<br /><br /><br />
-    </div>
-    
-    <div id="contentBottom"></div>
-    <div id="footer">
-    <table class="footer" width="100%">
-    <tr>
-        <td width="15%" class="td-borderright">
-        	<strong>Serie All</strong> <br /><br />
-            <ul style="list-style-type:none">
-            	<li><?php echo $html->link('A propos', '/a-propos'); ?></li>
-                <li><?php echo $html->link('Notre équipe', '/notre-equipe'); ?></li>
-                <li><?php echo $html->link('Mentions légales', '/mentions-legales'); ?></li>
-            </ul>
-        </td>
-        <td width="15%" class="td-borders">
-        	<strong>Communauté</strong> <br /><br />
-            <ul style="list-style-type:none">
-            	<li><?php echo $html->link('Liste des membres', '/membres'); ?></li>
-                <li><?php echo $html->link('Forum', '/forum'); ?></li>
-                <li><?php echo $html->link('Devenir rédacteur', '/contacts/index'); ?></li>
-            </ul>
-        </td>
-        <td width="15%" class="td-borders">
-        	<strong>Aide</strong> <br /><br />
-            <ul style="list-style-type:none">
-            	<li><?php echo $html->link('FAQ', '#'); ?></li>
-                <li><?php echo $html->link('Nous contacter', '/contacts/index'); ?></li>
-                <li><?php echo $html->link('Proposer un article', '/contacts/index'); ?></li>
-            </ul>
-        </td>
-        <td width="15%" class="td-borders">
-        	<strong>Rubriques</strong> <br /><br />
-            <ul style="list-style-type:none">
-            	<li><?php echo $html->link('Critiques', '/critiques'); ?></li>
-                <li><?php echo $html->link('News', '/actualite'); ?></li>
-                <li><?php echo $html->link('Vidéos', '/videos-trailers'); ?></li>
-                <li><?php echo $html->link('Dossiers', '/dossiers'); ?></li>
-                <li><?php echo $html->link('Bilans', '/bilans'); ?></li>
-                <li><?php echo $html->link('Focus', '/focus'); ?></li>
-                <li><?php echo $html->link('Portraits', '/portraits'); ?></li>
-            </ul>
-        </td>
-        <td width="15%" class="td-borders">
-        	<strong>Votre compte</strong> <br /><br />
-            <ul style="list-style-type:none">
-            	<li><?php echo $html->link('Inscription', '/inscription'); ?></li>
-                <li><?php echo $html->link('Connexion', '#connexion'); ?></li>
-            </ul>
-        </td>
-        <td width="15%" class="td-borderleft">
-        	<strong>Partenaires</strong> <br /><br />
-            <ul style="list-style-type:none">
-            	<li><?php echo $html->link('Bande annonce', 'http://trailerhd.tv', array('title' => 'Bande annonce')); ?></li>
-            	<li><?php echo $html->link('Dzik', 'http://dzik.fr', array('title' => 'Dzik')); ?></li>
-                <li><?php echo $html->link('Mes Webséries', 'http://www.meswebseries.fr/', array('title' => 'Mes Webséries')); ?></li>
-            </ul>
-        </td>
-        <td width="30%">
-        </td>
-    </tr>
-    </table>
-    </div>
-            
-
-<?php if ($session->check('Message.flash')) {	$session->flash();} ?>
+	</script> 
 </body>
 </html>
 

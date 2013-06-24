@@ -145,8 +145,9 @@ class RatesController extends AppController {
 	}
 	
 	
-	function lastRate($cat) {
+	function lastRate() {
 		$this->layout = 'none';
+		/*
 		if ($cat == 'redacteurs') {
 			$rates = $this->Rate->find('all', array('conditions' => array('User.role <' => 3), 'limit' => 8));
 			$this->set(compact('rates'));
@@ -154,6 +155,9 @@ class RatesController extends AppController {
 			$rates = $this->Rate->find('all', array('conditions' => array('User.role >' => 2), 'limit' => 8));
 			$this->set(compact('rates'));
 		}
+		*/
+		$rates = $this->Rate->find('all', array('fields'=>array('Rate.name','User.login','Show.name','Season.name','Episode.numero', 'Show.menu'),'limit' => 40));
+		$this->set(compact('rates'));
 	}
 	
 	function add() {

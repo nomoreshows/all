@@ -144,6 +144,7 @@ h3.red {color:#00325f;}
 .imgleft {float:left; margin-right:5px; margin-bottom:5px; border:1px solid #648096;}
 .imgright {float:right; margin-left:5px; margin-bottom:5px; border:1px solid #648096;}
 .imgvideo {margin-top:5px; margin-bottom:5px; border:1px solid #648096;}
+.imgNewsVideo{margin-top:5px; margin-bottom:5px; border:1px solid #648096; width : 280px;}
 
 .justify {text-align:justify;}
 td.center {text-align:center;}
@@ -223,7 +224,7 @@ td.td-twitter { color:#7491a3; font-size:14px; font-family:Georgia, "Times New R
 td.td-twitter .slogan-source {color:#7491a3; font-size:11px; font-family:Arial, Helvetica, sans-serif; font-style:italic}
 td.td-twitter .slogan-source a {color:#006eb2; text-decoration:none;}
 td.td-twitter .slogan-source a:hover {color:#7491a3;}
-td.td-right {text-align:right; width:130px;}
+td.td-right {text-align:right; width:150px;}
 #toolbar input#autoComplete {background:url(../img/search.png); width:126px; height:20px; border:none; font:12px Tahoma,Arial; color: #666; padding:4px 34px 0 5px; }	
 	
 #contentTop {clear:both; background:url(../img/content-top.png); width:1013px; height:9px; margin:auto; /*padding-top:15px;*/}	
@@ -278,7 +279,7 @@ h2.red a 			{text-decoration:none; color:#65b1e1;}
 #last-critiques span.planning-titles a:hover 	{background-color:#d0e6f6;}
 
 ul.play 			{list-style-type:none; margin:0; padding:0}
-ul.play li			{background:url(../img/icons/li.png) no-repeat; padding-left:21px; height:23px; overflow:hidden; font:11px Tahoma;}
+ul.play li			{background:url(../img/icons/li.png) no-repeat; padding-left:21px; overflow:hidden; height : 23px; font:11px Tahoma; margin-bottom : 5px; margin-top : 5px;}
 
 ul.playe 			{list-style-type:none; margin:0; padding:0}
 ul.playe li			{background:url(../img/icons/li.png) no-repeat; padding-left:21px; padding-bottom:10px; font:11px Tahoma}
@@ -287,9 +288,17 @@ ul.path 			{list-style-type:none; margin:0; padding:0; padding-top:4px;}
 ul.path li 			{background:url(../img/icons/bullet_black.png) no-repeat; padding-left:16px; height:23px; margin-right:3px; overflow:hidden; font:11px Tahoma; float:left}
 ul.path li.start	{background:url(../img/icons/direction.png) no-repeat; padding-left:21px; height:23px; margin-right:3px; overflow:hidden; font:11px Tahoma; float:left}
 
-#news-communaute 	{background:url(../img/icons/news-communaute.png); width:990px; height:54px; clear:both; margin-top:8px;}
+#news-communaute 	{background:url(../img/communaute-news-articles.png); width:990px; height:54px; clear:both; margin-top:8px;}
 
-#news 				{width:375px; float:left; }
+#news 				{width:320px; float:left; }
+
+#commuNewHome 		{width:350px; float:left; }
+#commuItems			{width:315px; margin-left:15px;}
+ul.play li.avisHome	{height : 50px; background : #eeeeff; border-radius : 5px; padding-left:0px; box-shadow: 2px 2px 7px #AEAEAE; width : 325px; margin-bottom : 10px;}
+.txtAvisHome		{width : 295px;}
+.imgAvisHome		{float : left; margin-right : 5px; margin-top : 3px; margin-left : 3px; border-radius : 5px;}
+#commuNewHome h3 	{margin-left: 45px; margin-bottom : 15px;display:block;}
+
 .onenews h2 a		{color:#00325f; text-decoration:none; font-size:15px; font-family: Tahoma,Arial sans-serif; display:inline;}
 .onenews h2 a:hover	{color:#006eb2;}
 .imgnews 			{width:78px;}
@@ -301,10 +310,13 @@ p.date, p.comments 	{color:#999;}
 p.text 				{margin-top:10px; padding-right:5px;}
 #pages .onenews p.text {font: lighter 120% Tahoma,Arial sans-serif; }
 div.textnews 		{margin-top:8px;}
+div.textnewsvideos 		{margin-top:8px;margin-bottom : 10px;}
 p.suite a			{color:#006eb2; text-decoration:none;}
 p.suite a:hover		{text-decoration:underline;}
 
-#classements 		{background:url(../img/classements.png); width:372px; height:53px; margin-left:10px;}
+#homeContentLeft	{float:left; width : 66%;}
+
+#classements 		{background:url(../img/classement.png);  height:53px; margin-left:10px; clear : both;}
 .classement-top 	{font: lighter 140% Tahoma,Arial sans-serif;}
 .classement-mid		{font: lighter 120% Tahoma,Arial sans-serif;}
 .classement-bot		{font: lighter 105% Tahoma,Arial sans-serif;}
@@ -325,10 +337,16 @@ h3 a:hover 			{background-color:#d0e6f6;}
 
 #videos-dossiers 	{background:url(../img/icons/videos-dossiers.png); width:610px; height:60px; margin-left:390px;}
 
-#videos 			{border-left:1px solid #dcdcdc; margin-left:395px; width:595px; padding-left:15px;}
-#videos h2 a		{color:#00325f; text-decoration:none; font-size:15px; font-family: Tahoma,Arial sans-serif; }
-#videos h2 a:hover	{color:#006eb2;}
+#newsVideos 			{border-left:1px solid #dcdcdc; width:285px; padding-left:15px; float:left;}
+#newsVideos h2 a		{color:#00325f; text-decoration:none; font-size:15px; font-family: Tahoma,Arial sans-serif; }
+#newsVideos h2 a:hover	{color:#006eb2;}
 .onevideo			{margin-top:3px; margin-bottom:3px;}
+.buttonAllNewsVideos		{width : 232px;}
+
+#articles		{border-left:1px solid #dcdcdc; float:left; width:325px; padding-left:12px;}
+#articles h2 a		{color:#00325f; text-decoration:none; font-size:15px; font-family: Tahoma,Arial sans-serif; }
+#articles h2 a:hover	{color:#006eb2;}
+.buttonAllArticle	{clear : both;}
 
 #portraits-bilans-focus	{background:url(../img/portraits-bilans-focus.png); width:605px; height:57px; margin-left:392px;}
 

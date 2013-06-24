@@ -61,7 +61,7 @@ class CommentsController extends AppController {
 		$this->layout = 'none';
 		if ($cat == 'avis') {
 			// Avis
-			$comments = $this->Comment->find('all', array('conditions' => array('Comment.article_id' => 0), 'order' => array('Comment.id DESC'), 'limit' => 8));
+			$comments = $this->Comment->find('all', array('conditions' => array('Comment.article_id' => 0), 'order' => array('Comment.id DESC'), 'limit' => 20));
 			$this->set(compact('comments'));
 			$this->set(compact('cat'));
 		} else {

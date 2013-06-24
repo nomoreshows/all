@@ -96,7 +96,7 @@ class ReactionsController extends AppController {
 	
 	function lastReaction() {
 		$this->layout = 'none';
-		$comments = $this->Reaction->find('all', array('order' => array('Reaction.id DESC'),'contain' => array('User', 'Comment' => array('Episode', 'Season', 'Show', 'User'), 'Reaction' => array('User')), 'limit' => 8));
+		$comments = $this->Reaction->find('all', array('order' => array('Reaction.id DESC'),'contain' => array('User', 'Comment' => array('Episode', 'Season', 'Show', 'User'), 'Reaction' => array('User')), 'limit' => 40));
 		$this->set(compact('comments'));
 	}
 }
