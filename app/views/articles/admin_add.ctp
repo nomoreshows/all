@@ -61,17 +61,17 @@ $(function() {
 	case 'dossier':
 		// Ajout de show_id + titre et URL vides
 		if ($show != 0) {
-		echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
-		echo $form->input('Show.name', array('label' => 'Série :', 'value' => $show['Show']['name'], 'disabled' => true));
-		echo $form->input('show_id', array('type' => 'hidden', 'value' => $show['Show']['id'] ));
-		echo $form->input('name', array('label' => 'Titre :', 'size' => '50'));
-		//echo $form->input('url', array('label' => 'Titre URL:<br /><span class="notes">(affiché dans l\'URL)</span>', 'size' => '50'));
+			echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
+			echo $form->input('Show.name', array('label' => 'Série :', 'value' => $show['Show']['name'], 'disabled' => true));
+			echo $form->input('show_id', array('type' => 'hidden', 'value' => $show['Show']['id'] ));
+			echo $form->input('name', array('label' => 'Titre :', 'size' => '50'));
+			//echo $form->input('url', array('label' => 'Titre URL:<br /><span class="notes">(affiché dans l\'URL)</span>', 'size' => '50'));
 		} else {
-		echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
-		echo $form->input('name', array('label' => 'Titre :', 'size' => '50'));
-		//echo $form->input('url', array('label' => 'Titre URL:<br /><span class="notes">(affiché dans l\'URL)</span>', 'size' => '50'));
-		echo $form->input('photo', array('type' => 'file', 'label' => 'Image à la une:<br /><span class="notes">(image carrée de préférence)</span>'));
-		echo '<br />';
+			echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
+			echo $form->input('name', array('label' => 'Titre :', 'size' => '50'));
+			//echo $form->input('url', array('label' => 'Titre URL:<br /><span class="notes">(affiché dans l\'URL)</span>', 'size' => '50'));
+			echo $form->input('photo', array('type' => 'file', 'label' => 'Image à la une:<br /><span class="notes">(image carrée de préférence, 78*78px)</span>'));
+			echo '<br />';
 		}
 		if ($cat == 'news') {
 			echo $form->input('source', array('label' => 'Source:<br /><span class="notes">(mettre uniquement l\'URL)</span>', 'size' => '50', 'value' => 'http://'));

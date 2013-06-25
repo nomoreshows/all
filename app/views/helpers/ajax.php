@@ -72,7 +72,7 @@ class AjaxHelper extends AppHelper {
 	
 	function beforeRender() {
 	   if ( ClassRegistry::getObject('view') ) {
-		$this->Javascript->link('jquery', false);
+		//$this->Javascript->link('jquery', false);
 		$this->Javascript->link('jquery.form', false);
 	   }
 	}

@@ -26,7 +26,7 @@ class Article extends AppModel {
 			'thumbsizes' => array(
                 'news' => array('width'=> 78, 'height' => 78),
             )
-        )
+        ),
     ), 'Containable',
 	);
 	
