@@ -144,7 +144,7 @@ h3.red {color:#00325f;}
 .imgleft {float:left; margin-right:5px; margin-bottom:5px; border:1px solid #648096;}
 .imgright {float:right; margin-left:5px; margin-bottom:5px; border:1px solid #648096;}
 .imgvideo {margin-top:5px; margin-bottom:5px; border:1px solid #648096;}
-.imgNewsVideo{margin-top:5px; margin-bottom:5px; border:1px solid #648096; width : 280px; max-width: 280px;}
+.imgNewsVideo{margin-top:5px; margin-bottom:5px; border:1px solid #648096; max-width: 280px;}
 
 .justify {text-align:justify;}
 td.center {text-align:center;}
