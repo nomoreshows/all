@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /app/webroot/forum/
 Sitemap: http://serieall.fr/sitemap.xml
+
