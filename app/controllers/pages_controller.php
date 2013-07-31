@@ -87,7 +87,7 @@ class PagesController extends AppController {
 			$this->loadModel('Rate');
 			$this->loadModel('Comment');
 			$this->loadModel('Reaction');
-			$limitMaxItemCommu = 38; //Nombre d'items maxi pouvant être affiché dans le volet communauté
+			$limitMaxItemCommu = 40; //Nombre d'items maxi pouvant être affiché dans le volet communauté
 			
 			// Dernières notes
 			$rates = $this->Rate->find('all', array('order' => array('Rate.created DESC'), 'limit' => $limitMaxItemCommu, 'fields' => array('Rate.name', 'User.login', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero', 'Rate.created')));
@@ -122,7 +122,8 @@ class PagesController extends AppController {
 					$commuDataToShow[] = $lastcomments[$idComments];
 					$idComments ++;
 					if(empty($lastcomments[$idComments]['Article']['id'])) {
-						//Les avis comptent pour deux places
+						//Les avis comptent pour trois places
+						$nbCommuDataToShow++;
 						$nbCommuDataToShow++;
 					}
 				}else if($rates[$idRates]['Rate']['created'] > $lastcomments[$idComments]['Comment']['created'] && $lastreactions[$idreactions]['Reaction']['created'] < $rates[$idRates]['Rate']['created']){
@@ -217,7 +218,7 @@ class PagesController extends AppController {
 				'conditions' => '(Article.category = "dossier" OR Article.category = "chronique" OR Article.category = "bilan" OR Article.category = "focus" OR Article.category = "critique") AND Article.etat = 1',
 				'fields' => array('Show.name', 'Show.menu', 'Article.url', 'Article.caption', 'Article.name', 'Article.created', 'Article.chapo', 'Article.photo', 'Article.show_id'),
 				'order' => 'Article.id DESC', 
-				'limit' => 14
+				'limit' => 13
 			));
 			
 			//$this->set(compact('randomuser'));
