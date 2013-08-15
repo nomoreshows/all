@@ -51,9 +51,9 @@
 	
 	//echo $form->input('forum', array('label' => 'Lien forum :<br /><span class="notes">(uniquement l\'URL)</span>', 'value' => 'http://'));
 	//echo $form->input('user_id', array('label' => 'Rédacteur en charge :'));
-	echo $form->input('is_rentree2012', array('label' => 'Rentrée 2012 :'));
-	echo $form->input('te_rentree2012', array('label' => 'Taux érectile :<br /><span class="notes">(uniquement le nb en %)</span>'));
-	echo $form->input('avis_rentree2012', array('cols' => '65', 'label' => 'Avis Série-All :<br /><span class="notes">(quelques lignes)</span>'));
+	echo $form->input('is_rentree2013', array('label' => 'Rentrée 2013 :'));
+	echo $form->input('te_rentree', array('label' => 'Taux érectile :<br /><span class="notes">(uniquement le nb en %)</span>'));
+	echo $form->input('avis_rentree', array('cols' => '65', 'label' => 'Avis Série-All :<br /><span class="notes">(quelques lignes)</span>'));
 	
     echo $form->end('Modifier');
 	echo '</fieldset>';
