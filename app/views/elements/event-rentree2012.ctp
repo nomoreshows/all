@@ -14,7 +14,7 @@ $('a[rel*=facebox]').facebox();
 
 <?php foreach($shows as $i => $show): 
 
-  $te = $show['Show']['te_rentree'];
+  $te = $show['Show']['te_rentree2012'];
   if ($te > 49) $te_color = 'up'; 
   if ($te > 19 && $te < 50) $te_color = 'neutral';
   if ($te < 20) $te_color = 'down';
@@ -39,7 +39,7 @@ $('a[rel*=facebox]').facebox();
 		
 		<?php 
 		// Avis rédac
-		if (!empty($show['Show']['avis_rentree'])) { ?>
+		if (!empty($show['Show']['avis_rentree2012'])) { ?>
 		<div id="avisredac<?php echo $show['Show']['id']; ?>" style="display:none;">
   		<fieldset><legend>L'avis de <?php echo $html->image('logo_v2.png', array('alt'=>'Série-All', 'width' => 100, 'class' => 'logoavis')); ?></legend>
   		
@@ -48,7 +48,7 @@ $('a[rel*=facebox]').facebox();
   		</span></div><br /><br />
   		
   		<div class="article">
-  		  <?php echo nl2br($show['Show']['avis_rentree']); ?>
+  		  <?php echo nl2br($show['Show']['avis_rentree2012']); ?>
   		</div>
   		</fieldset>
 		</div>
@@ -77,7 +77,7 @@ $('a[rel*=facebox]').facebox();
         <tr>
         <td><?php echo $date; //print_r($show); ?>.</td>
         <td>
-        <?php if (!empty($show['Show']['avis_rentree'])) echo $html->link('<span>Notre avis</span>', '#avisredac' . $show['Show']['id'], array('class' => 'button current', 'escape' => false, 'rel' => 'facebox')); ?>
+        <?php if (!empty($show['Show']['avis_rentree2012'])) echo $html->link('<span>Notre avis</span>', '#avisredac' . $show['Show']['id'], array('class' => 'button current', 'escape' => false, 'rel' => 'facebox')); ?>
         <?php if(!empty($show['Season'][0]['ba'])) { ?> <?php echo $html->link('<span>Trailer</span>', '#trailer' . $show['Show']['id'], array('escape' => false, 'class' => 'button', 'rel' => 'facebox[.fbcontent]')); } ?>
         
                   
@@ -88,8 +88,8 @@ $('a[rel*=facebox]').facebox();
         </table>
         
         <?php
-        if (!empty($show['Show']['avis_rentree'])) {
-          // echo '<span class="avis-redac"><strong>Notre avis : </strong>' . $show['Show']['avis_rentree'] . '</span>';
+        if (!empty($show['Show']['avis_rentree2012'])) {
+          // echo '<span class="avis-redac"><strong>Notre avis : </strong>' . $show['Show']['avis_rentree2012'] . '</span>';
         }
         ?>
         
