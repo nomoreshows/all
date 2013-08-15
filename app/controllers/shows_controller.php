@@ -566,7 +566,171 @@ class ShowsController extends AppController {
 		}
 	}
 	
-	
+	// RENTREE 2013
+	function rentree2013($filter) {
+		$this->layout = 'default';
+		$contain = array('Season', 'Role');
+		
+		switch($filter) {
+		
+		case 'all':
+			$filterTitle = 'Toutes les nouveautés';
+			$shows = $this->Show->find('all', array(
+			   'conditions' => array('Show.is_rentree2013' => true),
+			   'contain' => $contain,
+			   'order' => 'diffusionus ASC'
+			));
+			break;
+		
+		case 'start':
+		case 'te':
+			$filterTitle = 'Les séries les plus prometteuses';
+			$shows = $this->Show->find('all', array(
+			   'conditions' => array('Show.is_rentree2013 = 1 AND Show.te_rentree > 49'),
+			   'contain' => $contain,
+			   'order' => 'diffusionus ASC'
+			));
+			break;
+		
+		case 'te-':
+			$filterTitle = 'Les séries dont on attend pas grand chose';
+			$shows = $this->Show->find('all', array(
+			   'conditions' => array('Show.is_rentree2013 = 1 AND Show.te_rentree < 50 AND Show.te_rentree > 19'),
+			   'contain' => $contain,
+			   'order' => 'diffusionus ASC'
+			));
+			break;
+		
+		case 'te--':
+			$filterTitle = 'On vous conseille vivement d\'éviter de les croiser';
+			$shows = $this->Show->find('all', array(
+			   'conditions' => array('Show.is_rentree2013 = 1 AND Show.te_rentree < 20 AND Show.te_rentree != 0'),
+			   'contain' => $contain,
+			   'order' => 'diffusionus ASC'
+			));
+			break;
+		
+		case 'popular':
+			$filterTitle = 'Les blockbusters';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.id IN (345, 508, 452, 526)'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'press':
+			$filterTitle = 'Les séries qui vont conquérir les critiques';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.id IN (345, 508, 452, 526)'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'abc':
+			$filterTitle = 'Les séries d\'ABC (Lost, Desperate H., Grey\'s...)';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.chaineus' => 'ABC'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'hbo':
+			$filterTitle = 'Les séries de HBO (Six Feet Under, Game of Thrones...)';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.chaineus' => 'HBO'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'nbc':
+			$filterTitle = 'Les séries de NBC (Scrubs, Chuck, Community...)';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.chaineus' => 'NBC'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'cw':
+			$filterTitle = 'Les séries de CW (Gossip Girl, Vampire Diaries...)';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.chaineus LIKE "%CW%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'showtime':
+			$filterTitle = 'Les séries de Showtime (Dexter, Californication...)';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.chaineus' => 'Showtime'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'cbs':
+			$filterTitle = 'Les séries de CBS (NCIS, Mentalist, HIMYM...)';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.chaineus' => 'CBS'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+			
+		case 'fox':
+			$filterTitle = 'Les séries de FOX (Fringe, Bones...)';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.chaineus LIKE "%FOX%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+
+		case 'police':
+			$filterTitle = 'Les nouvelles séries policières';
+			$shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 10), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2013' => true), 'order' => 'diffusionus ASC'))));
+			$shows = $shows[0]['Show'];
+			foreach($shows as $i => $show) {
+				$tmpshow = $shows[$i];
+				unset($shows[$i]);
+				$shows[$i]['Show'] = $tmpshow;
+			}
+			break;
+		
+		case 'comic':
+			$filterTitle = 'Les nouvelles comédies';
+			$shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 3), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2013' => true), 'order' => 'diffusionus ASC'))));
+			$shows = $shows[0]['Show'];
+			foreach($shows as $i => $show) {
+				$tmpshow = $shows[$i];
+				unset($shows[$i]);
+				$shows[$i]['Show'] = $tmpshow;
+			}
+			break;
+		
+		case 'drama':
+			$filterTitle = 'Les nouveaux drama';
+			$shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 5), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2013' => true), 'order' => 'diffusionus ASC'))));
+			$shows = $shows[0]['Show'];
+			foreach($shows as $i => $show) {
+				$tmpshow = $shows[$i];
+				unset($shows[$i]);
+				$shows[$i]['Show'] = $tmpshow;
+			}
+			break;
+		
+		case 'fantas':
+			$filterTitle = 'Les nouvelles séries fantastiques';
+			$shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id = 7'), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2013' => true), 'order' => 'diffusionus ASC'))));
+			$shows = $shows[0]['Show'];
+			foreach($shows as $i => $show) {
+				$tmpshow = $shows[$i];
+				unset($shows[$i]);
+				$shows[$i]['Show'] = $tmpshow;
+			}
+			break;
+		
+		case 'uk':
+			$filterTitle = 'Les séries anglaises';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.nationalite' => 'Anglaise'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'us':
+			$filterTitle = 'Les séries américaines';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.nationalite' => 'Américaine'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		case 'ca':
+			$filterTitle = 'Les séries canadiennes';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.nationalite' => 'Canadienne'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+
+		
+		case 'fr':
+			$filterTitle = 'Les séries françaises';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2013' => true, 'Show.nationalite' => 'Française'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
+		
+		default: 
+			break;
+		}
+		
+		$this->set('shows', $shows);
+		$this->set('filterTitle', $filterTitle);
+		if ($filter != 'start') {
+			$this->layout = 'none';
+			$this->render('/elements/event-rentree2012');
+		}
+	}
 	
 	// RENTREE 2012
 	function eventRentree2012($filter) {
