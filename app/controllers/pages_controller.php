@@ -217,7 +217,7 @@ class PagesController extends AppController {
 				'conditions' => '(Article.category = "dossier" OR Article.category = "chronique" OR Article.category = "bilan" OR Article.category = "focus" OR Article.category = "critique") AND Article.etat = 1',
 				'fields' => array('Show.name', 'Show.menu', 'Article.url', 'Article.caption', 'Article.name', 'Article.created', 'Article.chapo', 'Article.photo', 'Article.show_id'),
 				'order' => 'Article.id DESC', 
-				'limit' => 14
+				'limit' => 12
 			));
 			
 			//$this->set(compact('randomuser'));
