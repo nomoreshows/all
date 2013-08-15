@@ -45,7 +45,7 @@ class ShowsController extends AppController {
 				'fields' => array('Show.name', 'Show.id', 'Show.moyenne', 'Show.menu'),
 				'contain' => false,
 				'order' => 'Show.moyenne DESC', 
-				'limit' => 20
+				'limit' => 20 
 			));
 			$this->set('shows', $shows);	
 		} elseif ($cat == 'all') {
@@ -567,6 +567,7 @@ class ShowsController extends AppController {
 	}
 	
 	
+	
 	// RENTREE 2012
 	function eventRentree2012($filter) {
 		$this->layout = 'default';
@@ -587,7 +588,7 @@ class ShowsController extends AppController {
 		case 'te':
 			$filterTitle = 'Les séries les plus prometteuses';
 			$shows = $this->Show->find('all', array(
-			   'conditions' => array('Show.is_rentree2012 = 1 AND Show.te_rentree2012 > 49'),
+			   'conditions' => array('Show.is_rentree2012 = 1 AND Show.te_rentree > 49'),
 			   'contain' => $contain,
 			   'order' => 'diffusionus ASC'
 			));
@@ -596,7 +597,7 @@ class ShowsController extends AppController {
 		case 'te-':
 			$filterTitle = 'Les séries dont on attend pas grand chose';
 			$shows = $this->Show->find('all', array(
-			   'conditions' => array('Show.is_rentree2012 = 1 AND Show.te_rentree2012 < 50 AND Show.te_rentree2012 > 19'),
+			   'conditions' => array('Show.is_rentree2012 = 1 AND Show.te_rentree < 50 AND Show.te_rentree > 19'),
 			   'contain' => $contain,
 			   'order' => 'diffusionus ASC'
 			));
@@ -605,7 +606,7 @@ class ShowsController extends AppController {
 		case 'te--':
 			$filterTitle = 'On vous conseille vivement d\'éviter de les croiser';
 			$shows = $this->Show->find('all', array(
-			   'conditions' => array('Show.is_rentree2012 = 1 AND Show.te_rentree2012 < 20 AND Show.te_rentree2012 != 0'),
+			   'conditions' => array('Show.is_rentree2012 = 1 AND Show.te_rentree < 20 AND Show.te_rentree != 0'),
 			   'contain' => $contain,
 			   'order' => 'diffusionus ASC'
 			));
@@ -732,6 +733,8 @@ class ShowsController extends AppController {
 			$this->render('/elements/event-rentree2012');
 		}
 	}
+	
+	
 
 	
 	function autoComplete() {

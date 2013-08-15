@@ -47,7 +47,7 @@
 	Router::connect('/a-propos', array('controller' => 'pages', 'action' => 'display', 'apropos'));
 	Router::connect('/notre-equipe', array('controller' => 'pages', 'action' => 'display', 'equipe'));
 	Router::connect('/mentions-legales', array('controller' => 'pages', 'action' => 'display', 'mentionslegales'));
-	Router::connect('/contact', '/contacts/index');
+	Router::connect('/contact', array('controller' => 'contacts', 'action' => 'index'));
 	Router::connect('/membres', array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/series-tv', array('controller' => 'shows', 'action' => 'index'));
 	Router::connect('/inscription', array('controller' => 'users', 'action' => 'add'));
@@ -65,8 +65,10 @@
 	
 	Router::connect('/awards-2010', array('controller' => 'polls', 'action' => 'awards2010'));
 	Router::connect('/awards-2011', array('controller' => 'polls', 'action' => 'awards2011'));
-	//Router::connect('/series-rentree-2011', array('controller' => 'shows', 'action' => 'eventRentree2011', 'start'));
-	//Router::connect('/nouvelles-series-2012-2013', array('controller' => 'shows', 'action' => 'eventRentree2012', 'start'));
+	Router::connect('/series-rentree-2013', array('controller' => 'shows', 'action' => 'rentree2013', 'start'));
+	Router::connect('/series-rentree-2011', array('controller' => 'shows', 'action' => 'eventRentree2011', 'start'));
+	Router::connect('/nouvelles-series-2012-2013', array('controller' => 'shows', 'action' => 'eventRentree2012', 'start'));
+	
 	
 	// Mobile
 	Router::connect('/mobile', array('controller' => 'shows', 'action' => 'mobile', 'populaire'));
