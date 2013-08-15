@@ -65,10 +65,10 @@ $('a[rel*=facebox]').facebox();
 		
 		<p class="synopsis"><strong>Synopsis :</strong> <?php echo $show['Show']['synopsis']; ?></p>
         <?php 
-  			if ($show['Show']['diffusionus'] == '2012-09-01') { 
-  				$date = 'A partir de septembre 2012'; 
-  			} elseif($show['Show']['diffusionus'] == '2013-01-01') {
-  				$date = 'A partir de janvier 2013'; 
+  			if ($show['Show']['diffusionus'] == '2013-09-01') { 
+  				$date = 'A partir de septembre 2013'; 
+  			} elseif($show['Show']['diffusionus'] == '2014-01-01') {
+  				$date = 'A partir de janvier 2014'; 
   			} else {
   				$timestamp = strtotime($show['Show']['diffusionus']); 
   				$date = 'A partir du ' . strftime("%d %B %Y", $timestamp); 
