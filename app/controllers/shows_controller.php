@@ -920,8 +920,8 @@ class ShowsController extends AppController {
 
 				if(empty($shows)){
 					
-					//Augmentation du temps d'execution à 1 minute (peut etre long parfois)
-					set_time_limit(60);
+					//Augmentation du temps d'execution à 100 secondes (peut etre long parfois)
+					set_time_limit(100);
 
 					//------ Get info depuis tvdb ------
 					App::import('Core', 'HttpSocket');
@@ -1005,7 +1005,7 @@ class ShowsController extends AppController {
 					if($responseFr['Data']['Series']['SeriesName'])
 						$this->data['Show']['titrefr'] = $responseFr['Data']['Series']['SeriesName'];	//series-name
 
-					if($responseFr['Data']['Series']['Overview'])
+					if($responseFr['Data']['Series']['Overview'] && strcmp($responseFr['Data']['Series']['Overview'],$responseEn['Data']['Series']['Overview']) != 0)
 						$this->data['Show']['synopsis'] = $responseFr['Data']['Series']['Overview'];	//resume
 
 					//Save show data
