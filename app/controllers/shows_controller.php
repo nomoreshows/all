@@ -921,7 +921,7 @@ class ShowsController extends AppController {
 				if(empty($shows)){
 					
 					//Augmentation du temps d'execution à 100 secondes (peut etre long parfois)
-					set_time_limit(100);
+					//set_time_limit(100);
 
 					//------ Get info depuis tvdb ------
 					App::import('Core', 'HttpSocket');

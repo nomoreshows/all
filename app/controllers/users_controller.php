@@ -3,6 +3,7 @@ class UsersController extends AppController {
 	
 	var $name = "Users";
 	var $layout = "admin_users";
+	var $components = array('RequestHandler');
 	
 	public function beforeFilter() {
    		parent::beforeFilter();
@@ -573,6 +574,12 @@ class UsersController extends AppController {
 
 						$this->data['User']['role'] = 4;
 						$this->data['User']['password'] = md5($this->data['User']['password_confirm']);
+						
+						//Sauvegarde de l'ip de l'utilisateur
+						$this->data['User']['ip'] = $this->RequestHandler->getClientIp();
+						
+						//Compte désactivés par défaut
+						$this->data['User']['disabled'] = 1;
 						
 						$resultat = $this->User->save($this->data);
 						if ($resultat) {
