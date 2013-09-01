@@ -39,7 +39,9 @@
 		'4' => 'Membre'
  	), 'label' => 'Rôle :'));
  	
- 	echo $form->input('isRedac', array('label' => 'Est rédacteur'));
+ 	echo $form->input('isRedac', array('label' => 'Peut publier les articles'));
+	echo $form->input('disabled', array('label' => 'Compte désactivé <span class="notes">(décocher pour autoriser le compte)</span>'));
+	echo $form->input('ip', array('label' => 'Ip de connexion <span class="notes">(vérifier la provenance via <a href="http://www.localiser-ip.com">http://www.localiser-ip.com</a>)</span>'));
  	
  	echo $form->input('edito', array('label' => 'Edito'));
 	

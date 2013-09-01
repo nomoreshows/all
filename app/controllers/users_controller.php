@@ -103,9 +103,9 @@ class UsersController extends AppController {
 			
 			// Si le mot de passe est vide => pas de sauvegarde du mot de passe
 			if (empty($this->data['User']['password_confirm'])) {
-				$fields = array('id', 'login', 'name', 'role');
+				$fields = array('id', 'login', 'name', 'role', 'disabled', 'edito', 'isRedac');
 			} else {
-				$fields = array('id', 'login', 'password', 'name', 'role');
+				$fields = array('id', 'login', 'password', 'name', 'role', 'disabled', 'edito', 'isRedac');
 			}
 			
 			// Si les mots de passes correspondent
@@ -605,7 +605,6 @@ class UsersController extends AppController {
 								$this->redirect('/users/confirm');	
 							}
 							*/
-							$this->redirect('/users/confirm');
 							
 						} else {
 							$this->Session->setFlash('Informations manquantes.', 'growl');
