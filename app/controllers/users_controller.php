@@ -606,6 +606,10 @@ class UsersController extends AppController {
 							}
 							*/
 							
+
+
+							$this->redirect('/users/confirm');
+							
 						} else {
 							$this->Session->setFlash('Informations manquantes.', 'growl');
 						}
