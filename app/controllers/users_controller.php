@@ -606,7 +606,20 @@ class UsersController extends AppController {
 							}
 							*/
 							
-
+							//Recup la litse des admins
+							$admins = $this->User->find('all', array('conditions' => array('User.role' => 1)));
+							
+							//Notifie les admins d'une nouvelle inscription
+							foreach ($admins as $admin) {
+								$this->User->Notification->create();
+								
+								$url_notif = '/admin/users/edit/'.$this->User->getInsertID();
+								$contenu_notif = $login . ' vient de s\'inscrire. ' ;
+								
+								$notif = array('Notification' => array('read' => 0, 'text' => $contenu_notif, 'url' => $url_notif, 'user_id' => $admin['User']['id']));
+								$this->set(compact('notif'));
+								$this->User->Notification->save($notif);
+							}
 
 							$this->redirect('/users/confirm');
 							
@@ -625,7 +638,8 @@ class UsersController extends AppController {
 			}
 
 			
-		}	
+		}
+		
 	}
 	
 	function confirm() {$this->layout = 'default';}
