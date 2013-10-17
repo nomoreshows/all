@@ -579,7 +579,7 @@ class UsersController extends AppController {
 						$this->data['User']['ip'] = $this->RequestHandler->getClientIp();
 						
 						//Compte désactivés par défaut
-						$this->data['User']['disabled'] = 1;
+						//$this->data['User']['disabled'] = 1;
 						
 						$resultat = $this->User->save($this->data);
 						if ($resultat) {
@@ -607,6 +607,7 @@ class UsersController extends AppController {
 							*/
 							
 							//Recup la litse des admins
+							/*
 							$admins = $this->User->find('all', array('conditions' => array('User.role' => 1)));
 							
 							//Notifie les admins d'une nouvelle inscription
@@ -621,6 +622,7 @@ class UsersController extends AppController {
 								$this->User->Notification->save($notif);
 							}
 
+							*/
 							$this->redirect('/users/confirm');
 							
 						} else {

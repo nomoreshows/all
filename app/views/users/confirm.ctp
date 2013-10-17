@@ -4,7 +4,7 @@
     <div class="padl15">
     <h2 class="red">Inscription réussie</h2><br /><br />
     	Votre inscription a été <strong class="red">effectuée</strong> <br /><br />
-        Un email de confirmation va vous être envoyé lorsque votre compte aura été vérifié. Merci pour votre intêret et bienvenue sur <strong>Série-All</strong> !
+        Vous pouvez maintenant vous connecter. Merci pour votre intêret et bienvenue sur <strong>Série-All</strong> !
     </div>
 </div>
 
