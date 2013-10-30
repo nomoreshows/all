@@ -13,6 +13,7 @@
 	case 'news':
 	case 'dossier':
 	case 'video':
+	case 'podcast':
 	case 'chronique':
 		// Formulaire normal -> passage à add() directement avec show_id
 		echo $form->create('Article'); 

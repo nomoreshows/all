@@ -59,6 +59,7 @@ $(function() {
 	case 'video':
 	case 'chronique':
 	case 'dossier':
+	case 'podcast':
 		// Ajout de show_id + titre et URL vides
 		if ($show != 0) {
 			echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
@@ -134,11 +135,10 @@ $(function() {
         	<br />
 			<?php echo $form->input('text', array('rows' => '30', 'cols' => '131', 'label' => false, 'class' => 'mceAdvanced')); ?>
             <br />
-            Vidéo maison : <?php echo $form->input('video', array('label' => false, 'div' => false));?> 
-            <?php echo $form->input('ratio', array('label' => false, 'div' => false, 'type' => 'select', 'options' => array( 0 => '-- Choisir le ratio --', 'fit' => 'Plein écran (pour 16/9)', 'cut' => 'Coupé (pour 4/3)'))); ?>
-            <br />
-            <span class="notes">Ne pas compléter, à moins d'être sur de ce que vous faîtes. (nom + extension : mysteries.flv)</span>
-            <br /><br />
+            <?php
+				if($cat == 'podcast'){			
+					echo $form->input('podcast', array('rows' => '2', 'cols' => '65', 'label' => 'Podcast (code iframe) :'));
+				}?> 
             <?php echo $form->end('Sauvegarder'); ?>
         </div>
         <div id="tabs-2">

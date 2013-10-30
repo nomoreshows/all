@@ -69,7 +69,7 @@
                     <li><?php echo $html->link($html->image("menu/critique.png", array("class" => "absmiddle")) .' Critiques', '/admin/articles/index/critique', array('escape' => false)); ?></li>
                     <li><?php echo $html->link($html->image("menu/bilan.png", array("class" => "absmiddle")) .' Bilans', '/admin/articles/index/bilan', array('escape' => false)); ?></li>
                     <li><?php echo $html->link($html->image("menu/video.png", array("class" => "absmiddle")) .' Focus', '/admin/articles/index/focus', array('escape' => false)); ?></li>
-                    <li><?php echo $html->link($html->image("menu/acteurs.png", array("class" => "absmiddle")) .' Portraits', '/admin/articles/index/portrait', array('escape' => false)); ?></li>
+                    <li><?php echo $html->link($html->image("menu/acteurs.png", array("class" => "absmiddle")) .' Podcasts', '/admin/articles/index/podcast', array('escape' => false)); ?></li>
                     <li><?php echo $html->link($html->image("menu/saison.png", array("class" => "absmiddle")) .' Dossiers', '/admin/articles/index/dossier', array('escape' => false)); ?></li>
                     <li><?php echo $html->link($html->image("menu/video.png", array("class" => "absmiddle")) .' Vidéos', '/admin/articles/index/video', array('escape' => false)); ?></li>
                      <li><?php echo $html->link($html->image("menu/saison.png", array("class" => "absmiddle")) .' Chroniques', '/admin/articles/index/chronique', array('escape' => false)); ?></li>

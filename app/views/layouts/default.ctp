@@ -80,6 +80,7 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
                             <li><?php echo $html->link('Focus', '/focus', array('escape' => false)); ?></li>
                             <li><?php echo $html->link('Bilans', '/bilans', array('escape' => false)); ?></li>
                             <li><?php echo $html->link('Portraits', '/portraits', array('escape' => false)); ?></li>
+							<li><?php echo $html->link('Podcasts', '/podcasts', array('escape' => false)); ?></li>
                         </ul>                    
                     </li>
                 </ul>

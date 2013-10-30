@@ -818,6 +818,7 @@ table.profil-classement tr td .grey {padding:0 18px 0 5px;; display:block}
 /* Indexes */
 #all-critiques {background:url(../img/all-critiques.png); width:658px; height:53px;}
 #all-news {background:url(../img/all-news.png) no-repeat; width:659px; height:53px;}
+#all-podcasts {background:url(../img/all-podcasts.png) no-repeat; width:659px; height:53px;}
 #all-series {background:url(../img/all-series.png) no-repeat; width:656px; height:53px;}
 #all-videos {background:url(../img/all-videos.png) no-repeat; width:657px; height:53px;}
 #all-dossiers {background:url(../img/all-dossiers.png) no-repeat; width:659px; height:53px; margin-top:7px;}
@@ -825,7 +826,7 @@ table.profil-classement tr td .grey {padding:0 18px 0 5px;; display:block}
 #all-bilans {background:url(../img/all-bilans.png) no-repeat; width:659px; height:53px; margin-top:7px;}
 #all-portraits {background:url(../img/all-portraits.png) no-repeat; width:659px; height:53px; margin-top:7px;}
 #all-membres {background:url(../img/all-membres.png) no-repeat; width:660px; height:53px; margin-top:7px;}
-#all-series h1, #all-critiques h1, #all-news h1, #all-videos h1, #all-dossiers h1, #all-dossiers h1, #all-focus h1, #all-bilans h1, #all-portraits h1, #all-membres h1 {display:none;}
+#all-series h1, #all-critiques h1, #all-news h1, #all-videos h1, #all-dossiers h1, #all-dossiers h1, #all-focus h1, #all-bilans h1, #all-portraits h1, #all-membres h1, #all-podcasts h1 {display:none;}
 
 
 /* Planning */

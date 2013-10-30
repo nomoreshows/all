@@ -116,10 +116,10 @@ $(function() {
         	<br />
 			<?php echo $form->input('text', array('rows' => '30', 'cols' => '131', 'label' => false, 'class' => 'mceAdvanced')); ?>
             <br />
-            Vidéo maison : <?php echo $form->input('video', array('label' => false, 'div' => false));?> 
-            <?php echo $form->input('ratio', array('label' => false, 'div' => false, 'type' => 'select', 'options' => array( 0 => '-- Choisir le ratio --', 'fit' => 'Plein écran (pour 16/9)', 'cut' => 'Coupé (pour 4/3)'))); ?>
-            <br />
-            <span class="notes">Ne pas compléter, à moins d'être sur de ce que vous faîtes. (nom + extension : mysteries.flv)</span>
+            <?php
+				if($cat == 'podcast'){			
+					echo $form->input('podcast', array('rows' => '2', 'cols' => '65', 'label' => 'Podcast (code iframe) :'));
+				}?>
             <br /><br />
             Rédacteur : <?php echo $form->input('user_id', array('label' => false, 'div' => false));?> 
             <br /><br />

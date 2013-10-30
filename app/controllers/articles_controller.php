@@ -264,7 +264,7 @@ class ArticlesController extends AppController {
 			$this->set(compact('article'));
 			$this->render('display_focus');
 			break;
-			
+		case 'podcast':	
 		case 'news':
 		case 'dossier':
 		case 'video':
@@ -456,6 +456,64 @@ class ArticlesController extends AppController {
 		}
 		
 		switch($category) {
+			case 'podcasts':
+				$this->paginate['limit'] = 15;
+				$articles = $this->paginate('Article', array('Article.category = "podcast"', 'Article.etat' => 1));
+				// Dernières news
+				$news = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières bilans
+				$bilans = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières focus
+				$focus = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières portraits
+				$portraits = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières portraits
+				$videos = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières critiques
+				$critiques = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				$this->set(compact('news'));
+				$this->set(compact('bilans'));
+				$this->set(compact('focus'));
+				$this->set(compact('portraits'));
+				$this->set(compact('videos'));
+				$this->set(compact('critiques'));
+   				$this->set('articles', $articles);
+				if($this->RequestHandler->isAjax()) {
+					$this->render(DS . 'elements' . DS . 'page-critiques');
+				} else {
+					$this->render('liste-podcasts');
+				}
+				break;
 			case 'news':
 				$this->paginate['limit'] = 15;
 				$articles = $this->paginate('Article', array('Article.category' => 'news', 'Article.etat' => 1));
@@ -832,6 +890,7 @@ class ArticlesController extends AppController {
 		case 'focus':
 		case 'dossier':
 		case 'video':
+		case 'podcast':
 		case 'chronique':
 			$this->loadModel('Show');
 			$this->set('shows', $this->Show->find('list'));
@@ -951,6 +1010,7 @@ class ArticlesController extends AppController {
 		case 'news':
 		case 'dossier':
 		case 'video':
+		case 'podcast':
 		case 'chronique':
 			if ($this->data['Article']['isserie'] == 0) {
 				// Concerne une série
@@ -1011,6 +1071,7 @@ class ArticlesController extends AppController {
 				$this->set(compact('episodes'));
 				break;
 			case 'news':
+			case 'podcast':
 			case 'dossier':
 				$show_id = $this->data['Article']['show_id'];
 				if (empty($show_id)) {
