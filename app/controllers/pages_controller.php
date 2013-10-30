@@ -214,7 +214,7 @@ class PagesController extends AppController {
 			
 			//Tous les articles sauf critiques, news et vidéos
 			$articles = $this->Article->find('all', array(
-				'conditions' => '(Article.category = "dossier" OR Article.category = "chronique" OR Article.category = "bilan" OR Article.category = "focus" OR Article.category = "critique") AND Article.etat = 1',
+				'conditions' => '(Article.category = "dossier" OR Article.category = "chronique" OR Article.category = "bilan" OR Article.category = "podcast" OR Article.category = "focus" OR Article.category = "critique") AND Article.etat = 1',
 				'fields' => array('Show.name', 'Show.menu', 'Article.url', 'Article.caption', 'Article.name', 'Article.created', 'Article.chapo', 'Article.photo', 'Article.show_id'),
 					'order' => 'Article.modified DESC', 
 				'limit' => 12
