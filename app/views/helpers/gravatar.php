@@ -18,7 +18,7 @@ class GravatarHelper extends Helper {
  * @access public
  */
     function image($email, $size, $htmlAttributes = array(), $return = false) {
-        $gravatar_url = $this->grav_url."gravatar_id=".md5($email)."&amp;default=".urlencode($this->default)."&amp;size=".$size."&amp;";        
+        $gravatar_url = $this->grav_url."gravatar_id=".md5($email)."&amp;default=".urlencode($this->default)."&amp;size=".$size;        
         return $this->output(sprintf($this->Html->tags['image'], $gravatar_url, $this->Html->_parseAttributes($htmlAttributes, null, '', ' ')), $return);
     }
 
