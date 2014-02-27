@@ -137,6 +137,9 @@
                     <?php $timestamp = strtotime($comment['Comment']['created']);	e(strftime("%d/%m/%Y", $timestamp)); ?> à 
                     <?php e(strftime("%Hh%M", $timestamp)); ?>
                     </span>
+                    <?php if($session->read('Auth.User.role') < 4): ?>
+                    <?php echo $html->link('Supprimer le commentaire', '/admin/comments/delete/'. $comment['Comment']['id']); ?>
+                    <?php endif; ?>
                     <div class="spacer-com"></div>
 					<?php echo nl2br($comment['Comment']['text']); ?>
                     
