@@ -417,8 +417,8 @@ class CommentsController extends AppController {
 	 */ 
 	function admin_delete($id){
 		$this->Comment->del($id, true);
-		$this->Session->setFlash('L\'avis a été supprimé.'.$moyennes, 'growl');	
-		$this->redirect(array('controller' => 'comments', 'action' => 'index'));
+		$this->Session->setFlash('L\'avis a été supprimé.'.$moyennes, 'growl');
+        $this->redirect($this->referer());
 	}
 	
 	function admin_commentindex(){
