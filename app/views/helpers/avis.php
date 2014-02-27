@@ -59,9 +59,9 @@ class AvisHelper extends AppHelper {
           <?php $timestamp = strtotime($comment['Comment']['created']);	e(strftime("%d/%m/%Y", $timestamp)); ?> à 
           <?php e(strftime("%Hh%M", $timestamp)); ?>
           </span>
-          <?php if( 1 <= $userRole && $userRole < 4 ): ?>
-          <?php echo $this->Html->link('Supprimer le commentaire', '/admin/comments/delete/'. $comment['Comment']['id']); ?>
-          <?php endif; ?>    
+          <?php if( 1 == $userRole ){
+              echo $this->Html->link('Supprimer le commentaire', '/admin/comments/delete/'. $comment['Comment']['id']);
+          } ?>    
         </div><div class="spacer"></div>
 				<?php if(strlen($comment['Comment']['text']) < 900) {
 					echo trim(nl2br($comment['Comment']['text']));
