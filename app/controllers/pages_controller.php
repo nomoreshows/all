@@ -92,7 +92,7 @@ class PagesController extends AppController {
 			// Dernières notes
 			$rates = $this->Rate->find('all', array('order' => array('Rate.created DESC'), 'limit' => $limitMaxItemCommu, 'fields' => array('Rate.name', 'User.login', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero', 'Rate.created')));
 			// Dernières avis
-			$lastcomments = $this->Comment->find('all', array('order' => 'Comment.created DESC', 'limit' => $limitMaxItemCommu, 'fields' => array('Comment.thumb', 'User.login', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero', 'Article.id', 'Article.name', 'Article.url', 'Comment.id', 'Comment.text', 'Comment.created')));
+			$lastcomments = $this->Comment->find('all', array('order' => 'Comment.created DESC', 'limit' => $limitMaxItemCommu, 'fields' => array('Comment.thumb', 'User.login', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero', 'Article.id', 'Article.name', 'Article.url', 'Comment.id', 'Comment.text', 'Comment.spoiler','Comment.created')));
 
 			//Dernières réactions
 			//Custom request pour éviter de se payer 300 requetes en plus (cakephp ne fait pas les jointures naturellement)

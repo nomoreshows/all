@@ -64,15 +64,29 @@ class AvisHelper extends AppHelper {
               echo $this->Html->link('Supprimer le commentaire', '/admin/comments/delete/'. $comment['Comment']['id']);
           } */?>    
         </div><div class="spacer"></div>
-				<?php if(strlen($comment['Comment']['text']) < 900) {
-					echo trim(nl2br($comment['Comment']['text']));
-				}  else {
-					echo nl2br(substr($comment['Comment']['text'], 0, 900));
-					echo $this->Html->link('...&nbsp; &raquo; Lire la suite', '#', array('escape' => false, 'class' => 'decoblue', 'onClick' => '$(\'#suite' . $comment['Comment']['id'] . '\').show(); $(this).hide(); return false;')); 
-					echo '<span id="suite' . $comment['Comment']['id'] . '" style="display:none">';
-					echo nl2br(substr($comment['Comment']['text'], 900));
+				<?php 
+				if($comment['Comment']['spoiler']){
+					echo '<span id="spoilerAlert' . $comment['Comment']['id'] . '">';
+						echo "L'auteur de cet avis a indiqué qu'il contenait des spoilers.";
+						echo "<br/>";
+						echo "<br/>";
 					echo '</span>';
-				}?>
+					echo $this->Html->link('Afficher l\'avis', '#', array('escape' => false, 'class' => 'decoblue', 'onClick' => '$(\'#spoiler' . $comment['Comment']['id'] . '\').show(); $(this).hide(); $(\'#spoilerAlert' . $comment['Comment']['id'] . '\').hide(); return false;')); 
+					echo '<span id="spoiler' . $comment['Comment']['id'] . '" style="display:none">';
+						echo trim(nl2br($comment['Comment']['text']));
+					echo '</span>';
+				}else{
+					if(strlen($comment['Comment']['text']) < 900) {
+						echo trim(nl2br($comment['Comment']['text']));
+					}  else {
+						echo nl2br(substr($comment['Comment']['text'], 0, 900));
+						echo $this->Html->link('...&nbsp; &raquo; Lire la suite', '#', array('escape' => false, 'class' => 'decoblue', 'onClick' => '$(\'#suite' . $comment['Comment']['id'] . '\').show(); $(this).hide(); return false;')); 
+						echo '<span id="suite' . $comment['Comment']['id'] . '" style="display:none">';
+						echo nl2br(substr($comment['Comment']['text'], 900));
+						echo '</span>';
+					}
+				}
+				?>
 				</p>
 				<?php if (!empty($comment['Reaction'])) { ?>
 					<br /><div class="reaction-header"></div>

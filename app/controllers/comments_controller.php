@@ -204,6 +204,7 @@ class CommentsController extends AppController {
 					$this->Comment->id = $alreadyavis['Comment']['id'];
 					$this->Comment->saveField('text', $this->data['Comment']['text']);
 					$this->Comment->saveField('thumb', $this->data['Comment']['thumb']);
+					$this->Comment->saveField('spoiler', $this->data['Comment']['spoiler']);
 				} else {
 					$resultat = $this->Comment->save($this->data);
 					if ($resultat) {
