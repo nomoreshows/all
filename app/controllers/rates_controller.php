@@ -55,6 +55,7 @@ class RatesController extends AppController {
 			
 			if ($resultat) {
 				$result = 'Note ajoutée.';
+				
 				// Suppression de la note éventuelle de l'utilisateur
 				if (count($alreadyrate) != 0) {
 					foreach($alreadyrate as $rate) {
@@ -78,9 +79,12 @@ class RatesController extends AppController {
 					$this->Rate->Season->id = $this->data['Rate']['season_id'];
 					$this->Rate->Season->saveField('nbnotes', $totalnotes);
 					
-					/* ajout +1 aux total des notes series
+					//ajout +1 aux total des notes series
+					/*
 					$show = $this->Rate->Show->find('first', array('conditions' => array('Show.id' => $this->data['Rate']['show_id']), array('contain' => false), 'fields' => array('Show.id', 'Show.nbnotes')));
-					$totalnotes = $show['Show']['nbnotes'] + 1;
+					$nbRates = $this->Rate->find('count', array('conditions' => array('Show.id' => $this->data['Rate']['show_id'])));
+			
+					$totalnotes = $nbRates + 1;
 
 					$this->Rate->Show->id = $this->data['Rate']['show_id'];
 					$this->Rate->Show->saveField('nbnotes', $totalnotes);

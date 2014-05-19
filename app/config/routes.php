@@ -56,7 +56,7 @@
 	
 	Router::connect('/article/*', array('controller' => 'articles', 'action' => 'display'));
 	Router::connect('/critiques', array('controller' => 'articles', 'action' => 'liste', 'critiques'));
-	Router::connect('/podcasts', array('controller' => 'articles', 'action' => 'liste', 'podcasts'));
+	Router::connect('/podcast', array('controller' => 'articles', 'action' => 'liste', 'podcasts'));
 	Router::connect('/actualite', array('controller' => 'articles', 'action' => 'liste', 'news'));
 	Router::connect('/videos-trailers', array('controller' => 'articles', 'action' => 'liste', 'videos'));
 	Router::connect('/dossiers', array('controller' => 'articles', 'action' => 'liste', 'dossiers'));

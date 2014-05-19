@@ -22,5 +22,7 @@
  * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
+ Configure::write('debug', 0);
+ 
 return $config['Cake.version'] = '1.2.3.8166';
 ?>

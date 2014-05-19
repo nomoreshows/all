@@ -70,9 +70,9 @@
                   <h2 class="red">
 				  	<?php 
 					if (strlen($article['Article']['name']) < 30 and strlen($article['Episode']['name']) < 20) {
-				  		echo $html->link($article['Article']['name'] . ' - ' . $article['Episode']['name'], '/article/'. $article['Article']['url'] . '.html'); 
+				  		echo $html->link($article['Article']['name'] . ' - ' . $article['Episode']['name'], '/article/'. $article['Article']['url'] . '.html',array('onClick'=>"_gaq.push(['_trackEvent', 'Carrousel', 'Link', '".$article['Article']['name']."'])")); 
 					} else {
-						echo $html->link($article['Article']['name'], '/article/'. $article['Article']['url'] . '.html'); 
+						echo $html->link($article['Article']['name'], '/article/'. $article['Article']['url'] . '.html',array('onClick'=>"_gaq.push(['_trackEvent', 'Carrousel', 'Link', '".$article['Article']['name']."'])")); 
 					}
 				 	 ?>
                   </h2>
@@ -111,9 +111,9 @@
                   <h2 class="red">
 				  	<?php 
 					if (strlen($article['Article']['name']) < 30 and strlen($article['Episode']['name']) < 20) {
-				  		echo $html->link($article['Article']['name'] . ' - ' . $article['Episode']['name'], '/article/'. $article['Article']['url'] . '.html'); 
+				  		echo $html->link($article['Article']['name'] . ' - ' . $article['Episode']['name'], '/article/'. $article['Article']['url'] . '.html', array('onClick'=>"_gaq.push(['_trackEvent', 'Videos', 'Play', 'Baby\'s First Birthday'])")); 
 					} else {
-						echo $html->link($article['Article']['name'], '/article/'. $article['Article']['url'] . '.html'); 
+						echo $html->link($article['Article']['name'], '/article/'. $article['Article']['url'] . '.html',array('onClick'=>"_gaq.push(['_trackEvent', 'Carrousel', 'Link', '".$article['Article']['name']."'])")); 
 					}
 				 	 ?>
                   </h2>
@@ -381,7 +381,7 @@
 				foreach ($news as $i => $new){
 			?>
 				<div>
-					<h2><?php echo $html->link($new['Article']['name'], '/article/' . $new['Article']['url']. '.html'); ?></h2> <br />
+					<h2><?php echo $html->link($new['Article']['name'], '/article/' . $new['Article']['url']. '.html', array('onClick'=>"_gaq.push(['_trackEvent', 'News', 'Link', '".$article['Article']['name']."'])")); ?></h2> <br />
 					<div class="textnewsvideos">
 						<p class="date"><?php $timestamp = strtotime($new['Article']['created']); e(strftime("%d/%m/%Y", $timestamp)); ?></p> 
 						<p class="comments"><?php echo count($new['Comment']); ?> commentaire<?php if(count($new['Comment']) > 1) echo 's'; ?></p>
@@ -389,7 +389,7 @@
 					<?php 
 					if (empty($new['Article']['show_id'])) {
 						//TODO : corriger miniature 
-						echo $html->link($html->image('article/thumb.news.' . $new['Article']['photo'], array('class' => 'imgNewsVideo')), '/article/' . $new['Article']['url'] . '.html', array('escape' => false)); 
+						echo $html->link($html->image('article/thumb.news.' . $new['Article']['photo'], array('class' => 'imgNewsVideo')), '/article/' . $new['Article']['url'] . '.html', array('escape' => false, 'onClick'=>"_gaq.push(['_trackEvent', 'News', 'Img', '".$article['Article']['name']."'])")); 
 					} else {
 						//Test si l'image pour la serie existe 
 						$nomImgSerie = 'no-image'; //nom du fichier de l'image par defaut
@@ -397,7 +397,7 @@
 							//image de la serie existe
 							$nomImgSerie = $new['Show']['menu'];
 						}
-						echo $html->link($html->image('show/' . $nomImgSerie . '_w.jpg', array('class' => 'imgNewsVideo','alt' => $new['Show']['menu'])), '/article/' . $new['Article']['url'] . '.html', array('escape' => false)); 
+						echo $html->link($html->image('show/' . $nomImgSerie . '_w.jpg', array('class' => 'imgNewsVideo','alt' => $new['Show']['menu'])), '/article/' . $new['Article']['url'] . '.html', array('escape' => false,'onClick'=>"_gaq.push(['_trackEvent', 'News', 'Img', '".$article['Article']['name']."'])")); 
 					}
 					?>
 				</div>
@@ -568,10 +568,10 @@
 			foreach ($articles as $i => $article) {
 		?>
 			<div class="onenews">
-				<h2><?php echo $html->link($article['Article']['name'], '/article/' . $article['Article']['url']. '.html'); ?></h2> <br />
+				<h2><?php echo $html->link($article['Article']['name'], '/article/' . $article['Article']['url']. '.html',array('onClick'=>"_gaq.push(['_trackEvent', 'Articles', 'Link', '".$article['Article']['name']."'])")); ?></h2> <br />
 				<?php 
 				if (empty($article['Article']['show_id'])) {
-					echo $html->link($html->image('article/thumb.news.' . $article['Article']['photo'], array('class' => 'imgleft imgnews', 'width' => 78)), '/article/' . $article['Article']['url'] . '.html', array('escape' => false)); 
+					echo $html->link($html->image('article/thumb.news.' . $article['Article']['photo'], array('class' => 'imgleft imgnews', 'width' => 78)), '/article/' . $article['Article']['url'] . '.html', array('escape' => false,'onClick'=>"_gaq.push(['_trackEvent', 'Articles', 'Img', '".$article['Article']['name']."'])")); 
 				} else {
 					//Test si l'image pour la serie existe 
 					$nomImgSerie = 'no-image'; //nom du fichier de l'image par defaut
@@ -579,7 +579,7 @@
 						//image de la serie existe
 						$nomImgSerie = $article['Show']['menu'];
 					}
-					echo $html->link($html->image('show/' . $nomImgSerie . '_t.jpg', array('class' => 'imgleft imgnews','alt' => $article['Show']['menu'])), '/article/' . $article['Article']['url'] . '.html', array('escape' => false)); 
+					echo $html->link($html->image('show/' . $nomImgSerie . '_t.jpg', array('class' => 'imgleft imgnews','alt' => $article['Show']['menu'])), '/article/' . $article['Article']['url'] . '.html', array('escape' => false, 'onClick'=>"_gaq.push(['_trackEvent', 'Articles', 'Img', '".$article['Article']['name']."'])")); 
 				}
 				?>
 				<div class="textnews">
