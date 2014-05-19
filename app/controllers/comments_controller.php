@@ -204,6 +204,7 @@ class CommentsController extends AppController {
 					$this->Comment->id = $alreadyavis['Comment']['id'];
 					$this->Comment->saveField('text', $this->data['Comment']['text']);
 					$this->Comment->saveField('thumb', $this->data['Comment']['thumb']);
+					$this->Comment->saveField('spoiler', $this->data['Comment']['spoiler']);
 				} else {
 					$resultat = $this->Comment->save($this->data);
 					if ($resultat) {
@@ -417,8 +418,8 @@ class CommentsController extends AppController {
 	 */ 
 	function admin_delete($id){
 		$this->Comment->del($id, true);
-		$this->Session->setFlash('L\'avis a été supprimé.'.$moyennes, 'growl');	
-		$this->redirect(array('controller' => 'comments', 'action' => 'index'));
+		$this->Session->setFlash('L\'avis a été supprimé.'.$moyennes, 'growl');
+        $this->redirect($this->referer());
 	}
 	
 	function admin_commentindex(){

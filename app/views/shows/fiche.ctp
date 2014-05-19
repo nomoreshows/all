@@ -348,6 +348,14 @@
 										else 
 											echo $form->input('text', array('label' => false, 'cols' => 45, 'value' => $alreadycomment['Comment']['text']));
 										
+										echo '<br />';
+										//Goret : a voir avec cakephp normal
+										if($alreadycomment['Comment']['spoiler']){
+											echo $form->input('spoiler',array('label' => 'Mon avis contient des spoilers', "checked"=>true));
+										}else{
+											echo $form->input('spoiler',array('label' => 'Mon avis contient des spoilers', "checked"=>false));
+										}
+										echo '<br />';
 										echo '<br /><span id="charCount">0 caractères</span><br />';
 										echo '<br />Avant de valider, assurez-vous de corriger les éventuelles fautes d\'orthographe. <br /><br />';
 										echo '<button type="submit"><span>Valider</span></button></form>';

@@ -336,7 +336,7 @@ class ShowsController extends AppController {
 		));	
 		
 		$flopseries = $this->Show->find('all', array(
-			'conditions' => array('Show.moyenne !=' => 0, 'Show.nbnotes >' => 10,),
+			'conditions' => array('Show.moyenne !=' => 0, 'Show.nbnotes >' => 20,),
 			'fields' => array('Show.name', 'Show.moyenne', 'Show.menu, Show.priority'),
 			'order' => 'Show.moyenne ASC', 
 			'limit' => 15,
@@ -344,7 +344,7 @@ class ShowsController extends AppController {
 		));
 		
 		$flopsaisons = $this->Show->Season->find('all', array(
-			'conditions' => array('Season.moyenne !=' => 0, 'Season.nbnotes >' => 5),
+			'conditions' => array('Season.moyenne !=' => 0, 'Season.nbnotes >' => 20),
 			'order' => 'Season.moyenne ASC', 
 			'limit' => 15,
 			'contain' => array('Show', 'Comment' => array('conditions' => array('Comment.article_id = 0 AND Comment.episode_id = 0')))
@@ -1165,7 +1165,6 @@ class ShowsController extends AppController {
 		}
 				
 	}
-	
 	
 }
 ?>

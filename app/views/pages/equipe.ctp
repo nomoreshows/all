@@ -21,102 +21,7 @@
 		</p>
 		<br />
 		
-		<div class="redacteur">
 		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Scarch', '/profil/'. 'scarch', array('escape' => false, 'class' => 'nodeco'))?></span> - David Scarchili
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('jango@aliceadsl.fr', 53, array('alt' => 'scarch', 'class' => 'ppic'), false), '/profil/'. 'scarch', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Fondateur
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Créateur de la première version du site en 2009, il a l’honneur de critiquer 
-						<strong>Breaking Bad</strong>. Comme tous les grands hommes, il souhaite garder un peu 
-						de mystère, ce qui explique ses (très) longues absences.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Cad', '/profil/'. 'cad', array('escape' => false, 'class' => 'nodeco'))?></span> - Gaetan Rochel
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('cadeuh@gmail.com', 53, array('alt' => 'cad', 'class' => 'ppic'), false), '/profil/'. 'cad', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Webmaster
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Capable de pirater les serveurs du FBI avec une gameboy, il gère le développement du site et les questions d'ordre technique. 
-						Il est également un critique très difficile à satisfaire.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Bleak', '/profil/'. 'bleak', array('escape' => false, 'class' => 'nodeco'))?></span> - Thomas Lewin
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('hatworld89@gmail.com', 53, array('alt' => 'bleak', 'class' => 'ppic'), false), '/profil/'. 'bleak', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Sheriff
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Critique occasionnel sur certaines séries, il est surtout le shériff impitoyable du forum. Attention donc à ne pas le froisser, il est capable
-						de faire disparaître quelqu'un en moins de deux.	
-					</blockquote>
-				</div>
-			</div>
-		</div>
 		
 		<div class="redacteur">
 		
@@ -135,7 +40,7 @@
 				
 				<div class="block-role">
 					<p class="role">
-						Rédacteur en chef
+						Webmaster à temps partiel
 					</p>
 					<div class="dot">
 					</div>
@@ -145,6 +50,38 @@
 					<blockquote>
 						Passioné par les fouets qu'il n'hésite pas à utiliser dès qu'un rédacteur ne suit pas les consignes, il critique <strong>Sherlock</strong> et <strong>Wilfred</strong>. 
 						Il devient également très succeptible dès que l'on ose critiquer le brushing de <strong>MacGyver</strong>.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Koss', '/profil/'. 'Koss', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('costheboss_007@hotmail.com', 53, array('alt' => 'Koss', 'class' => 'ppic'), false), '/profil/'. 'Koss', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Rédacteur en chef
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Exilé un temps aux Etats-Unis, il a eu la chance de connaître <em>Netflix</em>. Il s'en est servi pour critiquer <strong>Desperate Housewives</strong> ou 
+						<strong>Withney</strong> : personne n'est parfait.
 					</blockquote>
 				</div>
 			</div>
@@ -285,135 +222,7 @@
 				</div>
 			</div>
 		</div>
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('CaptainFreeFrag', '/profil/'. 'CaptainFreeFrag', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('rob.zen@hotmail.fr', 53, array('alt' => 'CaptainFreeFrag', 'class' => 'ppic'), false), '/profil/'. 'CaptainFreeFrag', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Rédacteur
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Sur le forum, il est de toutes les discussions. Tant et si bien qu'on a l'impression qu'il est un rédacteur prolifique, alors qu'en fait, il n'a 
-						critiqué que <strong>The Playboy Club</strong> et <strong>Boss</strong>.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Fafa', '/profil/'. 'Fafa', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('stephane.blin10@wanadoo.fr', 53, array('alt' => 'Fafa', 'class' => 'ppic'), false), '/profil/'. 'Fafa', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Rédacteur
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Plus gros noteur du site, il aime achever les séries minables à coup d'avis destructeurs. Il critique occasionnellement certaines séries
-						comme <strong>Star Wars: The Clone Wars</strong>.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Gouloudrouioul', '/profil/'. 'Gouloudrouioul', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('glounz@hotmail.fr', 53, array('alt' => 'Gouloudrouioul', 'class' => 'ppic'), false), '/profil/'. 'Gouloudrouioul', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Rédacteur
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Son pseudo improbable semble sortir tout droit du bestiaire de <strong>Doctor Who</strong>. Finalement, ce n'est peut-être pas un hasard s'il critique la série.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Koss', '/profil/'. 'Koss', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('costheboss_007@hotmail.com', 53, array('alt' => 'Koss', 'class' => 'ppic'), false), '/profil/'. 'Koss', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Rédacteur
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Exilé un temps aux Etats-Unis, il a eu la chance de connaître <em>Netflix</em>. Il s'en est servi pour critiquer <strong>Desperate Housewives</strong> ou 
-						<strong>Withney</strong> : personne n'est parfait.
-					</blockquote>
-				</div>
-			</div>
-		</div>
+
 		
 		<div class="redacteur">
 		
@@ -447,214 +256,9 @@
 			</div>
 		</div>
 		
-		<div class="redacteur">
 		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Puck', '/profil/'. 'Puck', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('absinthe5@free.fr', 53, array('alt' => 'Puck', 'class' => 'ppic'), false), '/profil/'. 'Puck', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Correctrice
-					</p>
-					<div class="dot">
-					</div>
-				</div>
 		
-				<div class="status">
-					<blockquote>
-						Chevalier de l'ordre du Larousse et gardienne du Petit Robert, elle traque sans relâche les fautes d'ortographe et de grammaire. Elle critique aussi quelques
-						séries, pour peu que John Simm soit au casting.
-					</blockquote>
-				</div>
-			</div>
-		</div>
 		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Sephja', '/profil/'. 'sephja', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('madameerini@gmail.com', 53, array('alt' => 'sephja', 'class' => 'ppic'), false), '/profil/'. 'sephja', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Rédacteur
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Quand il ne s'occupe de ses alpagas, sa passion est la découverte de nanars australiens ou du dernier
-						thriller suédois à la mode, qu'il s'empresse de faire découvrir à tout le monde.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Tan', '/profil/'. 'Tan', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('morlak_ncr@hotmail.com', 53, array('alt' => 'Tan', 'class' => 'ppic'), false), '/profil/'. 'Tan', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Rédacteur
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Son rêve absolu est de se transformer en Pinkie Pie, l'un des poneys de <strong>My Little Pony : Friendship is Magic</strong>. En dehors de ça, c'est un garçon
-						normal qui critique <strong>How I Met Your Mother</strong>.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		<h2 class="title dblue">Les chinois</h2>
-		<br /><br />
-		<p>
-			Travailleurs de l’ombre, les chinois ont pour objectif de maintenir le site à jour. Tout au fond de leur cave, ils gèrent donc les demandes
-			d’ajout de nouvelles séries, le maintien du planning ainsi que tout un tas d'autres trucs compliqués que seuls eux comprennent.
-		</p>
-		<br />
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Leif', '/profil/'. 'Leif', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('002lp@wanadoo.fr', 53, array('alt' => 'Leif', 'class' => 'ppic'), false), '/profil/'. 'Leif', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Ami de 
-					</p>
-					<div class="dot">
-					</div>
-					<p class="role-sub">
-						Google
-					</p>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Depuis qu'il lui a offert des places de concert pour Desireless, Google est vraiment son ami. Du coup, il remonte de temps en temps 
-						Serieall dans les résultats de recherche pour le remercier.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Poliis0n', '/profil/'. 'Poliis0n', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('julien.agar@live.fr', 53, array('alt' => 'Poliis0n', 'class' => 'ppic'), false), '/profil/'. 'Poliis0n', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Gestion du
-					</p>
-					<div class="dot">
-					</div>
-					<p class="role-sub">
-						planning
-					</p>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Egalement surnommé <em>le ninja du planning</em>, son action est aussi discrète qu'efficace : le planning est à jour toutes les semaines (sauf quand c'est son tour 
-						de nettoyer la cave).						
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Sanschiffre', '/profil/'. 'sanschiffre', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('sanschiffre@hotmail.fr', 53, array('alt' => 'sanschiffre', 'class' => 'ppic'), false), '/profil/'. 'sanschiffre', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Gestion des
-					</p>
-					<div class="dot">
-					</div>
-					<p class="role-sub">
-						séries
-					</p>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Amateur de grand n'importe quoi, il rajoute discrètement toutes sortes de nanars sur le site en tentant de convertir les rédacteurs à sa cause. 
-						Il possède aussi un &oelig;il bionique capable de détecter les faux raccords.  
-					</blockquote>
-				</div>
-			</div>
-		</div>
 		
 		<h2 class="title dblue">Les anciens</h2>
 		<br /><br />
@@ -663,6 +267,74 @@
 			la cave des chinois. Certains restent toutefois présents sur le forum pour soutenir leurs compagnons.  
 		</p>
 		<br />
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Scarch', '/profil/'. 'scarch', array('escape' => false, 'class' => 'nodeco'))?></span> - David Scarchili
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('jango@aliceadsl.fr', 53, array('alt' => 'scarch', 'class' => 'ppic'), false), '/profil/'. 'scarch', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Fondateur (à la retraite)
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Créateur de la première version du site en 2009, il a l’honneur de critiquer 
+						<strong>Breaking Bad</strong>. Comme tous les grands hommes, il souhaite garder un peu 
+						de mystère, ce qui explique ses (très) longues absences.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Cad', '/profil/'. 'cad', array('escape' => false, 'class' => 'nodeco'))?></span> - Gaetan Rochel
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('cadeuh@gmail.com', 53, array('alt' => 'cad', 'class' => 'ppic'), false), '/profil/'. 'cad', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Webmaster
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Capable de pirater les serveurs du FBI avec une gameboy, il gère le développement du site et les questions d'ordre technique. 
+						Il est également un critique très difficile à satisfaire.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		
+		
 		<div class="redacteur">
 		
 			<div class="block-name">
@@ -694,6 +366,71 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Bleak', '/profil/'. 'bleak', array('escape' => false, 'class' => 'nodeco'))?></span> - Thomas Lewin
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('hatworld89@gmail.com', 53, array('alt' => 'bleak', 'class' => 'ppic'), false), '/profil/'. 'bleak', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Sheriff
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Critique occasionnel sur certaines séries, il est surtout le shériff impitoyable du forum. Attention donc à ne pas le froisser, il est capable
+						de faire disparaître quelqu'un en moins de deux.	
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('CaptainFreeFrag', '/profil/'. 'CaptainFreeFrag', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('rob.zen@hotmail.fr', 53, array('alt' => 'CaptainFreeFrag', 'class' => 'ppic'), false), '/profil/'. 'CaptainFreeFrag', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Sur le forum, il est de toutes les discussions. Tant et si bien qu'on a l'impression qu'il est un rédacteur prolifique, alors qu'en fait, il n'a 
+						critiqué que <strong>The Playboy Club</strong> et <strong>Boss</strong>.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
 		<div class="redacteur">
 		
 			<div class="block-name">
@@ -725,6 +462,39 @@
 				</div>
 			</div>
 		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Fafa', '/profil/'. 'Fafa', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('stephane.blin10@wanadoo.fr', 53, array('alt' => 'Fafa', 'class' => 'ppic'), false), '/profil/'. 'Fafa', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Plus gros noteur du site, il aime achever les séries minables à coup d'avis destructeurs. Il critique occasionnellement certaines séries
+						comme <strong>Star Wars: The Clone Wars</strong>.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
 		<div class="redacteur">
 		
 			<div class="block-name">
@@ -755,6 +525,37 @@
 					</blockquote>
 				</div>
 			</div>
+		</div>		
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Gouloudrouioul', '/profil/'. 'Gouloudrouioul', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('glounz@hotmail.fr', 53, array('alt' => 'Gouloudrouioul', 'class' => 'ppic'), false), '/profil/'. 'Gouloudrouioul', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Son pseudo improbable semble sortir tout droit du bestiaire de <strong>Doctor Who</strong>. Finalement, ce n'est peut-être pas un hasard s'il critique la série.
+					</blockquote>
+				</div>
+			</div>
 		</div>
 		<div class="redacteur">
 		
@@ -782,6 +583,41 @@
 				<div class="status">
 					<blockquote>
 						Fans des beaux gosses vampires de <strong>The Vampire Diaries</strong>, elle a finalement succombé à leur charme et est parti les rejoindre.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Leif', '/profil/'. 'Leif', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('002lp@wanadoo.fr', 53, array('alt' => 'Leif', 'class' => 'ppic'), false), '/profil/'. 'Leif', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Ami de 
+					</p>
+					<div class="dot">
+					</div>
+					<p class="role-sub">
+						Google
+					</p>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Depuis qu'il lui a offert des places de concert pour Desireless, Google est vraiment son ami. Du coup, il remonte de temps en temps 
+						Serieall dans les résultats de recherche pour le remercier.
 					</blockquote>
 				</div>
 			</div>
@@ -870,7 +706,7 @@
 				
 				<div class="block-role">
 					<p class="role">
-						Rédacteur
+						 Rédacteur
 					</p>
 					<div class="dot">
 					</div>
@@ -879,6 +715,73 @@
 				<div class="status">
 					<blockquote>
 						Grand fan des comics <strong>The Walking Dead</strong>, il a critiqué un temps la série d'AMC. Et puis les zombies l'ont finalement rattrapé et on le l'a plus revu...
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Poliis0n', '/profil/'. 'Poliis0n', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('julien.agar@live.fr', 53, array('alt' => 'Poliis0n', 'class' => 'ppic'), false), '/profil/'. 'Poliis0n', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Gestion du
+					</p>
+					<div class="dot">
+					</div>
+					<p class="role-sub">
+						planning
+					</p>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Egalement surnommé <em>le ninja du planning</em>, son action est aussi discrète qu'efficace : le planning est à jour toutes les semaines (sauf quand c'est son tour 
+						de nettoyer la cave).						
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Puck', '/profil/'. 'Puck', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('absinthe5@free.fr', 53, array('alt' => 'Puck', 'class' => 'ppic'), false), '/profil/'. 'Puck', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Correctrice
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Chevalier de l'ordre du Larousse et gardienne du Petit Robert, elle traque sans relâche les fautes d'ortographe et de grammaire. Elle critique aussi quelques
+						séries, pour peu que John Simm soit au casting.
 					</blockquote>
 				</div>
 			</div>
@@ -920,6 +823,73 @@
 		
 			<div class="block-name">
 				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Sanschiffre', '/profil/'. 'sanschiffre', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('sanschiffre@hotmail.fr', 53, array('alt' => 'sanschiffre', 'class' => 'ppic'), false), '/profil/'. 'sanschiffre', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Gestion des
+					</p>
+					<div class="dot">
+					</div>
+					<p class="role-sub">
+						séries
+					</p>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Amateur de grand n'importe quoi, il rajoute discrètement toutes sortes de nanars sur le site en tentant de convertir les rédacteurs à sa cause. 
+						Il possède aussi un &oelig;il bionique capable de détecter les faux raccords.  
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Sephja', '/profil/'. 'sephja', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('madameerini@gmail.com', 53, array('alt' => 'sephja', 'class' => 'ppic'), false), '/profil/'. 'sephja', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Quand il ne s'occupe de ses alpagas, sa passion est la découverte de nanars australiens ou du dernier
+						thriller suédois à la mode, qu'il s'empresse de faire découvrir à tout le monde.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
 					<span class="pseudo"><?php echo $html->link('Spoon', '/profil/'. 'spoon', array('escape' => false, 'class' => 'nodeco'))?></span> - Nicolas Tassone
 				</p>
 				<div class="name-separator">
@@ -943,6 +913,38 @@
 					<blockquote>
 						Il fut un temps où il a critiqué <strong>Sons of Anarchy</strong> et <strong>Gossip Girl</strong> pour marquer son ouverture d'esprit. 
 						Depuis, il s'est rendu compte de son erreur et s'est exilé dans un monastère.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Tan', '/profil/'. 'Tan', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('morlak_ncr@hotmail.com', 53, array('alt' => 'Tan', 'class' => 'ppic'), false), '/profil/'. 'Tan', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Son rêve absolu est de se transformer en Pinkie Pie, l'un des poneys de <strong>My Little Pony : Friendship is Magic</strong>. En dehors de ça, c'est un garçon
+						normal qui critique <strong>How I Met Your Mother</strong>.
 					</blockquote>
 				</div>
 			</div>
