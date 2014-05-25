@@ -38,7 +38,12 @@
 						   <?php // Si texte dans l'avis on prépare l'avis en facebox 
 						  if (!empty($comment['Comment']['text'])) {
 								echo '<div class="txtAvisHome">';
-								echo $text->truncate(strip_tags($comment['Comment']['text']), '95','...',false);
+								if($comment['Comment']['spoiler']){
+									//Spoiler
+									echo "Cet avis contient des spoilers, rendez-vous sur la fiche pour le voir.";
+								}else{
+									echo $text->truncate(strip_tags($comment['Comment']['text']), '95','...',false);
+								}
 								echo '</div>';
 						  }?>
                 </li>
