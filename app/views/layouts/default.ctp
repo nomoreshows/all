@@ -56,13 +56,13 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 		echo $javascript->link('jquery-1.3.2.min', true);	
 	?>
         
-	
 		
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 </head>
 
 <body>
+
 	<div id="header">
     	<div id="menu">
             <div class="width">
@@ -240,6 +240,7 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 		echo $javascript->link('jquery.form', true);
 		echo $javascript->link('swfobject', true);
 		echo $javascript->link('jquery.tools.min', true);
+		echo $javascript->link('perso.cnil', true);
 		echo $scripts_for_layout;
 	?>
         <script type="text/javascript">
