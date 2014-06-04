@@ -70,11 +70,5 @@ if (!consentCookie) {//L'utilisateur n'a pas encore de cookie de consentement
      window[disableStr] = true;
      window[disableStr] = true;
      window.onload = askConsent;
-   } else { //sinon on lui dépose un cookie 
-      document.cookie = 'hasConsent=false; '+ getCookieExpireDate() +' ; path=/'; 
    }
-}else{
-	if (document.cookie.indexOf('hasConsent=false') > -1) {
-		window.onload = askConsent;
-	}
 }
