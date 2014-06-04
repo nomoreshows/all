@@ -1074,7 +1074,38 @@ a.to-highlight:hover {background-color: rgb(223, 232, 246);}
 #embed {width:590px; margin-left:25px;}
 #embedcode {font:11px Tahoma; color:#999;}
  
+/********************* Cookie Banner *********************/
+#cookie-banner{
+	height : 30px;
+	text-align : center;
+	margin-top : 10px;
+	font-size : 1.2em;
+}
 
+.cookie-banner-link{
+	color: #00325f;
+	text-decoration: none;
+	font-family: Tahoma,Arial sans-serif;
+}
+
+.cookie-banner-link:hover{
+	color: #006eb2;
+}
+
+.cookie-banner-validate{
+	display : inline-block;
+	margin-left : 5px;
+	margin-right : 5px;
+	background-color : #006eb2;
+	color : #b0cde1;
+	text-decoration: none;
+	padding : 5px;
+	border-radius : 5px;
+}
+
+.cookie-banner-validate:hover{
+	color : #ffffff;
+}
 
 /********************* CAKE ************************/
 
