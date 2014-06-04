@@ -27,7 +27,7 @@ function askConsent(){
     div.setAttribute('width','70%');
     // Le code HTML de la demande de consentement
     // Vous pouvez modifier le contenu ainsi que le style
-    div.innerHTML =  '<div>Ce site utilise des cookies pour assurer son bon fonctionnement et une expérience optimale. \
+    div.innerHTML =  '<div>Ce site utilise des cookies pour assurer son bon fonctionnement. \
 	En poursuivant votre navigation, vous acceptez l\'utilisation des cookies. \
     <a href="javascript:validate()" class="cookie-banner-validate">OK</a>\
 	<a href="/mentions-legales" class="cookie-banner-link">En savoir plus</a>.</div>';          
