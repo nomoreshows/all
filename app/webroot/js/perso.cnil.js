@@ -5,10 +5,6 @@ gaProperty = 'UA-11059857-1'
 
 var disableStr = 'ga-disable-' + gaProperty;
 
-if (document.cookie.indexOf('hasConsent=false') > -1) {
-window[disableStr] = true;
-}
-
 //Cette fonction retourne la date d’expiration du cookie de consentement 
 
 function getCookieExpireDate() { 
@@ -77,4 +73,8 @@ if (!consentCookie) {//L'utilisateur n'a pas encore de cookie de consentement
    } else { //sinon on lui dépose un cookie 
       document.cookie = 'hasConsent=false; '+ getCookieExpireDate() +' ; path=/'; 
    }
+}else{
+	if (document.cookie.indexOf('hasConsent=false') > -1) {
+		window.onload = askConsent;
+	}
 }
