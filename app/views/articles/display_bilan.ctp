@@ -376,13 +376,6 @@
         </div>
         <?php } ?>
     	
-        <div id="colright-bup">
-            <div class="colrbup-header"></div>
-            <div class="colr-content">
-            	<?php echo $this->element('pub-sidebar'); ?>
-            </div>
-            <div class="colr-footer"></div>
-        </div>
         
         <!-- Dernieres articles -->
         <div id="colright-lastarticles">
