@@ -97,7 +97,7 @@
 </div>
 <div id="col2">
 	<div id="colright-bup">
-	        <div class="colrbup-header"></div>
+	        <div></div>
 	        <div class="colr-content">
 	        </div>
 	        <div class="colr-footer"></div>
