@@ -100,7 +100,7 @@
 	        <div></div>
 	        <div class="colr-content">
 	        </div>
-	        <div class="colr-footer"></div>
+	        <div></div>
     	</div>
 </div>
 
