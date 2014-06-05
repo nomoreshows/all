@@ -93,10 +93,10 @@
 	</div>
     </div>
     
-    <div id="col2">
+    
+</div>
+<div id="col2">
 
     </div>
-</div>
-
 </div>
 
