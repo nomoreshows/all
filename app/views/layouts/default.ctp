@@ -46,12 +46,13 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 	<?php
 		echo $html->meta('rss', 'http://feeds.feedburner.com/SerieAllArticles', array('title' => "Série-All"));
 		echo $html->meta('icon');
-		echo $html->css('jquery-ui-1.7.2');
+		//echo $html->css('jquery-ui-1.7.2');
 		echo $html->css('general');
-		echo $html->css('chosen');
-		echo $html->css('facebox');
-		echo $html->css('jquery.jgrowl');
-		echo $html->css('nivo-slider');
+		//echo $html->css('chosen');
+		//echo $html->css('facebox');
+		//echo $html->css('jquery.jgrowl');
+		//echo $html->css('nivo-slider');
+		echo $html->css('common');
 		
 		echo $javascript->link('jquery-1.3.2.min', true);	
 	?>
