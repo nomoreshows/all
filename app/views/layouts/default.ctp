@@ -228,19 +228,19 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 <?php if ($session->check('Message.flash')) {	$session->flash();} 
 
 		
-		echo $javascript->link('jquery-ui-1.7.2.custom.min', true);
-		echo $javascript->link('jquery.jgrowl', true);
-		echo $javascript->link('jquery.easing.1.3', true);
-		echo $javascript->link('jquery.chosen', true);
-		echo $javascript->link('facebox', true);
+		//echo $javascript->link('jquery-ui-1.7.2.custom.min', true);
+		//echo $javascript->link('jquery.jgrowl', true);
+		//echo $javascript->link('jquery.easing.1.3', true);
+		//echo $javascript->link('jquery.chosen', true);
+		//echo $javascript->link('facebox', true);
 		echo $javascript->link('jquery.galleryview-2.0-pack', true);
-		echo $javascript->link('jquery.timers-1.1.2', true);
+		//echo $javascript->link('jquery.timers-1.1.2', true);
 		echo $javascript->link('jquery.sexy-combo-2.1.2.pack', true);
-		echo $javascript->link('jquery.jeditable', true);
-		echo $javascript->link('jquery.form', true);
-		echo $javascript->link('swfobject', true);
-		echo $javascript->link('jquery.tools.min', true);
-		echo $javascript->link('perso.cnil', true);
+		//echo $javascript->link('jquery.jeditable', true);
+		//echo $javascript->link('jquery.form', true);
+		//echo $javascript->link('swfobject', true);
+		//echo $javascript->link('jquery.tools.min', true);
+		//echo $javascript->link('perso.cnil', true);
 		
 		echo $javascript->link('common', true);
 		echo $scripts_for_layout;
