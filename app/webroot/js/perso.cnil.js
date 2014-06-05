@@ -62,13 +62,21 @@ function validate() {
 
 //Ce bout de code vérifie que le consentement n'a pas déjà été obtenu avant d'afficher
 // la baniére
-var consentCookie =  getCookie('hasConsent');
+var consentCookie =  getCookie('notFirstTime');
 if (!consentCookie) {//L'utilisateur n'a pas encore de cookie de consentement
  var referrer_host = document.referrer.split('/')[2]; 
    if ( referrer_host != document.location.hostname ) { //si il vient d'un autre site
    //on désactive le tracking et on affiche la demande de consentement            
      window[disableStr] = true;
-     window[disableStr] = true;
      window.onload = askConsent;
+   }else{
+   	document.cookie = 'notFirstTime=true; '+ getCookieExpireDate() +' ; path=/'; 
    }
+}else{
+	consentCookie =  getCookie('hasConsent');
+	if (!consentCookie) {
+		window.onload = askConsent;
+	}
 }
+
+
