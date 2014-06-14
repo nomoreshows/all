@@ -48,7 +48,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Passioné par les fouets qu'il n'hésite pas à utiliser dès qu'un rédacteur ne suit pas les consignes, il critique <strong>Sherlock</strong> et <strong>Wilfred</strong>. 
+						Passionné par les fouets qu'il n'hésite pas à utiliser dès qu'un rédacteur ne suit pas les consignes, il critique <strong>Sherlock</strong> et <strong>Wilfred</strong>. 
 						Il devient également très succeptible dès que l'on ose critiquer le brushing de <strong>MacGyver</strong>.
 					</blockquote>
 				</div>
