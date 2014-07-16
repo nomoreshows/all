@@ -298,24 +298,13 @@ class RatesController extends AppController {
 		$this->set(compact('episode'));
 	}
 	
-	function admin_delete($id) {
-		//Suppression des notes de l'utilisateur
-		//$this->User->Rate->deleteAll();
-		$moyennes = $this->User->Rate->find('all');
-		/*, 
-			array('conditions' => array('Rate.user_id' => $user['User']['id']), 
-			'fields' => array('AVG(Rate.name) as Moyenne', 'COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.name', 'Show.menu', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
-*/
+	function admin_delete($id, $user_id) {
+		//Suppression de la note de l'utilisateur
+		$this->Rate->del($id, true);
 		
 		
-		//Suppression des réactions de l'utilisateur
-		
-		//Suppression des avis de l'utilisateur
-		
-		//Suppression de l'utilisateur
-		//$this->User->del($id);
-		$this->Session->setFlash('L\'utilisateur a été supprimé.'.$moyennes, 'growl');	
-		$this->redirect(array('controller' => 'users', 'action' => 'index'));
+		$this->Session->setFlash('La note a été supprimée.'.$moyennes, 'growl');
+        $this->redirect( array('controller' => 'rates', 'action' => 'searchresult', 'prefix' => 'admin', $user_id));
 	}
 	
 	/*
@@ -332,9 +321,16 @@ class RatesController extends AppController {
 	 * Recupère l'ensemble des notes de l'utilisateur choisi précédemment (admin_index)
 	 * Affiche les résultats sous forme d'un tableau proposant la suppression des notes.
 	 */ 
-	function admin_searchresult(){
+	function admin_searchresult($user_id){
+	
 		$arrayCondition = array();
-		$arrayCondition['Rate.user_id =' ]= $this->data['Rate']['user_id'];
+		
+		if(isset($user_id)){
+			$arrayCondition['Rate.user_id =' ]= $user_id;
+		}else{
+			$arrayCondition['Rate.user_id =' ]= $this->data['Rate']['user_id'];
+		}
+		
 		
 		//Requete de recherche des commentaires
 		$list_rates = $this->Rate->find('all',array(
