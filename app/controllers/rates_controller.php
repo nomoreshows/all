@@ -2,7 +2,7 @@
 class RatesController extends AppController {
 	
 	var $name = "Rates";
-	var $layout = "none";
+	var $layout = "admin_users";
 	
 	public function beforeFilter() {
    		parent::beforeFilter();
@@ -296,5 +296,31 @@ class RatesController extends AppController {
 		$this->set(compact('rates'));
 		$this->set(compact('result'));
 		$this->set(compact('episode'));
+	}
+	
+	function admin_delete($id) {
+		//Suppression des notes de l'utilisateur
+		//$this->User->Rate->deleteAll();
+		$moyennes = $this->User->Rate->find('all');
+		/*, 
+			array('conditions' => array('Rate.user_id' => $user['User']['id']), 
+			'fields' => array('AVG(Rate.name) as Moyenne', 'COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.name', 'Show.menu', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
+*/
+		
+		
+		//Suppression des réactions de l'utilisateur
+		
+		//Suppression des avis de l'utilisateur
+		
+		//Suppression de l'utilisateur
+		//$this->User->del($id);
+		$this->Session->setFlash('L\'utilisateur a été supprimé.'.$moyennes, 'growl');	
+		$this->redirect(array('controller' => 'users', 'action' => 'index'));
+	}
+	
+	function admin_index() {
+		$users = $this->Rate->User->find('list', array('order' => 'login ASC'));
+
+		$this->set(compact('users'));
 	}
 }
