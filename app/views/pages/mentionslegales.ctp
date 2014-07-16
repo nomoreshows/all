@@ -71,6 +71,7 @@
 		Les cookies <em>ne sont pas une menace</em>, bien au contraire : de nombreux sites comme google.fr, microsoft.com ou encore fnac.com 
 		utilisent des cookies. 
 		</p>
+		<br/>
 		<p>
 		Sur serieall.fr, nous utilisons deux types de cookies :
 			<ul>
@@ -82,22 +83,30 @@
 					Les cookies dit "de traçage" : ce sont des cookies issus de l'outil Google Analytics. 
 					Ils nous permettent de mesurer la popularité du site web, le nombre de visiteurs, de pages vues, etc. 
 					Les données récupérées via ces cookies sont anonymisées et utilisées uniquement à des fins statistiques.
-					Ces données ne sont pas recoupées avec d'autres données.
+					Ces données ne sont pas recoupées avec d'autres données.<br/>
 					Ces cookies ne sont pas essentiels au bon fonctionnement du site, ils peuvent être bloqués sans conséquences sur la navigation. 
-					Néanmoins, les bloquer nous prive de certaines informations importantes permettant d'améliorer la qualité du site.
+					Néanmoins, les bloquer nous prive de certaines informations importantes permettant d'améliorer la qualité du site. <br/>
+					Conformément aux recommandations de la CNIl, le premier accès au site ne déclenche pas le dépôt de ces cookies de traçage. 
+					En revanche, tout accès ultérieur est considéré comme poursuite de la navigation et vaut comme acceptation implicite de ces cookies 
+					(et entraîne donc leur dépôt).
 				</li>
 			</ul>
 		</p>
-		Série-All ne proposant pas de publicités, les cookies de type "publicitaire" sont absents du site.
+		<p>
+		Série-All ne proposant pas de publicités, les cookies de type "publicitaire" sont absents du site. 
+		À noter toutefois la précence de traceurs liés aux réseaux sociaux (facebook, twitter, etc.) sur certaines pages, notamment les boutons de partage sur les articles, par exemple. 
+		Nous réfléchissons actuellement à la mise en place d'une solution qui limiterait la portée de ces traceurs. 
+		</p>
+		<p>
 			Vous pouvez vous opposez à la collecte des cookies sur votre navigateur :
 			<ul>
 				<li>
 					En paramétrant votre navigateur pour ne plus recevoir de cookies (se référer à la documentation de votre navigateur à ce sujet : <a href="https://support.google.com/chrome/answer/95647?hl=fr">Google Chrome</a>
 					, <a href="https://support.mozilla.org/fr/kb/activer-desactiver-cookies">Firefox</a>, <a href="http://windows.microsoft.com/fr-fr/windows7/block-enable-or-allow-cookies">Internet Explorer</a>, 
-					<a href="http://support.apple.com/kb/ht1677?viewlocale=fr_FR&locale=fr_FR">Safari</a>, etc.
+					<a href="http://support.apple.com/kb/ht1677?viewlocale=fr_FR&locale=fr_FR">Safari</a>, etc. )
 				</li>
 				<li>
-					Utiliser un bloqueur comme <a href="https://www.ghostery.com/fr/">Ghostery</a>.
+					Utiliser un bloqueur comme <a href="https://www.ghostery.com/fr/">Ghostery</a>. Ce type d'extension vous permet de voir et bloquer plus finement les différents traceurs utilisés par les sites.
 				</li>
 			</ul>
 		</p>
