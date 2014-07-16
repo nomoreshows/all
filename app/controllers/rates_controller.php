@@ -318,9 +318,29 @@ class RatesController extends AppController {
 		$this->redirect(array('controller' => 'users', 'action' => 'index'));
 	}
 	
+	/*
+		Recupère la liste des utilisateurrs.
+		Affiche la liste pour sélection des notes ensuite.
+	*/
 	function admin_index() {
 		$users = $this->Rate->User->find('list', array('order' => 'login ASC'));
 
 		$this->set(compact('users'));
+	}
+	
+	/**
+	 * Recupère l'ensemble des notes de l'utilisateur choisi précédemment (admin_index)
+	 * Affiche les résultats sous forme d'un tableau proposant la suppression des notes.
+	 */ 
+	function admin_searchresult(){
+		$arrayCondition = array();
+		$arrayCondition['Rate.user_id =' ]= $this->data['Rate']['user_id'];
+		
+		//Requete de recherche des commentaires
+		$list_rates = $this->Rate->find('all',array(
+			'conditions' => $arrayCondition,
+			'order' => 'Rate.created DESC'));
+	
+		$this->set('rates', $list_rates);
 	}
 }
