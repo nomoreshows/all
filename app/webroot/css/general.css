@@ -378,13 +378,13 @@ h3 a:hover 			{background-color:#d0e6f6;}
 .bg-serie {background:url(../img/bg-serie.png); width:645px; height:237px;}
 .bg-serie img {margin-left:1px; margin-top:1px; width:490px; height:235px;}
 .bg-serie table tr td {color:white; vertical-align:top;}
-td.td-genres 	{height:70px; padding-top:10px; padding-left:27px; text-align:left}
-td.td-nat 		{height:37px; padding-top:10px !important; padding-top:0px; padding-left:27px; text-align:left}
-td.td-annee 	{height:37px; padding-top:14px; padding-left:27px; text-align:left}
-td.td-format 	{height:37px; padding-top:14px; padding-left:27px; text-align:left}
-td.td-annee 	{padding-top:13px; height:37px; padding-left:27px; text-align:left}
-td.td-chaineus 	{width:75px; padding-top:13px; text-align:center;}
-td.td-chainefr 	{width:75px; padding-top:13px; text-align:center}
+td.td-genres 	{height:60px; padding-top:10px; padding-left:27px; text-align:left}
+td.td-nat 		{height:30px; padding-top:10px !important; padding-top:0px; padding-left:27px; text-align:left}
+td.td-annee 	{height:35px; padding-top:10px; padding-left:27px; text-align:left}
+td.td-format 	{height:30px; padding-top:10px; padding-left:27px; text-align:left}
+td.td-annee 	{padding-top:10px; height:25px; padding-left:27px; text-align:left}
+td.td-chaineus 	{width:75px; padding-top:10px; text-align:center;}
+td.td-chainefr 	{width:75px; padding-top:10px; text-align:center}
 td.td-portrait { padding-top:10px; padding-left:17px; text-align:left;}
 
 .read-more {text-decoration:none; color:#006eb2;}
