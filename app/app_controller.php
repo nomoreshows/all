@@ -38,8 +38,8 @@
 class AppController extends Controller {
 	
 	
-	var $helpers = array ('Html', 'Text', 'Form', 'Javascript', 'Ajax', 'Star', 'Gravatar', 'Paginator', 'Cache', 'Avis');
-	var $components = array('Auth', 'Thumb', 'RequestHandler');
+	var $helpers = array ('Html', 'Text', 'Form', 'Javascript', 'Ajax', 'Star', 'Gravatar', 'Paginator', 'Cache', 'Avis','Session');
+	var $components = array('Auth', 'Thumb', 'RequestHandler','Session');
  
  
 	function beforeFilter() {
