@@ -12,6 +12,7 @@ class ShowsController extends AppController {
 		'classement' => '2 hours',
 		'index' => '1 hour',
 		'fiche/' => '1 hour'
+		//'rentree2014/' => '1 hour'
 	);
 
 	
@@ -583,7 +584,7 @@ class ShowsController extends AppController {
 			break;
 		
 		case 'start':
-		case 'te':
+		case 'tePositif':
 			$filterTitle = 'Les séries les plus prometteuses';
 			$shows = $this->Show->find('all', array(
 			   'conditions' => array('Show.is_rentree2014 = 1 AND Show.te_rentree > 49'),
@@ -592,7 +593,7 @@ class ShowsController extends AppController {
 			));
 			break;
 		
-		case 'te-':
+		case 'teNeutre':
 			$filterTitle = 'Les séries dont on attend pas grand chose';
 			$shows = $this->Show->find('all', array(
 			   'conditions' => array('Show.is_rentree2014 = 1 AND Show.te_rentree < 50 AND Show.te_rentree > 19'),
@@ -601,10 +602,19 @@ class ShowsController extends AppController {
 			));
 			break;
 		
-		case 'te--':
+		case 'teNegatif':
 			$filterTitle = 'On vous conseille vivement d\'éviter de les croiser';
 			$shows = $this->Show->find('all', array(
-			   'conditions' => array('Show.is_rentree2014 = 1 AND Show.te_rentree < 20 AND Show.te_rentree != 0'),
+			   'conditions' => array('Show.is_rentree2014 = 1 AND Show.te_rentree < 20 AND Show.te_rentree >= 0'),
+			   'contain' => $contain,
+			   'order' => 'diffusionus ASC'
+			));
+			break;
+			
+		case 'teNone':
+			$filterTitle = 'On ne se prononce pas';
+			$shows = $this->Show->find('all', array(
+			   'conditions' => array('Show.is_rentree2014 = 1 AND Show.te_rentree IS NULL'),
 			   'contain' => $contain,
 			   'order' => 'diffusionus ASC'
 			));

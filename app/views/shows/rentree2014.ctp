@@ -9,8 +9,17 @@
 
 <div id="event">
     <div class="padl15">
+	<?php echo $this->element('partage-reseau-sociaux'); ?>
     <h1 class="title">Les nouvelles séries de 2014</h1><br /><br />
-    <span class="chapo">L'été arrive, et avec lui arrive les nouvelles séries pour la rentrée prochaine. Comme d'habitude l'été et le mois de septembre sont un moment fort pour les séries, c'est pour cela que l'on a répertorié une soixantaine de nouveautés sur cette page. Repérez les prochaines perles et navets grâce à notre indice infaillible (le taux érectile) ainsi que nos avis sur les séries.</span>
+	
+    <span class="chapo">
+		C'est la rentrée série ! Et comme chaque année, le sériephile averti se pose toujours la même question : qu'est ce que je vais bien pouvoir regarder cette année ? 
+		À serieall, nous avons bien compris ce soucis et c'est pourquoi nous vous proposons cette page recensant les nouveautés de la saison 2014-2015. <br/>
+		Et comme on sait que le temps d'un sériephile est précieux, toutes les séries que nous avons analysés sont présentées grâce à notre indice infaillible, 
+		le taux érectile, qui vous permettra à coup-sûr de sélectionner les perles des navets (50% de chances que l'on se plante).
+		<br/>
+		Bonne saison !
+	</span>
     <br /><br /><br />
     
     <h2 class="title dblue">Filtrer les nouveautés</h2><br /><br />
@@ -19,11 +28,11 @@
     <td width="30%">
       <h3 class="dblue">Les catégories Série-All :</h3> <br /><br />
       <ul class="playe lblue">
-        <li><?php echo $ajax->link('Les séries les plus prometteuses', array('controller' => 'shows', 'action' => 'rentree2014', 'te'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries dont on attend pas grand chose', array('controller' => 'shows', 'action' => 'rentree2014', 'te-'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('On vous conseille vivement d\'éviter de les croiser', array('controller' => 'shows', 'action' => 'rentree2014', 'te--'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries les plus prometteuses', array('controller' => 'shows', 'action' => 'rentree2014', 'tePositif'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries dont on attend pas grand chose', array('controller' => 'shows', 'action' => 'rentree2014', 'teNeutre'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('On vous conseille vivement d\'éviter de les croiser', array('controller' => 'shows', 'action' => 'rentree2014', 'teNegatif'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('On ne se prononce pas', array('controller' => 'shows', 'action' => 'rentree2014', 'teNone'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
         <li><?php echo $ajax->link('Toutes les séries par ordre de diffusion', array('controller' => 'shows', 'action' => 'rentree2014', 'all'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-
       </ul>
     </td>
     <td width="20%">
