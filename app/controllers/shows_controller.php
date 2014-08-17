@@ -570,7 +570,7 @@ class ShowsController extends AppController {
 	// RENTREE 2014
 	function rentree2014($filter) {
 		$this->layout = 'default';
-		$contain = array('Season', 'Role');
+		$contain = array('Season', 'Article');
 		
 		switch($filter) {
 		

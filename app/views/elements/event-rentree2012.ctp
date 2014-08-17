@@ -80,7 +80,8 @@ $('a[rel*=facebox]').facebox();
         <td><?php echo $date; //print_r($show); ?>.</td>
         <td>
         <?php if (!empty($show['Show']['avis_rentree'])) echo $html->link('<span>Notre avis</span>', '#avisredac' . $show['Show']['id'], array('class' => 'button current', 'escape' => false, 'rel' => 'facebox')); ?>
-        <?php if(!empty($show['Season'][0]['ba'])) { ?> <?php echo $html->link('<span>Trailer</span>', '#trailer' . $show['Show']['id'], array('escape' => false, 'class' => 'button', 'rel' => 'facebox[.fbcontent]')); } ?>
+        <?php if(!empty($show['Season'][0]['ba'])) {  echo $html->link('<span>Trailer</span>', '#trailer' . $show['Show']['id'], array('escape' => false, 'class' => 'button', 'rel' => 'facebox[.fbcontent]')); } ?>
+        <?php if(!empty($show['Article'][0]['url'])) {  echo $html->link('<span>Critique</span>', '/article/' . $show['Article'][0]['url'], array('escape' => false, 'class' => 'button')); } ?>
         
                   
         <?php /** if(!empty($show['Role'][0]['id'])) { ?> <?php echo $html->link('<span>Acteurs</span>', '/serie/' . $show['Show']['menu'] . '#acteurs', array('escape' => false, 'class' => 'button')); } */ ?>
