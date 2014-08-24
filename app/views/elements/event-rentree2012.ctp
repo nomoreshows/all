@@ -45,10 +45,12 @@ $('a[rel*=facebox]').facebox();
 		<div id="avisredac<?php echo $show['Show']['id']; ?>" style="display:none;">
   		<fieldset><legend>L'avis de <?php echo $html->image('logo_v2.png', array('alt'=>'Série-All', 'width' => 100, 'class' => 'logoavis')); ?></legend>
   		
-  		<div id="te"><span class="expand <?php echo $te_color; ?>">
-  		  Taux érectile : <strong><?php echo $te; ?>%</strong>
-  		</span></div><br /><br />
-  		
+		<?php if($te){?>
+			<div id="te"><span class="expand <?php echo $te_color; ?>">
+			  Taux érectile : <strong><?php echo $te; ?>%</strong>
+			</span></div><br /><br />
+  		<?php  }?>
+		
   		<div class="article">
   		  <?php echo nl2br($show['Show']['avis_rentree']); ?>
   		</div>
@@ -71,30 +73,35 @@ $('a[rel*=facebox]').facebox();
   				$date = 'A partir de septembre 2013'; 
   			} elseif($show['Show']['diffusionus'] == '2014-01-01') {
   				$date = 'A partir de janvier 2014'; 
+			} elseif($show['Show']['diffusionus'] == '2015-01-01') {
+  				$date = 'A partir du printemps 2015'; 
+			} elseif($show['Show']['diffusionus'] == '2014-09-01') {
+  				$date = 'A partir de l\'automne 2014'; 
+			} elseif($show['Show']['diffusionus'] == '2014-09-01') {
+  				$date = 'A partir de l\'automne 2014'; 
   			} else {
   				$timestamp = strtotime($show['Show']['diffusionus']); 
   				$date = 'A partir du ' . strftime("%d %B %Y", $timestamp); 
   			} ?>
         <table width="100%">
         <tr>
-        <td><?php echo $date; //print_r($show); ?>.</td>
+        <td><?php echo $date;  ?>.</td>
         <td>
         <?php if (!empty($show['Show']['avis_rentree'])) echo $html->link('<span>Notre avis</span>', '#avisredac' . $show['Show']['id'], array('class' => 'button current', 'escape' => false, 'rel' => 'facebox')); ?>
         <?php if(!empty($show['Season'][0]['ba'])) {  echo $html->link('<span>Trailer</span>', '#trailer' . $show['Show']['id'], array('escape' => false, 'class' => 'button', 'rel' => 'facebox[.fbcontent]')); } ?>
-        <?php if(!empty($show['Article'][0]['url'])) {  echo $html->link('<span>Critique</span>', '/article/' . $show['Article'][0]['url'], array('escape' => false, 'class' => 'button')); } ?>
-        
-                  
-        <?php /** if(!empty($show['Role'][0]['id'])) { ?> <?php echo $html->link('<span>Acteurs</span>', '/serie/' . $show['Show']['menu'] . '#acteurs', array('escape' => false, 'class' => 'button')); } */ ?>
-        
+		<?php 
+			foreach ($show['Article'] as $article){
+				if($article['caption']=="1.01"){
+					echo $html->link('<span>Critique</span>', '/article/' . $article['url'], array('escape' => false, 'class' => 'button')); 
+					break;
+				}
+			}
+		?>
+
         </td>
         </tr>
         </table>
         
-        <?php
-        if (!empty($show['Show']['avis_rentree'])) {
-          // echo '<span class="avis-redac"><strong>Notre avis : </strong>' . $show['Show']['avis_rentree'] . '</span>';
-        }
-        ?>
         
 		<br /><br />
 	</div>

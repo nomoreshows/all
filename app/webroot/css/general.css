@@ -421,9 +421,12 @@ td.td-portrait { padding-top:10px; padding-left:17px; text-align:left;}
 #facebox img.logoavis {margin-bottom: .7em; vertical-align: middle}
 
 .te { width:370px; margin-bottom: 10px;}
-.expand { width:370px; height:15px; margin:2px 0; background:#d9f17d; position:absolute; color:#809a18; 
-    -moz-animation:fullexpand 2s ease-out;
+.expand { width:560px; height:15px; margin:2px 0; background:#d9f17d; position:absolute; color:#809a18; 
+    -o-animation:fullexpand 2s ease-out;
+	-moz-animation:fullexpand 2s ease-out;
 	-webkit-animation:fullexpand 2s ease-out;
+	animation:fullexpand 2s ease-out;
+	
 }
 
 .expand.up {background-color:#d9f17d; color:#809a18; box-shadow:0px 0px 1px 1px rgba(185,238,23,0.7);}
@@ -431,13 +434,18 @@ td.td-portrait { padding-top:10px; padding-left:17px; text-align:left;}
 .expand.down {background-color:#f6956a; color:#bd4b19; box-shadow:0px 0px 1px 1px rgba(249,140,110,0.7);}
 
 @-moz-keyframes fullexpand {
-	0%  { width:0px;}
-	100%{ width:100%;}	
+	0%  { width:100px;}
+	100%{ width:556px;}	
 }
 
 @-webkit-keyframes fullexpand {
-	0%  { width:0px;}
-	100%{ width:100%;}	
+	0%  { width:100px;}
+	100%{ width:556px;}	
+}
+
+@keyframes fullexpand {
+    0%  { width:100px;}
+	100%{ width:556px;}	
 }
 
 #lettres img {border:none; margin-bottom:7px; margin-right:4px;}

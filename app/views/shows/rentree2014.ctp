@@ -42,7 +42,11 @@
         <li><?php echo $ajax->link('Les nouvelles comédies', array('controller' => 'shows', 'action' => 'rentree2014', 'comic'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
           <li><?php echo $ajax->link('Les nouvelles séries policières', array('controller' => 'shows', 'action' => 'rentree2014', 'police'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
           <li><?php echo $ajax->link('Les nouvelles séries fantastiques', array('controller' => 'shows', 'action' => 'rentree2014', 'fantas'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <ul>
+		  <li><?php echo $ajax->link('Les nouveaux animés', array('controller' => 'shows', 'action' => 'rentree2014', 'anime'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+		  <li><?php echo $ajax->link('Les nouvelles séries d\'horreur', array('controller' => 'shows', 'action' => 'rentree2014', 'horreur'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+		  <li><?php echo $ajax->link('Les nouvelles séries de science-fiction', array('controller' => 'shows', 'action' => 'rentree2014', 'sf'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+
+		<ul>
     </td>
     <td width="17%">
       <h3 class="dblue">Par nationalité :</h3> <br /><br />
