@@ -12,7 +12,7 @@ class ShowsController extends AppController {
 		'classement' => '2 hours',
 		'index' => '1 hour',
 		'fiche/' => '1 hour'
-		//'rentree2014/' => '1 hour'
+		//'rentree2014/' => '5 hour'
 	);
 
 	
@@ -668,6 +668,36 @@ class ShowsController extends AppController {
 		case 'police':
 			$filterTitle = 'Les nouvelles séries policières';
 			$shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 10), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2014' => true), 'order' => 'diffusionus ASC'))));
+			$shows = $shows[0]['Show'];
+			foreach($shows as $i => $show) {
+				$tmpshow = $shows[$i];
+				unset($shows[$i]);
+				$shows[$i]['Show'] = $tmpshow;
+			}
+			break;
+		case 'anime':
+			$filterTitle = 'Les nouveaux animés';
+			$shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 15), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2014' => true), 'order' => 'diffusionus ASC'))));
+			$shows = $shows[0]['Show'];
+			foreach($shows as $i => $show) {
+				$tmpshow = $shows[$i];
+				unset($shows[$i]);
+				$shows[$i]['Show'] = $tmpshow;
+			}
+			break;
+			case 'horreur':
+			$filterTitle = 'Les nouvelles séries d\'horreur';
+			$shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 16), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2014' => true), 'order' => 'diffusionus ASC'))));
+			$shows = $shows[0]['Show'];
+			foreach($shows as $i => $show) {
+				$tmpshow = $shows[$i];
+				unset($shows[$i]);
+				$shows[$i]['Show'] = $tmpshow;
+			}
+			break;
+			case 'sf':
+			$filterTitle = 'Les nouvelles séries de science-fiction';
+			$shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 11), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2014' => true), 'order' => 'diffusionus ASC'))));
 			$shows = $shows[0]['Show'];
 			foreach($shows as $i => $show) {
 				$tmpshow = $shows[$i];
