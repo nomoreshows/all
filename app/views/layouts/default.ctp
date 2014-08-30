@@ -84,11 +84,12 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 							<li><?php echo $html->link('Podcasts', '/podcasts', array('escape' => false)); ?></li>
                         </ul>                    
                     </li>
+					<li class="notif-new"><?php echo $html->link('<span>Nouveautés 2014-2015</span>', '/nouvelles-series-2014-2015', array('escape' => false)); ?></li>
                 </ul>
                 
                 <cake:nocache>
                 <ul class="right menu">
-                	<?php if ($session->read('Auth.User.role') > 0) { ?><li class="<?php if($nbnotifications > 0) echo 'notif-new'; ?>"><?php echo $html->link('<span class="notif-badge">' .  $nbnotifications . '</span>', '/profil/'. $session->read('Auth.User.login') . '/notifications', array('escape' => false, 'title' => $nbnotifications . ' notification(s)')); ?></li><?php } ?>
+					<?php if ($session->read('Auth.User.role') > 0) { ?><li class="<?php if($nbnotifications > 0) echo 'notif-new'; ?>"><?php echo $html->link('<span class="notif-badge">' .  $nbnotifications . '</span>', '/profil/'. $session->read('Auth.User.login') . '/notifications', array('escape' => false, 'title' => $nbnotifications . ' notification(s)')); ?></li><?php } ?>
                     <li><?php echo $html->link('<span>Forum</span>', '/forum', array('escape' => false)); ?></li>
                     <li><?php if($session->read('Auth.User.role') > 0) echo $html->link('<span>Profil</span>', '/profil/' . $session->read('Auth.User.login'), array('escape' => false)); else echo $html->link('<span>Connexion</span>', '#connexion', array('rel' => 'facebox','escape' => false)); ?></li>
                     <li class="current nobright"><?php if($session->read('Auth.User.role') > 0) echo $html->link('<span>Déconnexion</span>', '/users/logout', array('escape' => false)); else echo $html->link('<span>Inscription</span>', '/inscription', array('escape' => false)); ?></li>
