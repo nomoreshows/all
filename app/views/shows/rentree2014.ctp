@@ -1,5 +1,5 @@
-<?php $this->pageTitle = 'Les nouvelles séries tv de la rentrée 2013'; 
-	echo $html->meta('description', "Repérez dès maintenant les nouvelles séries de la rentrée 2013 qui risquent de vous plaîre. ", array('type'=>'description'), false); 
+<?php $this->pageTitle = 'Les nouvelles séries tv de la saison 2014 - 2015'; 
+	echo $html->meta('description', "Repérez dès maintenant les nouvelles séries de la saison 2014 - 2015 qui risquent de vous plaîre. ", array('type'=>'description'), false); 
 ?>
 
 <?php
