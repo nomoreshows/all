@@ -75,7 +75,7 @@ $('a[rel*=facebox]').facebox();
   				$date = 'A partir de janvier 2014'; 
 			} elseif($show['Show']['diffusionus'] == '2015-01-01') {
   				$date = 'A partir du printemps 2015'; 
-			} elseif($show['Show']['diffusionus'] == '2014-09-01') {
+			} elseif($show['Show']['diffusionus'] == '2014-09-01' && $show['Show']['id'] != 1157) {
   				$date = 'A partir de l\'automne 2014'; 
 			} elseif($show['Show']['diffusionus'] == '2014-09-01') {
   				$date = 'A partir de l\'automne 2014'; 
