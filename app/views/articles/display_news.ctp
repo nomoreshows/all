@@ -30,9 +30,9 @@
     
     <div id="col1">
     <div class="padl5">
-    	<?php echo $this->element('partage-reseau-sociaux'); ?>
         
     	<h1 class="red title"><?php echo $article['Article']['name']; ?></h1><br />
+    	<?php echo $this->element('partage-reseau-sociaux'); ?>
         <span class="grey font12">publié par <?php echo $html->link($article['User']['login'], '/profil/'. $article['User']['login'], array('class' => 'decoblue', 'escape' => false));  ?> 
         le <?php $timestamp = strtotime($article['Article']['created']); e(strftime("%d/%m/%Y", $timestamp)); ?>
         </span>
