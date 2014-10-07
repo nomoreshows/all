@@ -4,10 +4,10 @@
     
     <div id="col1">
     <div class="padl5">
-		<?php echo $this->element('partage-reseau-sociaux'); ?>    	
+		  	
 
     	<h1 class="red title"><?php echo $article['Article']['name']; ?></h1><br /><br />
-        <fb:like show_faces="false" width="450" font="tahoma"></fb:like>
+        <?php echo $this->element('partage-reseau-sociaux'); ?>  
         <br />
         <span class="chapo"><?php echo $article['Article']['chapo']; ?></span>
         <br /><br /><br />
