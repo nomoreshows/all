@@ -7,9 +7,10 @@
     	
 
     	<h1 class="red title"><?php echo $article['Article']['name']; ?> - <?php echo $episode['Episode']['name']; ?></h1><br /><br />
+        <?php echo $this->element('partage-reseau-sociaux'); ?>
         <span class="chapo"><?php echo $article['Article']['chapo']; ?></span>
         <br />
-        <?php echo $this->element('partage-reseau-sociaux'); ?>
+        
         <br />
         <br />
         <div class="bg-serie">
