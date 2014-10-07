@@ -4,11 +4,14 @@
     
     <div id="col1">
     <div class="padl5">
-    	<?php echo $this->element('partage-reseau-sociaux'); ?>
+    	
 
     	<h1 class="red title"><?php echo $article['Article']['name']; ?> - <?php echo $episode['Episode']['name']; ?></h1><br /><br />
         <span class="chapo"><?php echo $article['Article']['chapo']; ?></span>
-        <br /><br /><br />
+        <br />
+        <?php echo $this->element('partage-reseau-sociaux'); ?>
+        <br />
+        <br />
         <div class="bg-serie">
         	<?php echo $html->image(('show/' . $show['Show']['menu'] . '_w.jpg'), array('alt' => $show['Show']['name'], 'align' => 'left')); ?>
             <table>
