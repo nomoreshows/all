@@ -573,7 +573,7 @@ class ShowsController extends AppController {
 		$contain = array('Season', 'Article');
 		
 		switch($filter) {
-		case 'start':
+		
 		case 'all':
 			$filterTitle = 'Toutes les nouveautés';
 			$shows = $this->Show->find('all', array(
@@ -583,7 +583,7 @@ class ShowsController extends AppController {
 			));
 			break;
 		
-		
+		case 'start':
 		case 'tePositif':
 			$filterTitle = 'Les séries les plus prometteuses';
 			$shows = $this->Show->find('all', array(
