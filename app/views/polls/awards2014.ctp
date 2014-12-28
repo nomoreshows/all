@@ -7,7 +7,6 @@
         	
             <h1 class="title red">Série-All Awards 2014</h1>
 			<br />
-            <br />
 			<?php echo $this->element('partage-reseau-sociaux'); ?>
 			<br />
             <p>
@@ -30,8 +29,6 @@
             <br /><br />
             
 			<?php 
-			
-			var_dump($votes);
 			
 			foreach($polls['Question'] as $i => $question): ?>
                 <div class="poll">
