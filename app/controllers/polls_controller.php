@@ -22,6 +22,19 @@ class PollsController extends AppController {
 		$polls = $this->Poll->find('first', array('contain' => array('Question' => array('Answer' => array('order' => 'Answer.porcent DESC'))), 'conditions' => array('id' => 2)));
 		$this->set('polls', $polls);
 	}
+	
+	function awards2014() {
+		$this->layout = 'default';
+		$this->loadModel('Vote');
+		
+		$polls = $this->Poll->find('first', array('contain' => array('Question' => array('Answer' => array('order' => 'Answer.porcent DESC'))), 'conditions' => array('id' => 3)));
+		$this->set('polls', $polls);
+		
+		/*
+		$votes = $this->Vote->find('first');
+		$this->set('votes', $votes);
+		*/
+	}
  
 	function view($id = null) {
 		$this->set('polls', $this->Poll->read(null, $id));
