@@ -19,17 +19,16 @@
             <strong>Quelques règles :</strong>
             <ul>
            		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(cela ne prend que 30 secondes)</em>.
-                <li>les votes sont ouverts jusqu'au 31 janvier</li>
+                <li>les votes sont ouverts jusqu'au 25 janvier</li>
                 <li>les nominés ont été choisis sur l'année 2014 (toutes les séries ayant au moins un épisode diffusé en 2014)</li>
                 <li>vous pouvez changer votre vote à tout moment en choisissant un autre candidat.</li>
                 <li>vous pouvez nous faire part de vos remarques sur <a href="http://serieall.fr/article/votez-serieall-awards_a932.html">cet article</a>, dans les commentaires.</li>
             </ul><br />
-             <strong>Les résultats seront disponibles début février, lors de la grande remise de nos trophées.</strong>
+             <strong>Les résultats seront disponibles fin janvier/début février, lors de la grande remise de nos trophées.</strong>
             </p>
             <br /><br />
             
-			<?php 
-			
+			<?php 			
 			foreach($polls['Question'] as $i => $question): ?>
                 <div class="poll">
                     <h3 class="red"><?php echo $question['name']; ?></h3><br /><br />
@@ -40,7 +39,9 @@
 						echo $ajax->link($html->image($answer['img'], array('class' => 'answer-img')), array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false));
 						//echo $html->image($answer['img'], array('class' => 'answer-img'));
 					}
-                    endforeach; ?>    
+                    endforeach; 
+					?>   
+					
                     <br /><br />
                     
                     <ul class="answers-poll">
@@ -54,7 +55,15 @@
 						
                         <div id="answer<?php echo $answer['id']; ?>" class="answers-vote"></div>
 						</li>
-                    <?php endforeach; ?>    
+                    <?php endforeach; 
+					if(!empty($votes)){
+						if(count($votes)>0){
+							if($votes[0]['Question']['id']==$question[id]){
+								echo "<p>Mon précédent vote : ".$votes[0]['Answer']['name']."</p>";
+								$votes = array_splice($votes,1);
+							}
+						}
+					}?>    
                     </ul>
                     <br /><br />
                 </div>
