@@ -30,10 +30,14 @@ class PollsController extends AppController {
 		$polls = $this->Poll->find('first', array('contain' => array('Question' => array('Answer' => array('order' => 'Answer.porcent DESC'))), 'conditions' => array('id' => 3)));
 		$this->set('polls', $polls);
 		
-		/*
-		$votes = $this->Vote->find('first');
-		$this->set('votes', $votes);
-		*/
+		if ($this->Auth->user('role') > 0) {
+				$votes = $this->Vote->find('all', array('conditions'=>array('User.id'=>$this->Auth->user('id'), 'Poll.id'=>3),'order'=>'Question.id ASC'));
+				$this->set('votes', $votes);
+			} else {
+				$this->set('votes', '');
+			}
+		
+		
 	}
  
 	function view($id = null) {
