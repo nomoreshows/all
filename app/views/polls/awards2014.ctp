@@ -19,10 +19,10 @@
             <strong>Quelques règles :</strong>
             <ul>
            		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(cela ne prend que 30 secondes)</em>.
-                <li>les votes sont ouverts jusqu'au 25 janvier</li>
+                <li>les votes sont ouverts jusqu'au 26 janvier, 12h00</li>
                 <li>les nominés ont été choisis sur l'année 2014 (toutes les séries ayant au moins un épisode diffusé en 2014)</li>
                 <li>vous pouvez changer votre vote à tout moment en choisissant un autre candidat.</li>
-                <li>vous pouvez nous faire part de vos remarques sur <a href="http://serieall.fr/article/votez-serieall-awards_a932.html">cet article</a>, dans les commentaires.</li>
+                <li>vous pouvez nous faire part de vos remarques sur <a href="http://serieall.fr/article/votez-pour-les-serieall-awards-2014_a3346">cet article</a>, dans les commentaires.</li>
             </ul><br />
              <strong>Les résultats seront disponibles fin janvier/début février, lors de la grande remise de nos trophées.</strong>
             </p>
