@@ -10,3 +10,4 @@ app/webroot/img/*
 app/webroot/itw/*
 app/webroot/videos/*
 .DS_Store
+/app/webroot/js/tiny_mce/*
