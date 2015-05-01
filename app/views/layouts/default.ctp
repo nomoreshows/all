@@ -86,7 +86,6 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
                         </ul>                    
                     </li>
 					<li><?php echo $html->link('<span>Nouveautés 2014-2015</span>', '/nouvelles-series-2014-2015', array('escape' => false)); ?></li>
-					<li class="notif-new"><?php echo $html->link('<span>Awards 2014</span>', '/awards-2014', array('escape' => false)); ?></li>
 				</ul>
                 
                 <cake:nocache>
