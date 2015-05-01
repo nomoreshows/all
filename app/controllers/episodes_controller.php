@@ -95,8 +95,9 @@ class EpisodesController extends AppController {
 		$this->Session->write('Temp.referer', $this->referer());
 		
 		$show = $this->Episode->Season->Show->findByMenu($show_menu);
-		$no_saison = substr($season_episode, 1, 2); //s01e01
-		$no_episode = substr($season_episode, -2); 
+        $separateString = explode('e',$season_episode);
+		$no_saison = explode('s',$separateString[0])[1]; //s01e01
+		$no_episode = $separateString[1];
 		
 		$episode = $this->Episode->find('first', array('contain' => array('Season', 'Quote' => array('Role', 'User')), 'conditions' => array('Season.show_id' =>  $show['Show']['id'], 'Season.name' => $no_saison, 'Episode.numero' => $no_episode)));
 		$season = $this->Episode->Season->findById($episode['Episode']['season_id']);
