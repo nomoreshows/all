@@ -199,7 +199,7 @@ button:active span {background-position: bottom left;  padding: 5px 0 4px 13px; 
 #menu ul 			{list-style-type:none; font:12px Arial, sans-serif; }
 #menu ul.menu li 		{float:left;}
 #menu ul.menu a span 	{ background:url(../img/menu_left.png) no-repeat; display: block; height:29px; padding-left:10px; float:left; padding-top:20px; }
-#menu ul.menu a  {background: transparent url(../img/menu_right.png) no-repeat scroll top right; color: #b0cde1; display: block; float: left; text-transform:uppercase; font: normal 12px tahoma, sans-serif;height:49px; margin-right: 3px;  padding-right: 14px; text-decoration: none;  outline: none; text-decoration:none; }
+#menu ul.menu a  {background: transparent url(../img/menu_right.png) no-repeat scroll top right; color: #b0cde1; display: block; float: left; text-transform:uppercase; font: normal 12px tahoma, sans-serif;height:49px;  padding-right: 14px; text-decoration: none;  outline: none; text-decoration:none; }
 #menu ul.menu li:hover a, #menu ul li.current a {background-position: bottom right;  outline: none; color:white;}
 #menu ul.menu li:hover a span, #menu ul li.current a span {background-position: bottom left;} 
 
