@@ -7,9 +7,8 @@
     <h1 class="red title">Notre équipe</h1><br /><br />
     
     <div class="col1 equipe">
-    	Nos horizons sont tous différents : étudiants en informatique, science-po, communication... ou plus simplement passionnés avec une volonté d'entreprendre. 
-		Nous voulons déposer un regard critique sur les séries dans le détail, sur chaque épisode. Notre ligne éditoriale essaie de rester la plus objective possible, 
-		même lorsque l'on parle de Joséphine Ange-Gardien ou de Breaking Bad. Non, vraiment. 
+    	Composée de personnes d'horizons plus ou moins variés l'équipe de serieall s'est donnée pour mission de vous offrir le contenu seriel le plus pertinent du web. Oui, rien que ça.
+        Dans la mesure du possible, on essaye de rester objectif mais bon, il faut bien avouer que face à Joséphine Ange Gardien, c'est difficile (mais on fait des efforts).
         <br /><br />
 		
 		
@@ -48,8 +47,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Passionné par les fouets qu'il n'hésite pas à utiliser dès qu'un rédacteur ne suit pas les consignes, il critique <strong>Sherlock</strong> et <strong>Wilfred</strong>. 
-						Il devient également très succeptible dès que l'on ose critiquer le brushing de <strong>MacGyver</strong>.
+						Le saviez-vous ? C'est une marmotte qui est aux commandes du site. Et une marmotte succeptible en plus, surtout quand on critique le brushing de <strong>MacGyver</strong>.
 					</blockquote>
 				</div>
 			</div>
@@ -80,8 +78,8 @@
 		
 				<div class="status">
 					<blockquote>
-						Exilé un temps aux Etats-Unis, il a eu la chance de connaître <em>Netflix</em>. Il s'en est servi pour critiquer <strong>Desperate Housewives</strong> ou 
-						<strong>Withney</strong> : personne n'est parfait.
+						Koss a deux passions dans la vie : écrire des trucs sur le web et troller. Surtout troller en fait. Mais personne n'est dupe : on sait bien qu'il aime
+				         <strong>Breaking Bad</strong>.
 					</blockquote>
 				</div>
 			</div>
@@ -120,45 +118,15 @@
 		
 				<div class="status">
 					<blockquote>
-						Recordman du nombre de critiques publiées à la bourre, celles-ci n'en reste pas moins pertinentes. En plus de <strong>Fringe</strong>, il critique
-						occasionnellement <strong>The Big Bang Theory</strong> ou <strong>Raising Hope</strong>.
+						Il est le recordman du nombre de critiques publiées à la bourre, à deux doigts d'être homologué par le Guinness World Records. Sinon, il a aimé la fin de
+						<strong>Lost</strong> et de <strong>How I Met Your Mother</strong> : surprenant, n'est-il pas ?
 					</blockquote>
 				</div>
 			</div>
 		</div>
 		
-		<div class="redacteur">
-		
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Altair', '/profil/'. 'altair', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-	
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('aurelie_bm@yahoo.fr', 53, array('alt' => 'altair', 'class' => 'ppic'), false), '/profil/'. 'altair', array('escape' => false));   ?> 
-				</div>
-				
-				<div class="block-role">
-					<p class="role">
-						Rédactrice
-					</p>
-					<div class="dot">
-					</div>
-				</div>
-		
-				<div class="status">
-					<blockquote>
-						Avec sa collègue Puck, elle se bat chaque jour pour que Série-All devienne une terre d'égalité pour les femmes. Mais comme nous n'avons pas encore de cuisine 
-						à leur allouer, en attendant, elle critique <strong>Boardwalk Empire</strong>.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-		
+
+
 		<div class="redacteur">
 		
 			<div class="block-name">
@@ -171,7 +139,7 @@
 	
 			<div class="profil">
 				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('antoninbonneau@hotmail.fr', 53, array('alt' => 'antofisherb', 'class' => 'ppic'), false), '/profil/'. 'antofisherb', array('escape' => false));   ?> 
+					<?php  echo $html->link($gravatar->image('antoninbonneau@hotmail.fr', 53, array('alt' => 'antofisherb', 'class' => 'ppic'), false), '/profil/'. 'antofisherb', array('escape' => false));   ?>
 				</div>
 				
 				<div class="block-role">
@@ -184,8 +152,39 @@
 		
 				<div class="status">
 					<blockquote>
-						Reporter de l'extrême ayant développé des techniques de ninja pour dupper les gardiens du festival Series-Mania, il a également critiqué pas mal
-						de nouveautés comme <strong>American Horror Story</strong>, <strong>Luck</strong> ou <strong>Hell on Wheels</strong>.
+					    Il aime des mauvaises séries, mais il en regarde tellement que personne ne le voit. Il est également notre reporter de l'extrême,
+					    capable de prouesses de ninja pour nous récupérer un scoop !
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Arnoglas', '/profil/'. 'Arnoglas', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('arnoglas@hotmail.com', 53, array('alt' => 'Arnoglas', 'class' => 'ppic'), false), '/profil/'. 'Arnoglas', array('escape' => false));   ?>
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Challenger d'Alanparish pour le record du nombre de critiques publiées à la bourre, il aime aussi se lancer des défis de l'impossible comme regarder l'intégrale Doctor Who en un mois. Oui, on est des fous à Serieall.
 					</blockquote>
 				</div>
 			</div>
@@ -208,7 +207,7 @@
 				
 				<div class="block-role">
 					<p class="role">
-						Rédacteur
+						Rédacteur - Gestionnaire
 					</p>
 					<div class="dot">
 					</div>
@@ -217,7 +216,7 @@
 				<div class="status">
 					<blockquote>
 						Le sang et les luttes acharnées, c'est sa passion. C'est donc sans surprise qu'il critique <strong>The Walking Dead</strong> et 
-						<strong>Spartacus</strong>.
+						se bat avec le site pour ajouter des séries dans la base de données. On ne sait toujours pas ce qui est le pire.
 					</blockquote>
 				</div>
 			</div>
@@ -228,7 +227,7 @@
 		
 			<div class="block-name">
 				<p class="name">
-					<span class="pseudo"><?php echo $html->link('MoolFreet', '/profil/'. 'MoolFreet', array('escape' => false, 'class' => 'nodeco'))?></span>
+					<span class="pseudo"><?php echo $html->link('Galax', '/profil/'. 'Galax', array('escape' => false, 'class' => 'nodeco'))?></span>
 				</p>
 				<div class="name-separator">
 				</div>
@@ -236,7 +235,7 @@
 	
 			<div class="profil">
 				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('gregoiredufour@neuf.fr', 53, array('alt' => 'MoolFreet', 'class' => 'ppic'), false), '/profil/'. 'MoolFreet', array('escape' => false));   ?> 
+					<?php  echo $html->link($gravatar->image('rikki-tikki@hotmail.fr', 53, array('alt' => 'Galax', 'class' => 'ppic'), false), '/profil/'. 'Galax', array('escape' => false));   ?>
 				</div>
 				
 				<div class="block-role">
@@ -249,15 +248,74 @@
 		
 				<div class="status">
 					<blockquote>
-						Fan inconditionnel de <strong>X-Files</strong>, il est aussi notre homme à tout faire : il a critiqué plusieurs séries depuis qu'il est dans la rédaction 
-						dont <strong>Community</strong>, <strong>Castle</strong> ou encore <strong>Glee</strong> (et oui...).
+						Vous aimez <strong>Doctor Who</strong> ? Ne le dites pas à Galax, sinon il va vous en parler pendant des heures. Remarquez, quoique vous fassiez, il va vous en parler pendant des heures.
 					</blockquote>
 				</div>
 			</div>
 		</div>
 		
+		<div class="redacteur">
 		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Jojo76', '/profil/'. 'jojo76', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('jojoenforce@hotmail.fr', 53, array('alt' => 'Jojo76', 'class' => 'ppic'), false), '/profil/'. 'jojo76', array('escape' => false));   ?>
+				</div>
+
+				<div class="block-role">
+					<p class="role">
+						Gestionnaire de la base
+					</p>
+					<div class="dot">
+					</div>
+				</div>
 		
+				<div class="status">
+					<blockquote>
+						Sa capacité à troller est devenue légendaire sur les internets. Chez nous, il se charge en plus de mettre à jour la base de données et les images de séries avec Cail1.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="redacteur">
+
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Nicknackpadiwak', '/profil/'. 'nicknackpadiwak', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('cedricbutstraen@aol.com', 53, array('alt' => 'Nicknackpadiwak', 'class' => 'ppic'), false), '/profil/'. 'nicknackpadiwak', array('escape' => false));   ?>
+				</div>
+
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+
+				<div class="status">
+					<blockquote>
+						Critique de l'extrême, il est aussi l'inventeur du VrickAVrack. Et non, nous non plus nous n'arrivons toujours pas à prononcer son nom.
+					</blockquote>
+				</div>
+			</div>
+		</div>
 		
 		
 		<h2 class="title dblue">Les anciens</h2>
@@ -293,9 +351,8 @@
 		
 				<div class="status">
 					<blockquote>
-						Créateur de la première version du site en 2009, il a l’honneur de critiquer 
-						<strong>Breaking Bad</strong>. Comme tous les grands hommes, il souhaite garder un peu 
-						de mystère, ce qui explique ses (très) longues absences.
+						Créateur de la première version du site en 2009, il a eu l’honneur de critiquer
+						<strong>Breaking Bad</strong>. Incapable se remettre de la fin de série, il a décidé de s'exiler dans un monastère au tibet pour retrouver un semblant de spiritualité.
 					</blockquote>
 				</div>
 			</div>
@@ -326,8 +383,8 @@
 		
 				<div class="status">
 					<blockquote>
-						Capable de pirater les serveurs du FBI avec une gameboy, il gère le développement du site et les questions d'ordre technique. 
-						Il est également un critique très difficile à satisfaire.
+						Capable de pirater les serveurs du FBI avec une gameboy, il a créer le site actuel avant d'en devenir le responsable officiel. Depuis, il a délégué tout le boulot et passe
+						la journée assis dans son fauteuil en cuir à regarder son empire.
 					</blockquote>
 				</div>
 			</div>
@@ -361,7 +418,38 @@
 				<div class="status">
 					<blockquote>
 						Critique sur les pilots et chinois à temps partiel, il rêvait de monter un harem réunissant les actrices 
-						les plus physiquement intelligentes : cela s'appelle <?php echo $html->link('diversitudes.fr', 'http://diversitudes.fr', array('escape' => false, 'class' => 'nodeco'))?>
+						les plus physiquement intelligentes. Le monde l'a rattrapé depuis.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+
+		<div class="redacteur">
+
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Altair', '/profil/'. 'altair', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('aurelie_bm@yahoo.fr', 53, array('alt' => 'altair', 'class' => 'ppic'), false), '/profil/'. 'altair', array('escape' => false));   ?>
+				</div>
+
+				<div class="block-role">
+					<p class="role">
+						Rédactrice
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+
+				<div class="status">
+					<blockquote>
+						Avec sa collègue Puck, elle se bat chaque jour pour que Série-All devienne une terre d'égalité entre hommes et femmes. Mais comme on dit "on en reparlera quand il faudra porter des choses lourdes" (non, pas taper, désolé).
 					</blockquote>
 				</div>
 			</div>
@@ -392,8 +480,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Critique occasionnel sur certaines séries, il est surtout le shériff impitoyable du forum. Attention donc à ne pas le froisser, il est capable
-						de faire disparaître quelqu'un en moins de deux.	
+						Ancien critique et sheriff du site (on raconte qu'il avait inspiré Morris pour Lucky Luke), il a été muté dans une autre province que celle de Serieall.
 					</blockquote>
 				</div>
 			</div>
@@ -424,7 +511,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Sur le forum, il est de toutes les discussions. Tant et si bien qu'on a l'impression qu'il est un rédacteur prolifique, alors qu'en fait, il n'a 
+						Sur le forum, il était de toutes les discussions. Tant et si bien qu'on a eu l'impression qu'il est un rédacteur prolifique. En fait, il n'a
 						critiqué que <strong>The Playboy Club</strong> et <strong>Boss</strong>.
 					</blockquote>
 				</div>
@@ -488,8 +575,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Plus gros noteur du site, il aime achever les séries minables à coup d'avis destructeurs. Il critique occasionnellement certaines séries
-						comme <strong>Star Wars: The Clone Wars</strong>.
+						Plus gros noteur du site, il aimait achever les séries minables à coup d'avis destructeurs. On soupçonne Mimie Mathy de lui avoir tendu une embuscade, ce qui expliquerait son absence.
 					</blockquote>
 				</div>
 			</div>
@@ -552,7 +638,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Son pseudo improbable semble sortir tout droit du bestiaire de <strong>Doctor Who</strong>. Finalement, ce n'est peut-être pas un hasard s'il critique la série.
+						Son pseudo improbable nous faisait penser à un animal sauvage. On ne doit pas être les seuls puisqu'on ne le voit que très rarement depuis l'ouverture de la chasse.
 					</blockquote>
 				</div>
 			</div>
@@ -616,8 +702,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Depuis qu'il lui a offert des places de concert pour Desireless, Google est vraiment son ami. Du coup, il remonte de temps en temps 
-						Serieall dans les résultats de recherche pour le remercier.
+						Il s'occupait de nous référencer sur Google. Mais un jour, il a rencontré Desireless et est partie la suivre en tournée.
 					</blockquote>
 				</div>
 			</div>
@@ -649,7 +734,7 @@
 				<div class="status">
 					<blockquote>
 						Critique de <strong>Gossip Girl</strong> et de <strong>The Vampire Diaries</strong>, elle n'a pas résisté à l'overdose de potins, ragots et autres
-						réjouissances adolescentes de ses deux séries.
+						réjouissances adolescentes de ces deux séries.
 					</blockquote>
 				</div>
 			</div>
@@ -691,6 +776,38 @@
 		
 		<div class="redacteur">
 		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('MoolFreet', '/profil/'. 'MoolFreet', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('gregoiredufour@neuf.fr', 53, array('alt' => 'MoolFreet', 'class' => 'ppic'), false), '/profil/'. 'MoolFreet', array('escape' => false));   ?>
+				</div>
+
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+
+				<div class="status">
+					<blockquote>
+						Notre ancien homme à tout faire : il a critiqué plusieurs séries quand il était dans la rédaction
+						dont <strong>Community</strong>, <strong>Castle</strong> ou encore <strong>Glee</strong>. On raconte qu'il s'est reconvertit dans le football depuis.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+
+		<div class="redacteur">
+
 			<div class="block-name">
 				<p class="name">
 					<span class="pseudo"><?php echo $html->link('Nero93140', '/profil/'. 'Nero93140', array('escape' => false, 'class' => 'nodeco'))?></span>
@@ -748,8 +865,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Egalement surnommé <em>le ninja du planning</em>, son action est aussi discrète qu'efficace : le planning est à jour toutes les semaines (sauf quand c'est son tour 
-						de nettoyer la cave).						
+						Egalement surnommé <em>le ninja du planning</em>, son action était aussi discrète qu'efficace, le planning était à jour toutes les semaines. Et un jour, on l'a remplacé par un robot : saloperie de capitalisme.
 					</blockquote>
 				</div>
 			</div>
@@ -780,7 +896,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Chevalier de l'ordre du Larousse et gardienne du Petit Robert, elle traque sans relâche les fautes d'ortographe et de grammaire. Elle critique aussi quelques
+						Chevalier de l'ordre du Larousse et gardienne du Petit Robert, elle traquait sans relâche les fautes d'ortographe et de grammaire. Elle critiquait aussi quelques
 						séries, pour peu que John Simm soit au casting.
 					</blockquote>
 				</div>
@@ -812,8 +928,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Comme son homonyme, il aime se beurrer la biscotte et qu'on l'enduise d'huile. Il aime également <strong>Modern Family</strong> puisqu'il en a critiqué
-						la saison 2.
+						Comme son homonyme, il aime se beurrer la biscotte et qu'on l'enduise d'huile. Actuellement, on pense qu'il doit être de nouveau en mission secrète au proche-Orient.
 					</blockquote>
 				</div>
 			</div>
@@ -879,8 +994,8 @@
 		
 				<div class="status">
 					<blockquote>
-						Quand il ne s'occupe de ses alpagas, sa passion est la découverte de nanars australiens ou du dernier
-						thriller suédois à la mode, qu'il s'empresse de faire découvrir à tout le monde.
+						Quand il ne s'occupait pas de ses alpagas, sa passion était la découverte de nanars australiens ou du dernier
+						thriller suédois à la mode, qu'il s'empressait de faire découvrir à tout le monde.
 					</blockquote>
 				</div>
 			</div>
@@ -911,7 +1026,7 @@
 		
 				<div class="status">
 					<blockquote>
-						Il fut un temps où il a critiqué <strong>Sons of Anarchy</strong> et <strong>Gossip Girl</strong> pour marquer son ouverture d'esprit. 
+						Il fut un temps où il a critiqué <strong>Sons of Anarchy</strong> et <strong>Gossip Girl</strong>, soit disant une preuve d'ouverture d'esprit.
 						Depuis, il s'est rendu compte de son erreur et s'est exilé dans un monastère.
 					</blockquote>
 				</div>
@@ -944,7 +1059,7 @@
 				<div class="status">
 					<blockquote>
 						Son rêve absolu est de se transformer en Pinkie Pie, l'un des poneys de <strong>My Little Pony : Friendship is Magic</strong>. En dehors de ça, c'est un garçon
-						normal qui critique <strong>How I Met Your Mother</strong>.
+						normal.
 					</blockquote>
 				</div>
 			</div>
