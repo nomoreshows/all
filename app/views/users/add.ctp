@@ -25,7 +25,7 @@ echo $javascript->link('perso.signup', false);
         <?php //echo $form->input('cap', array('label' => '<span class="notes">*</span> Combien font 2+2<br /><span class="notes">contre les robots</span>', 'size' => 2)); ?>
         </div>
         <br /><br />
-        <div class="newsletter"><?php //echo $form->input('newsletter', array('checked' => 'true', 'label' => false, 'div' => false));?> Je souhaite recevoir la newsletter de Série-All (<span class="notes">une <strong>vraie</strong> newsletter : jolie, mensuelle au maximum, avec du contenu intéressant)</span></div>
+        <div class="newsletter"><?php //echo $form->input('newsletter', array('checked' => 'true', 'label' => false, 'div' => false));?> <!--Je souhaite recevoir la newsletter de Série-All (<span class="notes">une <strong>vraie</strong> newsletter : jolie, mensuelle au maximum, avec du contenu intéressant)--></span></div>
         <br /><br />
         <!--<label for="btnsignup">&nbsp;</label><button id="btnsignup" type="submit"></button>-->
         <p>Suite à un problème technique, les inscriptions sont temporairement désactivées. Nous nous excusons pour la gêne occasionnée.</p>
