@@ -545,7 +545,7 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			
 			// Vérifier Captcha
-			if ($this->data['User']['cap'] == '4') {
+			if ($this->data['User']['cap'] == '5') {
 				
 				
 				// Si les mots de passes correspondent
