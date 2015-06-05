@@ -14,21 +14,20 @@ echo $javascript->link('perso.signup', false);
     <td width="50%">
     	<br /><br />
         <div class="signup">
-		<?php //echo $form->create('User'); ?>
-        <?php //echo $form->input('role', array('label' => false, 'type' => 'hidden')); ?>
+		<?php echo $form->create('User'); ?>
+        <?php echo $form->input('role', array('label' => false, 'type' => 'hidden')); ?>
         
-        <?php //echo $form->input('login', array('label' => '<span class="notes">*</span> Pseudo :<br /><span class="notes">http://serieall.fr/profil/<strong>pseudo</strong></span>')); ?>
-        <?php //echo $form->input('password', array('label' => '<span class="notes">*</span> Mot de passe :<br /><span class="notes">lettres et chiffres uniquement</span>')); ?>
-        <?php //echo $form->input('password_confirm', array('label' => '<span class="notes">*</span> Confirmer  :<br /><span class="notes">confirmer le mot de passe</span>', 'type' => 'password')); ?>
-        <?php //echo $form->input('email', array('label' => '<span class="notes">*</span> Adresse mail :<br /><span class="notes">n\'est pas affichée ni diffusée</span>')); ?>
+        <?php echo $form->input('login', array('label' => '<span class="notes">*</span> Pseudo :<br /><span class="notes">http://serieall.fr/profil/<strong>pseudo</strong></span>')); ?>
+        <?php echo $form->input('password', array('label' => '<span class="notes">*</span> Mot de passe :<br /><span class="notes">lettres et chiffres uniquement</span>')); ?>
+        <?php echo $form->input('password_confirm', array('label' => '<span class="notes">*</span> Confirmer  :<br /><span class="notes">confirmer le mot de passe</span>', 'type' => 'password')); ?>
+        <?php echo $form->input('email', array('label' => '<span class="notes">*</span> Adresse mail :<br /><span class="notes">n\'est pas affichée ni diffusée</span>')); ?>
         <br /><br />
-        <?php //echo $form->input('cap', array('label' => '<span class="notes">*</span> Combien font 2+2<br /><span class="notes">contre les robots</span>', 'size' => 2)); ?>
+        <?php echo $form->input('cap', array('label' => '<span class="notes">*</span> Combien font 2+2<br /><span class="notes">contre les robots</span>', 'size' => 2)); ?>
         </div>
         <br /><br />
-        <div class="newsletter"><?php //echo $form->input('newsletter', array('checked' => 'true', 'label' => false, 'div' => false));?> <!--Je souhaite recevoir la newsletter de Série-All (<span class="notes">une <strong>vraie</strong> newsletter : jolie, mensuelle au maximum, avec du contenu intéressant)--></span></div>
+        <div class="newsletter"><?php echo $form->input('newsletter', array('checked' => 'true', 'label' => false, 'div' => false));?> Je souhaite recevoir la newsletter de Série-All (<span class="notes">une <strong>vraie</strong> newsletter : jolie, mensuelle au maximum, avec du contenu intéressant)</span></div>
         <br /><br />
-        <!--<label for="btnsignup">&nbsp;</label><button id="btnsignup" type="submit"></button>-->
-        <p>Suite à un problème technique, les inscriptions sont temporairement désactivées. Nous nous excusons pour la gêne occasionnée.</p>
+        <label for="btnsignup">&nbsp;</label><button id="btnsignup" type="submit"></button>
     </td>
     <td width="50%">
     	<div id="slider" class="nivoSlider">
