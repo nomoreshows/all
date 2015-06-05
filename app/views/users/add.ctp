@@ -22,7 +22,7 @@ echo $javascript->link('perso.signup', false);
         <?php echo $form->input('password_confirm', array('label' => '<span class="notes">*</span> Confirmer  :<br /><span class="notes">confirmer le mot de passe</span>', 'type' => 'password')); ?>
         <?php echo $form->input('email', array('label' => '<span class="notes">*</span> Adresse mail :<br /><span class="notes">n\'est pas affichée ni diffusée</span>')); ?>
         <br /><br />
-        <?php echo $form->input('cap', array('label' => '<span class="notes">*</span> Combien font 2+2<br /><span class="notes">contre les robots</span>', 'size' => 2)); ?>
+        <?php echo $form->input('cap', array('label' => '<span class="notes">*</span> Combien font 3+2<br /><span class="notes">contre les robots</span>', 'size' => 2)); ?>
         </div>
         <br /><br />
         <div class="newsletter"><?php echo $form->input('newsletter', array('checked' => 'true', 'label' => false, 'div' => false));?> Je souhaite recevoir la newsletter de Série-All (<span class="notes">une <strong>vraie</strong> newsletter : jolie, mensuelle au maximum, avec du contenu intéressant)</span></div>
