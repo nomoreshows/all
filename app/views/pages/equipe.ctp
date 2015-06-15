@@ -202,7 +202,7 @@
 	
 			<div class="profil">
 				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('cail1@hotmail.fr', 53, array('alt' => 'Cail1', 'class' => 'ppic'), false), '/profil/'. 'alanparish', array('escape' => false));   ?> 
+					<?php  echo $html->link($gravatar->image('cail1@hotmail.fr', 53, array('alt' => 'Cail1', 'class' => 'ppic'), false), '/profil/'. 'cail1', array('escape' => false));   ?> 
 				</div>
 				
 				<div class="block-role">
@@ -217,6 +217,37 @@
 					<blockquote>
 						Le sang et les luttes acharnées, c'est sa passion. C'est donc sans surprise qu'il critique <strong>The Walking Dead</strong> et 
 						se bat avec le site pour ajouter des séries dans la base de données. On ne sait toujours pas ce qui est le pire.
+					</blockquote>
+				</div>
+			</div>
+		</div>
+		
+		<div class="redacteur">
+		
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Dewey', '/profil/'. 'dewey', array('escape' => false, 'class' => 'nodeco'))?></span>
+				</p>
+				<div class="name-separator">
+				</div>
+			</div>
+	
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('thedarkpheonix@hotmail.fr', 53, array('alt' => 'Dewey', 'class' => 'ppic'), false), '/profil/'. 'dewey', array('escape' => false));   ?> 
+				</div>
+				
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+		
+				<div class="status">
+					<blockquote>
+						Le petit frère de Malcolm a bien grandit ! Maintenant il regarde Star Trek et Game of Thrones et n'hésite pas à critiquer ouvertement tout ce qui ne va pas. Parce que oui, en grandissant, Dewey a aussi perdu sa naïveté...
 					</blockquote>
 				</div>
 			</div>
