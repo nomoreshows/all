@@ -548,11 +548,11 @@ class UsersController extends AppController {
 			if ($this->data['User']['cap'] == '5') {
 				
 				if(!(strpos($this->data['User']['email'],"youdontcare.com")
-				&& strpos($this->data['User']['email'],"kredits24.com")
-				&& strpos($this->data['User']['email'],"ocry.com")
-				&& strpos($this->data['User']['email'],"mrbasic.com")
-				&& strpos($this->data['User']['email'],"1.info")
-				&& strpos($this->data['User']['email'],".biz"))){
+				|| strpos($this->data['User']['email'],"kredits24.com")
+				|| strpos($this->data['User']['email'],"ocry.com")
+				|| strpos($this->data['User']['email'],"mrbasic.com")
+				|| strpos($this->data['User']['email'],"1.info")
+				|| strpos($this->data['User']['email'],".biz"))){
 					// Si les mots de passes correspondent
 					if ($this->data['User']['password'] == $this->Auth->password($this->data['User']['password_confirm'])) {
 					
