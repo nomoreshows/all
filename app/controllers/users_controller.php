@@ -552,7 +552,10 @@ class UsersController extends AppController {
 				|| strpos($this->data['User']['email'],"ocry.com")
 				|| strpos($this->data['User']['email'],"mrbasic.com")
 				|| strpos($this->data['User']['email'],"1.info")
-				|| strpos($this->data['User']['email'],".biz"))){
+				|| strpos($this->data['User']['email'],".biz")
+				|| strpos($this->data['User']['email'],"oprogressi.com")
+				|| strpos($this->data['User']['email'],"qpoe.com")
+				|| strpos($this->data['User']['email'],"dnset.com"))){
 					// Si les mots de passes correspondent
 					if ($this->data['User']['password'] == $this->Auth->password($this->data['User']['password_confirm'])) {
 					
