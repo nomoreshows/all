@@ -545,96 +545,117 @@ class UsersController extends AppController {
 		if (!empty($this->data)) {
 			
 			// Vérifier Captcha
-			if ($this->data['User']['cap'] == '4') {
+			if ($this->data['User']['cap'] == '5') {
 				
-				
-				// Si les mots de passes correspondent
-				if ($this->data['User']['password'] == $this->Auth->password($this->data['User']['password_confirm'])) {
-				
-					// Vérifier si le login est unique
-					$login = $this->data['User']['login'];
-					$nblogin = $this->User->find('count', array('conditions' => array('User.login' => $login)));
-					if ($nblogin == 0) {
+				if(!(strpos($this->data['User']['email'],"youdontcare.com")
+				|| strpos($this->data['User']['email'],"kredits24.com")
+				|| strpos($this->data['User']['email'],"ocry.com")
+				|| strpos($this->data['User']['email'],"mrbasic.com")
+				|| strpos($this->data['User']['email'],"1.info")
+				|| strpos($this->data['User']['email'],".biz")
+				|| strpos($this->data['User']['email'],"oprogressi.com")
+				|| strpos($this->data['User']['email'],"qpoe.com")
+				|| strpos($this->data['User']['email'],"zoho.com")
+				|| strpos($this->data['User']['email'],"makre-proj.com")
+				|| strpos($this->data['User']['email'],"mrbonus.com")
+				|| strpos($this->data['User']['email'],"agrandar-pene.net")
+				|| strpos($this->data['User']['email'],".pl")
+				|| strpos($this->data['User']['email'],"2waky.com")
+				|| strpos($this->data['User']['email'],"1st-sport.com")
+				|| strpos($this->data['User']['email'],"mylftv.com")
+				|| strpos($this->data['User']['email'],"gettrials.com")
+				|| strpos($this->data['User']['email'],"gmx.com")
+				|| strpos($this->data['User']['email'],"yourtrap.com")
+				|| strpos($this->data['User']['email'],"dnset.com"))){
+					// Si les mots de passes correspondent
+					if ($this->data['User']['password'] == $this->Auth->password($this->data['User']['password_confirm'])) {
 					
-						/* Générer mot de passe
-						$string = "";
-						$car = 6;
-						$chaine = "abcdefghijklmnpqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-						srand((double)microtime()*1000000);
-						for($i=0; $i<$car; $i++) {
-							$string .= $chaine[rand()%strlen($chaine)];
-						}
-						$this->data['User']['password'] = md5($string);
-						$this->data['User']['role'] = 4;
+						// Vérifier si le login est unique
+						$login = $this->data['User']['login'];
+						$nblogin = $this->User->find('count', array('conditions' => array('User.login' => $login)));
+						if ($nblogin == 0) {
 						
-						$email = $this->data['User']['email'];
-						*/
-						
-						// Enregistrer dans bdd
-
-						$this->data['User']['role'] = 4;
-						$this->data['User']['password'] = md5($this->data['User']['password_confirm']);
-						
-						//Sauvegarde de l'ip de l'utilisateur
-						$this->data['User']['ip'] = $this->RequestHandler->getClientIp();
-						
-						//Compte désactivés par défaut
-						//$this->data['User']['disabled'] = 1;
-						
-						$resultat = $this->User->save($this->data);
-						if ($resultat) {
+							/* Générer mot de passe
+							$string = "";
+							$car = 6;
+							$chaine = "abcdefghijklmnpqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+							srand((double)microtime()*1000000);
+							for($i=0; $i<$car; $i++) {
+								$string .= $chaine[rand()%strlen($chaine)];
+							}
+							$this->data['User']['password'] = md5($string);
+							$this->data['User']['role'] = 4;
 							
-							/* Envoyer un mail
-							$headers ='From: "Série-All"<noreply@serieall.fr>'."\n"; 
-							$headers .='Content-Type: text/html; charset="iso-8859-1"'."\n"; 
-							$objet = 'Inscription à Serie All';
-							$message = '
-							Bienvenue sur Série All,
-							<br /><br />
-							Vous pouvez dès à présent commenter les articles, critiques et autres dossiers, noter les épisodes et participer au forum en vous connectant à votre compte :
-							<br /><br />
-							<strong>Login</strong> : ' . $login . '
-							<br /><strong>Mot de passe</strong> : ' . $string	. '			
-							<br /><br />
-							Ce mot de passe a été généré aléatoirement, allez dans votre espace membre pour le changer.<br /><br />
-							A bientôt sur <a href="http://www.serieall.fr">www.serieall.fr</a>.
-							';
-							if (!mail($email, $objet, $message, $headers)) {
-								$this->Session->setFlash('Adresse mail non valide.', 'growl');
+							$email = $this->data['User']['email'];
+							*/
+							
+							// Enregistrer dans bdd
+	
+							$this->data['User']['role'] = 4;
+							$this->data['User']['password'] = md5($this->data['User']['password_confirm']);
+							
+							//Sauvegarde de l'ip de l'utilisateur
+							$this->data['User']['ip'] = $this->RequestHandler->getClientIp();
+							
+							//Compte désactivés par défaut
+							//$this->data['User']['disabled'] = 1;
+							
+							$resultat = $this->User->save($this->data);
+							if ($resultat) {
+								
+								/* Envoyer un mail
+								$headers ='From: "Série-All"<noreply@serieall.fr>'."\n"; 
+								$headers .='Content-Type: text/html; charset="iso-8859-1"'."\n"; 
+								$objet = 'Inscription à Serie All';
+								$message = '
+								Bienvenue sur Série All,
+								<br /><br />
+								Vous pouvez dès à présent commenter les articles, critiques et autres dossiers, noter les épisodes et participer au forum en vous connectant à votre compte :
+								<br /><br />
+								<strong>Login</strong> : ' . $login . '
+								<br /><strong>Mot de passe</strong> : ' . $string	. '			
+								<br /><br />
+								Ce mot de passe a été généré aléatoirement, allez dans votre espace membre pour le changer.<br /><br />
+								A bientôt sur <a href="http://www.serieall.fr">www.serieall.fr</a>.
+								';
+								if (!mail($email, $objet, $message, $headers)) {
+									$this->Session->setFlash('Adresse mail non valide.', 'growl');
+								} else {
+									$this->redirect('/users/confirm');	
+								}
+								*/
+								
+								//Recup la litse des admins
+								/*
+								$admins = $this->User->find('all', array('conditions' => array('User.role' => 1)));
+								
+								//Notifie les admins d'une nouvelle inscription
+								foreach ($admins as $admin) {
+									$this->User->Notification->create();
+									
+									$url_notif = '/admin/users/edit/'.$this->User->getInsertID();
+									$contenu_notif = $login . ' vient de s\'inscrire. ' ;
+									
+									$notif = array('Notification' => array('read' => 0, 'text' => $contenu_notif, 'url' => $url_notif, 'user_id' => $admin['User']['id']));
+									$this->set(compact('notif'));
+									$this->User->Notification->save($notif);
+								}
+	
+								*/
+								$this->redirect('/users/confirm');
+								
 							} else {
-								$this->redirect('/users/confirm');	
+								$this->Session->setFlash('Informations manquantes.', 'growl');
 							}
-							*/
-							
-							//Recup la litse des admins
-							/*
-							$admins = $this->User->find('all', array('conditions' => array('User.role' => 1)));
-							
-							//Notifie les admins d'une nouvelle inscription
-							foreach ($admins as $admin) {
-								$this->User->Notification->create();
-								
-								$url_notif = '/admin/users/edit/'.$this->User->getInsertID();
-								$contenu_notif = $login . ' vient de s\'inscrire. ' ;
-								
-								$notif = array('Notification' => array('read' => 0, 'text' => $contenu_notif, 'url' => $url_notif, 'user_id' => $admin['User']['id']));
-								$this->set(compact('notif'));
-								$this->User->Notification->save($notif);
-							}
-
-							*/
-							$this->redirect('/users/confirm');
-							
 						} else {
-							$this->Session->setFlash('Informations manquantes.', 'growl');
+							$this->Session->setFlash('Ce login est déjà utilisé.', 'growl');
 						}
 					} else {
-						$this->Session->setFlash('Ce login est déjà utilisé.', 'growl');
+						$this->Session->setFlash('Les mots de passe ne correspondent pas.', 'growl');
 					}
 				} else {
-					$this->Session->setFlash('Les mots de passe ne correspondent pas.', 'growl');
-				}
-				
+						$this->Session->setFlash('Email invalide', 'growl');
+					}
 			} else {
 				$this->Session->setFlash('Réponse à la question non valide.', 'growl');
 			}

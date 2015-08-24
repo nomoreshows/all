@@ -5,7 +5,7 @@
 	<tr>
     	<?php if ($role < 4) { ?>
     	<td width="68"><?php echo $html->link($html->image('icons/admin_infos.png'), '#', array('escape' => false)); ; ?></td>
-        <td width="200"><h3 class="green"><?php echo $html->link('Informations', '#'); ?></h3>A propos du site : organisation des critiques, emplacements, news ...<br /><br /></td>
+        <td width="200"><h3 class="green"><?php echo $html->link('Wiki', '/wiki'); ?></h3> Guide d'utilisation de l'interface de rédaction, conseils, ...<br /><br /></td>
         <?php } else { ?>
         <td width="68"></td>
         <td width="200"></td>
