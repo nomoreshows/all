@@ -1,0 +1,2142 @@
+phpdcd 1.0.2 by Sebastian Bergmann.
+
+  - ActorsController::admin_add()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\controllers\actors_controller.php:14
+
+  - ActorsController::admin_adds()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\controllers\actors_controller.php:40
+
+  - ActorsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\actors_controller.php:62
+
+  - ActorsController::admin_edit()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\controllers\actors_controller.php:48
+
+  - ActorsController::admin_index()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\actors_controller.php:7
+
+  - ActorsController::admin_many()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\actors_controller.php:25
+
+  - AjaxHelper::afterRender()
+    LOC: 29, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:539
+
+  - AjaxHelper::beforeRender()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:73
+
+  - AjaxHelper::div()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:295
+
+  - AjaxHelper::divEnd()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:315
+
+  - AjaxHelper::editor()
+    LOC: 42, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:241
+
+  - AjaxHelper::form()
+    LOC: 26, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:205
+
+  - AjaxHelper::isAjax()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:332
+
+  - AjaxHelper::link()
+    LOC: 43, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:80
+
+  - AjaxHelper::observeField()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:284
+
+  - AjaxHelper::submit()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\views\helpers\ajax.php:168
+
+  - ApisController::beforeFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\apis_controller.php:7
+
+  - ApisController::displayAfter()
+    LOC: 55, declared in D:\www\2013-08-Serieall\all\app\controllers\apis_controller.php:67
+
+  - ApisController::displayAll()
+    LOC: 54, declared in D:\www\2013-08-Serieall\all\app\controllers\apis_controller.php:12
+
+  - ApisController::displayAllNews()
+    LOC: 32, declared in D:\www\2013-08-Serieall\all\app\controllers\apis_controller.php:250
+
+  - ApisController::displayBilan()
+    LOC: 30, declared in D:\www\2013-08-Serieall\all\app\controllers\apis_controller.php:158
+
+  - ApisController::displayCritic()
+    LOC: 31, declared in D:\www\2013-08-Serieall\all\app\controllers\apis_controller.php:125
+
+  - ApisController::displayFocus()
+    LOC: 28, declared in D:\www\2013-08-Serieall\all\app\controllers\apis_controller.php:191
+
+  - ApisController::displayNews()
+    LOC: 28, declared in D:\www\2013-08-Serieall\all\app\controllers\apis_controller.php:220
+
+  - AppController::beforeRender()
+    LOC: 28, declared in D:\www\2013-08-Serieall\all\app\app_controller.php:96
+
+  - AppController::isAuthorized()
+    LOC: 21, declared in D:\www\2013-08-Serieall\all\app\app_controller.php:74
+
+  - ArticlesController::admin_add()
+    LOC: 125, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:930
+
+  - ArticlesController::admin_delete()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:1104
+
+  - ArticlesController::admin_edit()
+    LOC: 43, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:1058
+
+  - ArticlesController::admin_index()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:7
+
+  - ArticlesController::admin_loadEpisodes()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:918
+
+  - ArticlesController::admin_loadSeasons()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:905
+
+  - ArticlesController::admin_preadd()
+    LOC: 20, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:884
+
+  - ArticlesController::display()
+    LOC: 413, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:35
+
+  - ArticlesController::flux()
+    LOC: 15, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:17
+
+  - ArticlesController::liste()
+    LOC: 429, declared in D:\www\2013-08-Serieall\all\app\controllers\articles_controller.php:451
+
+  - ArtistsController::admin_add()
+    LOC: 20, declared in D:\www\2013-08-Serieall\all\app\controllers\artists_controller.php:39
+
+  - ArtistsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\artists_controller.php:92
+
+  - ArtistsController::admin_edit()
+    LOC: 28, declared in D:\www\2013-08-Serieall\all\app\controllers\artists_controller.php:61
+
+  - ArtistsController::admin_index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\artists_controller.php:34
+
+  - ArtistsController::display()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\artists_controller.php:18
+
+  - ArtistsController::home()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\controllers\artists_controller.php:25
+
+  - ArtistsController::index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\artists_controller.php:13
+
+  - AvisHelper::display()
+    LOC: 107, declared in D:\www\2013-08-Serieall\all\app\views\helpers\avis.php:24
+
+  - AvisHelper::displayMobile()
+    LOC: 15, declared in D:\www\2013-08-Serieall\all\app\views\helpers\avis.php:8
+
+  - CommentsController::add()
+    LOC: 88, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:76
+
+  - CommentsController::addNews()
+    LOC: 64, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:232
+
+  - CommentsController::addOk()
+    LOC: 66, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:165
+
+  - CommentsController::admin_changeseasonedit()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:406
+
+  - CommentsController::admin_changeshowedit()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:387
+
+  - CommentsController::admin_commentindex()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:425
+
+  - CommentsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:419
+
+  - CommentsController::admin_edit()
+    LOC: 36, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:346
+
+  - CommentsController::admin_index()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:301
+
+  - CommentsController::admin_searchresult()
+    LOC: 28, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:312
+
+  - CommentsController::beforeFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:7
+
+  - CommentsController::lastComment()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:60
+
+  - CommentsController::listeSerie()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:12
+
+  - CommentsController::mobileAdd()
+    LOC: 39, declared in D:\www\2013-08-Serieall\all\app\controllers\comments_controller.php:17
+
+  - ContactsController::confirmation()
+    LOC: 1, declared in D:\www\2013-08-Serieall\all\app\controllers\contacts_controller.php:44
+
+  - ContactsController::index()
+    LOC: 34, declared in D:\www\2013-08-Serieall\all\app\controllers\contacts_controller.php:8
+
+  - CountriesController::admin_add()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\countries_controller.php:27
+
+  - CountriesController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\countries_controller.php:65
+
+  - CountriesController::admin_edit()
+    LOC: 22, declared in D:\www\2013-08-Serieall\all\app\controllers\countries_controller.php:40
+
+  - CountriesController::admin_index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\countries_controller.php:22
+
+  - CountriesController::index()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\countries_controller.php:13
+
+  - CountriesController::view()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\countries_controller.php:17
+
+  - CropimageHelper::createForm()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\views\helpers\cropimage.php:48
+
+  - CropimageHelper::createJavaScript()
+    LOC: 42, declared in D:\www\2013-08-Serieall\all\app\views\helpers\cropimage.php:5
+
+  - DaysController::admin_addmany()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\days_controller.php:19
+
+  - DaysController::admin_adds()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\days_controller.php:33
+
+  - DaysController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\days_controller.php:71
+
+  - DaysController::admin_edit()
+    LOC: 22, declared in D:\www\2013-08-Serieall\all\app\controllers\days_controller.php:46
+
+  - DaysController::admin_many()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\days_controller.php:14
+
+  - DbAclSchema::after()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\config\sql\db_acl.php:42
+
+  - DbAclSchema::before()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\config\sql\db_acl.php:38
+
+  - EpisodesController::admin_add()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:169
+
+  - EpisodesController::admin_addmany()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:217
+
+  - EpisodesController::admin_addredirect()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:174
+
+  - EpisodesController::admin_adds()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:231
+
+  - EpisodesController::admin_delete()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:204
+
+  - EpisodesController::admin_edit()
+    LOC: 15, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:187
+
+  - EpisodesController::admin_index()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:80
+
+  - EpisodesController::admin_liste()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:159
+
+  - EpisodesController::admin_many()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:211
+
+  - EpisodesController::admin_temp()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:84
+
+  - EpisodesController::beforeFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:12
+
+  - EpisodesController::fiche()
+    LOC: 67, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:89
+
+  - EpisodesController::mobileEpisode()
+    LOC: 17, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:18
+
+  - EpisodesController::mobilePlanning()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:36
+
+  - EpisodesController::planning()
+    LOC: 48, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:260
+
+  - EpisodesController::planningToday()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:41
+
+  - EpisodesController::planningTomorrow()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:67
+
+  - EpisodesController::planningYesterday()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:55
+
+  - EpisodesController::updatenotes()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\episodes_controller.php:246
+
+  - ExtendAssociationsBehavior::habtmAdd()
+    LOC: 23, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\extend_associations.php:43
+
+  - ExtendAssociationsBehavior::habtmDeleteAll()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\extend_associations.php:114
+
+  - ExtendAssociationsBehavior::setup()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\extend_associations.php:29
+
+  - FavoriteFile::FavoriteFile()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:163
+
+  - FavoriteFile::canRead()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:168
+
+  - FavoriteFile::canWrite()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:172
+
+  - FavoriteFile::exists()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:176
+
+  - FavoriteFile::getParent()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:188
+
+  - FavoriteFile::getParentFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:192
+
+  - FavoriteFile::isDirectory()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:180
+
+  - FavoriteFile::isFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:184
+
+  - FavoriteFile::listFiles()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:201
+
+  - FestivalsController::admin_add()
+    LOC: 20, declared in D:\www\2013-08-Serieall\all\app\controllers\festivals_controller.php:60
+
+  - FestivalsController::admin_addartist()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\controllers\festivals_controller.php:45
+
+  - FestivalsController::admin_addartists()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\controllers\festivals_controller.php:28
+
+  - FestivalsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\festivals_controller.php:114
+
+  - FestivalsController::admin_edit()
+    LOC: 29, declared in D:\www\2013-08-Serieall\all\app\controllers\festivals_controller.php:82
+
+  - FestivalsController::admin_index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\festivals_controller.php:55
+
+  - FestivalsController::display()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\controllers\festivals_controller.php:18
+
+  - FestivalsController::index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\festivals_controller.php:13
+
+  - GenresController::admin_add()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\genres_controller.php:13
+
+  - GenresController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\genres_controller.php:36
+
+  - GenresController::admin_edit()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\genres_controller.php:23
+
+  - GenresController::admin_index()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\genres_controller.php:7
+
+  - GravatarHelper::image()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\views\helpers\gravatar.php:20
+
+  - HTMLErrorHandler()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Error_ancien.php:270
+
+  - I18nBehavior::afterFind()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\i18n.php:312
+
+  - I18nBehavior::beforeFind()
+    LOC: 19, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\i18n.php:78
+
+  - I18nBehavior::beforeSave()
+    LOC: 28, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\i18n.php:393
+
+  - I18nBehavior::cleanup()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\i18n.php:73
+
+  - I18nBehavior::setup()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\i18n.php:64
+
+  - IPBSDK::__construct()
+    LOC: 22, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\IPBSDK.php:69
+
+  - IPBSDK::__get()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\IPBSDK.php:98
+
+  - IPBSDK::getClass()
+    LOC: 31, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\IPBSDK.php:124
+
+  - ImageToolsGD::ImageToolsGD()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\Utils\MCImageToolsGD_ancien.php:34
+
+  - ImageToolsGD::_isPNG24()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\Utils\MCImageToolsGD_ancien.php:653
+
+  - ImageToolsGD::cropImage()
+    LOC: 29, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\Utils\MCImageToolsGD_ancien.php:138
+
+  - ImageToolsGD::deleteFormatImages()
+    LOC: 60, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\Utils\MCImageToolsGD_ancien.php:804
+
+  - ImageToolsGD::flipImage()
+    LOC: 27, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\Utils\MCImageToolsGD_ancien.php:177
+
+  - ImageToolsGD::formatImage()
+    LOC: 73, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\Utils\MCImageToolsGD_ancien.php:715
+
+  - ImageToolsGD::getEditSupport()
+    LOC: 24, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\Utils\MCImageToolsGD_ancien.php:675
+
+  - ImageToolsGD::rotateImage()
+    LOC: 29, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\Utils\MCImageToolsGD_ancien.php:96
+
+  - JSErrorHandler()
+    LOC: 15, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Error_ancien.php:202
+
+  - JSONErrorHandler()
+    LOC: 26, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Error_ancien.php:165
+
+  - JqImgcropComponent::cropImage()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\components\jq_imgcrop.php:88
+
+  - JqImgcropComponent::uploadImage()
+    LOC: 34, declared in D:\www\2013-08-Serieall\all\app\controllers\components\jq_imgcrop.php:4
+
+  - JsonView::__construct()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\views\json.php:7
+
+  - JsonView::render()
+    LOC: 26, declared in D:\www\2013-08-Serieall\all\app\views\json.php:21
+
+  - MamboAuthenticatorImpl::MamboAuthenticatorImpl()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\MamboAuthenticator\MamboAuthenticatorImpl.php:51
+
+  - MamboAuthenticatorImpl::getGroups()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\MamboAuthenticator\MamboAuthenticatorImpl.php:68
+
+  - MamboAuthenticatorImpl::init()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\MamboAuthenticator\MamboAuthenticatorImpl.php:59
+
+  - MamboAuthenticatorImpl::isLoggedin()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\MamboAuthenticator\MamboAuthenticatorImpl.php:77
+
+  - MeioUploadBehavior::afterSave()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:666
+
+  - MeioUploadBehavior::beforeDelete()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:681
+
+  - MeioUploadBehavior::beforeSave()
+    LOC: 63, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:596
+
+  - MeioUploadBehavior::beforeValidate()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:583
+
+  - MeioUploadBehavior::setup()
+    LOC: 50, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:200
+
+  - MeioUploadBehavior::uploadCheckDir()
+    LOC: 27, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:362
+
+  - MeioUploadBehavior::uploadCheckEmpty()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:398
+
+  - MeioUploadBehavior::uploadCheckFieldName()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:341
+
+  - MeioUploadBehavior::uploadCheckInvalidExt()
+    LOC: 21, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:474
+
+  - MeioUploadBehavior::uploadCheckInvalidMime()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:455
+
+  - MeioUploadBehavior::uploadCheckMaxSize()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:436
+
+  - MeioUploadBehavior::uploadCheckUploadError()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\models\behaviors\meio_upload.php:418
+
+  - Moxiecode_BaseAuthenticator::Moxiecode_BaseAuthenticator()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Authenticators\BaseAuthenticator.php:23
+
+  - Moxiecode_BaseAuthenticator::onAuthenticate()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Authenticators\BaseAuthenticator.php:29
+
+  - Moxiecode_BaseFile::canRead()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:129
+
+  - Moxiecode_BaseFile::canWrite()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:137
+
+  - Moxiecode_BaseFile::copyTo()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:154
+
+  - Moxiecode_BaseFile::delete()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:163
+
+  - Moxiecode_BaseFile::execCommand()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:277
+
+  - Moxiecode_BaseFile::exportFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:96
+
+  - Moxiecode_BaseFile::getCreationDate()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:240
+
+  - Moxiecode_BaseFile::getLastModified()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:232
+
+  - Moxiecode_BaseFile::getLength()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:145
+
+  - Moxiecode_BaseFile::getName()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:67
+
+  - Moxiecode_BaseFile::getTriggerEvents()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:43
+
+  - Moxiecode_BaseFile::hasCommand()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:266
+
+  - Moxiecode_BaseFile::importFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:85
+
+  - Moxiecode_BaseFile::listFiles()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:171
+
+  - Moxiecode_BaseFile::listTreeFiltered()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:198
+
+  - Moxiecode_BaseFile::mkdir()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:206
+
+  - Moxiecode_BaseFile::open()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:257
+
+  - Moxiecode_BaseFile::renameTo()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:215
+
+  - Moxiecode_BaseFile::setLastModified()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:224
+
+  - Moxiecode_BaseFile::setTriggerEvents()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFile_ancien.php:35
+
+  - Moxiecode_BaseFileImpl::getName()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFileImpl_ancien.php:77
+
+  - Moxiecode_BaseFileImpl::getParent()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFileImpl_ancien.php:63
+
+  - Moxiecode_BaseFileImpl::getTriggerEvents()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFileImpl_ancien.php:54
+
+  - Moxiecode_BaseFileImpl::isFile()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFileImpl_ancien.php:107
+
+  - Moxiecode_BaseFileImpl::listFiles()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFileImpl_ancien.php:119
+
+  - Moxiecode_BaseFileImpl::listTree()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFileImpl_ancien.php:129
+
+  - Moxiecode_BaseFileImpl::listTreeFiltered()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFileImpl_ancien.php:140
+
+  - Moxiecode_BaseFileImpl::setTriggerEvents()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\BaseFileImpl_ancien.php:45
+
+  - Moxiecode_BasicFileFilter::BasicFileFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:126
+
+  - Moxiecode_BasicFileFilter::setDebugMode()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:136
+
+  - Moxiecode_BasicFileFilter::setExcludeFiles()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:184
+
+  - Moxiecode_BasicFileFilter::setExcludeFolders()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:204
+
+  - Moxiecode_BasicFileFilter::setExcludeWildcardPattern()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:270
+
+  - Moxiecode_BasicFileFilter::setIncludeFiles()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:194
+
+  - Moxiecode_BasicFileFilter::setIncludeFolders()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:214
+
+  - Moxiecode_BasicFileFilter::setMaxLevels()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:163
+
+  - Moxiecode_BasicFileTreeHandler::Moxiecode_BasicFileTreeHandler()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:73
+
+  - Moxiecode_BasicFileTreeHandler::getFileArray()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:142
+
+  - Moxiecode_BasicFileTreeHandler::getOnlyDirs()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:110
+
+  - Moxiecode_BasicFileTreeHandler::getOnlyFiles()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:92
+
+  - Moxiecode_BasicFileTreeHandler::setMakeArray()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:130
+
+  - Moxiecode_BasicFileTreeHandler::setMaxLevel()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:119
+
+  - Moxiecode_BasicFileTreeHandler::setOnlyDirs()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:101
+
+  - Moxiecode_BasicFileTreeHandler::setOnlyFiles()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:83
+
+  - Moxiecode_CSSCompressor::Moxiecode_CSSCompressor()
+    LOC: 17, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\CSSCompressor.php:29
+
+  - Moxiecode_CSSCompressor::addContent()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\CSSCompressor.php:53
+
+  - Moxiecode_ClientResourceFile::Moxiecode_ClientResourceFile()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:124
+
+  - Moxiecode_ClientResourceFile::getContentType()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:139
+
+  - Moxiecode_ClientResourceFile::getId()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:135
+
+  - Moxiecode_ClientResourceFile::getPath()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:143
+
+  - Moxiecode_ClientResourceFile::isRemoveWhitespaceEnabled()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:131
+
+  - Moxiecode_ClientResources::Moxiecode_ClientResources()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:20
+
+  - Moxiecode_ClientResources::_saxEndElement()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:113
+
+  - Moxiecode_ClientResources::_saxStartElement()
+    LOC: 25, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:87
+
+  - Moxiecode_ClientResources::getPackageIDs()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:36
+
+  - Moxiecode_ClientResources::getSetting()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ClientResources.php:32
+
+  - Moxiecode_CombinedFileFilter::Moxiecode_CombinedFileFilter()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:38
+
+  - Moxiecode_CombinedFileFilter::accept()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:57
+
+  - Moxiecode_ConfigFilteredFileTreeHandler::handle()
+    LOC: 25, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileTreeHandler_ancien.php:184
+
+  - Moxiecode_CorePlugin::Moxiecode_CorePlugin()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\CorePlugin_ancien.php:27
+
+  - Moxiecode_CorePlugin::_filterFile()
+    LOC: 17, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\CorePlugin_ancien.php:774
+
+  - Moxiecode_CorePlugin::onInit()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\CorePlugin_ancien.php:33
+
+  - Moxiecode_CorePlugin::onRPC()
+    LOC: 26, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\CorePlugin_ancien.php:51
+
+  - Moxiecode_CorePlugin::onStream()
+    LOC: 203, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\CorePlugin_ancien.php:88
+
+  - Moxiecode_CorePlugin::onUpload()
+    LOC: 176, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\CorePlugin_ancien.php:301
+
+  - Moxiecode_CustomInfoExample::Moxiecode_CustomInfoExample()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\CustomInfoExample\CustomInfoExample.php:17
+
+  - Moxiecode_CustomInfoExample::onCustomInfo()
+    LOC: 25, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\CustomInfoExample\CustomInfoExample.php:30
+
+  - Moxiecode_DrupalAuthenticator::Moxiecode_DrupalAuthenticator()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\DrupalAuthenticator\DrupalAuthenticator.php:61
+
+  - Moxiecode_DrupalAuthenticator::onAuthenticate()
+    LOC: 25, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\DrupalAuthenticator\DrupalAuthenticator.php:64
+
+  - Moxiecode_DummyFileFilter::accept()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileFilter_ancien.php:82
+
+  - Moxiecode_Error::Moxiecode_Error()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Error_ancien.php:27
+
+  - Moxiecode_Error::handleError()
+    LOC: 119, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Error_ancien.php:34
+
+  - Moxiecode_Error::setId()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Error_ancien.php:30
+
+  - Moxiecode_ExternalAuthenticator::Moxiecode_ExternalAuthenticator()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\ExternalAuthenticator\ExternalAuthenticator.php:23
+
+  - Moxiecode_ExternalAuthenticator::onAuthenticate()
+    LOC: 119, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\ExternalAuthenticator\ExternalAuthenticator.php:26
+
+  - Moxiecode_FavoritesPlugin::Moxiecode_FavoritePlugin()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:26
+
+  - Moxiecode_FavoritesPlugin::clearFavorites()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:122
+
+  - Moxiecode_FavoritesPlugin::onInit()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:29
+
+  - Moxiecode_FavoritesPlugin::onRPC()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\Favorites\Favorites.php:35
+
+  - Moxiecode_FileStream::close()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileStream_ancien.php:60
+
+  - Moxiecode_FileStream::flush()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileStream_ancien.php:54
+
+  - Moxiecode_FileStream::readToEnd()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileStream_ancien.php:39
+
+  - Moxiecode_FileStream::skip()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileStream_ancien.php:22
+
+  - Moxiecode_FileStream::write()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\FileStream_ancien.php:48
+
+  - Moxiecode_HistoryFile::Moxiecode_HistoryFile()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:82
+
+  - Moxiecode_HistoryFile::canRead()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:87
+
+  - Moxiecode_HistoryFile::canWrite()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:91
+
+  - Moxiecode_HistoryFile::exists()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:95
+
+  - Moxiecode_HistoryFile::getParent()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:107
+
+  - Moxiecode_HistoryFile::getParentFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:111
+
+  - Moxiecode_HistoryFile::isDirectory()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:99
+
+  - Moxiecode_HistoryFile::isFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:103
+
+  - Moxiecode_HistoryFile::listFiles()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:120
+
+  - Moxiecode_HistoryPlugin::Moxiecode_HistoryPlugin()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:24
+
+  - Moxiecode_HistoryPlugin::onClearHistory()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:75
+
+  - Moxiecode_HistoryPlugin::onInit()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:27
+
+  - Moxiecode_HistoryPlugin::onInsertFile()
+    LOC: 30, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\History\History.php:33
+
+  - Moxiecode_IPAuthenticator::IPAuthenticator()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Authenticators\IPAuthenticator.php:23
+
+  - Moxiecode_IPAuthenticator::onAuthenticate()
+    LOC: 17, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Authenticators\IPAuthenticator.php:29
+
+  - Moxiecode_ImageManagerPlugin::Moxiecode_ImageManagerPlugin()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\ImageManagerPlugin_ancien.php:25
+
+  - Moxiecode_ImageManagerPlugin::onBeforeFileAction()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\ImageManagerPlugin_ancien.php:200
+
+  - Moxiecode_ImageManagerPlugin::onCustomInfo()
+    LOC: 62, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\ImageManagerPlugin_ancien.php:291
+
+  - Moxiecode_ImageManagerPlugin::onFileAction()
+    LOC: 56, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\ImageManagerPlugin_ancien.php:224
+
+  - Moxiecode_ImageManagerPlugin::onPreInit()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\ImageManagerPlugin_ancien.php:28
+
+  - Moxiecode_ImageManagerPlugin::onRPC()
+    LOC: 123, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\ImageManagerPlugin_ancien.php:48
+
+  - Moxiecode_ImageManagerPlugin::onStream()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ImageManager\ImageManagerPlugin_ancien.php:182
+
+  - Moxiecode_JSCompressor::Moxiecode_JSCompressor()
+    LOC: 18, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSCompressor.php:30
+
+  - Moxiecode_JSCompressor::_decode()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSCompressor.php:259
+
+  - Moxiecode_JSCompressor::_encode()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSCompressor.php:253
+
+  - Moxiecode_JSCompressor::_itemsToStr()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSCompressor.php:249
+
+  - Moxiecode_JSCompressor::_strToItems()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSCompressor.php:243
+
+  - Moxiecode_JSCompressor::addContent()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSCompressor.php:55
+
+  - Moxiecode_JSON::Moxiecode_JSON()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSON_ancien.php:363
+
+  - Moxiecode_JSON::getDelim()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSON_ancien.php:444
+
+  - Moxiecode_JSONReader::Moxiecode_JSONReader()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSON_ancien.php:32
+
+  - Moxiecode_JSONReader::getLocation()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSON_ancien.php:45
+
+  - Moxiecode_JSONReader::getToken()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSON_ancien.php:41
+
+  - Moxiecode_JSONReader::getTokenName()
+    LOC: 35, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSON_ancien.php:49
+
+  - Moxiecode_JSONReader::getValue()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSON_ancien.php:85
+
+  - Moxiecode_JSONReader::readToken()
+    LOC: 69, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\JSON_ancien.php:89
+
+  - Moxiecode_JoomlaAuthenticator::Moxiecode_JoomlaAuthenticator()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\JoomlaAuthenticator\JoomlaAuthenticator_1_5_8.php:66
+
+  - Moxiecode_JoomlaAuthenticator::onAuthenticate()
+    LOC: 35, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\JoomlaAuthenticator\JoomlaAuthenticator_1_5_8.php:69
+
+  - Moxiecode_LanguagePack::Moxiecode_LanguagePack()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:28
+
+  - Moxiecode_LanguagePack::_saxCharacterData()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:251
+
+  - Moxiecode_LanguagePack::_saxEndElement()
+    LOC: 39, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:211
+
+  - Moxiecode_LanguagePack::_saxStartElement()
+    LOC: 18, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:192
+
+  - Moxiecode_LanguagePack::createLanguage()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:175
+
+  - Moxiecode_LanguagePack::get()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:116
+
+  - Moxiecode_LanguagePack::getAuthor()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:145
+
+  - Moxiecode_LanguagePack::getDescription()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:167
+
+  - Moxiecode_LanguagePack::getGroup()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:112
+
+  - Moxiecode_LanguagePack::getGroups()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:104
+
+  - Moxiecode_LanguagePack::getLanguage()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:46
+
+  - Moxiecode_LanguagePack::getLanguageTitle()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:137
+
+  - Moxiecode_LanguagePack::getMajor()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:159
+
+  - Moxiecode_LanguagePack::getMinor()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:155
+
+  - Moxiecode_LanguagePack::getReleaseDate()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:163
+
+  - Moxiecode_LanguagePack::save()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:96
+
+  - Moxiecode_LanguagePack::set()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:120
+
+  - Moxiecode_LanguagePack::setAuthor()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:141
+
+  - Moxiecode_LanguagePack::setDescription()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:171
+
+  - Moxiecode_LanguagePack::setGroups()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:108
+
+  - Moxiecode_LanguagePack::setLanguage()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:42
+
+  - Moxiecode_LanguagePack::setVersion()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:149
+
+  - Moxiecode_LanguagePack::updateLanguage()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\LanguagePack.php:180
+
+  - Moxiecode_LocalFileImpl::Moxiecode_LocalFileImpl()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:32
+
+  - Moxiecode_LocalFileImpl::_cmpByName()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:820
+
+  - Moxiecode_LocalFileImpl::canRead()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:207
+
+  - Moxiecode_LocalFileImpl::canWrite()
+    LOC: 40, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:219
+
+  - Moxiecode_LocalFileImpl::copyTo()
+    LOC: 43, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:278
+
+  - Moxiecode_LocalFileImpl::delete()
+    LOC: 36, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:328
+
+  - Moxiecode_LocalFileImpl::getCreationDate()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:195
+
+  - Moxiecode_LocalFileImpl::getLastModified()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:183
+
+  - Moxiecode_LocalFileImpl::getLength()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:265
+
+  - Moxiecode_LocalFileImpl::getName()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:94
+
+  - Moxiecode_LocalFileImpl::getTriggerEvents()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:60
+
+  - Moxiecode_LocalFileImpl::importFile()
+    LOC: 22, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:112
+
+  - Moxiecode_LocalFileImpl::listFiles()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:370
+
+  - Moxiecode_LocalFileImpl::listTreeFiltered()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:457
+
+  - Moxiecode_LocalFileImpl::mkdir()
+    LOC: 26, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:466
+
+  - Moxiecode_LocalFileImpl::open()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:545
+
+  - Moxiecode_LocalFileImpl::renameTo()
+    LOC: 28, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:499
+
+  - Moxiecode_LocalFileImpl::setLastModified()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:534
+
+  - Moxiecode_LocalFileImpl::setTriggerEvents()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:51
+
+  - Moxiecode_LocalFileStream::Moxiecode_LocalFileStream()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:907
+
+  - Moxiecode_LocalFileStream::close()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:940
+
+  - Moxiecode_LocalFileStream::readToEnd()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:924
+
+  - Moxiecode_LocalFileStream::skip()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:912
+
+  - Moxiecode_LocalFileStream::write()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:933
+
+  - Moxiecode_Logger::Moxiecode_Logger()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:34
+
+  - Moxiecode_Logger::debug()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:141
+
+  - Moxiecode_Logger::error()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:156
+
+  - Moxiecode_Logger::fatal()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:161
+
+  - Moxiecode_Logger::getFileName()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:101
+
+  - Moxiecode_Logger::getFormat()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:109
+
+  - Moxiecode_Logger::getLevel()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:85
+
+  - Moxiecode_Logger::getMaxFiles()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:137
+
+  - Moxiecode_Logger::getMaxSize()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:129
+
+  - Moxiecode_Logger::getPath()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:93
+
+  - Moxiecode_Logger::info()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:146
+
+  - Moxiecode_Logger::isDebugEnabled()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:166
+
+  - Moxiecode_Logger::isErrorEnabled()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:178
+
+  - Moxiecode_Logger::isFatalEnabled()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:182
+
+  - Moxiecode_Logger::isInfoEnabled()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:170
+
+  - Moxiecode_Logger::isWarnEnabled()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:174
+
+  - Moxiecode_Logger::warn()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Logger.class.php:151
+
+  - Moxiecode_ManagerEngine::Moxiecode_ManagerEngine()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:53
+
+  - Moxiecode_ManagerEngine::convertPathToURI()
+    LOC: 26, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:736
+
+  - Moxiecode_ManagerEngine::convertURIToPath()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:770
+
+  - Moxiecode_ManagerEngine::getFSFromPath()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:920
+
+  - Moxiecode_ManagerEngine::getFile()
+    LOC: 59, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:1019
+
+  - Moxiecode_ManagerEngine::getInvalidFileMsg()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:674
+
+  - Moxiecode_ManagerEngine::getJSConfig()
+    LOC: 31, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:334
+
+  - Moxiecode_ManagerEngine::getLangPackPath()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:142
+
+  - Moxiecode_ManagerEngine::getPlugins()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:287
+
+  - Moxiecode_ManagerEngine::getRootPaths()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:258
+
+  - Moxiecode_ManagerEngine::getType()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:134
+
+  - Moxiecode_ManagerEngine::isToolEnabled()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:860
+
+  - Moxiecode_ManagerEngine::registerFileSystem()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:1168
+
+  - Moxiecode_ManagerEngine::registerPlugin()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:299
+
+  - Moxiecode_ManagerEngine::resolveURI()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:721
+
+  - Moxiecode_ManagerEngine::setLangPackPath()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:138
+
+  - Moxiecode_ManagerEngine::toOSPath()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:1116
+
+  - Moxiecode_ManagerEngine::toVisualPath()
+    LOC: 52, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:789
+
+  - Moxiecode_ManagerEngine::verifyFile()
+    LOC: 70, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerEngine_ancien.php:938
+
+  - Moxiecode_ManagerPlugin::onAfterStream()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:163
+
+  - Moxiecode_ManagerPlugin::onAfterUpload()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:200
+
+  - Moxiecode_ManagerPlugin::onAuthenticate()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:30
+
+  - Moxiecode_ManagerPlugin::onBeforeFileAction()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:88
+
+  - Moxiecode_ManagerPlugin::onBeforeRPC()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:113
+
+  - Moxiecode_ManagerPlugin::onBeforeStream()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:137
+
+  - Moxiecode_ManagerPlugin::onBeforeUpload()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:175
+
+  - Moxiecode_ManagerPlugin::onCustomInfo()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:214
+
+  - Moxiecode_ManagerPlugin::onFileAction()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:101
+
+  - Moxiecode_ManagerPlugin::onInit()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:53
+
+  - Moxiecode_ManagerPlugin::onInsertFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:225
+
+  - Moxiecode_ManagerPlugin::onLogin()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:64
+
+  - Moxiecode_ManagerPlugin::onLogout()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:75
+
+  - Moxiecode_ManagerPlugin::onPreInit()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:42
+
+  - Moxiecode_ManagerPlugin::onRPC()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:125
+
+  - Moxiecode_ManagerPlugin::onRequestResources()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:240
+
+  - Moxiecode_ManagerPlugin::onStream()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:151
+
+  - Moxiecode_ManagerPlugin::onUpload()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\ManagerPlugin_ancien.php:188
+
+  - Moxiecode_MoozCMSIntegration::onAuthenticate()
+    LOC: 15, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\MoozCMSIntegration\MoozCMSIntegration.php:29
+
+  - Moxiecode_MoozCMSIntegration::onBeforeFileAction()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\MoozCMSIntegration\MoozCMSIntegration.php:54
+
+  - Moxiecode_MoozCMSIntegration::onFileAction()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\MoozCMSIntegration\MoozCMSIntegration.php:71
+
+  - Moxiecode_MoozCMSIntegration::onRequestResources()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\MoozCMSIntegration\MoozCMSIntegration.php:90
+
+  - Moxiecode_PHPNukeAuthenticator::Moxiecode_PHPNukeAuthenticator()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\PHPNukeAuthenticator\PHPNukeAuthenticator.php:30
+
+  - Moxiecode_PHPNukeAuthenticator::onAuthenticate()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\PHPNukeAuthenticator\PHPNukeAuthenticator.php:33
+
+  - Moxiecode_ResultSet::Moxiecode_ResultSet()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ResultSet_ancien.php:21
+
+  - Moxiecode_ResultSet::getRowCount()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ResultSet_ancien.php:39
+
+  - Moxiecode_ResultSet::getRows()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\ResultSet_ancien.php:43
+
+  - Moxiecode_RootFileImpl::canRead()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\RootFileImpl_ancien.php:19
+
+  - Moxiecode_RootFileImpl::canWrite()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\RootFileImpl_ancien.php:23
+
+  - Moxiecode_RootFileImpl::exists()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\RootFileImpl_ancien.php:31
+
+  - Moxiecode_RootFileImpl::getParent()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\RootFileImpl_ancien.php:35
+
+  - Moxiecode_RootFileImpl::getParentFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\RootFileImpl_ancien.php:39
+
+  - Moxiecode_RootFileImpl::isDirectory()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\RootFileImpl_ancien.php:27
+
+  - Moxiecode_RootFileImpl::listFilesFiltered()
+    LOC: 20, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\RootFileImpl_ancien.php:49
+
+  - Moxiecode_SessionAuthenticator::SessionAuthenticator()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Authenticators\SessionAuthenticator.php:25
+
+  - Moxiecode_SessionAuthenticator::onAuthenticate()
+    LOC: 41, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Authenticators\SessionAuthenticator.php:37
+
+  - Moxiecode_TemplatePlugin::onAfterStream()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:128
+
+  - Moxiecode_TemplatePlugin::onAfterUpload()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:165
+
+  - Moxiecode_TemplatePlugin::onAuthenticate()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:24
+
+  - Moxiecode_TemplatePlugin::onBeforeFileAction()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:53
+
+  - Moxiecode_TemplatePlugin::onBeforeRPC()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:78
+
+  - Moxiecode_TemplatePlugin::onBeforeStream()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:102
+
+  - Moxiecode_TemplatePlugin::onBeforeUpload()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:140
+
+  - Moxiecode_TemplatePlugin::onCustomInfo()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:179
+
+  - Moxiecode_TemplatePlugin::onFileAction()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:66
+
+  - Moxiecode_TemplatePlugin::onInit()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:35
+
+  - Moxiecode_TemplatePlugin::onInsertFile()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:190
+
+  - Moxiecode_TemplatePlugin::onRPC()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:90
+
+  - Moxiecode_TemplatePlugin::onStream()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:116
+
+  - Moxiecode_TemplatePlugin::onUpload()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\_Template\Template.php:153
+
+  - Moxiecode_WordpressAuthenticator::Moxiecode_WordpressAuthenticator()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\WordpressAuthenticator\WordpressAuthenticator.php:28
+
+  - Moxiecode_WordpressAuthenticator::onAuthenticate()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\plugins\WordpressAuthenticator\WordpressAuthenticator.php:31
+
+  - OptionsController::admin_edit()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\options_controller.php:6
+
+  - PagesController::display()
+    LOC: 215, declared in D:\www\2013-08-Serieall\all\app\controllers\pages_controller.php:63
+
+  - ParagraphsController::admin_add()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\paragraphs_controller.php:11
+
+  - ParagraphsController::admin_delete()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\paragraphs_controller.php:20
+
+  - ParagraphsController::admin_edit()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\paragraphs_controller.php:15
+
+  - ParagraphsController::admin_index()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\paragraphs_controller.php:7
+
+  - PollsController::admin_add()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\controllers\polls_controller.php:54
+
+  - PollsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\polls_controller.php:94
+
+  - PollsController::admin_edit()
+    LOC: 23, declared in D:\www\2013-08-Serieall\all\app\controllers\polls_controller.php:68
+
+  - PollsController::admin_index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\polls_controller.php:48
+
+  - PollsController::awards2010()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\polls_controller.php:13
+
+  - PollsController::awards2011()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\controllers\polls_controller.php:19
+
+  - PollsController::awards2014()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\controllers\polls_controller.php:26
+
+  - PollsController::view()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\polls_controller.php:43
+
+  - QuestionsController::admin_add()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\questions_controller.php:24
+
+  - QuestionsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\questions_controller.php:63
+
+  - QuestionsController::admin_edit()
+    LOC: 23, declared in D:\www\2013-08-Serieall\all\app\controllers\questions_controller.php:37
+
+  - QuestionsController::admin_index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\questions_controller.php:18
+
+  - QuestionsController::view()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\questions_controller.php:13
+
+  - QuotesController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\quotes_controller.php:27
+
+  - QuotesController::admin_edit()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\quotes_controller.php:12
+
+  - QuotesController::admin_index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\quotes_controller.php:7
+
+  - RatesController::add()
+    LOC: 138, declared in D:\www\2013-08-Serieall\all\app\controllers\rates_controller.php:162
+
+  - RatesController::admin_delete()
+    LOC: 87, declared in D:\www\2013-08-Serieall\all\app\controllers\rates_controller.php:301
+
+  - RatesController::admin_index()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\rates_controller.php:393
+
+  - RatesController::admin_searchresult()
+    LOC: 18, declared in D:\www\2013-08-Serieall\all\app\controllers\rates_controller.php:403
+
+  - RatesController::beforeFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\rates_controller.php:7
+
+  - RatesController::lastRate()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\controllers\rates_controller.php:147
+
+  - RatesController::mobileAdd()
+    LOC: 133, declared in D:\www\2013-08-Serieall\all\app\controllers\rates_controller.php:12
+
+  - ReactionsController::add()
+    LOC: 85, declared in D:\www\2013-08-Serieall\all\app\controllers\reactions_controller.php:11
+
+  - ReactionsController::beforeFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\reactions_controller.php:6
+
+  - ReactionsController::lastReaction()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\reactions_controller.php:97
+
+  - RegionsController::admin_add()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\controllers\regions_controller.php:27
+
+  - RegionsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\regions_controller.php:67
+
+  - RegionsController::admin_edit()
+    LOC: 23, declared in D:\www\2013-08-Serieall\all\app\controllers\regions_controller.php:41
+
+  - RegionsController::admin_index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\regions_controller.php:22
+
+  - RegionsController::index()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\regions_controller.php:13
+
+  - RegionsController::view()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\regions_controller.php:17
+
+  - RememberMeComponent::check()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\controllers\components\remember_me.php:45
+
+  - RememberMeComponent::remember()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\controllers\components\remember_me.php:37
+
+  - RememberMeComponent::startup()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\components\remember_me.php:32
+
+  - RolesController::admin_add()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\roles_controller.php:14
+
+  - RolesController::admin_adds()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\controllers\roles_controller.php:44
+
+  - RolesController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\roles_controller.php:71
+
+  - RolesController::admin_edit()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\roles_controller.php:56
+
+  - RolesController::admin_index()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\roles_controller.php:8
+
+  - RolesController::admin_many()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\controllers\roles_controller.php:28
+
+  - SDK_Login::__construct()
+    LOC: 22, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:77
+
+  - SDK_Login::__get()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:107
+
+  - SDK_Login::__set()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:119
+
+  - SDK_Login::authLogin()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:190
+
+  - SDK_Login::changeEmail()
+    LOC: 25, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:222
+
+  - SDK_Login::changeName()
+    LOC: 17, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:327
+
+  - SDK_Login::changePass()
+    LOC: 52, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:258
+
+  - SDK_Login::checkLoginAuth()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:170
+
+  - SDK_Login::createAccount()
+    LOC: 125, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:357
+
+  - SDK_Login::deleteCookies()
+    LOC: 36, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:539
+
+  - SDK_Login::emailExists()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:209
+
+  - SDK_Login::isLoggedIn()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:582
+
+  - SDK_Login::logOut()
+    LOC: 40, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:490
+
+  - SDK_Login::loginNoCheck()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Login.php:146
+
+  - SDK_Member::__construct()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:63
+
+  - SDK_Member::__get()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:83
+
+  - SDK_Member::__set()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:95
+
+  - SDK_Member::buildAvatar()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:668
+
+  - SDK_Member::buildDisplayData()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:645
+
+  - SDK_Member::buildProfilePhoto()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:624
+
+  - SDK_Member::checkByEmail()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:687
+
+  - SDK_Member::checkFriendStatus()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:528
+
+  - SDK_Member::checkIgnoredStatus()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:544
+
+  - SDK_Member::checkNameExists()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:162
+
+  - SDK_Member::checkPermissions()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:584
+
+  - SDK_Member::cleanAndCheckName()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:141
+
+  - SDK_Member::createPermsFromGroup()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:597
+
+  - SDK_Member::deleteMemberPhoto()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:185
+
+  - SDK_Member::fetchSeoName()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:508
+
+  - SDK_Member::findIPAddresses()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:557
+
+  - SDK_Member::fullCreateMember()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:402
+
+  - SDK_Member::generateAutoLoginKey()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:745
+
+  - SDK_Member::generateCompiledPasshash()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:720
+
+  - SDK_Member::generatePasswordSalt()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:733
+
+  - SDK_Member::getHostedAvatarCategories()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:344
+
+  - SDK_Member::getHostedAvatarsFromCategory()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:332
+
+  - SDK_Member::isBanned()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:758
+
+  - SDK_Member::querySpamService()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:772
+
+  - SDK_Member::remove()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:487
+
+  - SDK_Member::removeAvatar()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:263
+
+  - SDK_Member::removeUploadedPhotos()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:242
+
+  - SDK_Member::save()
+    LOC: 18, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:430
+
+  - SDK_Member::saveNewAvatar()
+    LOC: 20, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:304
+
+  - SDK_Member::setUpGuest()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:611
+
+  - SDK_Member::updatePassword()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:701
+
+  - SDK_Member::uploadMemberPhoto()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\vendors\sdk\Classes\SDK_Member.php:223
+
+  - SeasonsController::admin_add()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:48
+
+  - SeasonsController::admin_adds()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:200
+
+  - SeasonsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:178
+
+  - SeasonsController::admin_edit()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:62
+
+  - SeasonsController::admin_index()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:28
+
+  - SeasonsController::admin_liste()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:37
+
+  - SeasonsController::admin_many()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:185
+
+  - SeasonsController::admin_temp()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:32
+
+  - SeasonsController::beforeFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:12
+
+  - SeasonsController::fiche()
+    LOC: 97, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:78
+
+  - SeasonsController::mobileSeason()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:18
+
+  - SeasonsController::updatenotes()
+    LOC: 20, declared in D:\www\2013-08-Serieall\all\app\controllers\seasons_controller.php:211
+
+  - SessionsSchema::after()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\config\sql\sessions.php:42
+
+  - SessionsSchema::before()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\config\sql\sessions.php:38
+
+  - ShowimgHelper::displayName()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\views\helpers\showimg.php:5
+
+  - ShowsController::admin_add()
+    LOC: 216, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:1120
+
+  - ShowsController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:1352
+
+  - ShowsController::admin_edit()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:1337
+
+  - ShowsController::admin_index()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:73
+
+  - ShowsController::admin_temp()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:78
+
+  - ShowsController::autoComplete()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:1110
+
+  - ShowsController::beforeFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:20
+
+  - ShowsController::classement()
+    LOC: 166, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:251
+
+  - ShowsController::eventRentree2011()
+    LOC: 150, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:419
+
+  - ShowsController::eventRentree2012()
+    LOC: 164, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:942
+
+  - ShowsController::fiche()
+    LOC: 103, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:97
+
+  - ShowsController::index()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:83
+
+  - ShowsController::mobile()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:26
+
+  - ShowsController::mobileShow()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:64
+
+  - ShowsController::mobileShows()
+    LOC: 24, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:38
+
+  - ShowsController::rentree2013()
+    LOC: 164, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:776
+
+  - ShowsController::rentree2014()
+    LOC: 203, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:571
+
+  - ShowsController::sortCat()
+    LOC: 34, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:214
+
+  - ShowsController::sortLetters()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:201
+
+  - ShowsController::updatenotes()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\controllers\shows_controller.php:1358
+
+  - SitemapsController::episode()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\sitemaps_controller.php:29
+
+  - SitemapsController::episode2()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\sitemaps_controller.php:39
+
+  - SitemapsController::index()
+    LOC: 18, declared in D:\www\2013-08-Serieall\all\app\controllers\sitemaps_controller.php:10
+
+  - SlogansController::admin_add()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\controllers\slogans_controller.php:13
+
+  - SlogansController::admin_delete()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\slogans_controller.php:36
+
+  - SlogansController::admin_edit()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\controllers\slogans_controller.php:23
+
+  - SlogansController::admin_index()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\slogans_controller.php:7
+
+  - StarHelper::add()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\views\helpers\star.php:7
+
+  - StarHelper::avis()
+    LOC: 11, declared in D:\www\2013-08-Serieall\all\app\views\helpers\star.php:44
+
+  - StarHelper::convert()
+    LOC: 23, declared in D:\www\2013-08-Serieall\all\app\views\helpers\star.php:15
+
+  - StarHelper::rang()
+    LOC: 37, declared in D:\www\2013-08-Serieall\all\app\views\helpers\star.php:69
+
+  - StarHelper::role()
+    LOC: 18, declared in D:\www\2013-08-Serieall\all\app\views\helpers\star.php:107
+
+  - StarHelper::thumb()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\views\helpers\star.php:39
+
+  - StarHelper::url()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\views\helpers\star.php:56
+
+  - StreamErrorHandler()
+    LOC: 31, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\Utils\Error_ancien.php:228
+
+  - ThumbComponent::generateThumb()
+    LOC: 50, declared in D:\www\2013-08-Serieall\all\app\controllers\components\thumb.php:61
+
+  - ThumbComponent::startup()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\components\thumb.php:50
+
+  - UploadsController::add()
+    LOC: 22, declared in D:\www\2013-08-Serieall\all\app\controllers\uploads_controller.php:7
+
+  - UsersController::add()
+    LOC: 103, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:543
+
+  - UsersController::addfollow()
+    LOC: 24, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:697
+
+  - UsersController::admin_add()
+    LOC: 18, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:74
+
+  - UsersController::admin_administration()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:29
+
+  - UsersController::admin_delete()
+    LOC: 19, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:135
+
+  - UsersController::admin_edit()
+    LOC: 38, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:94
+
+  - UsersController::admin_index()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:33
+
+  - UsersController::admin_temp()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:24
+
+  - UsersController::admin_twitter()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:159
+
+  - UsersController::beforeFilter()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:8
+
+  - UsersController::confirm()
+    LOC: 1, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:647
+
+  - UsersController::delfollow()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:723
+
+  - UsersController::developShow()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:515
+
+  - UsersController::editEdito()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:685
+
+  - UsersController::editEmail()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:649
+
+  - UsersController::editPassword()
+    LOC: 20, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:664
+
+  - UsersController::favshows()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:527
+
+  - UsersController::filterseasonComments()
+    LOC: 36, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:384
+
+  - UsersController::filtershowComments()
+    LOC: 73, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:423
+
+  - UsersController::index()
+    LOC: 19, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:54
+
+  - UsersController::inscription()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:155
+
+  - UsersController::login()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:13
+
+  - UsersController::logout()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:19
+
+  - UsersController::mobileLogin()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:43
+
+  - UsersController::mobilelogout()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:47
+
+  - UsersController::profil()
+    LOC: 219, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:163
+
+  - UsersController::sortRates()
+    LOC: 15, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:498
+
+  - UsersController::updateshows()
+    LOC: 19, declared in D:\www\2013-08-Serieall\all\app\controllers\users_controller.php:728
+
+  - VotesController::add()
+    LOC: 36, declared in D:\www\2013-08-Serieall\all\app\controllers\votes_controller.php:13
+
+  - _LocalCopyDirTreeHandler::_LocalCopyDirTreeHandler()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:837
+
+  - _LocalCopyDirTreeHandler::handle()
+    LOC: 15, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:851
+
+  - _LocalDeleteDirTreeHandler::_LocalDeleteDirTreeHandler()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:873
+
+  - _LocalDeleteDirTreeHandler::handle()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\classes\FileSystems\LocalFileImpl_ancien.php:895
+
+  - addNoCacheHeaders()
+    LOC: 14, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\includes\general_ancien.php:118
+
+  - displayDuration()
+    LOC: 27, declared in D:\www\2013-08-Serieall\all\app\config\bootstrap.php:44
+
+  - fatal()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\includes\general_ancien.php:208
+
+  - getAge()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\config\bootstrap.php:72
+
+  - i18nSchema::after()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\config\sql\i18n.php:42
+
+  - i18nSchema::before()
+    LOC: 3, declared in D:\www\2013-08-Serieall\all\app\config\sql\i18n.php:38
+
+  - info()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\includes\general_ancien.php:187
+
+  - pBarcode128::left()
+    LOC: 1, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pBarcode128.class.php:180
+
+  - pBarcode128::pBarcode128()
+    LOC: 23, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pBarcode128.class.php:26
+
+  - pBarcode128::right()
+    LOC: 1, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pBarcode128.class.php:181
+
+  - pBarcode39::left()
+    LOC: 1, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pBarcode39.class.php:196
+
+  - pBarcode39::pBarcode39()
+    LOC: 21, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pBarcode39.class.php:27
+
+  - pBarcode39::right()
+    LOC: 1, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pBarcode39.class.php:197
+
+  - pBubble::pBubble()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pBubble.class.php:23
+
+  - pCache::flush()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pCache.class.php:39
+
+  - pCache::pCache()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pCache.class.php:24
+
+  - pCache::remove()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pCache.class.php:88
+
+  - pCache::removeOlderThan()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pCache.class.php:84
+
+  - pCache::strokeFromCache()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pCache.class.php:215
+
+  - pChart::Render()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2449
+
+  - pChart::Stroke()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2458
+
+  - pChart::drawArea()
+    LOC: 45, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:793
+
+  - pChart::drawBackground()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2110
+
+  - pChart::drawBarGraph()
+    LOC: 43, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1330
+
+  - pChart::drawBasicPieGraph()
+    LOC: 95, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1754
+
+  - pChart::drawEllipse()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2301
+
+  - pChart::drawFilledCubicCurve()
+    LOC: 163, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1015
+
+  - pChart::drawFilledEllipse()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2305
+
+  - pChart::drawFilledLineGraph()
+    LOC: 89, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1180
+
+  - pChart::drawFilledRadar()
+    LOC: 79, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1673
+
+  - pChart::drawFlatPieGraph()
+    LOC: 119, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1851
+
+  - pChart::drawFromGIF()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2385
+
+  - pChart::drawFromJPG()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2389
+
+  - pChart::drawFromPNG()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2381
+
+  - pChart::drawGraphArea()
+    LOC: 31, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:227
+
+  - pChart::drawGrid()
+    LOC: 56, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:495
+
+  - pChart::drawLegend()
+    LOC: 35, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:574
+
+  - pChart::drawLimitsGraph()
+    LOC: 46, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1427
+
+  - pChart::drawOverlayBarGraph()
+    LOC: 57, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1271
+
+  - pChart::drawPieGraph()
+    LOC: 136, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1972
+
+  - pChart::drawPieLegend()
+    LOC: 39, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:611
+
+  - pChart::drawPlotGraph()
+    LOC: 44, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:746
+
+  - pChart::drawRadar()
+    LOC: 58, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1613
+
+  - pChart::drawRadarAxis()
+    LOC: 136, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1475
+
+  - pChart::drawScale()
+    LOC: 225, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:268
+
+  - pChart::drawStackedBarGraph()
+    LOC: 50, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:1375
+
+  - pChart::drawTitle()
+    LOC: 20, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:652
+
+  - pChart::drawTreshold()
+    LOC: 25, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:674
+
+  - pChart::getLegendBoxSize()
+    LOC: 19, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:553
+
+  - pChart::loadColorPalette()
+    LOC: 22, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:187
+
+  - pChart::pChart()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:147
+
+  - pChart::reportWarnings()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:161
+
+  - pChart::setColorPalette()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:175
+
+  - pChart::setDateFormat()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:2623
+
+  - pChart::setFixedScale()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:260
+
+  - pChart::setGraphArea()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:218
+
+  - pChart::setLabel()
+    LOC: 43, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:701
+
+  - pChart::writeValues()
+    LOC: 35, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pChart.class.php:841
+
+  - pData::AddAllSeries()
+    LOC: 13, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:165
+
+  - pData::AddSerie()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:148
+
+  - pData::GetData()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:244
+
+  - pData::GetDataDescription()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:249
+
+  - pData::ImportFromCSV()
+    LOC: 55, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:63
+
+  - pData::RemoveSerie()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:179
+
+  - pData::SetAbsciseLabelSerie()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:192
+
+  - pData::SetXAxisFormat()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:212
+
+  - pData::SetXAxisName()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:202
+
+  - pData::SetXAxisUnit()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:222
+
+  - pData::SetYAxisFormat()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:217
+
+  - pData::SetYAxisName()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:207
+
+  - pData::SetYAxisUnit()
+    LOC: 4, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:227
+
+  - pData::__toString()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:552
+
+  - pData::containsData()
+    LOC: 9, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:261
+
+  - pData::getPalette()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:542
+
+  - pData::getSerieCount()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:94
+
+  - pData::getSeriePercentile()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:228
+
+  - pData::getSum()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:114
+
+  - pData::getValueAt()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:102
+
+  - pData::getValues()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:106
+
+  - pData::importFromCSV()
+    LOC: 35, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:501
+
+  - pData::limits()
+    LOC: 18, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:195
+
+  - pData::pData()
+    LOC: 12, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:55
+
+  - pData::removeAllSeries()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:238
+
+  - pData::removeSerie()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:98
+
+  - pData::removeSerieName()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pChart\pData.class.php:232
+
+  - pData::reverseSerie()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:110
+
+  - pData::saveAxisConfig()
+    LOC: 1, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:546
+
+  - pData::saveOrientation()
+    LOC: 1, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:549
+
+  - pData::setScatterSerieDrawable()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:166
+
+  - pData::setScatterSerieWeight()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:174
+
+  - pData::setXAxisName()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pData.class.php:138
+
+  - pDraw::drawRoundedFilledRectangle_deprecated()
+    LOC: 77, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pDraw.class.php:328
+
+  - pDraw::offsetCorrection()
+    LOC: 19, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pDraw.class.php:178
+
+  - pImage::getAngle()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:157
+
+  - pImage::getFirstDecimal()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:229
+
+  - pImage::getHeight()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:124
+
+  - pImage::getTextBox()
+    LOC: 23, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:182
+
+  - pImage::getTextBox_deprecated()
+    LOC: 16, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:164
+
+  - pImage::getWidth()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:120
+
+  - pImage::pImage()
+    LOC: 23, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:65
+
+  - pImage::printDataSet()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:240
+
+  - pImage::setDataSet()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pImage.class.php:236
+
+  - pPie::pPie()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pPie.class.php:35
+
+  - pRadar::pRadar()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pRadar.class.php:30
+
+  - pScatter::getScatterLegendSize()
+    LOC: 75, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pScatter.class.php:705
+
+  - pScatter::pScatter()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pScatter.class.php:26
+
+  - pSplit::pSplit()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pSplit.class.php:25
+
+  - pSpring::dumpNodes()
+    LOC: 2, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pSpring.class.php:247
+
+  - pSpring::pSpring()
+    LOC: 38, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pSpring.class.php:46
+
+  - pSpring::setLabelsSettings()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pSpring.class.php:95
+
+  - pSpring::setLinkDefaults()
+    LOC: 7, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pSpring.class.php:86
+
+  - pStock::pStock()
+    LOC: 5, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\class\pStock.class.php:25
+
+  - size()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\vendors\chart\pchart2\examples\index.php:302
+
+  - smarty_modifier_rss_date_parse()
+    LOC: 10, declared in D:\www\2013-08-Serieall\all\app\vendors\magpierss\scripts\smarty_plugin\modifier.rss_date_parse.php:17
+
+  - varDump()
+    LOC: 8, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\includes\general_ancien.php:138
+
+  - warn()
+    LOC: 6, declared in D:\www\2013-08-Serieall\all\app\webroot\js\tiny_mce\plugins\imagemanager\includes\general_ancien.php:201
+
+Time: 54.77 seconds, Memory: 56.00Mb
