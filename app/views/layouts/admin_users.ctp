@@ -70,7 +70,7 @@
                 	<li><?php echo $html->link($html->image("menu/accueil.png", array("class" => "absmiddle")) . ' &nbsp;Accueil', '/admin/', array('escape' => false)); ?></li>
                 	<li><?php echo $html->link($html->image("menu/users.png", array("class" => "absmiddle")) .' Utilisateurs', '/admin/users', array('escape' => false)); ?></li>
                     <li><?php echo $html->link($html->image("menu/comment.png", array("class" => "absmiddle")) .' Avis', '/admin/comments', array('escape' => false)); ?></li>
-                    <li><?php echo $html->link($html->image("menu/comment.png", array("class" => "absmiddle")) .' Commentaires', '/admin/comments/commentindex', array('escape' => false)); ?></li>
+                    <li><?php echo $html->link($html->image("menu/comment.png", array("class" => "absmiddle")) .' Commentaires', '/admin/comments/articles', array('escape' => false)); ?></li>
 					<li><?php echo $html->link($html->image("menu/critique.png", array("class" => "absmiddle")) .' Notes', '/admin/rates', array('escape' => false)); ?></li>
                 </ul>
             </div>

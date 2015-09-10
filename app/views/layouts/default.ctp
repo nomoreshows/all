@@ -64,7 +64,9 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 </head>
 
 <body>
-
+	<div style="text-align:center;height: 30px;">
+		Une mise à jour du serveur est prévue ce vendredi 11/09 à partir de 18h. Le site sera inaccessible pendant plusieurs heures. Nous nous excusons par avance pour la gêne occasionnée.
+	</div>
 	<div id="header">
     	<div id="menu">
             <div class="width">
@@ -85,7 +87,7 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 							<li><?php echo $html->link('Podcasts', '/podcast', array('escape' => false)); ?></li>
                         </ul>                    
                     </li>
-					<li><?php echo $html->link('<span>Nouveautés 2014-2015</span>', '/nouvelles-series-2014-2015', array('escape' => false)); ?></li>
+					<li class="notif-new"><?php echo $html->link('<span>Nouveautés 2015-2016</span>', '/nouvelles-series-2015-2016', array('escape' => false)); ?></li>
 				</ul>
                 
                 <cake:nocache>

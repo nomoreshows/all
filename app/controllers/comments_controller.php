@@ -304,6 +304,23 @@ class CommentsController extends AppController {
 		$this->set(compact('shows'));
 	}
 	
+	/**
+	 * Arrivée sur la page de base pour la gestion des commenatires d'articles depuis l'admin.
+	 * Affichera un formulaire de recherche de l'article selon son id puis déclenchera la rechercher
+	 */
+	function admin_articles(){
+
+	}
+	
+	function admin_searcharticle(){
+		$arrayCondition['Comment.article_id =' ]= $this->data['Comment']['article_id'];
+		
+		$liste_comments = $this->Comment->find('all',array(
+			'conditions' => $arrayCondition,
+			'order' => 'Comment.created DESC'));
+	
+		$this->set('comments', $liste_comments);
+	}
 
 	/**
 	 * Effectue la recherche des avis en fonction des infos récupérées via le formulaire (admin_index).

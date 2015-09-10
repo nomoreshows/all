@@ -15,7 +15,7 @@
     <span class="chapo">
 		C'est la rentrée série ! Et comme chaque année, le sériephile averti se pose toujours la même question : qu'est ce que je vais bien pouvoir regarder cette année ? 
 		À serieall, nous avons bien compris ce soucis et c'est pourquoi nous vous proposons cette page recensant les nouveautés de la saison 2014-2015. <br/>
-		Et comme on sait que le temps d'un sériephile est précieux, toutes les séries que nous avons analysés sont présentées grâce à notre indice infaillible, 
+		Et comme on sait que le temps d'un sériephile est précieux, toutes les séries que nous avons analysées sont présentées grâce à notre indice infaillible, 
 		le taux érectile, qui vous permettra à coup-sûr de sélectionner les perles des navets (50% de chance que l'on se plante).
 		<br/>
 		Bonne saison !

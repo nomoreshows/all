@@ -34,9 +34,7 @@ $('a[rel*=facebox]').facebox();
 			?>
 			<h2><span><?php echo $html->link($show['Show']['name'], '/serie/' . $show['Show']['menu'], array('class' => 'nodeco')); ?></span></h2>
       <p class="chanel"><span><?php echo $show['Show']['chaineus']; ?></span></p>
-	  <?php if($te){?>
       <p class="teshow teshow<?php echo $te_color; ?>">Taux érectile : <span><?php echo $te; ?>%</span></p>
-	  <?php  }?>
 		</div>
 		
 		<?php 
@@ -45,12 +43,10 @@ $('a[rel*=facebox]').facebox();
 		<div id="avisredac<?php echo $show['Show']['id']; ?>" style="display:none;">
   		<fieldset><legend>L'avis de <?php echo $html->image('logo_v2.png', array('alt'=>'Série-All', 'width' => 100, 'class' => 'logoavis')); ?></legend>
   		
-		<?php if($te){?>
-			<div id="te"><span class="expand <?php echo $te_color; ?>">
-			  Taux érectile : <strong><?php echo $te; ?>%</strong>
-			</span></div><br /><br />
-  		<?php  }?>
-		
+  		<div id="te"><span class="expand <?php echo $te_color; ?>">
+  		  Taux érectile : <strong><?php echo $te; ?>%</strong>
+  		</span></div><br /><br />
+  		
   		<div class="article">
   		  <?php echo nl2br($show['Show']['avis_rentree']); ?>
   		</div>
@@ -69,41 +65,33 @@ $('a[rel*=facebox]').facebox();
 		
 		<p class="synopsis"><strong>Synopsis :</strong> <?php echo $show['Show']['synopsis']; ?></p>
         <?php 
-  			if ($show['Show']['diffusionus'] == '2013-09-01') { 
-  				$date = 'A partir de septembre 2013'; 
-  			} elseif($show['Show']['diffusionus'] == '2014-01-01') {
-  				$date = 'A partir de janvier 2014'; 
-			} elseif($show['Show']['diffusionus'] == '2015-01-01') {
-  				$date = 'A partir du printemps 2015'; 
-			} elseif($show['Show']['diffusionus'] == '2014-09-01' && $show['Show']['id'] != 1157) {
-  				$date = 'A partir de l\'automne 2014'; 
-			}elseif($show['Show']['diffusionus'] == '2015-12-01') {
-  				$date = 'A partir de l\'automne 2015'; 
-			}elseif($show['Show']['diffusionus'] == '2016-06-01') {
-  				$date = 'A partir du printemps 2016'; 
+  			if ($show['Show']['diffusionus'] == '2012-09-01') { 
+  				$date = 'A partir de septembre 2012'; 
+  			} elseif($show['Show']['diffusionus'] == '2013-01-01') {
+  				$date = 'A partir de janvier 2013'; 
   			} else {
   				$timestamp = strtotime($show['Show']['diffusionus']); 
   				$date = 'A partir du ' . strftime("%d %B %Y", $timestamp); 
   			} ?>
         <table width="100%">
         <tr>
-        <td><?php echo $date;  ?>.</td>
+        <td><?php echo $date; //print_r($show); ?>.</td>
         <td>
-        <?php if (!empty($show['Show']['avis_rentree'])) echo $html->link('<span>Notre pronostic</span>', '#avisredac' . $show['Show']['id'], array('class' => 'button current', 'escape' => false, 'rel' => 'facebox')); ?>
-        <?php if(!empty($show['Season'][0]['ba'])) {  echo $html->link('<span>Trailer</span>', '#trailer' . $show['Show']['id'], array('escape' => false, 'class' => 'button', 'rel' => 'facebox[.fbcontent]')); } ?>
-		<?php 
-			foreach ($show['Article'] as $article){
-				if($article['caption']=="1.01"){
-					echo $html->link('<span>Critique</span>', '/article/' . $article['url'], array('escape' => false, 'class' => 'button')); 
-					break;
-				}
-			}
-		?>
-
+        <?php if (!empty($show['Show']['avis_rentree'])) echo $html->link('<span>Notre avis</span>', '#avisredac' . $show['Show']['id'], array('class' => 'button current', 'escape' => false, 'rel' => 'facebox')); ?>
+        <?php if(!empty($show['Season'][0]['ba'])) { ?> <?php echo $html->link('<span>Trailer</span>', '#trailer' . $show['Show']['id'], array('escape' => false, 'class' => 'button', 'rel' => 'facebox[.fbcontent]')); } ?>
+        
+                  
+        <?php /** if(!empty($show['Role'][0]['id'])) { ?> <?php echo $html->link('<span>Acteurs</span>', '/serie/' . $show['Show']['menu'] . '#acteurs', array('escape' => false, 'class' => 'button')); } */ ?>
+        
         </td>
         </tr>
         </table>
         
+        <?php
+        if (!empty($show['Show']['avis_rentree'])) {
+          // echo '<span class="avis-redac"><strong>Notre avis : </strong>' . $show['Show']['avis_rentree'] . '</span>';
+        }
+        ?>
         
 		<br /><br />
 	</div>

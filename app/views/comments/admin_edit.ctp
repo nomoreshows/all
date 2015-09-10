@@ -24,7 +24,8 @@
 
 	echo $form->input('text', array('label' => 'Texte avis', 'rows'=>5, 'cols'=>50));
 
-    
+    echo $form->input('article_id', array('label' => 'identifiant article'));
+	
 	echo $form->input('show_id', array('label' => 'Série :', 'type'=>'select'));
 	$options = array('url' => array('controller' => 'comments', 'action' => 'changeshowedit', 'prefix' => 'admin'), 
 			'update' => 'showDataChange');

@@ -38,7 +38,6 @@
                 echo $form->input('department', array('label' => 'Département :'));
                 echo $form->input('country', array('label' => 'Pays :'));
                 echo $form->input('job', array('label' => 'Profession :'));
-                echo $form->input('website', array('label' => 'Site web :', 'default' => 'http://'));
                 echo $form->input('twitter', array('label' => 'Compte twitter :'));
                 echo $form->input('facebook', array('label' => 'Compte facebook :'));
                 echo '</fieldset>';
