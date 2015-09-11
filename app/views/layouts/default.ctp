@@ -65,7 +65,7 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 
 <body>
 	<div style="text-align:center;height: 30px;">
-		Une mise à jour du serveur est prévue ce vendredi 11/09 à partir de 18h. Le site sera inaccessible pendant plusieurs heures. Nous nous excusons par avance pour la gêne occasionnée.
+		Mise à jour serveur correctement effectuée, certains éléments restent encore non fonctionnels mais leur retour est prévu sous peu (forum). Merci de votre patience.
 	</div>
 	<div id="header">
     	<div id="menu">
