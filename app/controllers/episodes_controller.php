@@ -186,12 +186,15 @@ class EpisodesController extends AppController {
 	
 	
 	function admin_edit($id) {
+		$this->loadModel('Season');
 		$this->Episode->id = $id;
 		$this->Season->order = 'Season.name ASC';
-		$this->set('seasons', $this->Episode->Season->find('list'));
+		
 		
 		if (empty($this->data)) {
 			$this->data = $this->Episode->read();
+			$show_id = $this->Season->find('first',array('conditions' => array('Season.id =' => $this->data['Episode']['season_id'] )));
+			$this->set('seasons', $this->Season->find('list',array('conditions' => array('Season.show_id =' => $show_id['Show']['id'] ))));
 		} else {
 			if ($this->Episode->save( $this->data )) {
 				$this->Session->setFlash('L\'épisode a été modifié.', 'growl');	
