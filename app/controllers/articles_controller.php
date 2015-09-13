@@ -807,9 +807,55 @@ class ArticlesController extends AppController {
 			case 'focus':
 				$this->paginate['limit'] = 15;
 				$articles = $this->paginate('Article', array('Article.category' => 'focus', 'Article.etat' => 1));
-   				$newseries = $this->Article->Show->find('all', array('conditions' => array('annee' => 2012)));
+   				$// Dernières news
+				$news = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières bilans
+				$bilans = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières focus
+				$focus = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières portraits
+				$portraits = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières portraits
+				$videos = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				// Dernières critiques
+				$critiques = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'limit' => 3, 
+				));
+				$this->set(compact('news'));
+				$this->set(compact('bilans'));
+				$this->set(compact('focus'));
+				$this->set(compact('portraits'));
+				$this->set(compact('videos'));
+				$this->set(compact('critiques'));
    				$this->set('articles', $articles);
-				$this->set('newseries', $newseries);
 				if($this->RequestHandler->isAjax()) {
 					$this->render(DS . 'elements' . DS . 'page-critiques');
 				} else {
