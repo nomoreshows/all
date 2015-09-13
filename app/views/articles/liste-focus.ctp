@@ -18,7 +18,7 @@
         <div id="colright-lastarticles">
             <div class="colrlastart-header"></div>
             <div class="colr-content">
-            	<?php echo $this->element('last-articles', array('cache' => "+1 day")); ?>
+            	<?php echo $this->element('facebook-page', array('cache' => "+1 day")); ?>
             </div>
             <div class="colr-footer"></div>
         </div>
