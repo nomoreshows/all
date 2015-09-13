@@ -2,6 +2,7 @@
 class ReactionsController extends AppController {
 	
 	var $name = "Reactions";
+	var $layout = "admin_users";
 	
 	public function beforeFilter() {
    		parent::beforeFilter();
@@ -98,6 +99,43 @@ class ReactionsController extends AppController {
 		$this->layout = 'none';
 		$comments = $this->Reaction->find('all', array('order' => array('Reaction.id DESC'),'contain' => array('User', 'Comment' => array('Episode', 'Season', 'Show', 'User'), 'Reaction' => array('User')), 'limit' => 40));
 		$this->set(compact('comments'));
+	}
+	
+	/**
+	 * Supprime une réaction.
+	 * @param $id : id de la réaction à supprimer
+	 */ 
+	function admin_delete($id){
+		$this->Reaction->del($id, true);
+		$this->Session->setFlash('La réaction a été supprimé.'.$moyennes, 'growl');
+        $this->redirect($this->referer());
+	}
+	
+	/**
+	 * Traitement pour l'edition des réactions.
+	 * Si pas de data post, affichage de la fiche de la réaction et des infos liées, récupérées depuis la BDD.
+	 * Si data en post, sauvegarde des data du formulaire en base.
+	 */ 
+	function admin_edit($id){
+		$this->Reaction->id = $id;
+		
+		// Si aucun données envoyées en POST, affichage de l'edit
+		if (empty($this->data)) {	
+			$this->data = $this->Reaction->read();
+			
+		}else{
+			
+			//Enregistrement
+			if ($this->Reaction->save( $this->data)) {
+					$this->Session->setFlash('Paramètres sauvegardés.', 'growl');	
+					$this->redirect(array('controller' => 'comments', 'action' => 'index'));
+				} else {
+					$this->Session->setFlash('Problème de sauvegarde.', 'growl', array('type' => 'error'));	
+					$this->redirect(array('controller' => 'comments', 'action' => 'index'));
+				}
+		}
+		
+		 $this->set(compact('id'));
 	}
 }
 ?>

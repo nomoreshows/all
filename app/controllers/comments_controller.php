@@ -374,6 +374,10 @@ class CommentsController extends AppController {
 			$this->set('episodes', $this->Comment->Episode->find('list', 
 				array('conditions' => array('Episode.season_id =' => $this->data['Comment']['season_id'] ),
 						'order' => 'Episode.numero ASC')));
+						
+			$this->set('reactions', $this->Comment->Reaction->find('all', 
+				array('conditions' => array('Reaction.comment_id =' => $this->data['Comment']['id'] ),
+						'order' => 'Reaction.id ASC')));
 		}else{
 			//Modif des données season_id et episode_id si valeur vide (0 au lieu d'une chaine vide qui fait planter)
 			if(empty($this->data['Comment']['season_id'])){
