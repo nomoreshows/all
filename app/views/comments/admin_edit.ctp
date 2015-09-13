@@ -39,7 +39,30 @@
     
 	echo '<div id="episodeId">'.$form->input('episode_id', array('label' => 'Episode :', 'type'=>'select', 'empty' => '(Aucun épisode)')).'</div>';
 	echo '</div>';
+
+	//Display associated reaction
+	?>
+	<table class="data">
+	<tr>
+    	<th width="25%">Membre</td>
+        <th>réaction</td>
+        <th width="35">Edit</td>
+        <th width="35">Supr</td>
+	</tr>
+    
+    <?php foreach($reactions as $i => $reaction): ?>
+    
+    <tr <?php if ($i&1) echo 'class="pair"'; ?>>
+    	<td><?php echo $reaction['User']['login']; ?></td>
+        <td><?php echo substr($reaction['Reaction']['text'], 0, 120) . '...'; ?></td>
+        <td><?php echo $html->link($html->image('icons/edit.png'), array('controller' => 'reactions', 'action' => 'edit', 'prefix' => 'admin', $reaction['Reaction']['id']), array('escape' => false)); ?></td>
+        <td><?php echo $html->link($html->image('icons/delete.png'), array('controller' => 'reactions', 'action' => 'delete', 'prefix' => 'admin', $reaction['Reaction']['id']), array('escape' => false)); ?></td>
+    </tr>
+    <?php endforeach; ?>    
+    
+</table> 
 	
+	<?php
 	
     echo $form->end('Modifier');
 	echo '</fieldset>';
