@@ -64,9 +64,6 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 </head>
 
 <body>
-	<div style="text-align:center;height: 30px;">
-		Mise à jour serveur correctement effectuée, certains éléments restent encore non fonctionnels mais leur retour est prévu sous peu (forum). Merci de votre patience.
-	</div>
 	<div id="header">
     	<div id="menu">
             <div class="width">
