@@ -140,7 +140,7 @@ class ShowsController extends AppController {
 			$seasons = $this->Show->Season->find('all', array('conditions' => array('Season.show_id' => $show['Show']['id']), 'contain' => array('Show', 'Episode', 'Comment' => array('conditions' => array('Comment.article_id = 0 AND Comment.episode_id = 0')))));
 			
 			// Affiche les notes de la série = note de tous les épisodes
-			$ratesshow = $this->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu')));
+			$ratesshow = $this->Show->Rate->find('all', array('fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero'), 'conditions' => array('Rate.show_id' => $show['Show']['id'])));
 			
 			// Affiche les derniers avis
 			$comments = $this->Show->Comment->find('all', array('conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0), 'order' => 'Comment.id DESC', 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
