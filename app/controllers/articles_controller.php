@@ -287,9 +287,7 @@ class ArticlesController extends AppController {
 					'order' => array('Article.id DESC'), 
 					'limit' => 5));
 				$this->set(compact('critiquesserie'));
-				// Affiche les notes de la série = note de tous les épisodes
-				$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu')));
-				$this->set(compact('ratesshow'));
+				
 				// Affiche les derniers avis
 				$avisserie = $this->Article->Show->Comment->find('all', array('conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
 				$this->set(compact('avis'));
