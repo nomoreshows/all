@@ -12,7 +12,8 @@ class ShowsController extends AppController {
 		'classement' => '2 hours',
 		'index' => '1 hour',
 		'fiche/' => '1 hour',
-		'rentree2014/' => '24 hour'
+		'rentree2014/' => '24 hour',
+		'rentree2015/' => '24 hour'
 	);
 
 	
@@ -83,7 +84,7 @@ class ShowsController extends AppController {
 	function index() {
 		$this->layout = 'default';
 		$lettre = 'a';
-		$series = $this->Show->find('all', array('conditions' => array('Show.name LIKE' => $lettre .'%')));
+		$series = $this->Show->find('all', array('contain' => array('Season' => array('fields' => array('Season.id'))), 'conditions' => array('Show.name LIKE' => $lettre .'%'), 'fields' => array('Show.name', 'Show.menu', 'Show.id')));
 		$this->set('series', $series);
 		
 		$popularseries = $this->Show->find('all', array('conditions' => 'priority = 1', 'fields' => array('Show.menu', 'Show.name', 'Show.annee'), 'contain' => false, 'limit' => 5, 'order' => 'Show.nbnotes DESC'));
