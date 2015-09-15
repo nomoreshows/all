@@ -142,10 +142,10 @@ class PagesController extends AppController {
 			
 			// Notes de l'utilisateur + Avis
 			if ($this->Auth->user('role') > 0) {
-				$user = $this->Rate->User->findById($this->Auth->user('id'));
-				$ratesuser = $this->Rate->find('all', array('conditions' => array('Rate.user_id' => $this->Auth->user('id')), 'fields' => array('Rate.name')));
-				$commentsuser = $this->Article->Comment->find('count', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.show_id != 0')));
-				$critiquesuser = $this->Article->find('count', array('conditions' => array('Article.user_id' => $this->Auth->user('id'))));
+				$user = $this->Rate->User->find('first', array('contain'=>('Show'),'conditions' => array('User.id' => $this->Auth->user('id'))));
+				$ratesuser = $this->Rate->find('all', array('contain'=>false,'conditions' => array('Rate.user_id' => $this->Auth->user('id')), 'fields' => array('Rate.name')));
+				$commentsuser = $this->Article->Comment->find('count', array('contain'=>false,'conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.show_id != 0')));
+				$critiquesuser = $this->Article->find('count', array('contain'=>false,'conditions' => array('Article.user_id' => $this->Auth->user('id'))));
 				$this->set(compact('user'));
 				$this->set(compact('ratesuser'));
 				$this->set(compact('commentsuser'));

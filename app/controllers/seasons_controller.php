@@ -83,7 +83,7 @@ class SeasonsController extends AppController {
 		}
 		$this->Session->write('Temp.referer', $this->referer());
 		
-		$show = $this->Season->Show->findByMenu($show_menu);
+		$show = $this->Season->Show->find('first',array('contain' => array('Genre','Season'),'conditions' => array('menu' => $show_menu)));
 		$season = $this->Season->find('first', array('conditions' => array('Season.show_id' =>  $show['Show']['id'], 'Season.name' => $season_numero)));
 		if(!empty($season['Season']['id'])) {
 			

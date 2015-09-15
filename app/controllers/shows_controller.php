@@ -103,7 +103,12 @@ class ShowsController extends AppController {
 		}
 		$this->Session->write('Temp.referer', $this->referer());
 		
-		$show = $this->Show->findByMenu($menu);
+        //var_dump($this->Show->menu =($menu));
+        //$this->Show->menu = $menu;
+        //var_dump($this->Show->read());
+		//$show = $this->Show->findByMenu($menu);
+		$show = $this->Show->find('first',array('contain' => array('Genre','Season'),'conditions' => array('menu' => $menu)));
+        
 		if(!empty($show['Show']['id'])) {
 			
 			// spécial Glee
@@ -124,7 +129,7 @@ class ShowsController extends AppController {
 			$season1 = $this->Show->Season->find('first', array('conditions' => array('Season.show_id' => $show['Show']['id']), 'contain' => false));
 			$episode1 = $this->Show->Season->Episode->find('first', array('order' => 'id DESC', 'contain' => false, 'conditions' => array('Episode.season_id' => $season1['Season']['id'], 'Episode.numero' => 1)));
 			$avispilot = $this->Show->Comment->find('all', array('contain' => array('User', 'Reaction' => array('User', 'order' => 'Reaction.id ASC')), 'conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => $season1['Season']['id'], 'Comment.episode_id' => $episode1['Episode']['id'])));
-			$this->set(compact('avispilot'));
+            $this->set(compact('avispilot'));
 			
 			$avissaison1 = $this->Show->Comment->find('all', array('contain' => array('User', 'Reaction' => array('User', 'order' => 'Reaction.id ASC')), 'conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => $season1['Season']['id'], 'Comment.episode_id' => 0)));
 			$this->set(compact('avissaison1'));

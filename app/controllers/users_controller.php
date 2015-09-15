@@ -31,7 +31,7 @@ class UsersController extends AppController {
 	}
 	
 	function admin_index() {
-		$users = $this->User->find('list', array('order' => 'login ASC'));
+		$users = $this->User->find('list', array('contain' => false, 'order' => 'login ASC'));
 		//$this->set('users', $listUser);
 		
 		//$users = $this->paginate('User');
@@ -135,7 +135,7 @@ class UsersController extends AppController {
 	function admin_delete($id) {
 		//Suppression des notes de l'utilisateur
 		//$this->User->Rate->deleteAll();
-		$moyennes = $this->User->Rate->find('all');
+		//$moyennes = $this->User->Rate->find('all');
 		/*, 
 			array('conditions' => array('Rate.user_id' => $user['User']['id']), 
 			'fields' => array('AVG(Rate.name) as Moyenne', 'COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.name', 'Show.menu', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
@@ -192,7 +192,7 @@ class UsersController extends AppController {
 				$this->render('edit_edito');
 				
 			} else {
-				$moyennes = $this->User->Show->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id']), 'fields' => array('COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
+				$moyennes = $this->User->Show->Rate->find('all', array('contain'=>false,'conditions' => array('Rate.user_id' => $user['User']['id']), 'fields' => array('COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
 				$this->set(compact('moyennes'));
 				
 				$articlescount = $this->User->Article->find('count', array('contain' => false, 'conditions' => array('Article.user_id' => $user['User']['id'])));
@@ -222,8 +222,8 @@ class UsersController extends AppController {
 			$this->set(compact('lastavisseason'));
 
 			//derniers avis episodes
-			$lastavisepisode = $this->User->Show->Comment->find('all', array('contain' => array('Show', 'Season', 'Episode'), 'conditions' => array('Comment.season_id != 0', 'Comment.episode_id != 0', 'Comment.user_id' => $user['User']['id'], 'Comment.article_id' => 0), 'order' => 'Comment.id DESC'));
-			$this->set(compact('lastavisepisode'));
+			//$lastavisepisode = $this->User->Show->Comment->find('all', array('contain' => array('Show', 'Season', 'Episode'), 'conditions' => array('Comment.season_id != 0', 'Comment.episode_id != 0', 'Comment.user_id' => $user['User']['id'], 'Comment.article_id' => 0), 'order' => 'Comment.id DESC'));
+			//$this->set(compact('lastavisepisode'));
 			
 			// nombre d'avis sur les séries - saisons - épisodes
 			$avisshowcount = $this->User->Show->Comment->find('count', array('contain' => false, 'conditions' => array('Comment.season_id' => 0, 'Comment.user_id' => $user['User']['id'], 'Comment.article_id' => 0)));
@@ -238,7 +238,7 @@ class UsersController extends AppController {
 
 		// Notes
 		case 'notes':
-			$moyennes = $this->User->Show->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id']), 'fields' => array('AVG(Rate.name) as Moyenne', 'COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.name', 'Show.menu', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
+			$moyennes = $this->User->Show->Rate->find('all', array('contain' => array('Show'), 'conditions' => array('Rate.user_id' => $user['User']['id']), 'fields' => array('AVG(Rate.name) as Moyenne', 'COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.name', 'Show.menu', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
 			$this->set(compact('moyennes'));
 			$this->render('profil_notes');
 			break;	
@@ -262,7 +262,7 @@ class UsersController extends AppController {
 			$this->set(compact('toseeshows'));
 			
 			// Liste des séries terminées
-			$quickshowsf = $this->User->Show->find('list', array('conditions' => array('Show.encours' => 0), 'fields' => array('Show.menu', 'Show.name')));
+			$quickshowsf = $this->User->Show->find('list', array('contains'=> false,'conditions' => array('Show.encours' => 0), 'fields' => array('Show.menu', 'Show.name')));
 			$ajout = array('0' => '-- Choisir --');
 			$quickshowsf = $ajout + $quickshowsf;
 			$this->set(compact('quickshowsf'));
@@ -305,7 +305,7 @@ class UsersController extends AppController {
 			
 				$user = $this->User->find('first', array('contain' => array('Comment', 'Rate'), 'conditions' => array('login' => $this->params['login'])));
 				// todo > pagination
-				$notifications = $this->User->Notification->find('all', array('conditions' => array('Notification.user_id' => $user['User']['id']), 'limit' => 40));
+				$notifications = $this->User->Notification->find('all', array('contain'=>false,'conditions' => array('Notification.user_id' => $user['User']['id']), 'limit' => 40));
 				
 				$topepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name >' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name DESC', 'limit' => 10));
 				$flopepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name <' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name ASC', 'limit' => 10));

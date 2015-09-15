@@ -17,7 +17,7 @@ class ArticlesController extends AppController {
 	function flux() {
 		$this->layout = 'default';
 		$articles = $this->Article->find('all',	array(	'order' => 'Article.id DESC',
-				conditions => array('etat' => 1, 'rss' => 0),
+				'conditions' => array('etat' => 1, 'rss' => 0), 'contain' => false,
 				'limit' => 10
 			)
 		);
@@ -25,7 +25,7 @@ class ArticlesController extends AppController {
 			'title' => utf8_encode("Série-All - Webzine séries tv"),
 			'description' => utf8_encode("Les derniers articles de serieall.fr"),
 			'language' => 'fr',
-			'webMaster' => 'cadeuh@gmail.com'
+			'webMaster' => 'serieall.fr@gmail.com'
 		);
 		$this->set(compact('articles', 'channel'));
 	}
@@ -47,7 +47,8 @@ class ArticlesController extends AppController {
 		// Infos rédacteur
 		$ratesredac = $this->Article->User->Rate->find('all', array(
 				'conditions' => array('Rate.user_id' => $article['Article']['user_id']),
-				'fields' => array('Rate.name')
+				'fields' => array('Rate.name'),
+				'contains' => false
 			));
 		$avisredac = $this->Article->User->Comment->find('count', array(
 			'conditions' => array('Comment.user_id' => $article['Article']['user_id'], 'Comment.article_id' => 0)
@@ -57,14 +58,15 @@ class ArticlesController extends AppController {
 		
 		switch($article['Article']['category']) {
 		case 'critique':
-			$show = $this->Article->Show->findbyId($article['Article']['show_id']);
-			$season = $this->Article->Season->findbyId($article['Article']['season_id']);
-			$episode = $this->Article->Episode->findbyId($article['Article']['episode_id']);
-			$rates = $this->Article->Episode->Rate->find('all', array('conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
+			$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
+			$season = $this->Article->Season->find('first',array('contain' => false,'conditions' => array('Season.id' => $article['Article']['season_id'])));
+			$episode = $this->Article->Episode->find('first',array('conditions' => array('Episode.id' => $article['Article']['episode_id'])));
+			$rates = $this->Article->Episode->Rate->find('all', array('contain' => array('User'),'conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
 			$comments = $this->Article->Comment->find('all', array(
 				'conditions' => array('Comment.article_id' => $article['Article']['id']),
 				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
 				'order' => 'Comment.id ASC', 
+				'contains' => false
 			));
 			$nbnotes = $this->Article->Episode->Rate->find('count', array('conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
 			
@@ -78,6 +80,7 @@ class ArticlesController extends AppController {
 			// Autres articles sur la série
 			$articlesserie = $this->Article->find('all', 
 				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
+					'contain' => false,
 					'fields' => array('Article.name', 'Article.url'), 
 					'order' => array('Article.id DESC'), 
 					'limit' => 5));
@@ -86,11 +89,12 @@ class ArticlesController extends AppController {
 			$critiquesserie = $this->Article->find('all', 
 				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
 					'fields' => array('Article.name', 'Article.url'), 
+					'contain' => false,
 					'order' => array('Article.id DESC'), 
 					'limit' => 5));
 			$this->set(compact('critiquesserie'));
 			// Affiche les derniers avis
-			$avisserie = $this->Article->Comment->find('all', array('conditions' => array('Comment.episode_id' => $episode['Episode']['id'], 'Comment.thumb' != '')), array('order' => 'Comment.id DESC', 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
+			$avisserie = $this->Article->Comment->find('all', array('contain' => ('User'),'conditions' => array('Comment.episode_id' => $episode['Episode']['id'], 'Comment.thumb' != '')), array('order' => 'Comment.id DESC', 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
 			$this->set(compact('avisserie'));
 			
 			if(!empty($avisserie)) {
@@ -110,12 +114,13 @@ class ArticlesController extends AppController {
 			$this->render('display_critique');
 			break;
 		case 'bilan':
-			$show = $this->Article->Show->findbyId($article['Article']['show_id']);
-			$season = $this->Article->Season->findbyId($article['Article']['season_id']);
+			$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
+			$season = $this->Article->Season->find('first',array('contain' => array('Season'),'conditions' => array('Season.id' => $article['Article']['season_id'])));
 			$comments = $this->Article->Comment->find('all', array(
 				'conditions' => array('Comment.article_id' => $article['Article']['id']),
 				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
 				'order' => 'Comment.id ASC', 
+				'contains' => false
 			));
 			// Affiche les derniers avis
 			$avisserie = $this->Article->Season->Comment->find('all', 
@@ -143,7 +148,8 @@ class ArticlesController extends AppController {
 			$articlesserie = $this->Article->find('all', 
 				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
 				'fields' => array('Article.name', 'Article.url'), 
-				'order' => array('Article.id DESC'), 
+				'order' => array('Article.id DESC'),
+				'contain' => false,				
 				'limit' => 5));
 			$this->set(compact('articlesserie'));
 			// Dernières critiques de la série
@@ -151,6 +157,7 @@ class ArticlesController extends AppController {
 			array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id'],'Article.etat' => 1), 
 			'fields' => array('Article.name', 'Article.url'), 
 			'order' => array('Article.id DESC'), 
+			'contain' => false,
 			'limit' => 5));
 			$this->set(compact('critiquesserie'));
 			
@@ -164,6 +171,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+				'contain' => false,
 				'limit' => 3, 
 			));
 			// Dernières bilans
@@ -171,6 +179,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+				'contain' => false,
 				'limit' => 3, 
 			));
 			// Dernières focus
@@ -178,6 +187,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+				'contain' => false,
 				'limit' => 3, 
 			));
 			// Dernières portraits
@@ -185,6 +195,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+				'contain' => false,
 				'limit' => 3, 
 			));
 			// Dernières portraits
@@ -192,6 +203,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+				'contain' => false,
 				'limit' => 3, 
 			));
 			// Dernières critiques
@@ -199,6 +211,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+				'contain' => false,
 				'limit' => 3, 
 			));
 			$this->set(compact('news'));
@@ -216,11 +229,12 @@ class ArticlesController extends AppController {
 			break;
 			
 		case 'focus':
-			$show = $this->Article->Show->findbyId($article['Article']['show_id']);
+			$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
 			$comments = $this->Article->Comment->find('all', array(
 				'conditions' => array('Comment.article_id' => $article['Article']['id']),
 				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
 				'order' => 'Comment.id ASC', 
+				'contain' => array('Comment', 'User')
 			));
 			// Tout ce qui est pour ceux qui sont logués
 			if ($this->Auth->user('role') > 0) {
@@ -233,7 +247,7 @@ class ArticlesController extends AppController {
 			$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu')));
 			
 			// Affiche les derniers avis
-			$avisserie = $this->Article->Show->Comment->find('all', array('conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
+			$avisserie = $this->Article->Show->Comment->find('all', array('contain' => array('Comment', 'User'),'conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
 			$this->set(compact('avis'));
 			// Autres articles sur la série
 			$articlesserie = $this->Article->find('all', 
@@ -271,7 +285,7 @@ class ArticlesController extends AppController {
 		case 'chronique':
 			if ($article['Article']['show_id'] != 0) {
 				// Série concernée
-				$show = $this->Article->Show->findbyId($article['Article']['show_id']);
+				$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
 				$this->set(compact('show'));
 				// Autres articles sur la série
 				$articlesserie = $this->Article->find('all', 
@@ -288,8 +302,7 @@ class ArticlesController extends AppController {
 					'limit' => 5));
 				$this->set(compact('critiquesserie'));
 				// Affiche les notes de la série = note de tous les épisodes
-				$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu')));
-				$this->set(compact('ratesshow'));
+
 				// Affiche les derniers avis
 				$avisserie = $this->Article->Show->Comment->find('all', array('conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
 				$this->set(compact('avis'));
@@ -372,7 +385,7 @@ class ArticlesController extends AppController {
 			
 		case 'portrait':
 			$role = $this->Article->Role->findbyId($article['Article']['role_id']);
-			$show = $this->Article->Show->findbyId($role['Role']['show_id']);
+			$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
 			$this->set(compact('role'));
 			$this->set(compact('show'));
 			$this->set(compact('article'));
