@@ -301,8 +301,12 @@ class ArticlesController extends AppController {
 					'order' => array('Article.id DESC'), 
 					'limit' => 5));
 				$this->set(compact('critiquesserie'));
+<<<<<<< HEAD
 				// Affiche les notes de la série = note de tous les épisodes
 
+=======
+				
+>>>>>>> 1cb50ea3050d83e67d8948ab9eb8a6285577d9a4
 				// Affiche les derniers avis
 				$avisserie = $this->Article->Show->Comment->find('all', array('conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
 				$this->set(compact('avis'));
