@@ -130,10 +130,10 @@ class EpisodesController extends AppController {
 			
 			// liste des critiques
 			$this->loadModel('Article');
-			$critiques = $this->Article->find('all', array('conditions' => array('Article.etat' => 1, 'Article.category' =>  'critique', 'Article.episode_id' => $episode['Episode']['id'])));
+			$critiques = $this->Article->find('all', array('contain'=>('User'), 'conditions' => array('Article.etat' => 1, 'Article.category' =>  'critique', 'Article.episode_id' => $episode['Episode']['id'])));
 			
 			// liste des notes
-			$rates = $this->Episode->Rate->find('all', array('conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
+			$rates = $this->Episode->Rate->find('all', array('contain'=>('User'),'conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
 			
 			$this->set('episode', $episode);
 			$this->set(compact('critiques'));
@@ -158,9 +158,9 @@ class EpisodesController extends AppController {
 	
 	
 	function admin_liste($show_id) {		
-		$liste_episodes = $this->Episode->find('all', array('conditions' => array('show_id =' => $show_id)));
+		$liste_episodes = $this->Episode->find('all', array('contain'=>('Season'),'conditions' => array('show_id =' => $show_id)));
 		
-		$show = $this->Episode->Season->Show->findById($show_id);
+		$show = $this->Episode->Season->Show->find('first', array('contain'=>false,'conditions' => array('Show.id =' => $show_id)));
 		$this->set('show', $show);
 		$this->set('episodes', $liste_episodes);
 		$this->set('show_id', $show_id);
