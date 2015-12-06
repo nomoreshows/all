@@ -39,6 +39,23 @@ class PollsController extends AppController {
 		
 		
 	}
+	
+	function awards2015() {
+		$this->layout = 'default';
+		$this->loadModel('Vote');
+		
+		$polls = $this->Poll->find('first', array('contain' => array('Question' => array('Answer' => array('order' => 'Answer.porcent DESC'))), 'conditions' => array('id' => 4)));
+		$this->set('polls', $polls);
+		
+		if ($this->Auth->user('role') > 0) {
+				$votes = $this->Vote->find('all', array('conditions'=>array('User.id'=>$this->Auth->user('id'), 'Poll.id'=>4),'order'=>'Question.id ASC'));
+				$this->set('votes', $votes);
+			} else {
+				$this->set('votes', '');
+			}
+		
+		
+	}
  
 	function view($id = null) {
 		$this->set('polls', $this->Poll->read(null, $id));

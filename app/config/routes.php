@@ -67,6 +67,7 @@
 	Router::connect('/awards-2010', array('controller' => 'polls', 'action' => 'awards2010'));
 	Router::connect('/awards-2011', array('controller' => 'polls', 'action' => 'awards2011'));
 	Router::connect('/awards-2014', array('controller' => 'polls', 'action' => 'awards2014'));
+	Router::connect('/awards-2015', array('controller' => 'polls', 'action' => 'awards2015'));
 	Router::connect('/series-rentree-2013', array('controller' => 'shows', 'action' => 'rentree2013', 'start'));
 	Router::connect('/series-rentree-2011', array('controller' => 'shows', 'action' => 'eventRentree2011', 'start'));
 	Router::connect('/nouvelles-series-2012-2013', array('controller' => 'shows', 'action' => 'eventRentree2012', 'start'));
