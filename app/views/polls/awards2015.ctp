@@ -17,7 +17,7 @@
             <br /><br />
 		Maintenant que la liste est établie, c’est à vous de voter pour vos chouchous. Quelques rappels de règles :
             <ul>
-           		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(environ 30 secondes si on est Steve Jobs, environ 1h30 si on est Mamie Paulette),</em>.
+           		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(environ 30 secondes si on est Steve Jobs, environ 1h30 si on est Mamie Paulette),</em>
                 <li>les votes sont ouverts jusqu’au 31 janvier 2016, 20h00,</li>
                 <li>les nominés ont été choisis sur l’année 2015 (toutes les séries ayant au moins un épisode diffusé en 2015),</li>
                 <li>vous pouvez changer vos votes à tout moment en choisissant un autre candidat,</li>
