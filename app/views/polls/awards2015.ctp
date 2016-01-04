@@ -10,21 +10,19 @@
 			<?php echo $this->element('partage-reseau-sociaux'); ?>
 			<br />
             <p>
-            	Après deux années d'absences, ils sont de retour pour une troisième édition ! Oubliez les Golden Globes et autres Emmy dont on connaît déjà les résultats, revoici les Serieall Awards !
+            	Pour contrer les taux d'abstention indécents du premier tour des dernières régionales, l’équipe de Série-All a décidé de réitérer en 2015 votre moment préféré de l’année : les Série-All Awards !
                 <br /><br />
-                Le principe est simple : les rédacteurs du site se sont concertés pour vous proposer des candidats dans chacune de nos catégories (ce qui a donné lieu à des confrontations assez éclectiques, et tant mieux). 
-                <br /><br />Maintenant c'est à vous de voter pour élire le vainqueur de chaque catégorie !
+                Pour cette quatrième édition, le principe est resté le même (on ne change pas une équipe qui… euh… qui ne perd pas de trop) : les rédacteurs du site se sont <del>battus comme des chiens</del> concertés de manière civilisée et courtoise pour vous proposer des candidats dans chacune des catégories.
             
             <br /><br />
-            <strong>Quelques règles :</strong>
+		Maintenant que la liste est établie, c’est à vous de voter pour vos chouchous. Quelques rappels de règles :
             <ul>
-           		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(cela ne prend que 30 secondes)</em>.
-                <li>les votes sont ouverts jusqu'au 26 janvier, 12h00</li>
-                <li>les nominés ont été choisis sur l'année 2014 (toutes les séries ayant au moins un épisode diffusé en 2014)</li>
-                <li>vous pouvez changer votre vote à tout moment en choisissant un autre candidat.</li>
-                <li>vous pouvez nous faire part de vos remarques sur <a href="http://serieall.fr/article/votez-pour-les-serieall-awards-2014_a3346">cet article</a>, dans les commentaires.</li>
+           		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(environ 30 secondes si on est Steve Jobs, environ 1h30 si on est Mamie Paulette),</em>.
+                <li>les votes sont ouverts jusqu’au 31 janvier 2016, 20h00,</li>
+                <li>les nominés ont été choisis sur l’année 2015 (toutes les séries ayant au moins un épisode diffusé en 2015),</li>
+                <li>vous pouvez changer vos votes à tout moment en choisissant un autre candidat,</li>
+                <li>vous pouvez nous faire part de vos remarques (ou nous faire des bisous) sur <a href="http://serieall.fr/article/votez-pour-les-serieall-awards-2014_a3346">cet article</a>, dans les commentaires.</li>
             </ul><br />
-             <strong>Les votes sont clos, les résultats seront bientôt diffusés.</strong>
             </p>
             <br /><br />
             
@@ -69,7 +67,6 @@
                 </div>
             <?php endforeach; ?>    
             
-            <?php debug($polls); ?>
         </div>
 
 
