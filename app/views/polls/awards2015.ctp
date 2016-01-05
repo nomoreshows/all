@@ -15,7 +15,7 @@
                 Pour cette quatrième édition, le principe est resté le même (on ne change pas une équipe qui… euh… qui ne perd pas de trop) : les rédacteurs du site se sont <del>battus comme des chiens</del> concertés de manière civilisée et courtoise pour vous proposer des candidats dans chacune des catégories.
             
             <br /><br />
-		Maintenant que la liste est établie, c’est à vous de voter pour vos chouchous. Quelques rappels de règles :
+		Maintenant que la liste est établie, c’est à vous de voter pour vos chouchous. Quelques rappels des règles :
             <ul>
            		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(environ 30 secondes si on est Steve Jobs, environ 1h30 si on est Mamie Paulette),</em>
                 <li>les votes sont ouverts jusqu’au 31 janvier 2016, 20h00,</li>
