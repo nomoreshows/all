@@ -12,16 +12,16 @@
             <p>
             	Pour contrer les taux d'abstention indécents du premier tour des dernières régionales, l’équipe de Série-All a décidé de réitérer en 2015 votre moment préféré de l’année : les Série-All Awards !
                 <br /><br />
-                Pour cette quatrième édition, le principe est resté le même (on ne change pas une équipe qui… euh… qui ne perd pas de trop) : les rédacteurs du site se sont <del>battus comme des chiens</del> concertés de manière civilisée et courtoise pour vous proposer des candidats dans chacune des catégories.
+                Pour cette quatrième édition, le principe est resté le même (on ne change pas une équipe qui… euh… qui ne perd pas trop) : les rédacteurs du site se sont <del>battus comme des chiens</del> concertés de manière civilisée et courtoise pour vous proposer des candidats dans chacune des catégories.
             
             <br /><br />
 		Maintenant que la liste est établie, c’est à vous de voter pour vos chouchous. Quelques rappels des règles :
             <ul>
-           		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(environ 30 secondes si on est Steve Jobs, environ 1h30 si on est Mamie Paulette),</em>
+           		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(environ 30 secondes si on est Steve Jobs, environ 1h30 si on est ma Mamie Paulette),</em>
                 <li>les votes sont ouverts jusqu’au 31 janvier 2016, 20h00,</li>
-                <li>les nominés ont été choisis sur l’année 2015 (toutes les séries ayant au moins un épisode diffusé en 2015),</li>
+                <li>les nominés ont été choisis sur l’année 2015 (toutes les séries ayant eu au moins un épisode diffusé en 2015),</li>
                 <li>vous pouvez changer vos votes à tout moment en choisissant un autre candidat,</li>
-                <li>vous pouvez nous faire part de vos remarques (ou nous faire des bisous) sur <a href="http://serieall.fr/article/votez-pour-les-serieall-awards-2014_a3346">cet article</a>, dans les commentaires.</li>
+                <li>vous pouvez nous faire part de vos remarques (ou nous faire des bisous sur le cul) sur <a href="http://serieall.fr/article/votez-pour-les-serieall-awards-2014_a3346">cet article</a>, dans les commentaires.</li>
             </ul><br />
             </p>
             <br /><br />
