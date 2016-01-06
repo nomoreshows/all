@@ -21,7 +21,7 @@
                 <li>les votes sont ouverts jusqu’au 31 janvier 2016, 20h00,</li>
                 <li>les nominés ont été choisis sur l’année 2015 (toutes les séries ayant eu au moins un épisode diffusé en 2015),</li>
                 <li>vous pouvez changer vos votes à tout moment en choisissant un autre candidat,</li>
-                <li>vous pouvez nous faire part de vos remarques (ou nous faire des bisous sur le cul) sur <a href="http://serieall.fr/article/votez-pour-les-serieall-awards-2014_a3346">cet article</a>, dans les commentaires.</li>
+                <li>vous pouvez nous faire part de vos remarques (ou nous faire des bisous sur le cul) sur <a href="http://serieall.fr/article/votez-pour-les-serie-all-awards-2015_a3557.html">cet article</a>, dans les commentaires.</li>
             </ul><br />
             </p>
             <br /><br />
