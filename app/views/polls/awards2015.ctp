@@ -24,6 +24,9 @@
                 <li>vous pouvez nous faire part de vos remarques (ou nous faire des bisous sur le cul) sur <a href="http://serieall.fr/article/votez-pour-les-serie-all-awards-2015_a3557.html">cet article</a>, dans les commentaires.</li>
             </ul><br />
             </p>
+            <p>
+            	<b>Les votes sont clos, les résultats seront annoncés prochainement.</b>
+            </p>
             <br /><br />
             
 			<?php 			
@@ -34,8 +37,8 @@
                     <?php foreach($question['Answer'] as $j => $answer):
                     // images
 					if (!empty($answer['img'])) {
-						echo $ajax->link($html->image($answer['img'], array('class' => 'answer-img')), array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false));
-						//echo $html->image($answer['img'], array('class' => 'answer-img'));
+						//echo $ajax->link($html->image($answer['img'], array('class' => 'answer-img')), array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false));
+						echo $html->image($answer['img'], array('class' => 'answer-img'));
 					}
                     endforeach; 
 					?>   
@@ -46,10 +49,10 @@
                     <?php foreach($question['Answer'] as $j => $answer): ?>
                     	<li>
                         <?php echo $html->image('icons/checkbox.png', array('class' => 'absmiddle')); ?>
-                        <?php /*if($answer['winner'] == 1) echo '<strong>' . $answer['name'] . '</strong>'; else echo $answer['name'];
-												echo '<span class="grey"> (' . $answer['porcent'] . '%)</span>';*/
+                        <?php if($answer['winner'] == 1) echo '<strong>' . $answer['name'] . '</strong>'; else echo $answer['name'];
+												echo '<span class="grey"> (' . $answer['porcent'] . '%)</span>';
 												
-												echo $ajax->link($answer['name'], array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false, 'class' => 'nodeco')); ?>
+												//echo $ajax->link($answer['name'], array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false, 'class' => 'nodeco')); ?>
 						
                         <div id="answer<?php echo $answer['id']; ?>" class="answers-vote"></div>
 						</li>
