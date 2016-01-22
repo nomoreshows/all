@@ -44,7 +44,7 @@ class PollsController extends AppController {
 		$this->layout = 'default';
 		$this->loadModel('Vote');
 		
-		$polls = $this->Poll->find('first', array('contain' => array('Question' => array('Answer' => array('order' => 'RAND()'))), 'conditions' => array('id' => 4)));
+		$polls = $this->Poll->find('first', array('contain' => array('Question' => array('Answer' => array('order' => 'Answer.porcent DESC'))), 'conditions' => array('id' => 4)));
 		$this->set('polls', $polls);
 		
 		if ($this->Auth->user('role') > 0) {
