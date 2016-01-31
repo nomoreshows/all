@@ -25,7 +25,7 @@
             </ul><br />
             </p>
             <p>
-            	<b>Les votes sont clos, les résultats seront annoncés prochainement.</b>
+            	<strong>Les votes sont clos, les résultats seront annoncés prochainement.</strong>
             </p>
             <br /><br />
             
