@@ -83,15 +83,18 @@ class PagesController extends AppController {
 		switch ($page) {
 			
 		case 'home':
+       
 			$this->loadModel('Article');
+
 			$this->loadModel('Rate');
 			$this->loadModel('Comment');
 			$this->loadModel('Reaction');
 			$limitMaxItemCommu = 38; //Nombre d'items maxi pouvant être affiché dans le volet communauté
-			
+
 			// Dernières notes
 			$rates = $this->Rate->find('all', array('order' => array('Rate.created DESC'), 'limit' => $limitMaxItemCommu, 'fields' => array('Rate.name', 'User.login', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero', 'Rate.created')));
-			// Dernières avis
+
+            // Dernières avis
 			$lastcomments = $this->Comment->find('all', array('order' => 'Comment.created DESC', 'limit' => $limitMaxItemCommu, 'fields' => array('Comment.thumb', 'User.login', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero', 'Article.id', 'Article.name', 'Article.url', 'Comment.id', 'Comment.text', 'Comment.spoiler','Comment.created')));
 
 			//Dernières réactions

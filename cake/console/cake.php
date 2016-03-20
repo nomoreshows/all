@@ -1,6 +1,6 @@
 #!/usr/bin/php -q
 <?php
-/* SVN FILE: $Id: cake.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Command-line code generation utility to automate programmer chores.
  *
@@ -8,23 +8,25 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008,	Cake Software Foundation, Inc.
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2010,	Cake Software Foundation, Inc.
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.console
  * @since         CakePHP(tm) v 1.2.0.5012
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
+if (!defined('E_DEPRECATED')) {
+	define('E_DEPRECATED', 8192);
+}
 /**
  * Shell dispatcher
  *
@@ -115,14 +117,6 @@ class ShellDispatcher {
  * @param array $args the argv.
  */
 	function ShellDispatcher($args = array()) {
-		$this->__construct($args);
-	}
-/**
- * Constructor
- *
- * @param array $args the argv.
- */
-	function __construct($args = array()) {
 		set_time_limit(0);
 		$this->__initConstants();
 		$this->parseParams($args);
@@ -138,7 +132,7 @@ class ShellDispatcher {
 	function __initConstants() {
 		if (function_exists('ini_set')) {
 			ini_set('display_errors', '1');
-			ini_set('error_reporting', E_ALL);
+			ini_set('error_reporting', E_ALL & ~E_DEPRECATED);
 			ini_set('html_errors', false);
 			ini_set('implicit_flush', true);
 			ini_set('max_execution_time', 0);
@@ -204,7 +198,7 @@ class ShellDispatcher {
 		}
 
 		foreach ($pluginPaths as $pluginPath) {
-			$Folder =& new Folder($pluginPath);
+			$Folder = new Folder($pluginPath);
 			list($plugins,) = $Folder->read(false, true);
 			foreach ((array)$plugins as $plugin) {
 				$path = $pluginPath . Inflector::underscore($plugin) . DS . 'vendors' . DS . 'shells' . DS;
@@ -263,7 +257,6 @@ class ShellDispatcher {
 			Configure::buildPaths(array());
 		}
 
-		Configure::write('debug', 1);
 		return true;
 	}
 /**
@@ -398,7 +391,7 @@ class ShellDispatcher {
 			$printOptions = '(' . implode('/', $options) . ')';
 		}
 
-		if ($default == null) {
+		if ($default === null) {
 			$this->stdout($prompt . " $printOptions \n" . '> ', false);
 		} else {
 			$this->stdout($prompt . " $printOptions \n" . "[$default] > ", false);
@@ -446,13 +439,15 @@ class ShellDispatcher {
  */
 	function parseParams($params) {
 		$this->__parseParams($params);
-
 		$defaults = array('app' => 'app', 'root' => dirname(dirname(dirname(__FILE__))), 'working' => null, 'webroot' => 'webroot');
-
 		$params = array_merge($defaults, array_intersect_key($this->params, $defaults));
-
-		$isWin = array_filter(array_map('strpos', $params, array('\\')));
-
+		$isWin = false;
+		foreach ($defaults as $default => $value) {
+			if (strpos($params[$default], '\\') !== false) {
+				$isWin = true;
+				break;
+			}
+		}
 		$params = str_replace('\\', '/', $params);
 
 		if (!empty($params['working']) && (!isset($this->args[0]) || isset($this->args[0]) && $this->args[0]{0} !== '.')) {
@@ -464,7 +459,7 @@ class ShellDispatcher {
 			}
 		}
 
-		if ($params['app'][0] == '/' || preg_match('/([a-zA-Z])(:)/i', $params['app'], $matches)) {
+		if ($params['app'][0] == '/' || preg_match('/([a-z])(:)/i', $params['app'], $matches)) {
 			$params['root'] = dirname($params['app']);
 		} elseif (strpos($params['app'], '/')) {
 			$params['root'] .= '/' . dirname($params['app']);

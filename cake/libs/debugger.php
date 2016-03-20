@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: debugger.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Framework debugging and PHP error-handling class
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 1.2.4560
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -139,16 +138,8 @@ class Debugger extends Object {
  */
 	function log($var, $level = LOG_DEBUG) {
 		$_this = Debugger::getInstance();
-		$trace = $_this->trace(array('start' => 1, 'depth' => 2, 'format' => 'array'));
-		$source = null;
-
-		if (is_object($trace[0]['object']) && isset($trace[0]['object']->_reporter->_test_stack)) {
-			$stack = $trace[0]['object']->_reporter->_test_stack;
-			$source = sprintf('[%1$s, %3$s::%2$s()]' . "\n",
-								array_shift($stack), array_pop($stack), array_pop($stack));
-		}
-
-		CakeLog::write($level, $source . $_this->exportVar($var));
+		$source = $_this->trace(array('start' => 1)) . "\n";
+		CakeLog::write($level, "\n" . $source . $_this->exportVar($var));
 	}
 
 /**
@@ -163,7 +154,7 @@ class Debugger extends Object {
  * @access public
  */
 	function handleError($code, $description, $file = null, $line = null, $context = null) {
-		if (error_reporting() == 0 || $code === 2048) {
+		if (error_reporting() == 0 || $code === 2048 || $code === 8192) {
 			return;
 		}
 
@@ -226,7 +217,7 @@ class Debugger extends Object {
 		}
 
 		if ($error == 'Fatal Error') {
-			die();
+			exit();
 		}
 		return true;
 	}
@@ -283,7 +274,7 @@ class Debugger extends Object {
 						foreach ($next['args'] as $arg) {
 							$args[] = Debugger::exportVar($arg);
 						}
-						$function .= join(', ', $args);
+						$function .= implode(', ', $args);
 					}
 					$function .= ')';
 				}
@@ -305,7 +296,7 @@ class Debugger extends Object {
 		if ($options['format'] == 'array' || $options['format'] == 'points') {
 			return $back;
 		}
-		return join("\n", $back);
+		return implode("\n", $back);
 	}
 /**
  * Shortens file paths by replacing the application base path with 'APP', and the CakePHP core
@@ -411,10 +402,10 @@ class Debugger extends Object {
 					}
 				}
 				$n = null;
-				if (count($vars) > 0) {
+				if (!empty($vars)) {
 					$n = "\n";
 				}
-				return $out . join(",", $vars) . "{$n})";
+				return $out . implode(",", $vars) . "{$n})";
 			break;
 			case 'resource':
 				return strtolower(gettype($var));
@@ -452,7 +443,7 @@ class Debugger extends Object {
 				$out[] = "$className::$$key = " . $value;
 			}
 		}
-		return join("\n", $out);
+		return implode("\n", $out);
 	}
 /**
  * Handles object conversion to debug string.

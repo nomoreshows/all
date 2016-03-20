@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: dispatcher.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Dispatcher takes the URL information, parses it for paramters and
  * tells the involved controllers what to do.
@@ -8,21 +8,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) : Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake
  * @since         CakePHP(tm) v 0.2.9
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -136,13 +135,13 @@ class Dispatcher extends Object {
 			)));
 		}
 
-		$privateAction = (bool)(strpos($this->params['action'], '_', 0) === 0);
+		$privateAction = $this->params['action'][0] === '_';
 		$prefixes = Router::prefixes();
 
 		if (!empty($prefixes)) {
 			if (isset($this->params['prefix'])) {
 				$this->params['action'] = $this->params['prefix'] . '_' . $this->params['action'];
-			} elseif (strpos($this->params['action'], '_') !== false && !$privateAction) {
+			} elseif (strpos($this->params['action'], '_') > 0) {
 				list($prefix, $action) = explode('_', $this->params['action']);
 				$privateAction = in_array($prefix, $prefixes);
 			}
@@ -271,7 +270,7 @@ class Dispatcher extends Object {
 				$params['form']['_method'] = env('HTTP_X_HTTP_METHOD_OVERRIDE');
 			}
 			if (isset($params['form']['_method'])) {
-				if (isset($_SERVER) && !empty($_SERVER)) {
+				if (!empty($_SERVER)) {
 					$_SERVER['REQUEST_METHOD'] = $params['form']['_method'];
 				} else {
 					$_ENV['REQUEST_METHOD'] = $params['form']['_method'];
@@ -303,22 +302,28 @@ class Dispatcher extends Object {
 				$params['url'] = $url;
 			}
 		}
+
 		foreach ($_FILES as $name => $data) {
 			if ($name != 'data') {
 				$params['form'][$name] = $data;
 			}
 		}
+
 		if (isset($_FILES['data'])) {
 			foreach ($_FILES['data'] as $key => $data) {
 				foreach ($data as $model => $fields) {
-					foreach ($fields as $field => $value) {
-						if (is_array($value)) {
-							foreach ($value as $k => $v) {
-								$params['data'][$model][$field][$k][$key] = $v;
+					if (is_array($fields)) {
+						foreach ($fields as $field => $value) {
+							if (is_array($value)) {
+								foreach ($value as $k => $v) {
+									$params['data'][$model][$field][$k][$key] = $v;
+								}
+							} else {
+								$params['data'][$model][$field][$key] = $value;
 							}
-						} else {
-							$params['data'][$model][$field][$key] = $value;
 						}
+					} else {
+						$params['data'][$model][$key] = $fields;
 					}
 				}
 			}
@@ -361,26 +366,28 @@ class Dispatcher extends Object {
 			$this->webroot = $base .'/';
 			return $base;
 		}
-		$file = null;
 
-		if ($baseUrl) {
-			$file = '/' . basename($baseUrl);
-			$base = dirname($baseUrl);
+		$file = '/' . basename($baseUrl);
+		$base = dirname($baseUrl);
 
-			if ($base === DS || $base === '.') {
-				$base = '';
-			}
-			$this->webroot = $base .'/';
+		if ($base === DS || $base === '.') {
+			$base = '';
+		}
+		$this->webroot = $base . '/';
 
+		$docRoot = env('DOCUMENT_ROOT');
+		$script = realpath(env('SCRIPT_FILENAME'));
+		$docRootContainsWebroot = strpos($docRoot, $dir . '/' . $webroot);
+
+		if (!empty($base) || !$docRootContainsWebroot) {
 			if (strpos($this->webroot, $dir) === false) {
 				$this->webroot .= $dir . '/' ;
 			}
 			if (strpos($this->webroot, $webroot) === false) {
 				$this->webroot .= $webroot . '/';
 			}
-			return $base . $file;
 		}
-		return false;
+		return $base . $file;
 	}
 /**
  * Restructure params in case we're serving a plugin.
@@ -509,16 +516,16 @@ class Dispatcher extends Object {
 			if (key($_GET) && strpos(key($_GET), '?') !== false) {
 				unset($_GET[key($_GET)]);
 			}
-			$uri = preg_split('/\?/', $uri, 2);
+			$uri = explode('?', $uri, 2);
 
 			if (isset($uri[1])) {
 				parse_str($uri[1], $_GET);
 			}
 			$uri = $uri[0];
-		} elseif (empty($uri) && is_string(env('QUERY_STRING'))) {
+		} else {
 			$uri = env('QUERY_STRING');
 		}
-		if (strpos($uri, 'index.php') !== false) {
+		if (is_string($uri) && strpos($uri, 'index.php') !== false) {
 			list(, $uri) = explode('index.php', $uri, 2);
 		}
 		if (empty($uri) || $uri == '/' || $uri == '//') {
@@ -549,8 +556,8 @@ class Dispatcher extends Object {
 			if ($tmpUri === '/' || $tmpUri == $baseDir || $tmpUri == $base) {
 				$url = $_GET['url'] = '/';
 			} else {
-				if ($base && strpos($uri, $base) !== false) {
-					$elements = explode($base, $uri);
+				if ($base && strpos($uri, $base) === 0) {
+					$elements = explode($base, $uri, 2);
 				} elseif (preg_match('/^[\/\?\/|\/\?|\?\/]/', $uri)) {
 					$elements = array(1 => preg_replace('/^[\/\?\/|\/\?|\?\/]/', '', $uri));
 				} else {
@@ -592,15 +599,19 @@ class Dispatcher extends Object {
 				$this->_stop();
 			}
 			$isAsset = false;
-			$assets = array('js' => 'text/javascript', 'css' => 'text/css', 'gif' => 'image/gif', 'jpg' => 'image/jpeg', 'png' => 'image/png');
+			$assets = array(
+				'js' => 'text/javascript', 'css' => 'text/css',
+				'gif' => 'image/gif', 'jpg' => 'image/jpeg', 'png' => 'image/png'
+			);
 			$ext = array_pop(explode('.', $url));
 
 			foreach ($assets as $type => $contentType) {
 				if ($type === $ext) {
-					if ($type === 'css' || $type === 'js') {
-						$pos = strpos($url, $type . '/');
+					$parts = explode('/', $url);
+					if ($parts[0] === 'css' || $parts[0] === 'js' || $parts[0] === 'img') {
+						$pos = 0;
 					} else {
-						$pos = strpos($url, 'img/');
+						$pos = strlen($parts[0]);
 					}
 					$isAsset = true;
 					break;
@@ -618,8 +629,8 @@ class Dispatcher extends Object {
 				$paths = array();
 
 				if ($pos > 0) {
-					$plugin = substr($url, 0, $pos - 1);
-					$url = str_replace($plugin . '/', '', $url);
+					$plugin = substr($url, 0, $pos);
+					$url = preg_replace('/^' . preg_quote($plugin, '/') . '\//i', '', $url);
 					$pluginPaths = Configure::read('pluginPaths');
 					$count = count($pluginPaths);
 					for ($i = 0; $i < $count; $i++) {
@@ -627,7 +638,6 @@ class Dispatcher extends Object {
 					}
 				}
 				$paths = array_merge($paths, Configure::read('vendorPaths'));
-
 				foreach ($paths as $path) {
 					if (is_file($path . $url) && file_exists($path . $url)) {
 						$assetFile = $path . $url;
@@ -674,8 +684,12 @@ class Dispatcher extends Object {
 					App::import('Core', 'View');
 				}
 				$controller = null;
-				$view =& new View($controller, false);
-				return $view->renderCache($filename, getMicrotime());
+				$view =& new View($controller);
+				$return = $view->renderCache($filename, getMicrotime());
+				if (!$return) {
+					ClassRegistry::removeObject('view');
+				}
+				return $return;
 			}
 		}
 		return false;

@@ -1,25 +1,24 @@
 <?php
-/* SVN FILE: $Id: time.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Time Helper class file.
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.view.helpers
  * @since         CakePHP(tm) v 0.10.0.1076
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -63,7 +62,7 @@ class TimeHelper extends AppHelper {
 		if (empty($dateString)) {
 			return false;
 		}
-		if (is_integer($dateString) || is_numeric($dateString)) {
+		if (is_int($dateString) || is_numeric($dateString)) {
 			$date = intval($dateString);
 		} else {
 			$date = strtotime($dateString);
@@ -107,9 +106,9 @@ class TimeHelper extends AppHelper {
 
 		$y = $this->isThisYear($date) ? '' : ' Y';
 
-		if ($this->isToday($date)) {
+		if ($this->isToday($dateString, $userOffset)) {
 			$ret = sprintf(__('Today, %s',true), date("H:i", $date));
-		} elseif ($this->wasYesterday($date)) {
+		} elseif ($this->wasYesterday($dateString, $userOffset)) {
 			$ret = sprintf(__('Yesterday, %s',true), date("H:i", $date));
 		} else {
 			$ret = date("M jS{$y}, H:i", $date);
@@ -295,8 +294,8 @@ class TimeHelper extends AppHelper {
  * Relative dates look something like this:
  *	3 weeks, 4 days ago
  *	15 seconds ago
- * Formatted dates look like this:
- *	on 02/18/2004
+ *
+ * Default date formatting is d/m/yy e.g: on 18/2/09
  *
  * The returned string includes 'ago' or 'on' and assumes you'll properly add a word
  * like 'Posted ' before the function output.
@@ -481,7 +480,7 @@ class TimeHelper extends AppHelper {
  * @return bool
  */
 	function wasWithinLast($timeInterval, $dateString, $userOffset = null) {
-		$tmp = r(' ', '', $timeInterval);
+		$tmp = str_replace(' ', '', $timeInterval);
 		if (is_numeric($tmp)) {
 			$timeInterval = $tmp . ' ' . __('days', true);
 		}
@@ -519,7 +518,7 @@ class TimeHelper extends AppHelper {
 		return $return;
 	}
 /**
- * Returns a UNIX timestamp, given either a UNIX timestamp or a valid strtotime() date string.
+ * Returns a formatted date string, given either a UNIX timestamp or a valid strtotime() date string.
  *
  * @param string $format date format string. defaults to 'd-m-Y'
  * @param string $dateString Datetime string

@@ -1,25 +1,24 @@
 <?php
-/* SVN FILE: $Id: xml.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * XML Helper class file.
  *
  * Simplifies the output of XML documents.
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.view.helpers
  * @since         CakePHP(tm) v 1.2
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 App::import('Core', array('Xml', 'Set'));
@@ -40,6 +39,9 @@ class XmlHelper extends AppHelper {
  * @var string
  */
 	var $encoding = 'UTF-8';
+
+	var $Xml;
+	var $XmlElement;
 /**
  * Constructor
  * @return void
@@ -112,7 +114,7 @@ class XmlHelper extends AppHelper {
 			$cdata = true;
 			unset($content['cdata']);
 		}
-		if (is_array($content) && isset($content['value'])) {
+		if (is_array($content) && array_key_exists('value', $content)) {
 			$content = $content['value'];
 		}
 		$children = array();
@@ -128,7 +130,7 @@ class XmlHelper extends AppHelper {
 		$out = $elem->toString(array('cdata' => $cdata, 'leaveOpen' => !$endTag));
 
 		if (!$endTag) {
-			$this->Xml =& $elem;
+			$this->XmlElement =& $elem;
 		}
 		return $this->output($out);
 	}
@@ -138,9 +140,10 @@ class XmlHelper extends AppHelper {
  * @return string
  */
 	function closeElem() {
-		$name = $this->Xml->name();
-		if ($parent =& $this->Xml->parent()) {
-			$this->Xml =& $parent;
+		$elem = (empty($this->XmlElement)) ? $this->Xml : $this->XmlElement;
+		$name = $elem->name();
+		if ($parent =& $elem->parent()) {
+			$this->XmlElement =& $parent;
 		}
 		return $this->output('</' . $name . '>');
 	}

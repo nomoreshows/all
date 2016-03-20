@@ -51,14 +51,15 @@ class ArticlesController extends AppController {
 				'contains' => false
 			));
 		$avisredac = $this->Article->User->Comment->find('count', array(
-			'conditions' => array('Comment.user_id' => $article['Article']['user_id'], 'Comment.article_id' => 0)
+			'conditions' => array('Comment.user_id' => $article['Article']['user_id'], 'Comment.article_id' => 0),
+			'contains' => false
 		));
 		$this->set(compact('ratesredac'));
 		$this->set(compact('avisredac'));
 		
 		switch($article['Article']['category']) {
 		case 'critique':
-			$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
+			$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
 			$season = $this->Article->Season->find('first',array('contain' => false,'conditions' => array('Season.id' => $article['Article']['season_id'])));
 			$episode = $this->Article->Episode->find('first',array('conditions' => array('Episode.id' => $article['Article']['episode_id'])));
 			$rates = $this->Article->Episode->Rate->find('all', array('contain' => array('User'),'conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
@@ -114,8 +115,8 @@ class ArticlesController extends AppController {
 			$this->render('display_critique');
 			break;
 		case 'bilan':
-			$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
-			$season = $this->Article->Season->find('first',array('contain' => array('Season'),'conditions' => array('Season.id' => $article['Article']['season_id'])));
+			$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
+			$season = $this->Article->Season->find('first',array('contain' => false,'conditions' => array('Season.id' => $article['Article']['season_id'])));
 			$comments = $this->Article->Comment->find('all', array(
 				'conditions' => array('Comment.article_id' => $article['Article']['id']),
 				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
@@ -124,11 +125,11 @@ class ArticlesController extends AppController {
 			));
 			// Affiche les derniers avis
 			$avisserie = $this->Article->Season->Comment->find('all', 
-				array('conditions' => array('Comment.season_id' => $season['Season']['id'], 'Comment.thumb' != '', 'Comment.episode_id' => 0)), 
+				array('conditions' => array('Comment.season_id' => $article['Article']['season_id'], 'Comment.thumb' != '', 'Comment.episode_id' => 0)), 
 				array('order' => array('Comment.id DESC'), 
 				'limit' => 2, 
 				'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
-			$this->set(compact('avis'));
+			$this->set(compact('avisserie'));
 			if(!empty($avisserie)) {
 				$commentsup = $this->Article->Season->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up', 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
 				$commentsneutral = $this->Article->Season->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' , 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
@@ -171,7 +172,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
-				'contain' => false,
+				'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières bilans
@@ -179,7 +180,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
-				'contain' => false,
+				'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières focus
@@ -187,7 +188,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
-				'contain' => false,
+				'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières portraits
@@ -195,7 +196,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
-				'contain' => false,
+				'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières portraits
@@ -203,7 +204,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
-				'contain' => false,
+				'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières critiques
@@ -211,7 +212,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
-				'contain' => false,
+				'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			$this->set(compact('news'));
@@ -229,7 +230,7 @@ class ArticlesController extends AppController {
 			break;
 			
 		case 'focus':
-			$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
+			$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
 			$comments = $this->Article->Comment->find('all', array(
 				'conditions' => array('Comment.article_id' => $article['Article']['id']),
 				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
@@ -248,7 +249,7 @@ class ArticlesController extends AppController {
 			
 			// Affiche les derniers avis
 			$avisserie = $this->Article->Show->Comment->find('all', array('contain' => array('Comment', 'User'),'conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
-			$this->set(compact('avis'));
+			$this->set(compact('avisserie'));
 			// Autres articles sur la série
 			$articlesserie = $this->Article->find('all', 
 				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
@@ -285,7 +286,7 @@ class ArticlesController extends AppController {
 		case 'chronique':
 			if ($article['Article']['show_id'] != 0) {
 				// Série concernée
-				$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
+				$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
 				$this->set(compact('show'));
 				// Autres articles sur la série
 				$articlesserie = $this->Article->find('all', 
@@ -304,7 +305,7 @@ class ArticlesController extends AppController {
 
 				// Affiche les derniers avis
 				$avisserie = $this->Article->Show->Comment->find('all', array('conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
-				$this->set(compact('avis'));
+				$this->set(compact('avisserie'));
 				if(!empty($avisserie)) {
 					$commentsup = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up','Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
 					$commentsneutral = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' ,'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
@@ -326,6 +327,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+                'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières bilans
@@ -333,6 +335,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+                'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières focus
@@ -340,6 +343,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+                'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières portraits
@@ -347,6 +351,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+                'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières portraits
@@ -354,6 +359,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+                'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			// Dernières critiques
@@ -361,6 +367,7 @@ class ArticlesController extends AppController {
 				'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
+                'contain' => array('Show'),
 				'limit' => 3, 
 			));
 			$this->set(compact('news'));
@@ -379,6 +386,8 @@ class ArticlesController extends AppController {
 			$this->set(compact('article'));
 			$render = 'display_' . $article['Article']['category'];
 			if($article['Article']['category'] == 'chronique') $render = 'display_dossier';
+			$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu'), 'limit' => 5));
+			$this->set(compact('ratesshow'));
 			$this->render($render);
 			break;
 			
@@ -399,6 +408,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -406,6 +416,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -413,6 +424,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -420,6 +432,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -427,6 +440,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -434,6 +448,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));
@@ -476,6 +491,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -483,6 +499,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -490,6 +507,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -497,6 +515,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -504,6 +523,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -511,6 +531,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));
@@ -534,6 +555,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -541,6 +563,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -548,6 +571,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -555,6 +579,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -562,6 +587,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -569,6 +595,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));
@@ -592,6 +619,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -599,6 +627,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -606,6 +635,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -613,6 +643,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -620,6 +651,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -627,6 +659,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));
@@ -650,6 +683,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -657,6 +691,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -664,6 +699,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -671,6 +707,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -678,6 +715,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -685,6 +723,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));
@@ -708,6 +747,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -715,6 +755,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -722,6 +763,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -729,6 +771,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -736,6 +779,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -743,6 +787,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));
@@ -766,6 +811,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -773,6 +819,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -780,6 +827,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -787,6 +835,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -794,6 +843,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -801,6 +851,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));
@@ -824,6 +875,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -831,6 +883,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -838,6 +891,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -845,6 +899,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -852,6 +907,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -859,6 +915,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));
@@ -882,6 +939,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières bilans
@@ -889,6 +947,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières focus
@@ -896,6 +955,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -903,6 +963,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières portraits
@@ -910,6 +971,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				// Dernières critiques
@@ -917,6 +979,7 @@ class ArticlesController extends AppController {
 					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 					'order' => 'Article.id DESC', 
+                    'contain' => array('Show'),
 					'limit' => 3, 
 				));
 				$this->set(compact('news'));

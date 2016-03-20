@@ -1,26 +1,25 @@
 <?php
-/* SVN FILE: $Id: file.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * File Storage engine for cache
  *
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.cache
  * @since         CakePHP(tm) v 1.2.0.4933
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -140,13 +139,24 @@ class FileEngine extends CacheEngine {
 			}
 		}
 
-		if ($this->settings['lock']) {
-			$this->__File->lock = true;
-		}
 		$expires = time() + $duration;
 		$contents = $expires . $lineBreak . $data . $lineBreak;
-		$success = $this->__File->write($contents);
-		$this->__File->close();
+
+		if (!$handle = fopen($this->__File->path, 'a')) {
+		    return false;
+		}
+
+		if ($this->settings['lock']) {
+			flock($handle, LOCK_EX);
+		}
+		
+		$success = ftruncate($handle, 0) && fwrite($handle, $contents) && fflush($handle);
+
+		if ($this->settings['lock']) {
+			flock($handle, LOCK_UN);
+		}
+
+		fclose($handle);
 		return $success;
 	}
 /**
@@ -168,7 +178,6 @@ class FileEngine extends CacheEngine {
 
 		if ($cachetime !== false && ($cachetime < $time || ($time + $this->settings['duration']) < $cachetime)) {
 			$this->__File->close();
-			$this->__File->delete();
 			return false;
 		}
 		$data = $this->__File->read(true);

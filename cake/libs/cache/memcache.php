@@ -1,26 +1,25 @@
 <?php
-/* SVN FILE: $Id: memcache.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Memcache storage engine for cache
  *
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.cache
  * @since         CakePHP(tm) v 1.2.0.4933
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -38,9 +37,11 @@ class MemcacheEngine extends CacheEngine {
  */
 	var $__Memcache = null;
 /**
- * settings
- * 		servers = string or array of memcache servers, default => 127.0.0.1
- * 		compress = boolean, default => false
+ * Settings
+ *
+ *  - servers = string or array of memcache servers, default => 127.0.0.1. If an
+ *    array MemcacheEngine will use them as a pool.
+ *  - compress = boolean, default => false
  *
  * @var array
  * @access public
@@ -61,7 +62,10 @@ class MemcacheEngine extends CacheEngine {
 			return false;
 		}
 		parent::init(array_merge(array(
-			'engine'=> 'Memcache', 'prefix' => Inflector::slug(APP_DIR) . '_', 'servers' => array('127.0.0.1'), 'compress'=> false
+			'engine'=> 'Memcache', 
+			'prefix' => Inflector::slug(APP_DIR) . '_', 
+			'servers' => array('127.0.0.1'),
+			'compress'=> false
 			), $settings)
 		);
 
@@ -100,7 +104,7 @@ class MemcacheEngine extends CacheEngine {
  */
 	function write($key, &$value, $duration) {
 		$expires = time() + $duration;
-		$this->__Memcache->set($key.'_expires', $expires, $this->settings['compress'], $expires);
+		$this->__Memcache->set($key . '_expires', $expires, $this->settings['compress'], $expires);
 		return $this->__Memcache->set($key, $value, $this->settings['compress'], $expires);
 	}
 /**
@@ -112,7 +116,7 @@ class MemcacheEngine extends CacheEngine {
  */
 	function read($key) {
 		$time = time();
-		$cachetime = intval($this->__Memcache->get($key.'_expires'));
+		$cachetime = intval($this->__Memcache->get($key . '_expires'));
 		if ($cachetime < $time || ($time + $this->settings['duration']) < $cachetime) {
 			return false;
 		}

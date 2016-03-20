@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: basics.php 7945 2008-12-19 02:16:01Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Basic Cake functionality.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake
  * @since         CakePHP(tm) v 0.2.9
- * @version       $Revision: 7945 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2008-12-18 18:16:01 -0800 (Thu, 18 Dec 2008) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -34,6 +33,26 @@
 	define('WEEK', 7 * DAY);
 	define('MONTH', 30 * DAY);
 	define('YEAR', 365 * DAY);
+/**
+ * Patch old versions of PHP4.
+ */
+if (!defined('PHP_EOL')) {
+	switch (strtoupper(substr(PHP_OS, 0, 3))) {
+		case 'WIN':
+			define('PHP_EOL', "\r\n");
+			break;
+		default:
+			define('PHP_EOL', "\n");
+	}
+}
+
+/**
+ * Patch PHP4 and PHP5.0
+ */
+if (!defined('DATE_RFC2822')) {
+	define('DATE_RFC2822', 'D, d M Y H:i:s O');
+}
+
 /**
  * Patch for PHP < 5.0
  */
@@ -50,9 +69,8 @@ if (!function_exists('clone')) {
  * Loads configuration files. Receives a set of configuration files
  * to load.
  * Example:
- * <code>
- * config('config1', 'config2');
- * </code>
+ *
+ * `config('config1', 'config2');`
  *
  * @return boolean Success
  */
@@ -79,9 +97,8 @@ if (!function_exists('clone')) {
  * Loads component/components from LIBS. Takes optional number of parameters.
  *
  * Example:
- * <code>
- * uses('flay', 'time');
- * </code>
+ *
+ * `uses('flay', 'time');`
  *
  * @param string $name Filename without the .php part
  */
@@ -212,14 +229,12 @@ if (!function_exists('array_combine')) {
  * Returns an array of all the given parameters.
  *
  * Example:
- * <code>
- * a('a', 'b')
- * </code>
+ *
+ * `a('a', 'b')`
  *
  * Would return:
- * <code>
- * array('a', 'b')
- * </code>
+ *
+ * `array('a', 'b')`
  *
  * @return array Array of given parameters
  * @link http://book.cakephp.org/view/694/a
@@ -232,14 +247,12 @@ if (!function_exists('array_combine')) {
  * Constructs associative array from pairs of arguments.
  *
  * Example:
- * <code>
- * aa('a','b')
- * </code>
+ *
+ * `aa('a','b')`
  *
  * Would return:
- * <code>
- * array('a'=>'b')
- * </code>
+ *
+ * `array('a'=>'b')`
  *
  * @return array Associative array
  * @link http://book.cakephp.org/view/695/aa
@@ -362,8 +375,8 @@ if (!function_exists('array_combine')) {
  */
 	function env($key) {
 		if ($key == 'HTTPS') {
-			if (isset($_SERVER) && !empty($_SERVER)) {
-				return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on');
+			if (isset($_SERVER['HTTPS'])) {
+				return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
 			}
 			return (strpos(env('SCRIPT_URI'), 'https://') === 0);
 		}
@@ -429,7 +442,7 @@ if (!function_exists('file_put_contents')) {
 /**
  * Writes data into file.
  *
- * If file exists, it will be overwritten. If data is an array, it will be join()ed with an empty string.
+ * If file exists, it will be overwritten. If data is an array, it will be implode()ed with an empty string.
  *
  * @param string $fileName File name.
  * @param mixed  $data String or array.
@@ -437,7 +450,7 @@ if (!function_exists('file_put_contents')) {
  */
 	function file_put_contents($fileName, $data) {
 		if (is_array($data)) {
-			$data = join('', $data);
+			$data = implode('', $data);
 		}
 		$res = @fopen($fileName, 'w+b');
 
@@ -473,7 +486,7 @@ if (!function_exists('file_put_contents')) {
 			$expires = strtotime($expires, $now);
 		}
 
-		switch (low($target)) {
+		switch (strtolower($target)) {
 			case 'cache':
 				$filename = CACHE . $path;
 			break;
@@ -507,10 +520,9 @@ if (!function_exists('file_put_contents')) {
 /**
  * Used to delete files in the cache directories, or clear contents of cache directories
  *
- * @param mixed $params As String name to be searched for deletion, if name is a directory all files in directory will be deleted.
- *              If array, names to be searched for deletion.
- *              If clearCache() without params, all files in app/tmp/cache/views will be deleted
- *
+ * @param mixed $params As String name to be searched for deletion, if name is a directory all files in
+ *   directory will be deleted. If array, names to be searched for deletion. If clearCache() without params,
+ *   all files in app/tmp/cache/views will be deleted
  * @param string $type Directory in tmp/cache defaults to view directory
  * @param string $ext The file extension you are deleting
  * @return true if files found and deleted false otherwise
@@ -624,9 +636,9 @@ if (!function_exists('file_put_contents')) {
 		}
 
 		if ($return === false) {
-			echo I18n::translate($singular, $plural, null, 5, $count);
+			echo I18n::translate($singular, $plural, null, 6, $count);
 		} else {
-			return I18n::translate($singular, $plural, null, 5, $count);
+			return I18n::translate($singular, $plural, null, 6, $count);
 		}
 	}
 /**
@@ -672,9 +684,9 @@ if (!function_exists('file_put_contents')) {
 		}
 
 		if ($return === false) {
-			echo I18n::translate($singular, $plural, $domain, 5, $count);
+			echo I18n::translate($singular, $plural, $domain, 6, $count);
 		} else {
-			return I18n::translate($singular, $plural, $domain, 5, $count);
+			return I18n::translate($singular, $plural, $domain, 6, $count);
 		}
 	}
 /**
@@ -685,13 +697,14 @@ if (!function_exists('file_put_contents')) {
  * Valid categories are: LC_CTYPE, LC_NUMERIC, LC_TIME, LC_COLLATE, LC_MONETARY, LC_MESSAGES and LC_ALL.
  *
  * Note that the category must be specified with a numeric value, instead of the constant name.  The values are:
- * LC_CTYPE     0
- * LC_NUMERIC   1
- * LC_TIME      2
- * LC_COLLATE   3
- * LC_MONETARY  4
- * LC_MESSAGES  5
- * LC_ALL       6
+ *
+ * - LC_ALL       0
+ * - LC_COLLATE   1
+ * - LC_CTYPE     2
+ * - LC_MONETARY  3
+ * - LC_NUMERIC   4
+ * - LC_TIME      5
+ * - LC_MESSAGES  6
  *
  * @param string $domain Domain
  * @param string $msg Message to translate
@@ -723,13 +736,14 @@ if (!function_exists('file_put_contents')) {
  * Valid categories are: LC_CTYPE, LC_NUMERIC, LC_TIME, LC_COLLATE, LC_MONETARY, LC_MESSAGES and LC_ALL.
  *
  * Note that the category must be specified with a numeric value, instead of the constant name.  The values are:
- * LC_CTYPE     0
- * LC_NUMERIC   1
- * LC_TIME      2
- * LC_COLLATE   3
- * LC_MONETARY  4
- * LC_MESSAGES  5
- * LC_ALL       6
+ *
+ * - LC_ALL       0
+ * - LC_COLLATE   1
+ * - LC_CTYPE     2
+ * - LC_MONETARY  3
+ * - LC_NUMERIC   4
+ * - LC_TIME      5
+ * - LC_MESSAGES  6
  *
  * @param string $domain Domain
  * @param string $singular Singular string to translate
@@ -758,13 +772,14 @@ if (!function_exists('file_put_contents')) {
  * Valid categories are: LC_CTYPE, LC_NUMERIC, LC_TIME, LC_COLLATE, LC_MONETARY, LC_MESSAGES and LC_ALL.
  *
  * Note that the category must be specified with a numeric value, instead of the constant name.  The values are:
- * LC_CTYPE     0
- * LC_NUMERIC   1
- * LC_TIME      2
- * LC_COLLATE   3
- * LC_MONETARY  4
- * LC_MESSAGES  5
- * LC_ALL       6
+ *
+ * - LC_ALL       0
+ * - LC_COLLATE   1
+ * - LC_CTYPE     2
+ * - LC_MONETARY  3
+ * - LC_NUMERIC   4
+ * - LC_TIME      5
+ * - LC_MESSAGES  6
  *
  * @param string $msg String to translate
  * @param integer $category Category
@@ -810,7 +825,7 @@ if (!function_exists('file_put_contents')) {
 
 			foreach ($args[0] as $valueKey => $valueData) {
 				for ($i = 1; $i < $argc; $i++) {
-					if (isset($args[$i][$valueKey])) {
+					if (array_key_exists($valueKey, $args[$i])) {
 						continue 2;
 					}
 				}
@@ -830,7 +845,7 @@ if (!function_exists('file_put_contents')) {
 		function array_intersect_key($arr1, $arr2) {
 			$res = array();
 			foreach ($arr1 as $key => $value) {
-				if (isset($arr2[$key])) {
+				if (array_key_exists($key, $arr2)) {
 					$res[$key] = $arr1[$key];
 				}
 			}
@@ -926,9 +941,8 @@ if (!function_exists('file_put_contents')) {
  * Wraps ternary operations. If $condition is a non-empty value, $val1 is returned, otherwise $val2.
  * Don't use for isset() conditions, or wrap your variable with @ operator:
  * Example:
- * <code>
- * ife(isset($variable), @$variable, 'default');
- * </code>
+ *
+ * `ife(isset($variable), @$variable, 'default');`
  *
  * @param mixed $condition Conditional expression
  * @param mixed $val1 Value to return in case condition matches

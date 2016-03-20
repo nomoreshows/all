@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: i18n.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Short description for file.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 1.2.0.4116
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -62,7 +61,7 @@ class I18n extends Object {
  * Current language used for translations
  *
  * @var string
- * @access private;
+ * @access private
  */
 	var $__lang = null;
 /**
@@ -81,12 +80,12 @@ class I18n extends Object {
  */
 	var $__noLocale = false;
 /**
- * Determine if $__domains cache should be wrote
+ * Determine what should be cached
  *
  * @var boolean
  * @access private
  */
-	var $__cache = false;
+	var $__cache = array();
 /**
  * Set to true when I18N::__bindTextDomain() is called for the first time.
  * If a translation file is found it is set to false again
@@ -94,7 +93,9 @@ class I18n extends Object {
  * @var array
  * @access private
  */
-	var $__categories = array('LC_CTYPE', 'LC_NUMERIC', 'LC_TIME', 'LC_COLLATE', 'LC_MONETARY', 'LC_MESSAGES', 'LC_ALL');
+	var $__categories = array(
+		 'LC_ALL', 'LC_COLLATE', 'LC_CTYPE', 'LC_MONETARY', 'LC_NUMERIC', 'LC_TIME', 'LC_MESSAGES'
+	);
 /**
  * Return a static instance of the I18n class
  *
@@ -111,7 +112,7 @@ class I18n extends Object {
 	}
 /**
  * Used by the translation functions in basics.php
- * Can also be used like I18n::translate(); but only if the uses('i18n'); has been used to load the class.
+ * Can also be used like I18n::translate(); but only if the App::import('I18n'); has been used to load the class.
  *
  * @param string $singular String to translate
  * @param string $plural Plural string (if any)
@@ -121,9 +122,9 @@ class I18n extends Object {
  * @return string translated strings.
  * @access public
  */
-	function translate($singular, $plural = null, $domain = null, $category = null, $count = null) {
+	function translate($singular, $plural = null, $domain = null, $category = 6, $count = null) {
 		$_this =& I18n::getInstance();
-
+		
 		if (strpos($singular, "\r\n") !== false) {
 			$singular = str_replace("\r\n", "\n", $singular);
 		}
@@ -150,13 +151,19 @@ class I18n extends Object {
 		}
 		$_this->domain = $domain . '_' . $_this->l10n->locale;
 
-		if (empty($_this->__domains)) {
-			$_this->__domains = Cache::read($_this->domain, '_cake_core_');
+		if (!isset($_this->__domains[$_this->category][$_this->__lang][$domain])) {
+			$_this->__domains[$_this->category][$_this->__lang][$domain] = Cache::read($_this->domain, '_cake_core_');
 		}
 
-		if (!isset($_this->__domains[$_this->category][$_this->__lang][$domain])) {
+		if (empty($_this->__domains[$_this->category][$_this->__lang][$domain])) {
 			$_this->__bindTextDomain($domain);
-			$_this->__cache = true;
+			$_this->__cache[] = array(
+				'key' => $_this->domain,
+				'category' => $_this->category,
+				'lang' => $_this->__lang,
+				'domain' => $domain,
+				'locale' => $_this->l10n->locale
+			);
 		}
 
 		if (!isset($count)) {
@@ -261,7 +268,7 @@ class I18n extends Object {
 				$plugin = Inflector::underscore($plugin);
 				if ($plugin === $domain) {
 					foreach ($pluginPaths as $pluginPath) {
-						$searchPaths[] = $pluginPath . DS . $plugin . DS . 'locale';
+						$searchPaths[] = $pluginPath . $plugin . DS . 'locale' . DS;
 					}
 					$searchPaths = array_reverse($searchPaths);
 					break;
@@ -269,12 +276,15 @@ class I18n extends Object {
 			}
 		}
 
+
 		foreach ($searchPaths as $directory) {
+
 			foreach ($this->l10n->languagePath as $lang) {
-				$file = $directory . DS . $lang . DS . $this->category . DS . $domain;
+				$file = $directory . $lang . DS . $this->category . DS . $domain;
 
 				if ($core) {
-					$app = $directory . DS . $lang . DS . $this->category . DS . 'core';
+					$app = $directory . $lang . DS . $this->category . DS . 'core';
+
 					if (file_exists($fn = "$app.mo")) {
 						$this->__loadMo($fn, $domain);
 						$this->__noLocale = false;
@@ -441,9 +451,20 @@ class I18n extends Object {
  * @access private
  */
 	function __destruct() {
-		if ($this->__cache) {
-			Cache::write($this->domain, array_filter($this->__domains), '_cake_core_');
+		if (!empty($this->__cache)) {
+			foreach($this->__cache as $entry) {
+				if (empty($this->__domains[$entry['category']][$entry['lang']][$entry['domain']])) {
+					continue;
+				}
+				Cache::write(
+					$entry['key'],
+					array_filter($this->__domains[$entry['category']][$entry['lang']][$entry['domain']]),
+					'_cake_core_'
+				);
+			}
 		}
+		$this->__cache = array();
+		$this->__domains = array();
 	}
 }
 ?>

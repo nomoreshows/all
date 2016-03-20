@@ -1,26 +1,25 @@
 <?php
-/* SVN FILE: $Id: string.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * String handling methods.
  *
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 1.2.0.5551
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -241,6 +240,7 @@ class String extends Object {
 
 			$hashKeys = array_map('md5', array_keys($data));
 			$tempData = array_combine(array_keys($data), array_values($hashKeys));
+			krsort($tempData);
 			foreach ($tempData as $key => $hashVal) {
 				$key = sprintf($format, preg_quote($key, '/'));
 				$str = preg_replace($key, $hashVal, $str);

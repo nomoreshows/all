@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: datasource.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * DataSource base class
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.model.datasources
  * @since         CakePHP(tm) v 0.10.5.1790
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -91,28 +90,28 @@ class DataSource extends Object {
  * Enter description here...
  *
  * @var array
- * @access private
+ * @access protected
  */
 	var $_result = null;
 /**
  * Queries count.
  *
  * @var int
- * @access private
+ * @access protected
  */
 	var $_queriesCnt = 0;
 /**
  * Total duration of all queries.
  *
  * @var unknown_type
- * @access private
+ * @access protected
  */
 	var $_queriesTime = null;
 /**
  * Log of queries executed by this DataSource
  *
  * @var unknown_type
- * @access private
+ * @access protected
  */
 	var $_queriesLog = array();
 /**
@@ -121,21 +120,21 @@ class DataSource extends Object {
  * >6000 queries on one system.
  *
  * @var int Maximum number of queries in the queries log.
- * @access private
+ * @access protected
  */
 	var $_queriesLogMax = 200;
 /**
  * Caches serialzed results of executed queries
  *
  * @var array Maximum number of queries in the queries log.
- * @access private
+ * @access protected
  */
 	var $_queryCache = array();
 /**
  * The default configuration of a specific DataSource
  *
  * @var array
- * @access public
+ * @access protected
  */
 	var $_baseConfig = array();
 /**
@@ -287,42 +286,50 @@ class DataSource extends Object {
 		return false;
 	}
 /**
+ * Used to create new records. The "C" CRUD.
+ *
  * To-be-overridden in subclasses.
  *
- * @param unknown_type $model
- * @param unknown_type $fields
- * @param unknown_type $values
- * @return unknown
+ * @param Model $model The Model to be created.
+ * @param array $fields An Array of fields to be saved.
+ * @param array $values An Array of values to save.
+ * @return boolean success
  */
 	function create(&$model, $fields = null, $values = null) {
 		return false;
 	}
 /**
+ * Used to read records from the Datasource. The "R" in CRUD
+ *
  * To-be-overridden in subclasses.
  *
- * @param unknown_type $model
- * @param unknown_type $queryData
- * @return unknown
+ * @param Model $model The model being read.
+ * @param array $queryData An array of query data used to find the data you want
+ * @return mixed
  */
 	function read(&$model, $queryData = array()) {
 		return false;
 	}
 /**
+ * Update a record(s) in the datasource.
+ *
  * To-be-overridden in subclasses.
  *
- * @param unknown_type $model
- * @param unknown_type $fields
- * @param unknown_type $values
- * @return unknown
+ * @param Model $model Instance of the model class being updated
+ * @param array $fields Array of fields to be updated
+ * @param array $values Array of values to be update $fields to.
+ * @return boolean Success
  */
 	function update(&$model, $fields = null, $values = null) {
 		return false;
 	}
 /**
+ * Delete a record(s) in the datasource.
+ *
  * To-be-overridden in subclasses.
  *
- * @param unknown_type $model
- * @param unknown_type $id
+ * @param Model $model The model class having record(s) deleted
+ * @param mixed $id Primary key of the model 
  */
 	function delete(&$model, $id = null) {
 		if ($id == null) {
@@ -355,6 +362,16 @@ class DataSource extends Object {
  */
 	function lastAffected($source = null) {
 		return false;
+	}
+/**
+ * Check whether the conditions for the Datasource being available
+ * are satisfied.  Often used from connect() to check for support
+ * before establishing a connection.
+ *
+ * @return boolean Whether or not the Datasources conditions for use are met.
+ **/
+	function enabled() {
+		return true;
 	}
 /**
  * Returns true if the DataSource supports the given interface (method)
@@ -420,6 +437,7 @@ class DataSource extends Object {
 
 		foreach ($keys as $key) {
 			$val = null;
+			$type = null;
 
 			if (strpos($query, $key) !== false) {
 				switch ($key) {
@@ -443,6 +461,7 @@ class DataSource extends Object {
 								$val = '';
 							}
 						}
+						$type = $model->getColumnType($model->primaryKey);
 					break;
 					case '{$__cakeForeignKey__$}':
 						foreach ($model->__associations as $id => $name) {
@@ -450,6 +469,8 @@ class DataSource extends Object {
 								if ($assocName === $association) {
 									if (isset($assoc['foreignKey'])) {
 										$foreignKey = $assoc['foreignKey'];
+										$assocModel = $model->$assocName;
+										$type = $assocModel->getColumnType($assocModel->primaryKey);
 
 										if (isset($data[$model->alias][$foreignKey])) {
 											$val = $data[$model->alias][$foreignKey];
@@ -478,7 +499,7 @@ class DataSource extends Object {
 				if (empty($val) && $val !== '0') {
 					return false;
 				}
-				$query = str_replace($key, $this->value($val, $model->getColumnType($model->primaryKey)), $query);
+				$query = str_replace($key, $this->value($val, $type), $query);
 			}
 		}
 		return $query;

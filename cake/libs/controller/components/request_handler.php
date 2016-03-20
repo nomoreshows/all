@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: request_handler.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Request object for handling alternative HTTP requests
  *
@@ -7,21 +7,20 @@
  * and the like.  These units have no use for Ajax requests, and this Component can tell how Cake
  * should respond to the different needs of a handheld computer and a desktop machine.
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.controller.components
  * @since         CakePHP(tm) v 0.10.4.1076
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 
@@ -230,6 +229,9 @@ class RequestHandlerComponent extends Object {
 		}
 		foreach ($_POST as $key => $val) {
 			unset($_POST[$key]);
+		}
+		if (is_array($url)) {
+			$url = Router::url($url + array('base' => false));
 		}
 		echo $this->requestAction($url, array('return'));
 		$this->_stop();
@@ -583,9 +585,9 @@ class RequestHandlerComponent extends Object {
 		$controller->ext = '.ctp';
 
 		if (empty($this->__renderType)) {
-			$controller->viewPath .= '/' . $type;
+			$controller->viewPath .= DS . $type;
 		} else {
-			$remove = preg_replace("/(?:\/{$type})$/", '/' . $type, $controller->viewPath);
+			$remove = preg_replace("/([\/\\\\]{$this->__renderType})$/", DS . $type, $controller->viewPath);
 			$controller->viewPath = $remove;
 		}
 		$this->__renderType = $type;

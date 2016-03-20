@@ -1,25 +1,24 @@
 <?php
-/* SVN FILE: $Id: javascript.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Javascript Helper class file.
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.view.helpers
  * @since         CakePHP(tm) v 0.10.0.1076
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -60,10 +59,10 @@ class JavascriptHelper extends AppHelper {
  * @access public
  */
 	var $tags = array(
-		'javascriptblock' => '<script type="text/javascript">%s</script>',
 		'javascriptstart' => '<script type="text/javascript">',
-		'javascriptlink' => '<script type="text/javascript" src="%s"></script>',
-		'javascriptend' => '</script>'
+		'javascriptend' => '</script>',
+		'javascriptblock' => '<script type="text/javascript">%s</script>',
+		'javascriptlink' => '<script type="text/javascript" src="%s"></script>'
 	);
 /**
  * Holds options passed to codeBlock(), saved for when block is dumped to output
@@ -173,42 +172,28 @@ class JavascriptHelper extends AppHelper {
 			$options = array();
 		}
 		$defaultOptions = array('allowCache' => true, 'safe' => true, 'inline' => true);
-		$options = array_merge($defaultOptions, compact('safe'), $options);
+		$options = array_merge($defaultOptions, $options);
 
-		if ($this->_cacheEvents && $this->_cacheAll && $options['allowCache'] && $script !== null) {
+		if (empty($script)) {
+			$this->__scriptBuffer = @ob_get_contents();
+			$this->_blockOptions = $options;
+			$this->inBlock = true;
+			@ob_end_clean();
+			ob_start();
+			return null;
+		}
+		if ($this->_cacheEvents && $this->_cacheAll && $options['allowCache']) {
 			$this->_cachedEvents[] = $script;
+			return null;
+		}
+		if ($options['safe'] || $this->safe) {
+			$script  = "\n" . '//<![CDATA[' . "\n" . $script . "\n" . '//]]>' . "\n";
+		}
+		if ($options['inline']) {
+			return sprintf($this->tags['javascriptblock'], $script);
 		} else {
-			$block = ($script !== null);
-			$safe = ($options['safe'] || $this->safe);
-			if ($safe && !($this->_cacheAll && $options['allowCache'])) {
-				$script  = "\n" . '//<![CDATA[' . "\n" . $script;
-				if ($block) {
-					$script .= "\n" . '//]]>' . "\n";
-				}
-			}
-
-			if ($script === null) {
-				$this->__scriptBuffer = @ob_get_contents();
-				$this->_blockOptions = $options;
-				$this->inBlock = true;
-				@ob_end_clean();
-				ob_start();
-				return null;
-			} else if (!$block) {
-				$this->_blockOptions = $options;
-			}
-
-			if ($options['inline']) {
-				if ($block) {
-					return sprintf($this->tags['javascriptblock'], $script);
-				} else {
-					$safe = ($safe ? "\n" . '//<![CDATA[' . "\n" : '');
-					return $this->tags['javascriptstart'] . $safe;
-				}
-			} elseif ($block) {
-				$view =& ClassRegistry::getObject('view');
-				$view->addScript(sprintf($this->tags['javascriptblock'], $script));
-			}
+			$view =& ClassRegistry::getObject('view');
+			$view->addScript(sprintf($this->tags['javascriptblock'], $script));
 		}
 	}
 /**
@@ -217,26 +202,23 @@ class JavascriptHelper extends AppHelper {
  * @return mixed
  */
 	function blockEnd() {
+		if (!isset($this->inBlock) || !$this->inBlock) {
+			return;
+		}
 		$script = @ob_get_contents();
 		@ob_end_clean();
 		ob_start();
 		echo $this->__scriptBuffer;
 		$this->__scriptBuffer = null;
 		$options = $this->_blockOptions;
-		$safe = ((isset($options['safe']) && $options['safe']) || $this->safe);
 		$this->_blockOptions = array();
 		$this->inBlock = false;
 
-		if (isset($options['inline']) && !$options['inline']) {
-			$view =& ClassRegistry::getObject('view');
-			$view->addScript(sprintf($this->tags['javascriptblock'], $script));
-		}
-
-		if (!empty($script) && $this->_cacheAll && $options['allowCache']) {
-			$this->_cachedEvents[] = $script;
+		if (empty($script)) {
 			return null;
 		}
-		return ife($safe, "\n" . '//]]>' . "\n", '').$this->tags['javascriptend'];
+
+		return $this->codeBlock($script, $options);
 	}
 /**
  * Returns a JavaScript include tag (SCRIPT element).  If the filename is prefixed with "/",
@@ -266,23 +248,26 @@ class JavascriptHelper extends AppHelper {
 				$url = JS_URL . $url;
 			}
 			if (strpos($url, '?') === false) {
-				if (strpos($url, '.js') === false) {
+				if (!preg_match('/.*\.(js|php)$/i', $url)) {
 					$url .= '.js';
 				}
 			}
-
-			$url = $this->webroot($url);
 			$timestampEnabled = (
 				(Configure::read('Asset.timestamp') === true && Configure::read() > 0) ||
 				Configure::read('Asset.timestamp') === 'force'
 			);
 
 			if (strpos($url, '?') === false && $timestampEnabled) {
-				$url .= '?' . @filemtime(WWW_ROOT . str_replace('/', DS, $url));
+				$url = $this->webroot($url) . '?' . @filemtime(WWW_ROOT . str_replace('/', DS, $url));
+			} else {
+				$url = $this->webroot($url);
 			}
-
+			
 			if (Configure::read('Asset.filter.js')) {
-				$url = str_replace(JS_URL, 'cjs/', $url);
+				$pos = strpos($url, JS_URL);
+				if ($pos !== false) {
+					$url = substr($url, 0, $pos) . 'cjs/' . substr($url, $pos + strlen(JS_URL));
+				}
 			}
 		}
 		$out = $this->output(sprintf($this->tags['javascriptlink'], $url));
@@ -319,8 +304,104 @@ class JavascriptHelper extends AppHelper {
  * @return string Escaped string.
  */
 	function escapeString($string) {
-		$escape = array('\n' => '\\\n', "\r\n" => '\n', "\r" => '\n', "\n" => '\n', '"' => '\"', "'" => "\\'");
-		return str_replace(array_keys($escape), array_values($escape), $string);
+		App::import('Core', 'Multibyte');
+		$escape = array("\r\n" => "\n", "\r" => "\n");
+		$string = str_replace(array_keys($escape), array_values($escape), $string);
+		return $this->_utf8ToHex($string);
+	}
+/**
+ * Encode a string into JSON.  Converts and escapes necessary characters.
+ *
+ * @return void
+ **/
+	function _utf8ToHex($string) {
+		$length = strlen($string);
+		$return = '';
+		for ($i = 0; $i < $length; ++$i) {
+			$ord = ord($string{$i});
+			switch (true) {
+				case $ord == 0x08:
+					$return .= '\b';
+					break;
+				case $ord == 0x09:
+					$return .= '\t';
+					break;
+				case $ord == 0x0A:
+					$return .= '\n';
+					break;
+				case $ord == 0x0C:
+					$return .= '\f';
+					break;
+				case $ord == 0x0D:
+					$return .= '\r';
+					break;
+				case $ord == 0x22:
+				case $ord == 0x2F:
+				case $ord == 0x5C:
+				case $ord == 0x27:
+					$return .= '\\' . $string{$i};
+					break;
+				case (($ord >= 0x20) && ($ord <= 0x7F)):
+					$return .= $string{$i};
+					break;
+				case (($ord & 0xE0) == 0xC0):
+					if ($i + 1 >= $length) {
+						$i += 1;
+						$return .= '?';
+						break;
+					}
+					$charbits = $string{$i} . $string{$i + 1};
+					$char = Multibyte::utf8($charbits);
+					$return .= sprintf('\u%04s', dechex($char[0]));
+					$i += 1;
+					break;
+				case (($ord & 0xF0) == 0xE0):
+					if ($i + 2 >= $length) {
+						$i += 2;
+						$return .= '?';
+						break;
+					}
+					$charbits = $string{$i} . $string{$i + 1} . $string{$i + 2};
+					$char = Multibyte::utf8($charbits);
+					$return .= sprintf('\u%04s', dechex($char[0]));
+					$i += 2;
+					break;
+				case (($ord & 0xF8) == 0xF0):
+					if ($i + 3 >= $length) {
+					   $i += 3;
+					   $return .= '?';
+					   break;
+					}
+					$charbits = $string{$i} . $string{$i + 1} . $string{$i + 2} . $string{$i + 3};
+					$char = Multibyte::utf8($charbits);
+					$return .= sprintf('\u%04s', dechex($char[0]));
+					$i += 3;
+					break;
+				case (($ord & 0xFC) == 0xF8):
+					if ($i + 4 >= $length) {
+					   $i += 4;
+					   $return .= '?';
+					   break;
+					}
+					$charbits = $string{$i} . $string{$i + 1} . $string{$i + 2} . $string{$i + 3} . $string{$i + 4};
+					$char = Multibyte::utf8($charbits);
+					$return .= sprintf('\u%04s', dechex($char[0]));
+					$i += 4;
+					break;
+				case (($ord & 0xFE) == 0xFC):
+					if ($i + 5 >= $length) {
+					   $i += 5;
+					   $return .= '?';
+					   break;
+					}
+					$charbits = $string{$i} . $string{$i + 1} . $string{$i + 2} . $string{$i + 3} . $string{$i + 4} . $string{$i + 5};
+					$char = Multibyte::utf8($charbits);
+					$return .= sprintf('\u%04s', dechex($char[0]));
+					$i += 5;
+					break;
+			}
+		}
+		return $return;
 	}
 /**
  * Attach an event to an element. Used with the Prototype library.
@@ -493,6 +574,15 @@ class JavascriptHelper extends AppHelper {
  * Generates a JavaScript object in JavaScript Object Notation (JSON)
  * from an array
  *
+ * ### Options
+ *
+ * - block - Wraps the return value in a script tag if true. Default is false
+ * - prefix - Prepends the string to the returned data. Default is ''
+ * - postfix - Appends the string to the returned data. Default is ''
+ * - stringKeys - A list of array keys to be treated as a string.
+ * - quoteKeys - If false treats $stringKeys as a list of keys **not** to be quoted. Default is true.
+ * - q - The type of quote to use. Default is '"'.  This option only affects the keys, not the values.
+ *
  * @param array $data Data to be converted
  * @param array $options Set of options: block, prefix, postfix, stringKeys, quoteKeys, q
  * @param string $prefix DEPRECATED, use $options['prefix'] instead. Prepends the string to the returned data
@@ -542,7 +632,10 @@ class JavascriptHelper extends AppHelper {
 
 			foreach ($data as $key => $val) {
 				if (is_array($val) || is_object($val)) {
-					$val = $this->object($val, array_merge($options, array('block' => false)));
+					$val = $this->object(
+						$val,
+						array_merge($options, array('block' => false, 'prefix' => '', 'postfix' => ''))
+					);
 				} else {
 					$quoteStrings = (
 						!count($options['stringKeys']) ||
@@ -558,9 +651,9 @@ class JavascriptHelper extends AppHelper {
 			}
 
 			if (!$numeric) {
-				$rt = '{' . join(',', $out) . '}';
+				$rt = '{' . implode(',', $out) . '}';
 			} else {
-				$rt = '[' . join(',', $out) . ']';
+				$rt = '[' . implode(',', $out) . ']';
 			}
 		}
 		$rt = $options['prefix'] . $rt . $options['postfix'];
@@ -587,7 +680,7 @@ class JavascriptHelper extends AppHelper {
 				$val = 'null';
 			break;
 			case (is_bool($val)):
-				$val = ife($val, 'true', 'false');
+				$val = !empty($val) ? 'true' : 'false';
 			break;
 			case (is_int($val)):
 				$val = $val;

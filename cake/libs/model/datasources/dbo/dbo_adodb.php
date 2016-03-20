@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: dbo_adodb.php 7945 2008-12-19 02:16:01Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * AdoDB layer for DBO.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.model.datasources.dbo
  * @since         CakePHP(tm) v 0.2.9
- * @version       $Revision: 7945 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2008-12-18 18:16:01 -0800 (Thu, 18 Dec 2008) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -102,7 +101,9 @@ class DboAdodb extends DboSource {
 			$adodb_driver = substr($config['connect'], 0, $persistent);
 			$connect = 'PConnect';
 		}
-
+		if (!$this->enabled()) {
+			return false;
+		}
 		$this->_adodb = NewADOConnection($adodb_driver);
 
 		$this->_adodbDataDict = NewDataDictionary($this->_adodb, $adodb_driver);
@@ -113,6 +114,14 @@ class DboAdodb extends DboSource {
 		$this->connected = $this->_adodb->$connect($config['host'], $config['login'], $config['password'], $config['database']);
 		$this->_adodbMetatyper = &$this->_adodb->execute('Select 1');
 		return $this->connected;
+	}
+/**
+ * Check that AdoDB is available.
+ *
+ * @return boolean
+ **/
+	function enabled() {
+		return function_exists('NewADOConnection');
 	}
 /**
  * Disconnects from database.
@@ -206,7 +215,7 @@ class DboAdodb extends DboSource {
 	function listSources() {
 		$tables = $this->_adodb->MetaTables('TABLES');
 
-		if (!sizeof($tables) > 0) {
+		if (!count($tables) > 0) {
 			trigger_error(ERROR_NO_TABLE_LIST, E_USER_NOTICE);
 			exit;
 		}

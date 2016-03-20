@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: dbo_postgres.php 7945 2008-12-19 02:16:01Z gwoo $ */
+/* SVN FILE: $Id$ */
 
 /**
  * PostgreSQL layer for DBO.
@@ -8,21 +8,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.model.datasources.dbo
  * @since         CakePHP(tm) v 0.9.1.114
- * @version       $Revision: 7945 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2008-12-18 18:16:01 -0800 (Thu, 18 Dec 2008) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -123,6 +122,14 @@ class DboPostgres extends DboSource {
 		return $this->connected;
 	}
 /**
+ * Check if PostgreSQL is enabled/loaded
+ *
+ * @return boolean
+ **/
+	function enabled() {
+		return extension_loaded('pgsql');
+	}
+/**
  * Disconnects from database.
  *
  * @return boolean True if the database could be disconnected, else false
@@ -210,7 +217,12 @@ class DboPostgres extends DboSource {
 					if (!empty($c['char_length'])) {
 						$length = intval($c['char_length']);
 					} elseif (!empty($c['oct_length'])) {
-						$length = intval($c['oct_length']);
+						if ($c['type'] == 'character varying') {
+							$length = null;
+							$c['type'] = 'text';
+						} else {
+							$length = intval($c['oct_length']);
+						}
 					} else {
 						$length = $this->length($c['type']);
 					}
@@ -272,12 +284,6 @@ class DboPostgres extends DboSource {
 		}
 
 		switch($column) {
-			case 'inet':
-			case 'float':
-			case 'integer':
-				if ($data === '') {
-					return $read ? 'NULL' : 'DEFAULT';
-				}
 			case 'binary':
 				$data = pg_escape_bytea($data);
 			break;
@@ -289,6 +295,19 @@ class DboPostgres extends DboSource {
 				}
 				return (!empty($data) ? 'TRUE' : 'FALSE');
 			break;
+			case 'float':
+				if (is_float($data)) {
+					$data = sprintf('%F', $data);
+				}
+			case 'inet':
+			case 'integer':
+			case 'date':
+			case 'datetime':
+			case 'timestamp':
+			case 'time':
+				if ($data === '') {
+					return $read ? 'NULL' : 'DEFAULT';
+				}
 			default:
 				$data = pg_escape_string($data);
 			break;
@@ -527,11 +546,11 @@ class DboPostgres extends DboSource {
 				}
 				
 				if (!empty($colList)) {
-					$out .= "\t" . join(",\n\t", $colList) . ";\n\n";
+					$out .= "\t" . implode(",\n\t", $colList) . ";\n\n";
 				} else {
 					$out = '';
 				}
-				$out .= join(";\n\t", $this->_alterIndexes($curTable, $indexes)) . ";";
+				$out .= implode(";\n\t", $this->_alterIndexes($curTable, $indexes)) . ";";
 			}
 		}
 		return $out;
@@ -568,7 +587,7 @@ class DboPostgres extends DboSource {
 					$out .= 'INDEX ';
 				}
 				if (is_array($value['column'])) {
-					$out .= $name . ' ON ' . $table . ' (' . join(', ', array_map(array(&$this, 'name'), $value['column'])) . ')';
+					$out .= $name . ' ON ' . $table . ' (' . implode(', ', array_map(array(&$this, 'name'), $value['column'])) . ')';
 				} else {
 					$out .= $name . ' ON ' . $table . ' (' . $this->name($value['column']) . ')';
 				}
@@ -817,7 +836,7 @@ class DboPostgres extends DboSource {
 					$out .= 'UNIQUE ';
 				}
 				if (is_array($value['column'])) {
-					$value['column'] = join(', ', array_map(array(&$this, 'name'), $value['column']));
+					$value['column'] = implode(', ', array_map(array(&$this, 'name'), $value['column']));
 				} else {
 					$value['column'] = $this->name($value['column']);
 				}
@@ -850,7 +869,7 @@ class DboPostgres extends DboSource {
 
 				foreach (array('columns', 'indexes') as $var) {
 					if (is_array(${$var})) {
-						${$var} = join($join[$var], array_filter(${$var}));
+						${$var} = implode($join[$var], array_filter(${$var}));
 					}
 				}
 				return "CREATE TABLE {$table} (\n\t{$columns}\n);\n{$indexes}";

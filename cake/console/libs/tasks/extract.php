@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: extract.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Short description for file.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.console.libs
  * @since         CakePHP(tm) v 1.2.0.5012
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -263,9 +262,9 @@ class ExtractTask extends Shell{
 				}
 
 				if (is_array($token)) {
-					$lineNumber += count(split("\n", $token[1])) - 1;
+					$lineNumber += count(explode("\n", $token[1])) - 1;
 				} else {
-					$lineNumber += count(split("\n", $token)) - 1;
+					$lineNumber += count(explode("\n", $token)) - 1;
 				}
 			}
 			unset($allTokens);
@@ -414,13 +413,13 @@ class ExtractTask extends Shell{
 
 			if ($this->__oneFile === true) {
 				foreach ($fileInfo as $file => $lines) {
-					$occured[] = "$file:" . join(';', $lines);
+					$occured[] = "$file:" . implode(';', $lines);
 
 					if (isset($this->__fileVersions[$file])) {
 						$fileList[] = $this->__fileVersions[$file];
 					}
 				}
-				$occurances = join("\n#: ", $occured);
+				$occurances = implode("\n#: ", $occured);
 				$occurances = str_replace($this->path, '', $occurances);
 				$output = "#: $occurances\n";
 				$filename = $this->__filename;
@@ -439,12 +438,12 @@ class ExtractTask extends Shell{
 			} else {
 				foreach ($fileInfo as $file => $lines) {
 					$filename = $str;
-					$occured = array("$str:" . join(';', $lines));
+					$occured = array("$str:" . implode(';', $lines));
 
 					if (isset($this->__fileVersions[$str])) {
 						$fileList[] = $this->__fileVersions[$str];
 					}
-					$occurances = join("\n#: ", $occured);
+					$occurances = implode("\n#: ", $occured);
 					$occurances = str_replace($this->path, '', $occurances);
 					$output .= "#: $occurances\n";
 
@@ -511,9 +510,9 @@ class ExtractTask extends Shell{
 			$fileList = str_replace(array($this->path), '', $fileList);
 
 			if (count($fileList) > 1) {
-				$fileList = "Generated from files:\n#  " . join("\n#  ", $fileList);
+				$fileList = "Generated from files:\n#  " . implode("\n#  ", $fileList);
 			} elseif (count($fileList) == 1) {
-				$fileList = 'Generated from file: ' . join('', $fileList);
+				$fileList = 'Generated from file: ' . implode('', $fileList);
 			} else {
 				$fileList = 'No version information was available in the source files.';
 			}
@@ -535,7 +534,7 @@ class ExtractTask extends Shell{
 				}
 			}
 			$fp = fopen($this->__output . $file, 'w');
-			fwrite($fp, str_replace('--VERSIONS--', $fileList, join('', $content)));
+			fwrite($fp, str_replace('--VERSIONS--', $fileList, implode('', $content)));
 			fclose($fp);
 		}
 	}

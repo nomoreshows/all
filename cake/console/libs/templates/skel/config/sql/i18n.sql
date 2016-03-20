@@ -1,6 +1,6 @@
-# $Id: i18n.sql 7945 2008-12-19 02:16:01Z gwoo $
+# $Id$
 #
-# Copyright 2005-2008,	Cake Software Foundation, Inc.
+# Copyright 2005-2010,	Cake Software Foundation, Inc.
 #
 # Licensed under The MIT License
 # Redistributions of files must retain the above copyright notice.

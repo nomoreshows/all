@@ -1,25 +1,24 @@
 <?php
-/* SVN FILE: $Id: http_socket.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * HTTP Socket connection class.
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 1.2.0
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 App::import('Core', array('Socket', 'Set', 'Router'));
@@ -172,7 +171,12 @@ class HttpSocket extends CakeSocket {
 		if (!isset($request['uri'])) {
 			$request['uri'] = null;
 		}
+
 		$uri = $this->parseUri($request['uri']);
+		$hadAuth = false;
+		if (is_array($uri) && array_key_exists('user', $uri)) {
+			$hadAuth = true;
+		}
 
 		if (!isset($uri['host'])) {
 			$host = $this->config['host'];
@@ -181,11 +185,14 @@ class HttpSocket extends CakeSocket {
 			$host = $request['host'];
 			unset($request['host']);
 		}
-
 		$request['uri'] = $this->url($request['uri']);
 		$request['uri'] = $this->parseUri($request['uri'], true);
 		$this->request = Set::merge($this->request, $this->config['request'], $request);
 
+		if (!$hadAuth && !empty($this->config['request']['auth']['user'])) {
+			$this->request['uri']['user'] = $this->config['request']['auth']['user'];
+			$this->request['uri']['pass'] = $this->config['request']['auth']['pass'];
+		}
 		$this->configUri($this->request['uri']);
 
 		if (isset($host)) {
@@ -198,14 +205,30 @@ class HttpSocket extends CakeSocket {
 			if (!empty($this->request['cookies'])) {
 				$cookies = $this->buildCookies($this->request['cookies']);
 			}
-			$this->request['header'] = array_merge(array('Host' => $this->request['uri']['host']), $this->request['header']);
+			$Host = $this->request['uri']['host'];
+			$schema = '';
+			$port = 0;
+			if (isset($this->request['uri']['schema'])) {
+				$schema = $this->request['uri']['schema'];
+			}
+			if (isset($this->request['uri']['port'])) {
+				$port = $this->request['uri']['port'];
+			}
+			if (
+				($schema === 'http' && $port != 80) ||
+				($schema === 'https' && $port != 443) ||
+				($port != 80 && $port != 443)
+			) {
+				$Host .= ':' . $port;
+			}
+			$this->request['header'] = array_merge(compact('Host'), $this->request['header']);
 		}
 
 		if (isset($this->request['auth']['user']) && isset($this->request['auth']['pass'])) {
-			$this->request['header']['Authorization'] = $this->request['auth']['method'] ." ". base64_encode($this->request['auth']['user'] .":".$this->request['auth']['pass']);
+			$this->request['header']['Authorization'] = $this->request['auth']['method'] . " " . base64_encode($this->request['auth']['user'] . ":" . $this->request['auth']['pass']);
 		}
 		if (isset($this->request['uri']['user']) && isset($this->request['uri']['pass'])) {
-			$this->request['header']['Authorization'] = $this->request['auth']['method'] ." ". base64_encode($this->request['uri']['user'] .":".$this->request['uri']['pass']);
+			$this->request['header']['Authorization'] = $this->request['auth']['method'] . " " . base64_encode($this->request['uri']['user'] . ":" . $this->request['uri']['pass']);
 		}
 
 		if (is_array($this->request['body'])) {
@@ -220,7 +243,10 @@ class HttpSocket extends CakeSocket {
 			$this->request['header']['Content-Length'] = strlen($this->request['body']);
 		}
 
-		$connectionType = @$this->request['header']['Connection'];
+		$connectionType = null;
+		if (isset($this->request['header']['Connection'])) {
+			$connectionType = $this->request['header']['Connection'];
+		}
 		$this->request['header'] = $this->buildHeader($this->request['header']).$cookies;
 
 		if (empty($this->request['line'])) {
@@ -395,7 +421,11 @@ class HttpSocket extends CakeSocket {
 		}
 
 		$response['header'] = $this->parseHeader($response['raw']['header']);
-		$decoded = $this->decodeBody($response['raw']['body'], @$response['header']['Transfer-Encoding']);
+		$transferEncoding = null;
+		if (isset($response['header']['Transfer-Encoding'])) {
+			$transferEncoding = $response['header']['Transfer-Encoding'];
+		}
+		$decoded = $this->decodeBody($response['raw']['body'], $transferEncoding);
 		$response['body'] = $decoded['body'];
 
 		if (!empty($decoded['header'])) {
@@ -523,7 +553,6 @@ class HttpSocket extends CakeSocket {
 		if (!isset($uri['host'])) {
 			return false;
 		}
-
 		$config = array(
 			'request' => array(
 				'uri' => array_intersect_key($uri, $this->config['request']['uri']),
@@ -557,7 +586,8 @@ class HttpSocket extends CakeSocket {
 		$stripIfEmpty = array(
 			'query' => '?%query',
 			'fragment' => '#%fragment',
-			'user' => '%user:%pass@'
+			'user' => '%user:%pass@',
+			'host' => '%host:%port/'
 		);
 
 		foreach ($stripIfEmpty as $key => $strip) {
@@ -570,7 +600,6 @@ class HttpSocket extends CakeSocket {
 		if (array_key_exists($uri['scheme'], $defaultPorts) && $defaultPorts[$uri['scheme']] == $uri['port']) {
 			$uriTemplate = str_replace(':%port', null, $uriTemplate);
 		}
-
 		foreach ($uri as $property => $value) {
 			$uriTemplate = str_replace('%'.$property, $value, $uriTemplate);
 		}
@@ -665,7 +694,7 @@ class HttpSocket extends CakeSocket {
 
 			foreach ($items as $item) {
 				if (strpos($item, '=') !== false) {
-					list($key, $value) = explode('=', $item);
+					list($key, $value) = explode('=', $item, 2);
 				} else {
 					$key = $item;
 					$value = null;
@@ -731,7 +760,7 @@ class HttpSocket extends CakeSocket {
 		$request['uri'] = $this->buildUri($request['uri'], '/%path?%query');
 
 		if (!$this->quirksMode && $request['uri'] === '*' && !in_array($request['method'], $asteriskMethods)) {
-			trigger_error(sprintf(__('HttpSocket::buildRequestLine - The "*" asterisk character is only allowed for the following methods: %s. Activate quirks mode to work outside of HTTP/1.1 specs.', true), join(',', $asteriskMethods)), E_USER_WARNING);
+			trigger_error(sprintf(__('HttpSocket::buildRequestLine - The "*" asterisk character is only allowed for the following methods: %s. Activate quirks mode to work outside of HTTP/1.1 specs.', true), implode(',', $asteriskMethods)), E_USER_WARNING);
 			return false;
 		}
 		return $request['method'].' '.$request['uri'].' '.$versionToken.$this->lineBreak;
@@ -769,7 +798,7 @@ class HttpSocket extends CakeSocket {
 		$returnHeader = '';
 		foreach ($header as $field => $contents) {
 			if (is_array($contents) && $mode == 'standard') {
-				$contents = join(',', $contents);
+				$contents = implode(',', $contents);
 			}
 			foreach ((array)$contents as $content) {
 				$contents = preg_replace("/\r\n(?![\t ])/", "\r\n ", $content);
@@ -805,7 +834,7 @@ class HttpSocket extends CakeSocket {
 			return false;
 		}
 
-		preg_match_all("/(.+):(.+)(?:(?<![\t ])".$this->lineBreak."|\$)/Uis", $header, $matches, PREG_SET_ORDER);
+		preg_match_all("/(.+):(.+)(?:(?<![\t ])" . $this->lineBreak . "|\$)/Uis", $header, $matches, PREG_SET_ORDER);
 
 		$header = array();
 		foreach ($matches as $match) {
@@ -845,9 +874,16 @@ class HttpSocket extends CakeSocket {
 
 		$cookies = array();
 		foreach ((array)$header['Set-Cookie'] as $cookie) {
-			$parts = preg_split('/(?<![^;]");[ \t]*/', $cookie);
+			if (strpos($cookie, '";"') !== false) {
+				$cookie = str_replace('";"', "{__cookie_replace__}", $cookie);
+				$parts  = str_replace("{__cookie_replace__}", '";"', explode(';', $cookie));
+			} else {
+				$parts = preg_split('/\;[ \t]*/', $cookie);
+			}
+
 			list($name, $value) = explode('=', array_shift($parts), 2);
 			$cookies[$name] = compact('value');
+
 			foreach ($parts as $part) {
 				if (strpos($part, '=') !== false) {
 					list($key, $value) = explode('=', $part);
@@ -877,7 +913,7 @@ class HttpSocket extends CakeSocket {
 		foreach ($cookies as $name => $cookie) {
 			$header[] = $name.'='.$this->escapeToken($cookie['value'], array(';'));
 		}
-		$header = $this->buildHeader(array('Cookie' => $header), 'pragmatic');
+		$header = $this->buildHeader(array('Cookie' => implode('; ', $header)), 'pragmatic');
 		return $header;
 	}
 /**
@@ -907,7 +943,7 @@ class HttpSocket extends CakeSocket {
  * @todo Test $chars parameter
  */
 	function unescapeToken($token, $chars = null) {
-		$regex = '/"(['.join('', $this->__tokenEscapeChars(true, $chars)).'])"/';
+		$regex = '/"(['.implode('', $this->__tokenEscapeChars(true, $chars)).'])"/';
 		$token = preg_replace($regex, '\\1', $token);
 		return $token;
 	}
@@ -920,7 +956,7 @@ class HttpSocket extends CakeSocket {
  * @todo Test $chars parameter
  */
 	function escapeToken($token, $chars = null) {
-		$regex = '/(['.join('', $this->__tokenEscapeChars(true, $chars)).'])/';
+		$regex = '/(['.implode('', $this->__tokenEscapeChars(true, $chars)).'])/';
 		$token = preg_replace($regex, '"\\1"', $token);
 		return $token;
 	}
@@ -965,7 +1001,6 @@ class HttpSocket extends CakeSocket {
 		if (empty($initalState)) {
 			$initalState = get_class_vars(__CLASS__);
 		}
-
 		if ($full == false) {
 			$this->request = $initalState['request'];
 			$this->response = $initalState['response'];

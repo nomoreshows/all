@@ -1,25 +1,24 @@
 <?php
-/* SVN FILE: $Id: js.php 7945 2008-12-19 02:16:01Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Javascript Generator class file.
  *
  * PHP versions 4 and 5
  *
- * CakePHP :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2006-2008, Cake Software Foundation, Inc.
+ * CakePHP :  Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc.
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2006-2008, Cake Software Foundation, Inc.
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc.
+ * @link          http://cakefoundation.org/projects/info/cakephp CakePHP Project
  * @package       cake
  * @subpackage    cake.cake.libs.view.helpers
  * @since         CakePHP v 1.2
- * @version       $Revision: 7945 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2008-12-18 18:16:01 -0800 (Thu, 18 Dec 2008) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -128,7 +127,7 @@ class JsHelper extends Overloadable2 {
 				$options['requestHeaders'] = array();
 			}
 			if (is_array($options['update'])) {
-				$options['update'] = join(' ', $options['update']);
+				$options['update'] = implode(' ', $options['update']);
 			}
 			$options['requestHeaders']['X-Update'] = $options['update'];
 		} else {
@@ -257,9 +256,9 @@ class JsHelper extends Overloadable2 {
 		}
 
 		if (!$numeric) {
-			$rt = '{' . join(', ', $out) . '}';
+			$rt = '{' . implode(', ', $out) . '}';
 		} else {
-			$rt = '[' . join(', ', $out) . ']';
+			$rt = '[' . implode(', ', $out) . ']';
 		}
 		$rt = $prefix . $rt . $postfix;
 
@@ -445,7 +444,7 @@ class JsHelperObject {
 			}
 			$options[] = $key . ':' . $val;
 		}
-		return join(', ', $options);
+		return implode(', ', $options);
 	}
 }
 ?>

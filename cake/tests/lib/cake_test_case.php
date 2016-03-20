@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: cake_test_case.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * CakeTestCase file
  *
@@ -8,20 +8,19 @@
  * PHP versions 4 and 5
  *
  * CakePHP(tm) Tests <https://trac.cakephp.org/wiki/Developement/TestSuite>
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  *  Licensed under The Open Group Test Suite License
  *  Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          https://trac.cakephp.org/wiki/Developement/TestSuite CakePHP(tm) Tests
  * @package       cake
  * @subpackage    cake.cake.tests.libs
  * @since         CakePHP(tm) v 1.2.0.4667
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/opengroup.php The Open Group Test Suite License
  */
 if (!class_exists('dispatcher')) {
@@ -425,10 +424,11 @@ class CakeTestCase extends UnitTestCase {
 				return;
 			}
 			foreach ($this->_fixtures as $fixture) {
-				if (in_array($fixture->table, $sources)) {
+				$table = $this->db->config['prefix'] . $fixture->table;
+				if (in_array($table, $sources)) {
 					$fixture->drop($this->db);
 					$fixture->create($this->db);
-				} elseif (!in_array($fixture->table, $sources)) {
+				} elseif (!in_array($table, $sources)) {
 					$fixture->create($this->db);
 				}
 			}
@@ -633,10 +633,10 @@ class CakeTestCase extends UnitTestCase {
 					$permutations = $this->__array_permute($attrs);
 					$permutationTokens = array();
 					foreach ($permutations as $permutation) {
-						$permutationTokens[] = join('', $permutation);
+						$permutationTokens[] = implode('', $permutation);
 					}
 					$regex[] = array(
-						sprintf('%s', join(', ', $explanations)),
+						sprintf('%s', implode(', ', $explanations)),
 						$permutationTokens,
 						$i,
 					);

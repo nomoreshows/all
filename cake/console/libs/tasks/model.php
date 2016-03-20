@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: model.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * The ModelTask handles creating and updating models files.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.console.libs.tasks
  * @since         CakePHP(tm) v 1.2
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 App::import('Model', 'ConnectionManager');
@@ -65,6 +64,7 @@ class ModelTask extends Shell {
 
 		if (!empty($this->args[0])) {
 			$model = Inflector::camelize($this->args[0]);
+			$this->useDbConfig = 'default';
 			if ($this->bake($model)) {
 				if ($this->_checkUnitTest()) {
 					$this->bakeTest($model);
@@ -99,6 +99,7 @@ class ModelTask extends Shell {
 		if (count($connections) > 1) {
 			$useDbConfig = $this->in(__('Use Database Config', true) .':', $connections, 'default');
 		}
+		$this->useDbConfig = $useDbConfig;
 
 		$currentModelName = $this->getName($useDbConfig);
 		$db =& ConnectionManager::getDataSource($useDbConfig);
@@ -112,11 +113,11 @@ class ModelTask extends Shell {
 			$tableIsGood = $this->in(__('Do you want to use this table?', true), array('y','n'), 'y');
 		}
 
-		if (low($tableIsGood) == 'n' || low($tableIsGood) == 'no') {
+		if (strtolower($tableIsGood) == 'n' || strtolower($tableIsGood) == 'no') {
 			$useTable = $this->in(__('What is the name of the table (enter "null" to use NO table)?', true));
 		}
 
-		while ($tableIsGood == false && low($useTable) != 'null') {
+		while ($tableIsGood == false && strtolower($useTable) != 'null') {
 			if (is_array($this->__tables) && !in_array($useTable, $this->__tables)) {
 				$fullTableName = $db->fullTableName($useTable, false);
 				$this->out($fullTableName . ' does not exist.');
@@ -144,12 +145,12 @@ class ModelTask extends Shell {
 			}
 		}
 
-		if (array_search($useTable, $this->__tables) !== false && (low($wannaDoValidation) == 'y' || low($wannaDoValidation) == 'yes')) {
+		if (array_search($useTable, $this->__tables) !== false && (strtolower($wannaDoValidation) == 'y' || strtolower($wannaDoValidation) == 'yes')) {
 			$validate = $this->doValidation($tempModel);
 		}
 
 		$wannaDoAssoc = $this->in(__('Would you like to define model associations (hasMany, hasOne, belongsTo, etc.)?', true), array('y','n'), 'y');
-		if ((low($wannaDoAssoc) == 'y' || low($wannaDoAssoc) == 'yes')) {
+		if ((strtolower($wannaDoAssoc) == 'y' || strtolower($wannaDoAssoc) == 'yes')) {
 			$associations = $this->doAssociations($tempModel);
 		}
 
@@ -201,7 +202,7 @@ class ModelTask extends Shell {
 		$this->hr();
 		$looksGood = $this->in(__('Look okay?', true), array('y','n'), 'y');
 
-		if (low($looksGood) == 'y' || low($looksGood) == 'yes') {
+		if (strtolower($looksGood) == 'y' || strtolower($looksGood) == 'yes') {
 			if ($this->bake($currentModelName, $associations, $validate, $primaryKey, $useTable, $useDbConfig)) {
 				if ($this->_checkUnitTest()) {
 					$this->bakeTest($currentModelName, $useTable, $associations);
@@ -401,7 +402,7 @@ class ModelTask extends Shell {
 							$prompt = "{$model->name} {$type} {$associations[$type][$i]['alias']}";
 							$response = $this->in("{$prompt}?", array('y','n'), 'y');
 
-							if ('n' == low($response) || 'no' == low($response)) {
+							if ('n' == strtolower($response) || 'no' == strtolower($response)) {
 								unset($associations[$type][$i]);
 							} else {
 								if ($model->name === $associations[$type][$i]['alias']) {
@@ -414,7 +415,7 @@ class ModelTask extends Shell {
 
 									$alternateAlias = $this->in(sprintf(__('This is a self join. Use %s as the alias', true), $alias), array('y', 'n'), 'y');
 
-									if ('n' == low($alternateAlias) || 'no' == low($alternateAlias)) {
+									if ('n' == strtolower($alternateAlias) || 'no' == strtolower($alternateAlias)) {
 										$associations[$type][$i]['alias'] = $this->in(__('Specify an alternate alias.', true));
 									} else {
 										$associations[$type][$i]['alias'] = $alias;
@@ -429,7 +430,7 @@ class ModelTask extends Shell {
 
 			$wannaDoMoreAssoc = $this->in(__('Would you like to define some additional model associations?', true), array('y','n'), 'n');
 
-			while ((low($wannaDoMoreAssoc) == 'y' || low($wannaDoMoreAssoc) == 'yes')) {
+			while ((strtolower($wannaDoMoreAssoc) == 'y' || strtolower($wannaDoMoreAssoc) == 'yes')) {
 				$assocs = array(1 => 'belongsTo', 2 => 'hasOne', 3 => 'hasMany', 4 => 'hasAndBelongsToMany');
 				$bad = true;
 				while ($bad) {
@@ -664,6 +665,7 @@ class ModelTask extends Shell {
 		}
 		$out .= "}\n";
 		$out .= "?>";
+		ClassRegistry::flush();
 		$filename = $this->path . Inflector::underscore($name) . '.php';
 		$this->out("\nBaking model class for $name...");
 		return $this->createFile($filename, $out);
@@ -698,7 +700,7 @@ class ModelTask extends Shell {
 					}
 				}
 			}
-			$fixture = join(", ", $fixture);
+			$fixture = implode(", ", $fixture);
 
 			$import = $className;
 			if (isset($this->plugin)) {
@@ -733,7 +735,7 @@ class ModelTask extends Shell {
 			$this->out("\nBaking unit test for $className...");
 
 			$header = '$Id';
-			$content = "<?php \n/* SVN FILE: $header$ */\n/* ". $className ." Test cases generated on: " . date('Y-m-d H:m:s') . " : ". time() . "*/\n{$out}?>";
+			$content = "<?php \n/* SVN FILE: $header$ */\n/* " . $className . " Test cases generated on: " . date('Y-m-d H:i:s') . " : " . time() . "*/\n{$out}?>";
 			return $this->createFile($path . $filename, $content);
 		}
 		return false;
@@ -843,7 +845,7 @@ class ModelTask extends Shell {
 			$out .= "\tvar \$table = '$useTable';\n";
 		}
 		$schema = new CakeSchema();
-		$data = $schema->read(array('models' => false));
+		$data = $schema->read(array('models' => false, 'connection' => $this->useDbConfig));
 
 		if (!isset($data['tables'][$useTable])) {
 			return false;
@@ -865,9 +867,11 @@ class ModelTask extends Shell {
 							$col = "\t\t'{$field}' => array('type'=>'" . $value['type'] . "', ";
 
 							switch ($value['type']) {
+								case 'float':
 								case 'integer':
 									$insert = 1;
 								break;
+								case 'binary':
 								case 'string';
 									$insert = "Lorem ipsum dolor sit amet";
 									if (!empty($value['length'])) {
@@ -898,26 +902,26 @@ class ModelTask extends Shell {
 									$insert .= "feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.'";
 								break;
 							}
-							$records[] = "\t\t'$field'  => $insert";
+							$records[] = "\t\t'$field' => $insert";
 							unset($value['type']);
-							$col .= join(', ',  $schema->__values($value));
+							$col .= implode(', ',  $schema->__values($value));
 						} else {
 							$col = "\t\t'indexes' => array(";
 							$props = array();
 							foreach ((array)$value as $key => $index) {
-								$props[] = "'{$key}' => array(".join(', ',  $schema->__values($index)).")";
+								$props[] = "'{$key}' => array(" . implode(', ',  $schema->__values($index)) . ")";
 							}
-							$col .= join(', ', $props);
+							$col .= implode(', ', $props);
 						}
 						$col .= ")";
 						$cols[] = $col;
 					}
-					$out .= join(",\n", $cols);
+					$out .= implode(",\n", $cols);
 				}
 				$out .= "\n\t);\n";
 			}
 		}
-		$records = join(",\n", $records);
+		$records = implode(",\n", $records);
 		$out .= "\tvar \$records = array(array(\n$records\n\t));\n";
 		$out .= "}\n";
 		$path = TESTS . DS . 'fixtures' . DS;
@@ -925,9 +929,9 @@ class ModelTask extends Shell {
 			$pluginPath = 'plugins' . DS . Inflector::underscore($this->plugin) . DS;
 			$path = APP . $pluginPath . 'tests' . DS . 'fixtures' . DS;
 		}
-		$filename = Inflector::underscore($model).'_fixture.php';
+		$filename = Inflector::underscore($model) . '_fixture.php';
 		$header = '$Id';
-		$content = "<?php \n/* SVN FILE: $header$ */\n/* ". $model ." Fixture generated on: " . date('Y-m-d H:m:s') . " : ". time() . "*/\n{$out}?>";
+		$content = "<?php \n/* SVN FILE: $header$ */\n/* " . $model . " Fixture generated on: " . date('Y-m-d H:i:s') . " : " . time() . "*/\n{$out}?>";
 		$this->out("\nBaking test fixture for $model...");
 		if ($this->createFile($path . $filename, $content)) {
 			return str_replace("\t\t", "\t\t\t", $records);

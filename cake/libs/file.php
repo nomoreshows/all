@@ -1,25 +1,24 @@
 <?php
-/* SVN FILE: $Id: file.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Convenience class for reading, writing and appending to files.
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 0.2.9
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -89,7 +88,7 @@ class File extends Object {
  * @param string $path Path to file
  * @param boolean $create Create file if it does not exist (if true)
  * @param integer $mode Mode to apply to the folder holding the file
- * @access private
+ * @access public
  */
 	function __construct($path, $create = false, $mode = 0755) {
 		parent::__construct();
@@ -98,21 +97,12 @@ class File extends Object {
 			$this->name = basename($path);
 		}
 		$this->pwd();
-
-		if (!$this->exists()) {
-			if ($create === true) {
-				if ($this->safe($path) && $this->create() === false) {
-					return false;
-				}
-			} else {
-				return false;
-			}
-		}
+		!$this->exists() && $create && $this->safe($path) && $this->create();
 	}
 /**
  * Closes the current file if it is opened
  *
- * @access private
+ * @access public
  */
 	function __destruct() {
 		$this->close();
@@ -288,6 +278,10 @@ class File extends Object {
  */
 	function delete() {
 		clearstatcache();
+		if (is_resource($this->handle)) {
+			fclose($this->handle);
+			$this->handle = null;
+		}
 		if ($this->exists()) {
 			return unlink($this->path);
 		}
@@ -366,12 +360,13 @@ class File extends Object {
 	function md5($maxsize = 5) {
 		if ($maxsize === true) {
 			return md5_file($this->path);
-		} else {
-			$size = $this->size();
-			if ($size && $size < ($maxsize * 1024) * 1024) {
-				return md5_file($this->path);
-			}
 		}
+
+		$size = $this->size();
+		if ($size && $size < ($maxsize * 1024) * 1024) {
+			return md5_file($this->path);
+		}
+
 		return false;
 	}
 /**

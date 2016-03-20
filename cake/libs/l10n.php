@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: l10n.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Short description for file.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 1.2.0.4116
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -150,8 +149,8 @@ class L10n extends Object {
 								/* Sami (Lappish) */ 'smi' => 'sz',
 								/* Serbian */ 'scc' => 'sr',
 								/* Serbian */ 'srp' => 'sr',
-								/* Slovack */ 'slo' => 'sk',
-								/* Slovack */ 'slk' => 'sk',
+								/* Slovak */ 'slo' => 'sk',
+								/* Slovak */ 'slk' => 'sk',
 								/* Slovenian */ 'slv' => 'sl',
 								/* Sorbian */ 'wen' => 'sb',
 								/* Spanish (Spain - Traditional) */ 'spa' => 'es',
@@ -164,6 +163,7 @@ class L10n extends Object {
 								/* Urdu */ 'urd' => 'ur',
 								/* Venda */ 'ven' => 've',
 								/* Vietnamese */ 'vie' => 'vi',
+								/* Welsh */ 'cym' => 'cy',
 								/* Xhosa */ 'xho' => 'xh',
 								/* Yiddish */ 'yid' => 'yi',
 								/* Zulu */ 'zul' => 'zu');
@@ -290,12 +290,12 @@ class L10n extends Object {
 										'ro-mo' => array('language' => 'Romanian (Moldavia)', 'locale' => 'ro_mo', 'localeFallback' => 'rum', 'charset' => 'utf-8'),
 										'ru-mo' => array('language' => 'Russian (Moldavia)', 'locale' => 'ru_mo', 'localeFallback' => 'rus', 'charset' => 'utf-8'),
 										'sb' => array('language' => 'Sorbian', 'locale' => 'wen', 'localeFallback' => 'wen', 'charset' => 'utf-8'),
-										'sk' => array('language' => 'Slovack', 'locale' => 'slo', 'localeFallback' => 'slo', 'charset' => 'utf-8'),
+										'sk' => array('language' => 'Slovak', 'locale' => 'slo', 'localeFallback' => 'slo', 'charset' => 'utf-8'),
 										'sl' => array('language' => 'Slovenian', 'locale' => 'slv', 'localeFallback' => 'slv', 'charset' => 'utf-8'),
 										'sq' => array('language' => 'Albanian', 'locale' => 'alb', 'localeFallback' => 'alb', 'charset' => 'utf-8'),
 										'sr' => array('language' => 'Serbian', 'locale' => 'scc', 'localeFallback' => 'scc', 'charset' => 'utf-8'),
 										'sv' => array('language' => 'Swedish', 'locale' => 'swe', 'localeFallback' => 'swe', 'charset' => 'utf-8'),
-										'sv-fi' => array('language' => 'Swedish (Findland)', 'locale' => 'sv_fi', 'localeFallback' => 'swe', 'charset' => 'utf-8'),
+										'sv-fi' => array('language' => 'Swedish (Finland)', 'locale' => 'sv_fi', 'localeFallback' => 'swe', 'charset' => 'utf-8'),
 										'sx' => array('language' => 'Sutu', 'locale' => 'sx', 'localeFallback' => 'sx', 'charset' => 'utf-8'),
 										'sz' => array('language' => 'Sami (Lappish)', 'locale' => 'smi', 'localeFallback' => 'smi', 'charset' => 'utf-8'),
 										'th' => array('language' => 'Thai', 'locale' => 'tha', 'localeFallback' => 'tha', 'charset' => 'utf-8'),
@@ -307,6 +307,7 @@ class L10n extends Object {
 										've' => array('language' => 'Venda', 'locale' => 'ven', 'localeFallback' => 'ven', 'charset' => 'utf-8'),
 										'vi' => array('language' => 'Vietnamese', 'locale' => 'vie', 'localeFallback' => 'vie', 'charset' => 'utf-8'),
 										'xh' => array('language' => 'Xhosa', 'locale' => 'xho', 'localeFallback' => 'xho', 'charset' => 'utf-8'),
+										'cy' => array('language' => 'Welsh', 'locale' => 'cym', 'localeFallback' => 'cym', 'charset' => 'utf-8'),
 										'yi' => array('language' => 'Yiddish', 'locale' => 'yid', 'localeFallback' => 'yid', 'charset' => 'utf-8'),
 										'zh' => array('language' => 'Chinese', 'locale' => 'chi', 'localeFallback' => 'chi', 'charset' => 'utf-8'),
 										'zh-cn' => array('language' => 'Chinese (PRC)', 'locale' => 'zh_cn', 'localeFallback' => 'chi', 'charset' => 'GB2312'),
@@ -352,7 +353,7 @@ class L10n extends Object {
 		} else if ($language !== null && isset($this->__l10nCatalog[$language])) {
 			$langKey = $language;
 		} else if (defined('DEFAULT_LANGUAGE')) {
-			$langKey = DEFAULT_LANGUAGE;
+			$langKey = $language = DEFAULT_LANGUAGE;
 		}
 
 		if ($langKey !== null && isset($this->__l10nCatalog[$langKey])) {
@@ -393,7 +394,7 @@ class L10n extends Object {
  * @access private
  */
 	function __autoLanguage() {
-		$_detectableLanguages = split('[,;]', env('HTTP_ACCEPT_LANGUAGE'));
+		$_detectableLanguages = preg_split('/[,;]/', env('HTTP_ACCEPT_LANGUAGE'));
 		foreach ($_detectableLanguages as $key => $langKey) {
 			$langKey = strtolower($langKey);
 			if (strpos($langKey, '_') !== false) {

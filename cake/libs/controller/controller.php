@@ -1,25 +1,24 @@
 <?php
-/* SVN FILE: $Id: controller.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Base controller class.
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.controller
  * @since         CakePHP(tm) v 0.2.9
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -72,6 +71,9 @@ class Controller extends Object {
  * An array containing the class names of models this controller uses.
  *
  * Example: var $uses = array('Product', 'Post', 'Comment');
+ *
+ * Can be set to array() to use no models.  Can be set to false to 
+ * use no models and prevent the merging of $uses with AppController
  *
  * @var mixed A single name as a string or a list of names as an array.
  * @access protected
@@ -393,9 +395,11 @@ class Controller extends Object {
 					if ($var === 'components') {
 						$normal = Set::normalize($this->{$var});
 						$app = Set::normalize($appVars[$var]);
-						$this->{$var} = Set::merge($app, $normal);
+						if ($app !== $normal) {
+							$this->{$var} = Set::merge($app, $normal);
+						}
 					} else {
-						$this->{$var} = Set::merge($this->{$var}, array_diff($appVars[$var], $this->{$var}));
+						$this->{$var} = array_merge($this->{$var}, array_diff($appVars[$var], $this->{$var}));
 					}
 				}
 			}
@@ -415,9 +419,11 @@ class Controller extends Object {
 					if ($var === 'components') {
 						$normal = Set::normalize($this->{$var});
 						$app = Set::normalize($appVars[$var]);
-						$this->{$var} = Set::merge($normal, array_diff_assoc($app, $normal));
+						if ($app !== $normal) {
+							$this->{$var} = Set::merge($app, $normal);
+						}
 					} else {
-						$this->{$var} = Set::merge($this->{$var}, array_diff($appVars[$var], $this->{$var}));
+						$this->{$var} = array_merge($this->{$var}, array_diff($appVars[$var], $this->{$var}));
 					}
 				}
 			}
@@ -597,7 +603,7 @@ class Controller extends Object {
 				504 => 'Gateway Time-out'
 			);
 			if (is_string($status)) {
-				$codes = array_combine(array_values($codes), array_keys($codes));
+				$codes = array_flip($codes);
 			}
 
 			if (isset($codes[$status])) {
@@ -730,17 +736,20 @@ class Controller extends Object {
 	function validateErrors() {
 		$objects = func_get_args();
 
-		if (!count($objects)) {
+		if (empty($objects)) {
 			return false;
 		}
 
 		$errors = array();
 		foreach ($objects as $object) {
-			$this->{$object->alias}->set($object->data);
-			$errors = array_merge($errors, $this->{$object->alias}->invalidFields());
+			if (isset($this->{$object->alias})) {
+				$object =& $this->{$object->alias};
+			}
+			$object->set($object->data);
+			$errors = array_merge($errors, $object->invalidFields());
 		}
 
-		return $this->validationErrors = (count($errors) ? $errors : false);
+		return $this->validationErrors = (!empty($errors) ? $errors : false);
 	}
 /**
  * Instantiates the correct view class, hands it its data, and uses it to render the view output.
@@ -888,16 +897,19 @@ class Controller extends Object {
 			$op = '';
 		}
 
+		$arrayOp = is_array($op);
 		foreach ($data as $model => $fields) {
 			foreach ($fields as $field => $value) {
 				$key = $model.'.'.$field;
 				$fieldOp = $op;
-				if (is_array($op) && array_key_exists($key, $op)) {
-					$fieldOp = $op[$key];
-				} elseif (is_array($op) && array_key_exists($field, $op)) {
-					$fieldOp = $op[$field];
-				} elseif (is_array($op)) {
-					$fieldOp = false;
+				if ($arrayOp) {
+					if (array_key_exists($key, $op)) {
+						$fieldOp = $op[$key];
+					} elseif (array_key_exists($field, $op)) {
+						$fieldOp = $op[$field];
+					} else {
+						$fieldOp = false;
+					}
 				}
 				if ($exclusive && $fieldOp === false) {
 					continue;
@@ -943,17 +955,17 @@ class Controller extends Object {
 			}
 
 			if ($assoc && isset($this->{$object}->{$assoc})) {
-				$object = $this->{$object}->{$assoc};
+				$object =& $this->{$object}->{$assoc};
 			} elseif ($assoc && isset($this->{$this->modelClass}) && isset($this->{$this->modelClass}->{$assoc})) {
-				$object = $this->{$this->modelClass}->{$assoc};
+				$object =& $this->{$this->modelClass}->{$assoc};
 			} elseif (isset($this->{$object})) {
-				$object = $this->{$object};
+				$object =& $this->{$object};
 			} elseif (isset($this->{$this->modelClass}) && isset($this->{$this->modelClass}->{$object})) {
-				$object = $this->{$this->modelClass}->{$object};
+				$object =& $this->{$this->modelClass}->{$object};
 			}
 		} elseif (empty($object) || $object === null) {
 			if (isset($this->{$this->modelClass})) {
-				$object = $this->{$this->modelClass};
+				$object =& $this->{$this->modelClass};
 			} else {
 				$className = null;
 				$name = $this->uses[0];
@@ -961,9 +973,9 @@ class Controller extends Object {
 					list($name, $className) = explode('.', $this->uses[0]);
 				}
 				if ($className) {
-					$object = $this->{$className};
+					$object =& $this->{$className};
 				} else {
-					$object = $this->{$name};
+					$object =& $this->{$name};
 				}
 			}
 		}
@@ -1038,7 +1050,13 @@ class Controller extends Object {
 			unset($defaults[0]);
 		}
 
-		extract($options = array_merge(array('page' => 1, 'limit' => 20), $defaults, $options));
+		$options = array_merge(array('page' => 1, 'limit' => 20), $defaults, $options);
+		$options['limit'] = (int) $options['limit'];
+		if (empty($options['limit']) || $options['limit'] < 1) {
+			$options['limit'] = 1;
+		}
+
+		extract($options);
 
 		if (is_array($scope) && !empty($scope)) {
 			$conditions = array_merge($conditions, $scope);

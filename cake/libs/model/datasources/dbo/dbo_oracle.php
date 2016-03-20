@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: dbo_oracle.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Oracle layer for DBO.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.model.datasources.dbo
  * @since         CakePHP v 1.2.0.4041
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -465,11 +464,12 @@ class DboOracle extends DboSource {
  * @access public
  */
 	function describe(&$model) {
+		$table = $this->fullTableName($model, false);
 
 		if (!empty($model->sequence)) {
-			$this->_sequenceMap[$model->table] = $model->sequence;
+			$this->_sequenceMap[$table] = $model->sequence;
 		} elseif (!empty($model->table)) {
-			$this->_sequenceMap[$model->table] = $model->table . '_seq';
+			$this->_sequenceMap[$table] = $model->table . '_seq';
 		}
 
 		$cache = parent::describe($model);
@@ -477,12 +477,14 @@ class DboOracle extends DboSource {
 		if ($cache != null) {
 			return $cache;
 		}
+
 		$sql = 'SELECT COLUMN_NAME, DATA_TYPE, DATA_LENGTH FROM all_tab_columns WHERE table_name = \'';
 		$sql .= strtoupper($this->fullTableName($model)) . '\'';
 
 		if (!$this->execute($sql)) {
 			return false;
 		}
+
 		$fields = array();
 
 		for ($i = 0; $row = $this->fetchRow(); $i++) {
@@ -701,7 +703,7 @@ class DboOracle extends DboSource {
 						break;
 					}
 				}
-				$out .= "\t" . join(",\n\t", $colList) . ";\n\n";
+				$out .= "\t" . implode(",\n\t", $colList) . ";\n\n";
 			}
 		}
 		return $out;
@@ -902,7 +904,7 @@ class DboOracle extends DboSource {
 
 		switch (strtolower($type)) {
 			case 'select':
-				return "SELECT {$fields} FROM {$table} {$alias} {$joins} {$conditions} {$order} {$limit}";
+				return "SELECT {$fields} FROM {$table} {$alias} {$joins} {$conditions} {$group} {$order} {$limit}";
 			break;
 			case 'create':
 				return "INSERT INTO {$table} ({$fields}) VALUES ({$values})";
@@ -922,7 +924,7 @@ class DboOracle extends DboSource {
 			case 'schema':
 				foreach (array('columns', 'indexes') as $var) {
 					if (is_array(${$var})) {
-						${$var} = "\t" . join(",\n\t", array_filter(${$var}));
+						${$var} = "\t" . implode(",\n\t", array_filter(${$var}));
 					}
 				}
 				if (trim($indexes) != '') {
@@ -952,11 +954,11 @@ class DboOracle extends DboSource {
 		if ($query = $this->generateAssociationQuery($model, $linkModel, $type, $association, $assocData, $queryData, $external, $resultSet)) {
 			if (!isset($resultSet) || !is_array($resultSet)) {
 				if (Configure::read() > 0) {
-					e('<div style = "font: Verdana bold 12px; color: #FF0000">' . sprintf(__('SQL Error in model %s:', true), $model->alias) . ' ');
+					echo '<div style = "font: Verdana bold 12px; color: #FF0000">' . sprintf(__('SQL Error in model %s:', true), $model->alias) . ' ';
 					if (isset($this->error) && $this->error != null) {
-						e($this->error);
+						echo $this->error;
 					}
-					e('</div>');
+					echo '</div>';
 				}
 				return null;
 			}
@@ -974,7 +976,7 @@ class DboOracle extends DboSource {
 					$fetch = array();
 					$ins = array_chunk($ins, 1000);
 					foreach ($ins as $i) {
-						$q = str_replace('{$__cakeID__$}', join(', ', $i), $query);
+						$q = str_replace('{$__cakeID__$}', implode(', ', $i), $query);
 						$q = str_replace('= (', 'IN (', $q);
 						$res = $this->fetchAll($q, $model->cacheQueries, $model->alias);
 						$fetch = array_merge($fetch, $res);
@@ -1018,7 +1020,7 @@ class DboOracle extends DboSource {
 					$fetch = array();
 					$ins = array_chunk($ins, 1000);
 					foreach ($ins as $i) {
-						$q = str_replace('{$__cakeID__$}', '(' .join(', ', $i) .')', $query);
+						$q = str_replace('{$__cakeID__$}', '(' .implode(', ', $i) .')', $query);
 						$q = str_replace('= (', 'IN (', $q);
 						$q = str_replace('  WHERE 1 = 1', '', $q);
 

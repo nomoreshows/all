@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: cake_reporter.php 8004 2009-01-16 20:15:21Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Short description for file.
  *
@@ -8,20 +8,19 @@
  * PHP versions 4 and 5
  *
  * CakePHP(tm) Tests <https://trac.cakephp.org/wiki/Developement/TestSuite>
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  *  Licensed under The Open Group Test Suite License
  *  Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          https://trac.cakephp.org/wiki/Developement/TestSuite CakePHP(tm) Tests
  * @package       cake
  * @subpackage    cake.cake.tests.libs
  * @since         CakePHP(tm) v 1.2.0.4433
- * @version       $Revision: 8004 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-01-16 12:15:21 -0800 (Fri, 16 Jan 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/opengroup.php The Open Group Test Suite License
  */
 /**
@@ -91,7 +90,6 @@ class CakeHtmlReporter extends SimpleReporter {
 		echo "<strong>" . $this->getFailCount() . "</strong> fails and ";
 		echo "<strong>" . $this->getExceptionCount() . "</strong> exceptions.";
 		echo "</div>\n";
-		echo "</body>\n</html>\n";
 	}
 /**
  * Paints the test failure with a breadcrumbs

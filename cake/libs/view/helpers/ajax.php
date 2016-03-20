@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: ajax.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Helper for AJAX operations.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.view.helpers
  * @since         CakePHP(tm) v 0.10.0.1076
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -208,11 +207,12 @@ class AjaxHelper extends AppHelper {
 			$options['url'] = $href;
 		}
 
-		if (isset($confirm)) {
+		if (!empty($confirm)) {
 			$options['confirm'] = $confirm;
 			unset($confirm);
 		}
 		$htmlOptions = $this->__getHtmlOptions($options, array('url'));
+		$options += array('safe' => true);
 
 		if (empty($options['fallback']) || !isset($options['fallback'])) {
 			$options['fallback'] = $href;
@@ -251,14 +251,21 @@ class AjaxHelper extends AppHelper {
 				$options['requestHeaders'] = array();
 			}
 			if (is_array($options['update'])) {
-				$options['update'] = join(' ', $options['update']);
+				$options['update'] = implode(' ', $options['update']);
 			}
 			$options['requestHeaders']['X-Update'] = $options['update'];
 		} else {
 			$func = "new Ajax.Request(";
 		}
 
-		$func .= "'" . $this->url(isset($options['url']) ? $options['url'] : "") . "'";
+		$url = isset($options['url']) ? $options['url'] : "";
+		if (empty($options['safe'])) {
+			$url = $this->url($url);
+		} else {
+			$url = Router::url($url);
+		}
+
+		$func .= "'" . $url . "'";
 		$func .= ", " . $this->__optionsForAjax($options) . ")";
 
 		if (isset($options['before'])) {
@@ -292,7 +299,7 @@ class AjaxHelper extends AppHelper {
 	function remoteTimer($options = null) {
 		$frequency = (isset($options['frequency'])) ? $options['frequency'] : 10;
 		$callback = $this->remoteFunction($options);
-		$code = "new PeriodicalExecuter(function() {{$callback}}, $frequency)";
+		$code = "new PeriodicalExecuter(function(pe) {{$callback}}, $frequency)";
 		return $this->Javascript->codeBlock($code);
 	}
 /**
@@ -799,7 +806,7 @@ class AjaxHelper extends AppHelper {
 						$keys[] = "'" . $key . "'";
 						$keys[] = "'" . $val . "'";
 					}
-					$jsOptions['requestHeaders'] = '[' . join(', ', $keys) . ']';
+					$jsOptions['requestHeaders'] = '[' . implode(', ', $keys) . ']';
 				break;
 			}
 		}
@@ -846,7 +853,7 @@ class AjaxHelper extends AppHelper {
 				}
 			}
 
-			$out = join(', ', $out);
+			$out = implode(', ', $out);
 			$out = '{' . $out . '}';
 			return $out;
 		} else {
@@ -958,25 +965,24 @@ class AjaxHelper extends AppHelper {
 			$keys = array_keys($this->__ajaxBuffer);
 
 			if (count($divs) == 1 && in_array($divs[0], $keys)) {
-				e($this->__ajaxBuffer[$divs[0]]);
+				echo $this->__ajaxBuffer[$divs[0]];
 			} else {
 				foreach ($this->__ajaxBuffer as $key => $val) {
 					if (in_array($key, $divs)) {
 						$data[] = $key . ':"' . rawurlencode($val) . '"';
 					}
 				}
-				$out  = 'var __ajaxUpdater__ = {' . join(", \n", $data) . '};' . "\n";
+				$out  = 'var __ajaxUpdater__ = {' . implode(", \n", $data) . '};' . "\n";
 				$out .= 'for (n in __ajaxUpdater__) { if (typeof __ajaxUpdater__[n] == "string"';
 				$out .= ' && $(n)) Element.update($(n), unescape(decodeURIComponent(';
 				$out .= '__ajaxUpdater__[n]))); }';
-				e($this->Javascript->codeBlock($out, false));
+				echo $this->Javascript->codeBlock($out, false);
 			}
 			$scripts = $this->Javascript->getCache();
 
 			if (!empty($scripts)) {
-				e($this->Javascript->codeBlock($scripts, false));
+				echo $this->Javascript->codeBlock($scripts, false);
 			}
-
 			$this->_stop();
 		}
 	}

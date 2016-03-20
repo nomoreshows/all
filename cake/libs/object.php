@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: object.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Object class, allowing __construct and __destruct in PHP4.
  *
@@ -8,21 +8,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 0.2.9
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -77,9 +76,10 @@ class Object {
 /**
  * Calls a controller's method from any location.
  *
- * @param string $url URL in the form of Cake URL ("/controller/method/parameter")
+ * @param mixed $url String or array-based url.
  * @param array $extra if array includes the key "return" it sets the AutoRender to true.
- * @return mixed Success (true/false) or contents if 'return' is set in $extra
+ * @return mixed Boolean true or false on success/failure, or contents
+ *               of rendered action if 'return' is set in $extra.
  * @access public
  */
 	function requestAction($url, $extra = array()) {
@@ -247,7 +247,7 @@ class Object {
 		$file = 'persistent' . DS . strtolower($name) . '.php';
 		$objectArray = array(&$object);
 		$data = str_replace('\\', '\\\\', serialize($objectArray));
-		$data = '<?php $' . $name . ' = \'' . str_replace('\'', '\\\'', $data) . '\' ?>';
+		$data = '<?php $' . Inflector::slug($name) . ' = \'' . str_replace('\'', '\\\'', $data) . '\' ?>';
 		$duration = '+999 days';
 		if (Configure::read() >= 1) {
 			$duration = '+10 seconds';
@@ -274,7 +274,7 @@ class Object {
 					if (strpos($key, '_behavior') !== false) {
 						App::import('Behavior', Inflector::classify(substr($key, 0, -9)));
 					} else {
-						App::import('Model', Inflector::classify($key));
+						App::import('Model', Inflector::camelize($key));
 					}
 					unset ($value);
 				}
@@ -287,7 +287,7 @@ class Object {
 				unset($vars);
 			break;
 			default:
-				$vars = unserialize(${$name});
+				$vars = unserialize(${Inflector::slug($name)});
 				$this->{$name} = $vars['0'];
 				unset($vars);
 			break;

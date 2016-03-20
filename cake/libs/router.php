@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: router.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Parses the request URL into controller, action, and parameters.
  *
@@ -7,21 +7,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 0.2.9
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -252,8 +251,9 @@ class Router extends Object {
 		if ($named === true || $named === false) {
 			$options = array_merge(array('default' => $named, 'reset' => true, 'greedy' => $named), $options);
 			$named = array();
+		} else {
+			$options = array_merge(array('default' => false, 'reset' => false, 'greedy' => true), $options);
 		}
-		$options = array_merge(array('default' => false, 'reset' => false, 'greedy' => true), $options);
 
 		if ($options['reset'] == true || $_this->named['rules'] === false) {
 			$_this->named['rules'] = array();
@@ -311,9 +311,9 @@ class Router extends Object {
 /**
  * Builds a route regular expression
  *
- * @param string $route			An empty string, or a route string "/"
- * @param array $default		NULL or an array describing the default route
- * @param array $params			An array matching the named elements in the route to regular expressions which that element should match.
+ * @param string $route An empty string, or a route string "/"
+ * @param array $default NULL or an array describing the default route
+ * @param array $params An array matching the named elements in the route to regular expressions which that element should match.
  * @return array
  * @see routes
  * @access public
@@ -378,7 +378,7 @@ class Router extends Object {
 				$parsed[] = '/' . $element;
 			}
 		}
-		return array('#^' . join('', $parsed) . '[\/]*$#', $names);
+		return array('#^' . implode('', $parsed) . '[\/]*$#', $names);
 	}
 /**
  * Returns the list of prefixes used in connected routes
@@ -460,8 +460,6 @@ class Router extends Object {
 
 					if (isset($names[$key])) {
 						$out[$names[$key]] = $_this->stripEscape($found);
-					} elseif (isset($names[$key]) && empty($names[$key]) && empty($out[$names[$key]])) {
-						break;
 					} else {
 						$argOptions['context'] = array('action' => $out['action'], 'controller' => $out['controller']);
 						extract($_this->getArgs($found, $argOptions));
@@ -535,10 +533,7 @@ class Router extends Object {
 	function compile($i) {
 		$route = $this->routes[$i];
 
-		if (!list($pattern, $names) = $this->writeRoute($route[0], $route[1], $route[2])) {
-			unset($this->routes[$i]);
-			return array();
-		}
+		list($pattern, $names) = $this->writeRoute($route[0], $route[1], $route[2]);
 		$this->routes[$i] = array(
 			$route[0], $pattern, $names,
 			array_merge(array('plugin' => null, 'controller' => null), (array)$route[1]),
@@ -567,6 +562,7 @@ class Router extends Object {
 						if (strcasecmp($name, $match) === 0) {
 							$url = substr($url, 0, strpos($url, '.' . $name));
 							$ext = $match;
+							break;
 						}
 					}
 				}
@@ -585,10 +581,6 @@ class Router extends Object {
  * @access private
  */
 	function __connectDefaultRoutes() {
-		if ($this->__defaultsMapped) {
-			return;
-		}
-
 		if ($this->__admin) {
 			$params = array('prefix' => $this->__admin, $this->__admin => true);
 		}
@@ -768,6 +760,9 @@ class Router extends Object {
 			} else {
 				$params = end($_this->__params);
 			}
+			if (isset($params['prefix']) && strpos($params['action'], $params['prefix']) === 0) {
+				$params['action'] = substr($params['action'], strlen($params['prefix']) + 1);
+			}
 		}
 		$path = array('base' => null);
 
@@ -885,11 +880,11 @@ class Router extends Object {
 				if ($_this->__admin && isset($url[$_this->__admin])) {
 					array_unshift($urlOut, $_this->__admin);
 				}
-				$output = join('/', $urlOut) . '/';
+				$output = implode('/', $urlOut) . '/';
 			}
 
 			if (!empty($args)) {
-				$args = join('/', $args);
+				$args = implode('/', $args);
 				if ($output{strlen($output) - 1} != '/') {
 					$args = '/'. $args;
 				}
@@ -1071,7 +1066,7 @@ class Router extends Object {
 				for ($i = 0; $i < $count; $i++) {
 					$named[] = $keys[$i] . $this->named['separator'] . $params['named'][$keys[$i]];
 				}
-				$params['named'] = join('/', $named);
+				$params['named'] = implode('/', $named);
 			}
 			$params['pass'] = str_replace('//', '/', $params['pass'] . '/' . $params['named']);
 		}
@@ -1082,7 +1077,7 @@ class Router extends Object {
 			if (isset($params[$key])) {
 				$string = $params[$key];
 				unset($params[$key]);
-			} else {
+			} elseif (strpos($out, $key) != strlen($out) - strlen($key)) {
 				$key = $key . '/';
 			}
 			$out = str_replace(':' . $key, $string, $out);
@@ -1185,9 +1180,11 @@ class Router extends Object {
 		return $out;
 	}
 /**
- * Normalizes a URL for purposes of comparison
+ * Normalizes a URL for purposes of comparison.  Will strip the base path off
+ * and replace any double /'s.  It will not unify the casing and underscoring
+ * of the input value.
  *
- * @param mixed $url URL to normalize
+ * @param mixed $url URL to normalize Either an array or a string url.
  * @return string Normalized URL
  * @access public
  */
@@ -1200,7 +1197,7 @@ class Router extends Object {
 		$paths = Router::getPaths();
 
 		if (!empty($paths['base']) && stristr($url, $paths['base'])) {
-			$url = preg_replace('/' . preg_quote($paths['base'], '/') . '/', '', $url, 1);
+			$url = preg_replace('/^' . preg_quote($paths['base'], '/') . '/', '', $url, 1);
 		}
 		$url = '/' . $url;
 
@@ -1245,7 +1242,7 @@ class Router extends Object {
  * @access public
  * @static
  */
-	function stripPlugin($base, $plugin) {
+	function stripPlugin($base, $plugin = null) {
 		if ($plugin != null) {
 			$base = preg_replace('/(?:' . $plugin . ')/', '', $base);
 			$base = str_replace('//', '', $base);
@@ -1258,7 +1255,6 @@ class Router extends Object {
 		}
 		return $base;
 	}
-
 /**
  * Strip escape characters from parameter values.
  *
@@ -1274,9 +1270,9 @@ class Router extends Object {
 				return $param;
 			}
 
-			$return = preg_replace('/^(?:[\\t ]*(?:-!)+)/', '', $param);
-			return $return;
+			return preg_replace('/^(?:[\\t ]*(?:-!)+)/', '', $param);
 		}
+
 		foreach ($param as $key => $value) {
 			if (is_string($value)) {
 				$return[$key] = preg_replace('/^(?:[\\t ]*(?:-!)+)/', '', $value);
@@ -1349,7 +1345,9 @@ class Router extends Object {
 				continue;
 			}
 			$param = $_this->stripEscape($param);
-			if ((!isset($options['named']) || !empty($options['named'])) && strpos($param, $_this->named['separator']) !== false) {
+
+			$separatorIsPresent = strpos($param, $_this->named['separator']) !== false;
+			if ((!isset($options['named']) || !empty($options['named'])) && $separatorIsPresent) {
 				list($key, $val) = explode($_this->named['separator'], $param, 2);
 				$hasRule = isset($rules[$key]);
 				$passIt = (!$hasRule && !$greedy) || ($hasRule && !Router::matchNamed($key, $val, $rules[$key], $context));

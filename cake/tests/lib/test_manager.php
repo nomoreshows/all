@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: test_manager.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Short description for file.
  *
@@ -8,20 +8,19 @@
  * PHP versions 4 and 5
  *
  * CakePHP(tm) Tests <https://trac.cakephp.org/wiki/Developement/TestSuite>
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  *  Licensed under The Open Group Test Suite License
  *  Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          https://trac.cakephp.org/wiki/Developement/TestSuite CakePHP(tm) Tests
  * @package       cake
  * @subpackage    cake.cake.tests.lib
  * @since         CakePHP(tm) v 1.2.0.4433
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/opengroup.php The Open Group Test Suite License
  */
 define('CORE_TEST_CASES', TEST_CAKE_CORE_INCLUDE_PATH . 'tests' . DS . 'cases');
@@ -51,7 +50,7 @@ class TestManager {
 			$this->appTest = true;
 		}
 		if (isset($_GET['plugin'])) {
-			$this->pluginTest = $_GET['plugin'];
+			$this->pluginTest = htmlentities($_GET['plugin']);
 		}
 	}
 /**
@@ -111,8 +110,11 @@ class TestManager {
 
 		$testCaseFileWithPath = $manager->_getTestsPath() . DS . $testCaseFile;
 
-		if (!file_exists($testCaseFileWithPath)) {
-			trigger_error("Test case {$testCaseFile} cannot be found", E_USER_ERROR);
+		if (!file_exists($testCaseFileWithPath) || strpos($testCaseFileWithPath, '..')) {
+			trigger_error(
+				sprintf("Test case %s cannot be found", htmlentities($testCaseFile)),
+				E_USER_ERROR
+			);
 			return false;
 		}
 
@@ -136,8 +138,11 @@ class TestManager {
 		$manager =& new TestManager();
 		$filePath = $manager->_getTestsPath('groups') . DS . strtolower($groupTestName) . $manager->_groupExtension;
 
-		if (!file_exists($filePath)) {
-			trigger_error("Group test {$groupTestName} cannot be found at {$filePath}", E_USER_ERROR);
+		if (!file_exists($filePath) || strpos($filePath, '..')) {
+			trigger_error(
+				sprintf("Group test %s cannot be found at %s", htmlentities($groupTestName), htmlentities($filePath)),
+				E_USER_ERROR
+			);
 		}
 
 		require_once $filePath;
@@ -575,7 +580,7 @@ class HtmlTestManager extends TestManager {
 		foreach ($testCases as $testCaseFile => $testCase) {
 			$title = explode(strpos($testCase, '\\') ? '\\' : '/', str_replace('.test.php', '', $testCase));
 			$title[count($title) - 1] = Inflector::camelize($title[count($title) - 1]);
-			$title = join(' / ', $title);
+			$title = implode(' / ', $title);
 
 				$buffer .= "<li><a href='" . $manager->getBaseURL() . "?case=" . urlencode($testCase) . $urlExtra ."'>" . $title . "</a></li>\n";
 		}

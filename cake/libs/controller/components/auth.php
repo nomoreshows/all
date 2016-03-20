@@ -1,5 +1,5 @@
 <?php
-/* SVN FILE: $Id: auth.php 8166 2009-05-04 21:17:19Z gwoo $ */
+/* SVN FILE: $Id$ */
 
 /**
  * Authentication component
@@ -8,21 +8,20 @@
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs.controller.components
  * @since         CakePHP(tm) v 0.10.0.1076
- * @version       $Revision: 8166 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-05-04 14:17:19 -0700 (Mon, 04 May 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 
@@ -262,7 +261,6 @@ class AuthComponent extends Object {
  * @access public
  */
 	function startup(&$controller) {
-		$methods = array_flip($controller->methods);
 		$isErrorOrTests = (
 			strtolower($controller->name) == 'cakeerror' ||
 			(strtolower($controller->name) == 'tests' && Configure::read() > 0)
@@ -271,9 +269,11 @@ class AuthComponent extends Object {
 			return true;
 		}
 
+		$methods = array_flip($controller->methods);
+		$action = strtolower($controller->params['action']);
 		$isMissingAction = (
 			$controller->scaffold === false &&
-			!isset($methods[strtolower($controller->params['action'])])
+			!isset($methods[$action])
 		);
 
 		if ($isMissingAction) {
@@ -293,9 +293,10 @@ class AuthComponent extends Object {
 		$url = Router::normalize($url);
 		$loginAction = Router::normalize($this->loginAction);
 
+		$allowedActions = array_map('strtolower', $this->allowedActions);
 		$isAllowed = (
 			$this->allowedActions == array('*') ||
-			in_array($controller->params['action'], $this->allowedActions)
+			in_array($action, $allowedActions)
 		);
 
 		if ($loginAction != $url && $isAllowed) {
@@ -339,7 +340,7 @@ class AuthComponent extends Object {
 					$this->Session->setFlash($this->authError, 'default', array(), 'auth');
 					if (!empty($controller->params['url']) && count($controller->params['url']) >= 2) {
 						$query = $controller->params['url'];
-						unset($query['url']);
+						unset($query['url'], $query['ext']);
 						$url .= Router::queryString($query, array());
 					}
 					$this->Session->write('Auth.redirect', $url);
@@ -418,10 +419,10 @@ class AuthComponent extends Object {
 			return false;
 		}
 		$defaults = array(
-			'loginAction' => Router::normalize(array(
-				'controller'=> Inflector::underscore(Inflector::pluralize($this->userModel)),
+			'loginAction' => array(
+				'controller' => Inflector::underscore(Inflector::pluralize($this->userModel)),
 				'action' => 'login'
-			)),
+			),
 			'sessionKey' => 'Auth.' . $this->userModel,
 			'logoutRedirect' => $this->loginAction,
 			'loginError' => __('Login failed. Invalid username or password.', true),

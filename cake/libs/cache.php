@@ -1,26 +1,25 @@
 <?php
-/* SVN FILE: $Id: cache.php 8120 2009-03-19 20:25:10Z gwoo $ */
+/* SVN FILE: $Id$ */
 /**
  * Caching for CakePHP.
  *
  *
  * PHP versions 4 and 5
  *
- * CakePHP(tm) :  Rapid Development Framework (http://www.cakephp.org)
- * Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
  * Redistributions of files must retain the above copyright notice.
  *
- * @filesource
- * @copyright     Copyright 2005-2008, Cake Software Foundation, Inc. (http://www.cakefoundation.org)
- * @link          http://www.cakefoundation.org/projects/info/cakephp CakePHP(tm) Project
+ * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
  * @package       cake
  * @subpackage    cake.cake.libs
  * @since         CakePHP(tm) v 1.2.0.4933
- * @version       $Revision: 8120 $
- * @modifiedby    $LastChangedBy: gwoo $
- * @lastmodified  $Date: 2009-03-19 13:25:10 -0700 (Thu, 19 Mar 2009) $
+ * @version       $Revision$
+ * @modifiedby    $LastChangedBy$
+ * @lastmodified  $Date$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 /**
@@ -81,7 +80,7 @@ class Cache extends Object {
  */
 	function __loadEngine($name) {
 		if (!class_exists($name . 'Engine')) {
-			require LIBS . DS . 'cache' . DS . strtolower($name) . '.php';
+			require LIBS . 'cache' . DS . strtolower($name) . '.php';
 		}
 		return true;
 	}
@@ -176,7 +175,10 @@ class Cache extends Object {
 			return false;
 		}
 
-		$engine = $_this->__config[$_this->__name]['engine'];
+		$engine = $_this->__config[$_this->__name]['engine'];	
+		if (isset($settings['engine'])) {
+			$engine = $settings['engine'];
+		}
 
 		if (!empty($settings)) {
 			$_this->__reset = true;
@@ -290,6 +292,7 @@ class Cache extends Object {
 		if (!$key = $_this->_Engine[$engine]->key($key)) {
 			return false;
 		}
+	
 		$success = $_this->_Engine[$engine]->read($settings['prefix'] . $key);
 
 		if ($config !== null && $config !== $_this->__name) {
