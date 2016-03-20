@@ -43,251 +43,217 @@ class ArticlesController extends AppController {
 		
 		//$article = $this->Article->findByUrl($url[0]); //=> old code
 		$article = $this->Article->findById($id); //Recherche de l'article avec l'id
-		
-		// Infos rédacteur
-		$ratesredac = $this->Article->User->Rate->find('all', array(
-				'conditions' => array('Rate.user_id' => $article['Article']['user_id']),
-				'fields' => array('Rate.name'),
+	
+		if($article['Article']['etat'] == 0 && ($this->Auth->user('role') == 0 || intval($this->Auth->user('role')) >= 4)){
+			//interdit aux membres autres que rédacteurs, VIP et admin de voir les articles non publiés
+			$this->cakeError('error404');
+		}else{
+			// Infos rédacteur
+			$ratesredac = $this->Article->User->Rate->find('all', array(
+					'conditions' => array('Rate.user_id' => $article['Article']['user_id']),
+					'fields' => array('Rate.name'),
+					'contains' => false
+				));
+			$avisredac = $this->Article->User->Comment->find('count', array(
+				'conditions' => array('Comment.user_id' => $article['Article']['user_id'], 'Comment.article_id' => 0),
 				'contains' => false
 			));
-		$avisredac = $this->Article->User->Comment->find('count', array(
-			'conditions' => array('Comment.user_id' => $article['Article']['user_id'], 'Comment.article_id' => 0),
-			'contains' => false
-		));
-		$this->set(compact('ratesredac'));
-		$this->set(compact('avisredac'));
-		
-		switch($article['Article']['category']) {
-		case 'critique':
-			$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
-			$season = $this->Article->Season->find('first',array('contain' => false,'conditions' => array('Season.id' => $article['Article']['season_id'])));
-			$episode = $this->Article->Episode->find('first',array('conditions' => array('Episode.id' => $article['Article']['episode_id'])));
-			$rates = $this->Article->Episode->Rate->find('all', array('contain' => array('User'),'conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
-			$comments = $this->Article->Comment->find('all', array(
-				'conditions' => array('Comment.article_id' => $article['Article']['id']),
-				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
-				'order' => 'Comment.id ASC', 
-				'contains' => false
-			));
-			$nbnotes = $this->Article->Episode->Rate->find('count', array('conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
+			$this->set(compact('ratesredac'));
+			$this->set(compact('avisredac'));
 			
-			// Tout ce qui est pour ceux qui sont logués
-			if ($this->Auth->user('role') > 0) {
-				$alreadycomment = $this->Article->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.episode_id' => $episode['Episode']['id'])));
-				$this->set(compact('alreadycomment'));
-			} else {
-				$this->set('alreadycomment', array());
-			}
-			// Autres articles sur la série
-			$articlesserie = $this->Article->find('all', 
-				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
-					'contain' => false,
+			switch($article['Article']['category']) {
+			case 'critique':
+				$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
+				$season = $this->Article->Season->find('first',array('contain' => false,'conditions' => array('Season.id' => $article['Article']['season_id'])));
+				$episode = $this->Article->Episode->find('first',array('conditions' => array('Episode.id' => $article['Article']['episode_id'])));
+				$rates = $this->Article->Episode->Rate->find('all', array('contain' => array('User'),'conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
+				$comments = $this->Article->Comment->find('all', array(
+					'conditions' => array('Comment.article_id' => $article['Article']['id']),
+					'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
+					'order' => 'Comment.id ASC', 
+					'contains' => false
+				));
+				$nbnotes = $this->Article->Episode->Rate->find('count', array('conditions' => array('Rate.episode_id' => $episode['Episode']['id'])));
+				
+				// Tout ce qui est pour ceux qui sont logués
+				if ($this->Auth->user('role') > 0) {
+					$alreadycomment = $this->Article->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.episode_id' => $episode['Episode']['id'])));
+					$this->set(compact('alreadycomment'));
+				} else {
+					$this->set('alreadycomment', array());
+				}
+				// Autres articles sur la série
+				$articlesserie = $this->Article->find('all', 
+					array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
+						'contain' => false,
+						'fields' => array('Article.name', 'Article.url'), 
+						'order' => array('Article.id DESC'), 
+						'limit' => 5));
+				$this->set(compact('articlesserie'));
+				// Dernières critiques de la série
+				$critiquesserie = $this->Article->find('all', 
+					array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
+						'fields' => array('Article.name', 'Article.url'), 
+						'contain' => false,
+						'order' => array('Article.id DESC'), 
+						'limit' => 5));
+				$this->set(compact('critiquesserie'));
+				// Affiche les derniers avis
+				$avisserie = $this->Article->Comment->find('all', array('contain' => ('User'),'conditions' => array('Comment.episode_id' => $episode['Episode']['id'], 'Comment.thumb' != '')), array('order' => 'Comment.id DESC', 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
+				$this->set(compact('avisserie'));
+				
+				if(!empty($avisserie)) {
+					$commentsup = $this->Article->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up', 'Comment.episode_id' => $episode['Episode']['id'])));
+					$commentsneutral = $this->Article->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' , 'Comment.episode_id' => $episode['Episode']['id'])));
+					$commentsdown = $this->Article->Comment->find('count', array('conditions' => array('Comment.thumb' => 'down', 'Comment.episode_id' => $episode['Episode']['id'])));
+					$this->set(compact('commentsup'));
+					$this->set(compact('commentsneutral'));
+					$this->set(compact('commentsdown'));
+				}
+				$this->set(compact('comments'));
+				$this->set(compact('show'));
+				$this->set(compact('season'));
+				$this->set(compact('episode'));
+				$this->set(compact('rates'));
+				$this->set(compact('article'));
+				$this->render('display_critique');
+				break;
+			case 'bilan':
+				$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
+				$season = $this->Article->Season->find('first',array('contain' => false,'conditions' => array('Season.id' => $article['Article']['season_id'])));
+				$comments = $this->Article->Comment->find('all', array(
+					'conditions' => array('Comment.article_id' => $article['Article']['id']),
+					'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
+					'order' => 'Comment.id ASC', 
+					'contains' => false
+				));
+				// Affiche les derniers avis
+				$avisserie = $this->Article->Season->Comment->find('all', 
+					array('conditions' => array('Comment.season_id' => $article['Article']['season_id'], 'Comment.thumb' != '', 'Comment.episode_id' => 0)), 
+					array('order' => array('Comment.id DESC'), 
+					'limit' => 2, 
+					'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
+				$this->set(compact('avisserie'));
+				if(!empty($avisserie)) {
+					$commentsup = $this->Article->Season->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up', 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
+					$commentsneutral = $this->Article->Season->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' , 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
+					$commentsdown = $this->Article->Season->Comment->find('count', array('conditions' => array('Comment.thumb' => 'down', 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
+					$this->set(compact('commentsup'));
+					$this->set(compact('commentsneutral'));
+					$this->set(compact('commentsdown'));
+				}
+				// Tout ce qui est pour ceux qui sont logués
+				if ($this->Auth->user('role') > 0) {
+					$alreadycomment = $this->Article->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
+					$this->set(compact('alreadycomment'));
+				} else {
+					$this->set('alreadycomment', array());
+				}
+				// Autres articles sur la série
+				$articlesserie = $this->Article->find('all', 
+					array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
 					'fields' => array('Article.name', 'Article.url'), 
-					'order' => array('Article.id DESC'), 
+					'order' => array('Article.id DESC'),
+					'contain' => false,				
 					'limit' => 5));
-			$this->set(compact('articlesserie'));
-			// Dernières critiques de la série
-			$critiquesserie = $this->Article->find('all', 
-				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
-					'fields' => array('Article.name', 'Article.url'), 
-					'contain' => false,
-					'order' => array('Article.id DESC'), 
-					'limit' => 5));
-			$this->set(compact('critiquesserie'));
-			// Affiche les derniers avis
-			$avisserie = $this->Article->Comment->find('all', array('contain' => ('User'),'conditions' => array('Comment.episode_id' => $episode['Episode']['id'], 'Comment.thumb' != '')), array('order' => 'Comment.id DESC', 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
-			$this->set(compact('avisserie'));
-			
-			if(!empty($avisserie)) {
-				$commentsup = $this->Article->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up', 'Comment.episode_id' => $episode['Episode']['id'])));
-				$commentsneutral = $this->Article->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' , 'Comment.episode_id' => $episode['Episode']['id'])));
-				$commentsdown = $this->Article->Comment->find('count', array('conditions' => array('Comment.thumb' => 'down', 'Comment.episode_id' => $episode['Episode']['id'])));
-				$this->set(compact('commentsup'));
-				$this->set(compact('commentsneutral'));
-				$this->set(compact('commentsdown'));
-			}
-			$this->set(compact('comments'));
-			$this->set(compact('show'));
-			$this->set(compact('season'));
-			$this->set(compact('episode'));
-			$this->set(compact('rates'));
-			$this->set(compact('article'));
-			$this->render('display_critique');
-			break;
-		case 'bilan':
-			$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
-			$season = $this->Article->Season->find('first',array('contain' => false,'conditions' => array('Season.id' => $article['Article']['season_id'])));
-			$comments = $this->Article->Comment->find('all', array(
-				'conditions' => array('Comment.article_id' => $article['Article']['id']),
-				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
-				'order' => 'Comment.id ASC', 
-				'contains' => false
-			));
-			// Affiche les derniers avis
-			$avisserie = $this->Article->Season->Comment->find('all', 
-				array('conditions' => array('Comment.season_id' => $article['Article']['season_id'], 'Comment.thumb' != '', 'Comment.episode_id' => 0)), 
-				array('order' => array('Comment.id DESC'), 
-				'limit' => 2, 
-				'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
-			$this->set(compact('avisserie'));
-			if(!empty($avisserie)) {
-				$commentsup = $this->Article->Season->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up', 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
-				$commentsneutral = $this->Article->Season->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' , 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
-				$commentsdown = $this->Article->Season->Comment->find('count', array('conditions' => array('Comment.thumb' => 'down', 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
-				$this->set(compact('commentsup'));
-				$this->set(compact('commentsneutral'));
-				$this->set(compact('commentsdown'));
-			}
-			// Tout ce qui est pour ceux qui sont logués
-			if ($this->Auth->user('role') > 0) {
-				$alreadycomment = $this->Article->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.season_id' => $season['Season']['id'], 'Comment.episode_id' => 0)));
-				$this->set(compact('alreadycomment'));
-			} else {
-				$this->set('alreadycomment', array());
-			}
-			// Autres articles sur la série
-			$articlesserie = $this->Article->find('all', 
-				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
-				'fields' => array('Article.name', 'Article.url'), 
-				'order' => array('Article.id DESC'),
-				'contain' => false,				
-				'limit' => 5));
-			$this->set(compact('articlesserie'));
-			// Dernières critiques de la série
-			$critiquesserie = $this->Article->find('all', 
-			array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id'],'Article.etat' => 1), 
-			'fields' => array('Article.name', 'Article.url'), 
-			'order' => array('Article.id DESC'), 
-			'contain' => false,
-			'limit' => 5));
-			$this->set(compact('critiquesserie'));
-			
-			// liste des notes = moyenne des épisodes de la saison
-			$rates = $this->Article->Season->Rate->find('all', array('conditions' => array('Rate.season_id' => $season['Season']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu')));
-			$this->set(compact('rates'));
-			$this->set(compact('avis'));
-			
-			// Dernières news
-			$news = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-				'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières bilans
-			$bilans = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-				'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières focus
-			$focus = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-				'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières portraits
-			$portraits = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-				'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières portraits
-			$videos = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-				'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières critiques
-			$critiques = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-				'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			$this->set(compact('news'));
-			$this->set(compact('bilans'));
-			$this->set(compact('focus'));
-			$this->set(compact('portraits'));
-			$this->set(compact('videos'));
-			$this->set(compact('critiques'));
-			
-			$this->set(compact('comments'));
-			$this->set(compact('show'));
-			$this->set(compact('season'));
-			$this->set(compact('article'));
-			$this->render('display_bilan');
-			break;
-			
-		case 'focus':
-			$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
-			$comments = $this->Article->Comment->find('all', array(
-				'conditions' => array('Comment.article_id' => $article['Article']['id']),
-				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
-				'order' => 'Comment.id ASC', 
-				'contain' => array('Comment', 'User')
-			));
-			// Tout ce qui est pour ceux qui sont logués
-			if ($this->Auth->user('role') > 0) {
-				$alreadycomment = $this->Article->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
-				$this->set(compact('alreadycomment'));
-			} else {
-				$this->set('alreadycomment', array());
-			}
-			// Affiche les notes de la série = note de tous les épisodes
-			$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu')));
-			
-			// Affiche les derniers avis
-			$avisserie = $this->Article->Show->Comment->find('all', array('contain' => array('Comment', 'User'),'conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
-			$this->set(compact('avisserie'));
-			// Autres articles sur la série
-			$articlesserie = $this->Article->find('all', 
-				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
-					'fields' => array('Article.name', 'Article.url'), 
-					'order' => array('Article.id DESC'), 
-					'limit' => 5));
-			$this->set(compact('articlesserie'));
-			// Dernières critiques de la série
-			$critiquesserie = $this->Article->find('all', 
-				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
+				$this->set(compact('articlesserie'));
+				// Dernières critiques de la série
+				$critiquesserie = $this->Article->find('all', 
+				array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id'],'Article.etat' => 1), 
 				'fields' => array('Article.name', 'Article.url'), 
 				'order' => array('Article.id DESC'), 
+				'contain' => false,
 				'limit' => 5));
-			$this->set(compact('critiquesserie'));
-			
-			if(!empty($avisserie)) {
-				$commentsup = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up','Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
-				$commentsneutral = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' ,'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
-				$commentsdown = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'down', 'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
-				$this->set(compact('commentsup'));
-				$this->set(compact('commentsneutral'));
-				$this->set(compact('commentsdown'));
-			}
-			$this->set(compact('ratesshow'));
-			$this->set(compact('comments'));
-			$this->set(compact('show'));
-			$this->set(compact('article'));
-			$this->render('display_focus');
-			break;
-		case 'podcast':	
-		case 'news':
-		case 'dossier':
-		case 'video':
-		case 'chronique':
-			if ($article['Article']['show_id'] != 0) {
-				// Série concernée
-				$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
+				$this->set(compact('critiquesserie'));
+				
+				// liste des notes = moyenne des épisodes de la saison
+				$rates = $this->Article->Season->Rate->find('all', array('conditions' => array('Rate.season_id' => $season['Season']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu')));
+				$this->set(compact('rates'));
+				$this->set(compact('avis'));
+				
+				// Dernières news
+				$news = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'contain' => array('Show'),
+					'limit' => 3, 
+				));
+				// Dernières bilans
+				$bilans = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'contain' => array('Show'),
+					'limit' => 3, 
+				));
+				// Dernières focus
+				$focus = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'contain' => array('Show'),
+					'limit' => 3, 
+				));
+				// Dernières portraits
+				$portraits = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'contain' => array('Show'),
+					'limit' => 3, 
+				));
+				// Dernières portraits
+				$videos = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'contain' => array('Show'),
+					'limit' => 3, 
+				));
+				// Dernières critiques
+				$critiques = $this->Article->find('all', array(
+					'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
+					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+					'order' => 'Article.id DESC', 
+					'contain' => array('Show'),
+					'limit' => 3, 
+				));
+				$this->set(compact('news'));
+				$this->set(compact('bilans'));
+				$this->set(compact('focus'));
+				$this->set(compact('portraits'));
+				$this->set(compact('videos'));
+				$this->set(compact('critiques'));
+				
+				$this->set(compact('comments'));
 				$this->set(compact('show'));
+				$this->set(compact('season'));
+				$this->set(compact('article'));
+				$this->render('display_bilan');
+				break;
+				
+			case 'focus':
+				$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
+				$comments = $this->Article->Comment->find('all', array(
+					'conditions' => array('Comment.article_id' => $article['Article']['id']),
+					'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
+					'order' => 'Comment.id ASC', 
+					'contain' => array('Comment', 'User')
+				));
+				// Tout ce qui est pour ceux qui sont logués
+				if ($this->Auth->user('role') > 0) {
+					$alreadycomment = $this->Article->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
+					$this->set(compact('alreadycomment'));
+				} else {
+					$this->set('alreadycomment', array());
+				}
+				// Affiche les notes de la série = note de tous les épisodes
+				$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu')));
+				
+				// Affiche les derniers avis
+				$avisserie = $this->Article->Show->Comment->find('all', array('contain' => array('Comment', 'User'),'conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
+				$this->set(compact('avisserie'));
 				// Autres articles sur la série
 				$articlesserie = $this->Article->find('all', 
 					array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
@@ -302,10 +268,7 @@ class ArticlesController extends AppController {
 					'order' => array('Article.id DESC'), 
 					'limit' => 5));
 				$this->set(compact('critiquesserie'));
-
-				// Affiche les derniers avis
-				$avisserie = $this->Article->Show->Comment->find('all', array('conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
-				$this->set(compact('avisserie'));
+				
 				if(!empty($avisserie)) {
 					$commentsup = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up','Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
 					$commentsneutral = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' ,'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
@@ -314,96 +277,56 @@ class ArticlesController extends AppController {
 					$this->set(compact('commentsneutral'));
 					$this->set(compact('commentsdown'));
 				}
-				// Tout ce qui est pour ceux qui sont logués
-				if ($this->Auth->user('role') > 0) {
-					$alreadycomment = $this->Article->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
-					$this->set(compact('alreadycomment'));
-				} else {
-					$this->set('alreadycomment', array());
+				$this->set(compact('ratesshow'));
+				$this->set(compact('comments'));
+				$this->set(compact('show'));
+				$this->set(compact('article'));
+				$this->render('display_focus');
+				break;
+			case 'podcast':	
+			case 'news':
+			case 'dossier':
+			case 'video':
+			case 'chronique':
+				if ($article['Article']['show_id'] != 0) {
+					// Série concernée
+					$show = $this->Article->Show->find('first',array('contain' => array('Genre', 'Season'),'conditions' => array('id' => $article['Article']['show_id'])));
+					$this->set(compact('show'));
+					// Autres articles sur la série
+					$articlesserie = $this->Article->find('all', 
+						array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
+							'fields' => array('Article.name', 'Article.url'), 
+							'order' => array('Article.id DESC'), 
+							'limit' => 5));
+					$this->set(compact('articlesserie'));
+					// Dernières critiques de la série
+					$critiquesserie = $this->Article->find('all', 
+						array('conditions' => array('Article.show_id' => $article['Article']['show_id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id'], 'Article.etat' => 1), 
+						'fields' => array('Article.name', 'Article.url'), 
+						'order' => array('Article.id DESC'), 
+						'limit' => 5));
+					$this->set(compact('critiquesserie'));
+
+					// Affiche les derniers avis
+					$avisserie = $this->Article->Show->Comment->find('all', array('conditions' => array('Comment.show_id' => $show['Show']['id'], 'Comment.thumb' != '', 'Comment.season_id' => 0)), array('order' => array('Comment.id DESC'), 'limit' => 2, 'fields' => array('Comment.text', 'User.login', 'Comment.thumb', 'Show.name', 'Show.id')));
+					$this->set(compact('avis'));
+					if(!empty($avisserie)) {
+						$commentsup = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'up','Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
+						$commentsneutral = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'neutral' ,'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
+						$commentsdown = $this->Article->Show->Comment->find('count', array('conditions' => array('Comment.thumb' => 'down', 'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
+						$this->set(compact('commentsup'));
+						$this->set(compact('commentsneutral'));
+						$this->set(compact('commentsdown'));
+					}
+					// Tout ce qui est pour ceux qui sont logués
+					if ($this->Auth->user('role') > 0) {
+						$alreadycomment = $this->Article->Comment->find('first', array('conditions' => array('Comment.user_id' => $this->Auth->user('id'), 'Comment.show_id' => $show['Show']['id'], 'Comment.season_id' => 0)));
+						$this->set(compact('alreadycomment'));
+					} else {
+						$this->set('alreadycomment', array());
+					}
 				}
-			}
-			// Dernières news
-			$news = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-                'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières bilans
-			$bilans = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-                'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières focus
-			$focus = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-                'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières portraits
-			$portraits = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-                'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières portraits
-			$videos = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-                'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			// Dernières critiques
-			$critiques = $this->Article->find('all', array(
-				'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
-				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
-				'order' => 'Article.id DESC', 
-                'contain' => array('Show'),
-				'limit' => 3, 
-			));
-			$this->set(compact('news'));
-			$this->set(compact('bilans'));
-			$this->set(compact('focus'));
-			$this->set(compact('portraits'));
-			$this->set(compact('videos'));
-			$this->set(compact('critiques'));
-			// Commentaires de la news
-			$comments = $this->Article->Comment->find('all', array(
-				'conditions' => array('Comment.article_id' => $article['Article']['id']),
-				'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
-				'order' => 'Comment.id ASC', 
-			));
-			$this->set(compact('comments'));
-			$this->set(compact('article'));
-			$render = 'display_' . $article['Article']['category'];
-			if($article['Article']['category'] == 'chronique') $render = 'display_dossier';
-			$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu'), 'limit' => 5));
-			$this->set(compact('ratesshow'));
-			$this->render($render);
-			break;
-			
-		case 'portrait':
-			$role = $this->Article->Role->findbyId($article['Article']['role_id']);
-			$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
-			$this->set(compact('role'));
-			$this->set(compact('show'));
-			$this->set(compact('article'));
-			$comments = $this->Article->Comment->find('all', array(
-					'conditions' => array('Comment.article_id' => $article['Article']['id']),
-					'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
-					'order' => 'Comment.id ASC', 
-				));
-			$this->set(compact('comments'));
-			// Dernières news
+				// Dernières news
 				$news = $this->Article->find('all', array(
 					'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
 					'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
@@ -457,18 +380,92 @@ class ArticlesController extends AppController {
 				$this->set(compact('portraits'));
 				$this->set(compact('videos'));
 				$this->set(compact('critiques'));
-			// Autres articles sur la série
-			$articlesserie = $this->Article->find('all', array('conditions' => array('Article.show_id' => $show['Show']['id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id']), 'fields' => array('Article.name', 'Article.url'), 'order' => array('Article.id DESC'), 'limit' => 6));
-			$this->set(compact('articlesserie'));
-			// Dernières critiques de la série
-			$critiquesserie = $this->Article->find('all', array('conditions' => array('Article.show_id' => $show['Show']['id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id']), 'fields' => array('Article.name', 'Article.url'), 'order' => array('Article.id DESC'), 'limit' => 6));
-			$this->set(compact('critiquesserie'));
-			// Affiche les notes de la série = note de tous les épisodes
-			$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu'), 'limit' => 5));
-			$this->set(compact('ratesshow'));
-			$this->render('display_portrait');
-			break;
-		default:
+				// Commentaires de la news
+				$comments = $this->Article->Comment->find('all', array(
+					'conditions' => array('Comment.article_id' => $article['Article']['id']),
+					'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
+					'order' => 'Comment.id ASC', 
+				));
+				$this->set(compact('comments'));
+				$this->set(compact('article'));
+				$render = 'display_' . $article['Article']['category'];
+				if($article['Article']['category'] == 'chronique') $render = 'display_dossier';
+				$this->render($render);
+				break;
+				
+			case 'portrait':
+				$role = $this->Article->Role->findbyId($article['Article']['role_id']);
+				$show = $this->Article->Show->find('first',array('contain' => array('Genre'),'conditions' => array('id' => $article['Article']['show_id'])));
+				$this->set(compact('role'));
+				$this->set(compact('show'));
+				$this->set(compact('article'));
+				$comments = $this->Article->Comment->find('all', array(
+						'conditions' => array('Comment.article_id' => $article['Article']['id']),
+						'fields' => array('Comment.text', 'User.login', 'Comment.created', 'User.email'),
+						'order' => 'Comment.id ASC', 
+					));
+				$this->set(compact('comments'));
+				// Dernières news
+					$news = $this->Article->find('all', array(
+						'conditions' => array('Article.category' => 'news', 'Article.etat' => 1),
+						'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+						'order' => 'Article.id DESC', 
+						'limit' => 3, 
+					));
+					// Dernières bilans
+					$bilans = $this->Article->find('all', array(
+						'conditions' => array('Article.category' => 'bilan', 'Article.etat' => 1),
+						'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+						'order' => 'Article.id DESC', 
+						'limit' => 3, 
+					));
+					// Dernières focus
+					$focus = $this->Article->find('all', array(
+						'conditions' => array('Article.category' => 'focus', 'Article.etat' => 1),
+						'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+						'order' => 'Article.id DESC', 
+						'limit' => 3, 
+					));
+					// Dernières portraits
+					$portraits = $this->Article->find('all', array(
+						'conditions' => array('Article.category' => 'portrait', 'Article.etat' => 1),
+						'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+						'order' => 'Article.id DESC', 
+						'limit' => 3, 
+					));
+					// Dernières portraits
+					$videos = $this->Article->find('all', array(
+						'conditions' => array('Article.category' => 'video', 'Article.etat' => 1),
+						'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+						'order' => 'Article.id DESC', 
+						'limit' => 3, 
+					));
+					// Dernières critiques
+					$critiques = $this->Article->find('all', array(
+						'conditions' => array('Article.category' => 'critique', 'Article.etat' => 1),
+						'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
+						'order' => 'Article.id DESC', 
+						'limit' => 3, 
+					));
+					$this->set(compact('news'));
+					$this->set(compact('bilans'));
+					$this->set(compact('focus'));
+					$this->set(compact('portraits'));
+					$this->set(compact('videos'));
+					$this->set(compact('critiques'));
+				// Autres articles sur la série
+				$articlesserie = $this->Article->find('all', array('conditions' => array('Article.show_id' => $show['Show']['id'], 'Article.episode_id' => 0, 'Article.id !=' => $article['Article']['id']), 'fields' => array('Article.name', 'Article.url'), 'order' => array('Article.id DESC'), 'limit' => 6));
+				$this->set(compact('articlesserie'));
+				// Dernières critiques de la série
+				$critiquesserie = $this->Article->find('all', array('conditions' => array('Article.show_id' => $show['Show']['id'], 'Article.episode_id !=' => 0, 'Article.id !=' => $article['Article']['id']), 'fields' => array('Article.name', 'Article.url'), 'order' => array('Article.id DESC'), 'limit' => 6));
+				$this->set(compact('critiquesserie'));
+				// Affiche les notes de la série = note de tous les épisodes
+				$ratesshow = $this->Article->Show->Rate->find('all', array('conditions' => array('Rate.show_id' => $show['Show']['id']), 'fields' => array('Rate.name', 'User.login', 'Season.name', 'Episode.numero', 'Show.menu'), 'limit' => 5));
+				$this->set(compact('ratesshow'));
+				$this->render('display_portrait');
+				break;
+			default:
+			}
 		}
 		
 	}
