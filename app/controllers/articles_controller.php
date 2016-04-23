@@ -1106,9 +1106,19 @@ class ArticlesController extends AppController {
 			// Spécificité : Nom de la saison dans le formulaire
 			$season_id = $this->data['Article']['season_id'];
 			$this->loadModel('Season');
-			$season = $this->Season->findById($season_id);
+			$season = $this->Season->find('first',
+				array(
+					'conditions' => array('Season.id =' => $season_id), 
+					'contain' => false,
+					'fields' =>  array('Season.id', 'Season.name', 'Season.show_id')		
+					));
 			$this->loadModel('Show');
-			$show = $this->Show->findById($season['Season']['show_id']);
+			$show = $this->Show->find('first',
+				array(
+					'conditions' => array('Show.id =' => $season['Season']['show_id']), 
+					'contain' => false,
+					'fields' =>  array('Show.id', 'Show.name', 'Show.menu')		
+					));
 			$this->set('season', $season);
 			$this->set('show', $show);
 			break;
