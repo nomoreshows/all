@@ -1115,10 +1115,11 @@ class ArticlesController extends AppController {
 			// Spécificité : Nom de l'épisode dans le formulaire
 			$episode_id = $this->data['Article']['episode_id'];
 			$this->loadModel('Episode');
-			$episode = $this->Episode->findById($episode_id, array(					
-				'fields' => array('Episode.id', 'Episode.name', 'Episode.numero', 'Episode.season_id')
-					)
-				);
+			$episode = $this->Episode->find('first',
+				array(
+					'conditions' => array('Episode.id =' => $episode_id), 
+					'fields' => array('Episode.id', 'Episode.name', 'Episode.numero', 'Episode.season_id')		
+					));
 			$this->loadModel('Season');
 			$season = $this->Season->findById($episode['Episode']['season_id'],array(					
 				'fields' => array('Season.id', 'Season.name', 'Season.show_id')
