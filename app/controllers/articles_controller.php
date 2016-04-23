@@ -1065,7 +1065,6 @@ class ArticlesController extends AppController {
 			$episode = $this->Episode->find('first',
 				array(
 					'conditions' => array('Episode.id =' => $episode_id), 
-					'contain' => false,
 					'fields' => array('Episode.id', 'Episode.name', 'Episode.numero', 'Episode.season_id')		
 					));
 			$this->loadModel('Season');
