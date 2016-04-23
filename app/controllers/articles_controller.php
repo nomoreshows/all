@@ -1068,12 +1068,16 @@ class ArticlesController extends AppController {
 					'fields' => array('Episode.id', 'Episode.name', 'Episode.numero', 'Episode.season_id')		
 					));
 			$this->loadModel('Season');
-			$season = $this->Season->findById($episode['Episode']['season_id'],array(					
-				'fields' => array('Season.id', 'Season.name', 'Season.show_id')
+			$season = $this->Season->find('first',
+				array(
+					'conditions' => array('Season.id =' => $episode['Episode']['season_id']), 
+					'fields' =>  array('Season.id', 'Season.name', 'Season.show_id')		
 					));
 			$this->loadModel('Show');
-			$show = $this->Show->findById($season['Season']['show_id'],array(					
-				'fields' => array('Show.id', 'Show.name', 'Show.menu')
+			$show = $this->Show->find('first',
+				array(
+					'conditions' => array('Show.id =' => $season['Season']['show_id']), 
+					'fields' =>  array('Show.id', 'Show.name', 'Show.menu')		
 					));
 			$this->set('episode', $episode);
 			$this->set('season', $season);
