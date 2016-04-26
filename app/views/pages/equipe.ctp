@@ -189,6 +189,36 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 			<div class="redacteur">
 				<div class="block-name">
 					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Maxou140', '/profil/'. 'maxou140', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('maxoudu14620@hotmail.fr', 53, array('alt' => 'Maxou140', 'class' => 'ppic'), false), '/profil/'. 'maxou140', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédacteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Pourquoi 140 ? Peut-être parce qu'il aime passer en revue la liste des 140 pilots de série pour la saison prochaine ? Ou qu'il regarde 140 fois les taux érectiles ? C'est un mystère.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+
+			<div class="redacteur">
+				<div class="block-name">
+					<p class="name">
 						<span class="pseudo"><?php echo $html->link('Nicknackpadiwak', '/profil/'. 'nicknackpadiwak', array('escape' => false, 'class' => 'nodeco'))?></span>
 					</p>
 					<div class="name-separator">
