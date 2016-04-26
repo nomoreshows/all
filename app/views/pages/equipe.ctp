@@ -1,100 +1,91 @@
 <?php $this->pageTitle = 'Notre équipe';
-	echo $html->meta('description', "Le but premier de Série-All est de vous donner la parole, et de vous permettre de noter les épisodes que vous regardez, de donner votre avis sur ces derniers, de commenter tous les articles du site, et enfin de venir discuter de vos séries préférées sur notre forum.", array('type'=>'description'), false);
+echo $html->meta('description', "Le but premier de Série-All est de vous donner la parole, et de vous permettre de noter les épisodes que vous regardez, de donner votre avis sur ces derniers, de commenter tous les articles du site, et enfin de venir discuter de vos séries préférées sur notre forum.", array('type'=>'description'), false);
 ?>
 
 <div id="col1">
-    <div class="padl15">
-    <h1 class="red title">Notre équipe</h1><br /><br />
+	<div class="padl15">
+		<h1 class="red title">Notre équipe</h1><br /><br />
 
-    <div class="col1 equipe">
-    	Composée de personnes d'horizons plus ou moins variés l'équipe de serieall s'est donnée pour mission de vous offrir le contenu seriel le plus pertinent du web. Oui, rien que ça.
-        Dans la mesure du possible, on essaye de rester objectif mais bon, il faut bien avouer que face à Joséphine Ange Gardien, c'est difficile (mais on fait des efforts).
-        <br /><br />
+		<div class="col1 equipe">
+			Composée de personnes d'horizons plus ou moins variés l'équipe de serieall s'est donnée pour mission de vous offrir le contenu seriel le plus pertinent du web. Oui, rien que ça.
+			Dans la mesure du possible, on essaye de rester objectif mais bon, il faut bien avouer que face à Joséphine Ange Gardien, c'est difficile (mais on fait des efforts).
+			<br /><br />
 
 
-		<h2 class="title dblue">Les chefs</h2>
-		<br /><br />
-		<p>
-			Omniscients et omnipotents, ils dirigent d’une main de fer le site : développement, rédaction, modération, rien ne leur échappe. Ils sont
-			toutefois accessibles et bienveillants et acceptent aussi bien les règlements par chèques que les espèces.
-		</p>
-		<br />
+			<h2 class="title dblue">Les chefs</h2>
+			<br /><br />
+			<p>
+				Omniscients et omnipotents, ils dirigent d’une main de fer le site : développement, rédaction, modération, rien ne leur échappe. Ils sont
+				toutefois accessibles et bienveillants et acceptent aussi bien les règlements par chèques que les espèces.
+			</p>
+			<br />
 
-		<div class="redacteur">
+			<div class="redacteur">
 
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Galax', '/profil/'. 'Galax', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('rikki-tikki@hotmail.fr', 53, array('alt' => 'Galax', 'class' => 'ppic'), false), '/profil/'. 'Galax', array('escape' => false));   ?>
-				</div>
-
-				<div class="block-role">
-					<p class="role">
-						Rédacteur en chef
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Galax', '/profil/'. 'Galax', array('escape' => false, 'class' => 'nodeco'))?></span>
 					</p>
-					<div class="dot">
+					<div class="name-separator">
 					</div>
 				</div>
 
-				<div class="status">
-					<blockquote>
-						Vous aimez <strong>Doctor Who</strong> ? Ne le dites pas à Galax, sinon il va vous en parler pendant des heures. Remarquez, quoique vous fassiez, il va vous en parler pendant des heures.
-					</blockquote>
-				</div>
-			</div>
-		</div>
-
-		<div class="redacteur">
-
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Cail1', '/profil/'. 'Cail1', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
-				</div>
-			</div>
-
-			<div class="profil">
-				<div class="bg-avatar">
-					<?php  echo $html->link($gravatar->image('cail1@hotmail.fr', 53, array('alt' => 'Cail1', 'class' => 'ppic'), false), '/profil/'. 'cail1', array('escape' => false));   ?>
-				</div>
-
-				<div class="block-role">
-					<p class="role">
-						Chinois en chef
-					</p>
-					<div class="dot">
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('rikki-tikki@hotmail.fr', 53, array('alt' => 'Galax', 'class' => 'ppic'), false), '/profil/'. 'Galax', array('escape' => false));   ?>
 					</div>
-				</div>
 
-				<div class="status">
-					<blockquote>
-						Le sang et les luttes acharnées, c'est sa passion. C'est donc sans surprise qu'il critique <strong>The Walking Dead</strong> et
-						se bat avec le site pour ajouter des séries dans la base de données. On ne sait toujours pas ce qui est le pire.
-					</blockquote>
-				</div>
-			</div>
-		</div>
+					<div class="block-role">
+						<p class="role">
+							Rédacteur en chef
+						</p>
+						<div class="dot">
+						</div>
+					</div>
 
-		<div class="redacteur">
-
-			<div class="block-name">
-				<p class="name">
-					<span class="pseudo"><?php echo $html->link('Koss', '/profil/'. 'Koss', array('escape' => false, 'class' => 'nodeco'))?></span>
-				</p>
-				<div class="name-separator">
+					<div class="status">
+						<blockquote>
+							Vous aimez <strong>Doctor Who</strong> ? Ne le dites pas à Galax, sinon il va vous en parler pendant des heures. Remarquez, quoique vous fassiez, il va vous en parler pendant des heures.
+						</blockquote>
+					</div>
 				</div>
 			</div>
 
 			<div class="redacteur">
 
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Cail1', '/profil/'. 'Cail1', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('cail1@hotmail.fr', 53, array('alt' => 'Cail1', 'class' => 'ppic'), false), '/profil/'. 'cail1', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Chinois en chef
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Le sang et les luttes acharnées, c'est sa passion. C'est donc sans surprise qu'il critique <strong>The Walking Dead</strong> et
+							se bat avec le site pour ajouter des séries dans la base de données. On ne sait toujours pas ce qui est le pire.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="redacteur">
 				<div class="block-name">
 					<p class="name">
 						<span class="pseudo"><?php echo $html->link('Elpiolito', '/profil/'. 'elpiolito', array('escape' => false, 'class' => 'nodeco'))?></span>
@@ -736,24 +727,34 @@
 			</div>
 		</div>
 
-		<div class="profil">
-			<div class="bg-avatar">
-				<?php  echo $html->link($gravatar->image('costheboss_007@hotmail.com', 53, array('alt' => 'Koss', 'class' => 'ppic'), false), '/profil/'. 'Koss', array('escape' => false));   ?>
-			</div>
+		<div class="redacteur">
 
-			<div class="block-role">
-				<p class="role">
-					Rédacteur
+			<div class="block-name">
+				<p class="name">
+					<span class="pseudo"><?php echo $html->link('Koss', '/profil/'. 'Koss', array('escape' => false, 'class' => 'nodeco'))?></span>
 				</p>
-				<div class="dot">
+				<div class="name-separator">
 				</div>
 			</div>
+			<div class="profil">
+				<div class="bg-avatar">
+					<?php  echo $html->link($gravatar->image('costheboss_007@hotmail.com', 53, array('alt' => 'Koss', 'class' => 'ppic'), false), '/profil/'. 'Koss', array('escape' => false));   ?>
+				</div>
 
-			<div class="status">
-				<blockquote>
-					Koss a deux passions dans la vie : écrire des trucs sur le web et troller. Surtout troller en fait. Mais personne n'est dupe : on sait bien qu'il aime
-					 <strong>Breaking Bad</strong>.
-				</blockquote>
+				<div class="block-role">
+					<p class="role">
+						Rédacteur
+					</p>
+					<div class="dot">
+					</div>
+				</div>
+
+				<div class="status">
+					<blockquote>
+						Koss a deux passions dans la vie : écrire des trucs sur le web et troller. Surtout troller en fait. Mais personne n'est dupe : on sait bien qu'il aime
+						<strong>Breaking Bad</strong>.
+					</blockquote>
+				</div>
 			</div>
 		</div>
 
@@ -906,7 +907,7 @@
 
 				<div class="block-role">
 					<p class="role">
-						 Rédacteur
+						Rédacteur
 					</p>
 					<div class="dot">
 					</div>
@@ -1181,41 +1182,41 @@
 		</div>
 
 	</div>
-    </div>
+</div>
 </div>
 
 <div id="col2">
 	<div id="colright-informations">
-        <div class="colrinfos-header"></div>
-        <div class="colr-content">
-            <fb:like-box profile_id="105365559504009" width="295" connections="12" stream="false"></fb:like-box>
-        </div>
-        <div class="colr-footer"></div>
-    </div>
+		<div class="colrinfos-header"></div>
+		<div class="colr-content">
+			<fb:like-box profile_id="105365559504009" width="295" connections="12" stream="false"></fb:like-box>
+		</div>
+		<div class="colr-footer"></div>
+	</div>
 
 	<div id="colright-informations">
-        <div class="colrinfos-header"></div>
-        <div class="colr-content">
-        	<h3 class="red">Pourquoi créer un compte ?</h3> <br /><br />
-            <ul class="play">
-            	<li><strong>Noter</strong> vos séries préférées par épisode</li>
-                <li>Laisser des <strong>avis</strong> sur des séries en général</li>
-                <li><strong>Commenter</strong> les critiques et dossiers des rédacteurs</li>
-                <li>Ajouter vos séries <strong>préférées</strong> sur votre profil</li>
-                <li>Nous faire <strong>partager</strong> vos découvertes sur votre édito</li>
-                <li>Participer à la vie du <strong>forum</strong></li>
-            </ul>
-            <br />
-            <?php echo $html->link('&raquo; Créér votre compte', '/inscription', array('escape' => false, 'class' => 'decoblue')); ?>
-        </div>
-        <div class="colr-footer"></div>
-    </div>
+		<div class="colrinfos-header"></div>
+		<div class="colr-content">
+			<h3 class="red">Pourquoi créer un compte ?</h3> <br /><br />
+			<ul class="play">
+				<li><strong>Noter</strong> vos séries préférées par épisode</li>
+				<li>Laisser des <strong>avis</strong> sur des séries en général</li>
+				<li><strong>Commenter</strong> les critiques et dossiers des rédacteurs</li>
+				<li>Ajouter vos séries <strong>préférées</strong> sur votre profil</li>
+				<li>Nous faire <strong>partager</strong> vos découvertes sur votre édito</li>
+				<li>Participer à la vie du <strong>forum</strong></li>
+			</ul>
+			<br />
+			<?php echo $html->link('&raquo; Créér votre compte', '/inscription', array('escape' => false, 'class' => 'decoblue')); ?>
+		</div>
+		<div class="colr-footer"></div>
+	</div>
 
-    <div>
-        <div ></div>
-        <div class="colr-content">
-        </div>
-        <div></div>
-    </div>
+	<div>
+		<div ></div>
+		<div class="colr-content">
+		</div>
+		<div></div>
+	</div>
 
 </div>
