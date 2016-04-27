@@ -47,6 +47,7 @@
 	Router::connect('/a-propos', array('controller' => 'pages', 'action' => 'display', 'apropos'));
 	Router::connect('/notre-equipe', array('controller' => 'pages', 'action' => 'display', 'equipe'));
 	Router::connect('/mentions-legales', array('controller' => 'pages', 'action' => 'display', 'mentionslegales'));
+	Router::connect('/cgu', array('controller' => 'pages', 'action' => 'display', 'cgu'));
 	Router::connect('/contact', array('controller' => 'contacts', 'action' => 'index'));
 	Router::connect('/membres', array('controller' => 'users', 'action' => 'index'));
 	Router::connect('/series-tv', array('controller' => 'shows', 'action' => 'index'));
