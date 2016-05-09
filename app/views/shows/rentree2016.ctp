@@ -1,5 +1,5 @@
 <?php $this->pageTitle = 'Les nouvelles séries tv de la saison 2016 - 2017'; 
-	echo $html->meta('description', "Repérez dès maintenant les nouvelles séries de la saison 2016 - 2017 qui risquent de vous plaire. ", array('type'=>'description'), false); 
+	echo $html->meta('description', "Repérez dès maintenant les nouvelles séries de la saison 2015 - 2017 qui risquent de vous plaire. ", array('type'=>'description'), false); 
 ?>
 
 <?php
