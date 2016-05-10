@@ -175,8 +175,9 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
             <ul style="list-style-type:none">
             	<li><?php echo $html->link('A propos', '/a-propos'); ?></li>
                 <li><?php echo $html->link('Notre équipe', '/notre-equipe'); ?></li>
+                <li><?php echo $html->link('CGU', '/cgu'); ?></li>
                 <li><?php echo $html->link('Mentions légales', '/mentions-legales'); ?></li>
-				<li><?php echo $html->link('Nous contacter', '/contacts/index'); ?></li>
+		<li><?php echo $html->link('Nous contacter', '/contacts/index'); ?></li>
             </ul>
         </td>
         <td width="15%" class="td-borders">
