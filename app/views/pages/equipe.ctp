@@ -240,7 +240,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Critique de l'extrême, il est aussi l'inventeur du Vrickavrack. Et non, nous non plus nous n'arrivons toujours pas à prononcer son nom.
+							Critique de l'extrême, il est aussi l'inventeur du <em>Vrickavrack</em>. Et non, nous non plus nous n'arrivons toujours pas à prononcer son nom.
 						</blockquote>
 					</div>
 				</div>
@@ -406,7 +406,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Avec sa collègue Puck, elle se bat chaque jour pour que Série-All devienne une terre d'égalité entre hommes et femmes. Mais comme on dit : "on en reparlera quand il faudra porter des choses lourdes" (non, pas taper, désolé).
+							Avec sa collègue Puck, elle se battait chaque jour pour que Série-All devienne une terre d'égalité entre hommes et femmes. Mais comme on dit : "on en reparlera quand il faudra porter des choses lourdes" (non, pas taper, désolé).
 						</blockquote>
 					</div>
 				</div>
