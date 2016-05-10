@@ -7,7 +7,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 		<h1 class="red title">Notre équipe</h1><br /><br />
 
 		<div class="col1 equipe">
-			Composée de personnes d'horizons plus ou moins variés l'équipe de serieall s'est donnée pour mission de vous offrir le contenu seriel le plus pertinent du web. Oui, rien que ça.
+			Composée de personnes d'horizons plus ou moins variés, l'équipe de Série-All s'est donnée pour mission de vous offrir le contenu seriel le plus pertinent du web. Oui, rien que ça.
 			Dans la mesure du possible, on essaye de rester objectif mais bon, il faut bien avouer que face à Joséphine Ange Gardien, c'est difficile (mais on fait des efforts).
 			<br /><br />
 
@@ -16,7 +16,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 			<br /><br />
 			<p>
 				Omniscients et omnipotents, ils dirigent d’une main de fer le site : développement, rédaction, modération, rien ne leur échappe. Ils sont
-				toutefois accessibles et bienveillants et acceptent aussi bien les règlements par chèques que les espèces.
+				toutefois accessibles et bienveillants et acceptent aussi bien les règlements par chèque que les espèces.
 			</p>
 			<br />
 
@@ -45,7 +45,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Vous aimez <strong>Doctor Who</strong> ? Ne le dites pas à Galax, sinon il va vous en parler pendant des heures. Remarquez, quoique vous fassiez, il va vous en parler pendant des heures.
+							Vous aimez <strong>Doctor Who</strong> ? Ne le dites pas à Galax, sinon il va vous en parler pendant des heures. Remarquez, quoi que vous fassiez, il va vous en parler pendant des heures.
 						</blockquote>
 					</div>
 				</div>
@@ -109,7 +109,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Le saviez-vous ? C'est une marmotte qui est aux commandes du site. Et une marmotte succeptible en plus, surtout quand on critique le brushing de <strong>MacGyver</strong>.
+							Le saviez-vous ? C'est une marmotte qui est aux commandes du site. Et une marmotte susceptible en plus, surtout quand on critique le brushing de <strong>MacGyver</strong>. Mais personne n'est dupe : sous ses airs de vieux ronchon se cache en fait un c&oelig;ur en guimauve...
 						</blockquote>
 					</div>
 				</div>
@@ -118,7 +118,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 			<h2 class="title dblue">La rédaction</h2>
 			<br /><br />
 			<p>
-				Ils distillent avec intelligence et savoir faire leur analyse des séries et des actualités : plus leur critique est pertinente et plus leur
+				Ils distillent avec intelligence et savoir-faire leur analyse des séries et des actualités : plus leur critique est pertinente et plus leur
 				rémunération en pépito est importante. Autant dire qu’ils font plutôt du bon travail !
 			</p>
 			<br />
@@ -210,7 +210,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Pourquoi 140 ? Peut-être parce qu'il aime passer en revue la liste des 140 pilots de série pour la saison prochaine ? Ou qu'il regarde 140 fois les taux érectiles ? C'est un mystère.
+							Pourquoi 140 ? Peut-être parce qu'il aime passer en revue la liste des 140 pilotes de séries pour la saison prochaine ? Ou qu'il regarde 140 fois les taux érectiles ? C'est un mystère.
 						</blockquote>
 					</div>
 				</div>
@@ -240,7 +240,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Critique de l'extrême, il est aussi l'inventeur du VrickAVrack. Et non, nous non plus nous n'arrivons toujours pas à prononcer son nom.
+							Critique de l'extrême, il est aussi l'inventeur du Vrickavrack. Et non, nous non plus nous n'arrivons toujours pas à prononcer son nom.
 						</blockquote>
 					</div>
 				</div>
@@ -270,7 +270,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Passionné de séries, le nombre considérable d'article qu'il écrit nous fait supposer deux choses : soit il est insomniaque, soit il exploite des enfants chinois dans son grenier.
+							Passionné de séries (et surtout celles de super-héros), le nombre considérable d'articles qu'il écrit nous fait supposer deux choses : soit il exploite des enfants chinois dans son grenier, soit il porte lui-même un masque et des collants.
 						</blockquote>
 					</div>
 				</div>
@@ -280,7 +280,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 			<h2 class="title dblue">Les anciens</h2>
 			<br /><br />
 			<p>
-				Il fut un temps où eux ausi participaient activement au site. Malheuresement, ayant réussi à briser leurs chaînes, ils ont fui
+				Il fut un temps où eux aussi participaient activement au site. Malheureusement, ayant réussi à briser leurs chaînes, ils ont fui
 				la cave des chinois. Certains restent toutefois présents sur le forum pour soutenir leurs compagnons.
 			</p>
 			<br />
@@ -311,7 +311,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 					<div class="status">
 						<blockquote>
 							Créateur de la première version du site en 2009, il a eu l’honneur de critiquer
-							<strong>Breaking Bad</strong>. Incapable se remettre de la fin de série, il a décidé de s'exiler dans un monastère au tibet pour retrouver un semblant de spiritualité.
+							<strong>Breaking Bad</strong>. Incapable se remettre de la fin de série, il a décidé de s'exiler dans un monastère au Tibet pour retrouver un semblant de spiritualité.
 						</blockquote>
 					</div>
 				</div>
@@ -342,8 +342,8 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Capable de pirater les serveurs du FBI avec une gameboy, il a créer le site actuel avant d'en devenir le responsable officiel. Depuis, il a délégué tout le boulot et passe
-							la journée assis dans son fauteuil en cuir à regarder son empire.
+							Capable de pirater les serveurs du FBI avec une Gameboy, il a créé le site actuel avant d'en devenir le responsable officiel. Depuis, il a délégué tout le boulot et passe
+							la journée assis dans son fauteuil en cuir, à regarder son empire.
 						</blockquote>
 					</div>
 				</div>
@@ -374,7 +374,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Il est le recordman du nombre de critiques publiées à la bourre, à deux doigts d'être homologué par le Guinness World Records. Sinon, il a aimé la fin de
+							Il était le recordman du nombre de critiques publiées à la bourre, à deux doigts d'être homologué par le Guinness World Records. Sinon, il a aimé la fin de
 							<strong>Lost</strong> et de <strong>How I Met Your Mother</strong> : surprenant, n'est-il pas ?
 						</blockquote>
 					</div>
@@ -406,7 +406,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Avec sa collègue Puck, elle se bat chaque jour pour que Série-All devienne une terre d'égalité entre hommes et femmes. Mais comme on dit "on en reparlera quand il faudra porter des choses lourdes" (non, pas taper, désolé).
+							Avec sa collègue Puck, elle se bat chaque jour pour que Série-All devienne une terre d'égalité entre hommes et femmes. Mais comme on dit : "on en reparlera quand il faudra porter des choses lourdes" (non, pas taper, désolé).
 						</blockquote>
 					</div>
 				</div>
@@ -437,7 +437,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Il aime des mauvaises séries, mais il en regarde tellement que personne ne le voit. Il est également notre reporter de l'extrême,
+							Il aimait des mauvaises séries, mais il en regardait tellement que personne ne le voyait. Il était également notre reporter de l'extrême,
 							capable de prouesses de ninja pour nous récupérer un scoop !
 						</blockquote>
 					</div>
@@ -469,7 +469,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Challenger d'Alanparish pour le record du nombre de critiques publiées à la bourre, il aime aussi se lancer des défis de l'impossible comme regarder l'intégrale Doctor Who en un mois. Oui, on est des fous à Serieall.
+							Challenger d'Alanparish pour le record du nombre de critiques publiées à la bourre, il aimait aussi se lancer des défis de l'impossible comme regarder l'intégrale <strong>Doctor Who</strong> en un mois. Oui, on est des fous à Série-All.
 						</blockquote>
 					</div>
 				</div>
@@ -500,7 +500,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Critique sur les pilots et chinois à temps partiel, il rêvait de monter un harem réunissant les actrices
+							Critique sur les pilotes et chinois à temps partiel, il rêvait de monter un harem réunissant les actrices
 							les plus physiquement intelligentes. Le monde l'a rattrapé depuis.
 						</blockquote>
 					</div>
@@ -525,7 +525,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="block-role">
 						<p class="role">
-							Sheriff
+							Shérif
 						</p>
 						<div class="dot">
 						</div>
@@ -533,7 +533,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Ancien critique et sheriff du site (on raconte qu'il avait inspiré Morris pour Lucky Luke), il a été muté dans une autre province que celle de Serieall.
+							Ancien critique et Shérif du site (on raconte qu'il avait inspiré Morris pour Lucky Luke), il a été muté dans une autre province que celle de Série-All.
 						</blockquote>
 					</div>
 				</div>
@@ -564,7 +564,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Sur le forum, il était de toutes les discussions. Tant et si bien qu'on a eu l'impression qu'il est un rédacteur prolifique. En fait, il n'a
+							Sur le forum, il était de toutes les discussions. Tant et si bien qu'on a eu l'impression qu'il était un rédacteur prolifique. En fait, il n'a
 							critiqué que <strong>The Playboy Club</strong> et <strong>Boss</strong>.
 						</blockquote>
 					</div>
@@ -628,7 +628,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Le petit frère de Malcolm a bien grandit ! Maintenant il regarde Star Trek et Game of Thrones et n'hésite pas à critiquer ouvertement tout ce qui ne va pas. Parce que oui, en grandissant, Dewey a aussi perdu sa naïveté...
+							Le petit frère de Malcolm avait bien grandi ! Il regardait <strong>Star Trek</strong> et <strong>Game of Thrones</strong> et n'hésitait pas à critiquer ouvertement tout ce qui n'allait pas. Parce que oui, en grandissant, Dewey avait aussi perdu sa naïveté...
 						</blockquote>
 					</div>
 				</div>
@@ -690,7 +690,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							50 % homme, 50% femme, 100% radis, le créateur de <em>Fringe, histoires parallèles</em> nous a proposé ces services de temps à autre,
+							50% homme, 50% femme, 100% radis, le créateur de <em>Fringe, histoires parallèles</em> nous a proposé ses services de temps à autre,
 							notamment sur <strong>Dexter</strong> et <strong>True Blood</strong>.
 						</blockquote>
 					</div>
@@ -752,7 +752,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Fans des beaux gosses vampires de <strong>The Vampire Diaries</strong>, elle a finalement succombé à leur charme et est parti les rejoindre.
+							Fan des beaux gosses vampires de <strong>The Vampire Diaries</strong>, elle a finalement succombé à leur charme et est partie les rejoindre.
 						</blockquote>
 					</div>
 				</div>
@@ -817,7 +817,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Il s'occupait de nous référencer sur Google. Mais un jour, il a rencontré Desireless et est partie la suivre en tournée.
+							Il s'occupait de nous référencer sur Google. Mais un jour, il a rencontré Desireless et est parti la suivre en tournée.
 						</blockquote>
 					</div>
 				</div>
@@ -914,8 +914,8 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Notre ancien homme à tout faire : il a critiqué plusieurs séries quand il était dans la rédaction
-							dont <strong>Community</strong>, <strong>Castle</strong> ou encore <strong>Glee</strong>. On raconte qu'il s'est reconvertit dans le football depuis.
+							Notre ancien homme à tout faire : il a critiqué plusieurs séries quand il était dans la rédaction,
+							dont <strong>Community</strong>, <strong>Castle</strong> ou encore <strong>Glee</strong>. On raconte qu'il s'est reconverti dans le football depuis.
 						</blockquote>
 					</div>
 				</div>
@@ -946,7 +946,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Grand fan des comics <strong>The Walking Dead</strong>, il a critiqué un temps la série d'AMC. Et puis les zombies l'ont finalement rattrapé et on le l'a plus revu...
+							Grand fan des comics <strong>The Walking Dead</strong>, il a critiqué un temps la série d'AMC. Et puis les zombies l'ont finalement rattrapé et on ne l'a plus revu...
 						</blockquote>
 					</div>
 				</div>
@@ -980,7 +980,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Egalement surnommé <em>le ninja du planning</em>, son action était aussi discrète qu'efficace, le planning était à jour toutes les semaines. Et un jour, on l'a remplacé par un robot : saloperie de capitalisme.
+							Également surnommé <em>le ninja du planning</em>, son action était aussi discrète qu'efficace : le planning était à jour toutes les semaines. Et un jour, on l'a remplacé par un robot : saloperie de capitalisme.
 						</blockquote>
 					</div>
 				</div>
@@ -1003,7 +1003,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="block-role">
 						<p class="role">
-							Correctrice
+							Relectrice
 						</p>
 						<div class="dot">
 						</div>
@@ -1043,7 +1043,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Comme son homonyme, il aime se beurrer la biscotte et qu'on l'enduise d'huile. Actuellement, on pense qu'il doit être de nouveau en mission secrète au proche-Orient.
+							Comme son homonyme, il aimait se beurrer la biscotte et qu'on l'enduise d'huile. Actuellement, on pense qu'il doit être de nouveau en mission secrète au proche-Orient.
 						</blockquote>
 					</div>
 				</div>
@@ -1077,8 +1077,8 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Amateur de grand n'importe quoi, il rajoute discrètement toutes sortes de nanars sur le site en tentant de convertir les rédacteurs à sa cause.
-							Il possède aussi un &oelig;il bionique capable de détecter les faux raccords.
+							Amateur de grand n'importe quoi, il rajoutait discrètement toutes sortes de nanars sur le site en tentant de convertir les rédacteurs à sa cause.
+							Il possèdait aussi un &oelig;il bionique capable de détecter les faux raccords.
 						</blockquote>
 					</div>
 				</div>
@@ -1141,7 +1141,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Il fut un temps où il a critiqué <strong>Sons of Anarchy</strong> et <strong>Gossip Girl</strong>, soit disant une preuve d'ouverture d'esprit.
+							Il fut un temps où il a critiqué <strong>Sons of Anarchy</strong> et <strong>Gossip Girl</strong>, soi-disant une preuve d'ouverture d'esprit.
 							Depuis, il s'est rendu compte de son erreur et s'est exilé dans un monastère.
 						</blockquote>
 					</div>
@@ -1173,8 +1173,8 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Son rêve absolu est de se transformer en Pinkie Pie, l'un des poneys de <strong>My Little Pony : Friendship is Magic</strong>. En dehors de ça, c'est un garçon
-							normal.
+							Son rêve absolu était de se transformer en Pinkie Pie, l'un des poneys de <strong>My Little Pony : Friendship is Magic</strong>. En dehors de ça, c'était un garçon
+							plutôt normal.
 						</blockquote>
 					</div>
 				</div>
