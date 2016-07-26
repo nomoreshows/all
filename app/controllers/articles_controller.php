@@ -35,7 +35,7 @@ class ArticlesController extends AppController {
 	function display($url) {
 		$this->layout = 'default';
 		$url = explode('.', $url);
-		
+		a
 		//modif elpio : get uniquement l'id de l'article, qu'importe le exte avant. Pour limiter la casse pour les pb de mauvaises urls (avec accents, etc.)
 		$url = explode('_', $url[0]);  //decoupe l'url en fonction de l'underscore pour separer le texte et l'id
 		$url = end($url); 	//recup de l'id sous forme a123 ou 123 est l'id
@@ -1143,6 +1143,16 @@ class ArticlesController extends AppController {
 		case 'dossier':
 		case 'video':
 		case 'podcast':
+			$show_id = $this->data['Article']['show_id'];
+			$this->loadModel('Show');
+			$show = $this->Show->find('first',
+				array(
+					'conditions' => array('Show_id =' => $show_id),
+					'fields' => array('Show.id', 'Show.name', 'Show.menu'),
+					'contain' => false
+			));
+			$this->set('show', $show);
+			break;
 		case 'chronique':
 			if ($this->data['Article']['isserie'] == 0) {
 				// Concerne une série
