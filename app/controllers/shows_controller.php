@@ -13,7 +13,8 @@ class ShowsController extends AppController {
 		'index' => '1 hour',
 		'fiche/' => '1 hour',
 		'rentree2014/' => '24 hour',
-		'rentree2015/' => '24 hour'
+		'rentree2015/' => '24 hour',
+		'rentree2016/' => '24 hour'
 	);
 
 	
