@@ -66,6 +66,7 @@
         <li><?php echo $ajax->link('Les séries de CW (Gossip Girl, Vampire Diaries)', array('controller' => 'shows', 'action' => 'rentree2016', 'cw'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li> 
         <li><?php echo $ajax->link('Les séries de CBS (NCIS, Mentalist, HIMYM)', array('controller' => 'shows', 'action' => 'rentree2016', 'cbs'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li> 
         <li><?php echo $ajax->link('Les séries de FOX (Fringe, Bones)', array('controller' => 'shows', 'action' => 'rentree2016', 'fox'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li> 
+        <li><?php echo $ajax->link('Les séries de Netflix (House of Cards, Orange Is The New Black)', array('controller' => 'shows', 'action' => 'rentree2016', 'netflix'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li> 
       </ul>
     </td>
     </tr>
