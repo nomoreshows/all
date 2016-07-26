@@ -1224,6 +1224,11 @@ class ArticlesController extends AppController {
 				break;
 			case 'news':
 			case 'podcast':
+				$show_id = $this->data['Article']['show_id']; 
+ 				$shows = $this->Show->find('list', array('conditions' => array('Show.id =' => $show_id), 'fields' => array('Show.id', 'Show.name', 'Show.menu'), 'order' => 'Show.name ASC')); 
+ 				$this->set(compact('shows')); 
+ 				break; 
+
 			case 'dossier':
 				$show_id = $this->data['Article']['show_id'];
 				if (empty($show_id)) {
