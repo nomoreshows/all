@@ -670,6 +670,11 @@ class ShowsController extends AppController {
 			$filterTitle = 'Les séries de FOX (Fringe, Bones...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus LIKE "%FOX%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
+		
+		case 'netflix':
+			$filterTitle = 'Les séries de Netflix (House of Cards, Orange Is The New Black...)';
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus LIKE "%Netflix%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			break;
 			
 		case 'police':
 			$filterTitle = 'Les nouvelles séries policières';
