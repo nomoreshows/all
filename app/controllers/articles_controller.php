@@ -1147,7 +1147,7 @@ class ArticlesController extends AppController {
 			$this->loadModel('Show');
 			$show = $this->Show->find('first',
 				array(
-					'conditions' => array('Show_id =' => $show_id),
+					'conditions' => array('Show.id =' => $show_id),
 					'fields' => array('Show.id', 'Show.name', 'Show.menu'),
 					'contain' => false
 			));
