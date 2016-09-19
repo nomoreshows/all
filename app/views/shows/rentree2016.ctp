@@ -69,7 +69,7 @@
         <li><?php echo $ajax->link('Les séries de FOX (Dr. House, Simpsons, Bones, Empire, New Girl...)', array('controller' => 'shows', 'action' => 'rentree2016', 'fox'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
         <li><?php echo $ajax->link('Les séries de Netflix (House of Cards, Orange Is The New Black, Sense8, Daredevil, Stranger Things...)', array('controller' => 'shows', 'action' => 'rentree2016', 'netflix'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
         <li><?php echo $ajax->link('Les séries de SYFY (Stargate, Battlestar Galactica, Z Nation, The Expanse...)', array('controller' => 'shows', 'action' => 'rentree2016', 'syfy'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de Amazon (Transparent, Mozart in the Jungle, The Man in The High Castle...)', array('controller' => 'shows', 'action' => 'rentree2016', 'syfy'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de Amazon (Transparent, Mozart in the Jungle, The Man in The High Castle...)', array('controller' => 'shows', 'action' => 'rentree2016', 'amazon'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
       </ul>
     </td>
     </tr>
