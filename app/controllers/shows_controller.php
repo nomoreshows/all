@@ -639,7 +639,7 @@ class ShowsController extends AppController {
 		
 		case 'abc':
 			$filterTitle = 'Les séries d\'ABC (Lost, Murder, Modern Family...)';
-			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'ABC'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'ABC (US)'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 		
 		case 'hbo':
