@@ -74,7 +74,7 @@
 	Router::connect('/nouvelles-series-2012-2013', array('controller' => 'shows', 'action' => 'eventRentree2012', 'start'));
 	Router::connect('/nouvelles-series-2014-2015', array('controller' => 'shows', 'action' => 'rentree2014', 'start'));
 	Router::connect('/nouvelles-series-2015-2016', array('controller' => 'shows', 'action' => 'rentree2015', 'start'));
-	Router::connect('/nouvelles-series-2016-2017', array('controller' => 'shows', 'action' => 'rentree2016', 'all'));
+	Router::connect('/nouvelles-series-2016-2017', array('controller' => 'shows', 'action' => 'rentree2016', 'start'));
 	
 	
 	// Mobile
