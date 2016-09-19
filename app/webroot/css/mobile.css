@@ -1,0 +1,7 @@
+body { background-color:#f1f5f8;}
+#mobile-page {background:url(../img/mobile/bg.jpg) repeat-x #f1f5f8;;}
+#mobile-header {text-align:center; padding-top:15px;}
+.up {background-color:#d7f2a2; color:#4c7323}
+.neutral {background-color:#efefef; color:#6b6b6b}
+.down {background-color:#ffc3c3; color:#9a3333}
+.absmiddle {vertical-align:middle;margin-bottom: .25em; }

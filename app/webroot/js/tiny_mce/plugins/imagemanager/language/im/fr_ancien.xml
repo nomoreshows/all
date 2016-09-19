@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<language-pack>
+	<header>
+		<!-- Please fill in contact information (author & email), we might contact you when we are doing updates -->
+		<!-- You will also have the chance to participate in beta releases of new versions -->
+		<author>Serveaux Jean-michel serveaux.jm@free.fr</author>
+		<version minor="2" major="1" releasedate="2006-12-05" />
+		<description>
+			Version française du pluging MCimageManager pour tinyMCE
+		</description>
+	</header>
+
+	<language code="fr" title="French" dir="ltr">
+		<group target="common">
+			<item name="title">Gestionnaire d'images</item>
+			<item name="filemanager">Gestionnaire d'images</item>
+			<item name="createdir">Créer un dossier</item>
+			<item name="refresh">Rafraîchir</item>
+			<item name="upload">Importer des images</item>
+			<item name="help">Aide</item>
+			<item name="edit">Editer</item>
+			<item name="deleteit">Supprimer</item>
+			<item name="view">Afficher</item>
+			<item name="download">Télécharger</item>
+			<item name="insert">Insérer</item>
+			<item name="directory">Dossier sélectionné</item>
+			<item name="loading">Chargement...</item>
+			<item name="filter">Filtre</item>
+			<item name="alert_ok">Ok</item>
+			<item name="confirm_yes">Oui</item>
+			<item name="confirm_no">Non</item>
+			<item name="prev">Préc.</item>
+			<item name="next">Suiv.</item>
+			<item name="image_data">Récupération des informations de l'image en cour...</item>
+			<item name="page">Page</item>
+			<item name="of">sur</item>
+
+			<!-- Legacy items -->
+			<item name="add_favorite">Ajouter aux favoris</item>
+			<item name="removefavorite">Retirer des favoris</item>
+		</group>
+
+		<group target="button">
+			<!-- think about the length of the text -->
+			<item name="create">Créer</item>
+			<item name="cancel">Annuler</item>
+			<item name="apply">Appliquer</item>
+			<item name="save">Enregistrer</item>
+		</group>
+
+		<group target="error">
+			<!-- common -->
+			<item name="demo">Cette action n'est pas disponible en version de demonstration</item>
+			<item name="no_filesystem">Aucun fichier trouvé dans le dossier: {path}.</item>
+			<item name="no_access">Accès restrint sur ce fichier.</item>
+			<item name="no_write_access">Le dossier n'a pas les droits d'accès</item>
+			<item name="file_not_exists">Le fichier/dossier est introuvable.</item>
+			<item name="invalid_filename">Le nom du fichier est invalide</item>
+
+			<!-- create dir -->
+			<item name="template_missing">Le template sélectioné est introuvable</item>
+			<item name="folder_exists">Un autre dossier porte déjà ce nom.</item>
+			<item name="createdir_failed">Impossible de créer le dossier</item>
+
+			<!-- upload -->
+			<item name="upload_failed">L'upload a échoué</item>
+			<item name="file_exists">Un autre fichier porte déjà ce nom</item>
+			<item name="error_to_large">L'image que vous avez sélectioné est trop grande pour être téléchargé</item>
+
+			<!-- delete -->
+			<item name="delete_failed">Impossible de supprimer</item>
+			
+			<!-- image edit -->
+			<item name="crop_failed">Could not crop image.</item>
+			<item name="resize_failed">Impossible de redimenssioner l'image</item>
+			<item name="rotate_failed">La rotation a échoué</item>
+			<item name="flip_failed">Flip was not successfull.</item>
+			<item name="save_failed">La sauvegarde a échoué</item>
+
+			<!-- Legacy items -->
+			<item name="remove_favorite_failed">Echec l'ors de la suppréssion du favoris.</item>
+		</group>
+
+		<group target="message">
+			<!-- common -->
+			<item name="save_success">Enregistrement effetué avec succès</item>
+			<item name="keepalive">Rester connecté.</item>
+
+			<!-- delete -->
+			<item name="delete_success">Les fichiers ont bien été détectés</item>
+
+			<!-- create dir -->
+			<item name="directory_ok">Le dossier a bien été crée</item>
+
+			<!-- upload -->
+			<item name="upload_ok">Les images ont été ajoutés avec succès</item>
+
+			<!-- image edit -->
+			<item name="crop_success">Crop successfull.</item>
+			<item name="resize_success">Redimenssionement effectué avec succès.</item>
+			<item name="rotate_success">Rotation effectué avec succès.</item>
+			<item name="flip_success">Flip successfull.</item>
+		</group>
+
+		<group target="panel">
+			<item name="categories">Catégories</item>
+			<item name="folders">Mes dossiers</item>
+
+			<!-- Legacy items -->
+			<item name="favorites">Favoris</item>
+			<item name="history">Historique</item>
+		</group>
+
+		<group target="view">
+			<item name="title">View</item>
+			<item name="mode">Mode d'affichage:</item>
+			<item name="thumbnail">Miniature</item>
+			<item name="textlist">Liste</item>
+			<item name="images_per_page">Images par page</item>
+			<item name="confirm_delete">Êtes-vous sûr de vouloir supprimer ce fichier  ?</item>
+			<item name="keyboard_next">Keyboard shortcut: SPACE,N,RIGHTARROW,PAGE DOWN</item>
+			<item name="keyboard_prev">Keyboard shortcut: P,LEFTARROW,PAGE UP</item>
+			<item name="dimensions">Dimensions</item>
+
+			<!-- Legacy items -->
+			<item name="confirm_remove_favorite">Êtes-vous sûr de vouloir supprimer ce favoris ?</item>
+		</group>
+
+		<group target="createdir">
+			<item name="title">Creation d'un dossier</item>
+			<item name="description">Choisissez le nom du dossier</item>
+			<item name="template">Template:</item>
+			<item name="select_template">-- Sélectionnez un template --</item>
+			<item name="directory_name">Dossier : </item>
+			<item name="create_in">Crée dans : </item>
+			<item name="progress">Création du dossier en cour...</item>
+		</group>
+
+		<group target="upload">
+			<item name="title">Importation d'image</item>
+			<item name="description">Sélectionnez à partir de votre disque dur  les images à importer</item>
+			<item name="valid_extensions">Formats autorisés : </item>
+			<item name="max_upload_size">Taille maximal autorisé :</item>
+			<item name="file_to_upload">Fichier à télécharger:</item>
+			<item name="as_file_name">Nom du fichier:</item>
+			<item name="path">Dossier: </item>
+			<item name="button_upload">Importer</item>
+			<item name="browse">Ajouter les fichiers</item>
+			<item name="progress">Téléchargement...</item>
+			<item name="upload_warn">Le téléchargement est en cour. Êtes-vous sûr de vouloir l'interrompre?</item>
+			<item name="statusrow">Vous avez {files} fichier(s) (total {size}) dans la liste d'importation.</item>
+			<item name="progressinfo">{loaded} sur {total} téléchargé au débit de {speed}/s.</item>
+			<item name="abort">Interompre l'importation</item>
+			<item name="add_more">Ajouter d'autres images ?</item>
+			<item name="upload_to_server">Importer la sélection</item>
+			<item name="cancelled">Le téléchargement a été interompu</item>
+			<item name="choose_files">Sélection des images</item>
+			<item name="basic_upload">Si vous recontrez des difficultées pour ajouter des images vous pouvez utiliser {a}l'ajout simplifié{/a}.</item>
+			<item name="remove">Retirer</item>
+			<item name="file">Fichier</item>
+			<item name="size">Taille</item>
+			<item name="status">Option</item>
+			<item name="no_valid_files">Les fichiers sélectionnés ne sont pas valides.</item>
+		</group>
+
+		<group target="edit_image">
+			<item name="title">Moxiecode ImageManager Editor</item>
+			<item name="save">Enregistrer sous</item>
+			<item name="revert">Annuler</item>
+			<item name="crop">Rogner</item>
+			<item name="resize">Redimenssioner</item>
+			<item name="please_wait">Traitement en cour...</item>
+			<item name="constrain">Garder la proportion</item>
+			<item name="left">Gauche</item>
+			<item name="top">Haut</item>
+			<item name="width">Largeur</item>
+			<item name="height">Hauteur</item>
+			<item name="save_as">Nouveau nom : </item>
+			<item name="flip">Symétrie</item>
+			<item name="rotate">Rotation</item>
+			<item name="reload">Rafraîchir</item>
+			<item name="horizontal">Horizontal</item>
+			<item name="vertical">Vertical</item>
+			<item name="saving_wait">Sauvegarde en cour...</item>
+			<item name="confirm_revert">Êtes-vous sûr de vouloir réinitialiser les modifications ?</item>
+			<item name="loading">Chargement de l'image en cour...</item>
+			<item name="confirm_no_save">Voulez vous enregistrer les modifications ?</item>
+		</group>
+
+		<group target="tinymce">
+			<item name="insertimage_desc">Insérer l'image</item>	
+			<item name="replaceimage_desc">Remplacer l' image</item>	
+			<item name="editimage_desc">Modifier l'image</item>	
+		</group>
+
+		<group target="favorites">
+			<item name="special_folder_title">Favoris</item>
+			<item name="addfavorites">Ajouter aux favoris</item>
+			<item name="removefavorites">Retirer des favoris</item>
+			<item name="confirm_remove_favorite">Êtes-vous sûr de vouloir retirer ce favoris de la liste ?</item>
+			<item name="remove_favorite_failed">Impossible de supprimer le favoris de la liste</item>
+		</group>
+
+		<group target="history">
+			<item name="special_folder_title">Historique</item>
+		</group>
+	</language>
+</language-pack>

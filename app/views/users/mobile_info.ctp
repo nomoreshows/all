@@ -1,0 +1,1 @@
+Pour ajouter le site mobile sur l'écran d'accueil, cliquez sur le + en bas de votre écran, puis "Ajouter à l'écran d'accueil".

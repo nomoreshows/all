@@ -1,0 +1,1 @@
+<iframe src="http://www.facebook.com/plugins/likebox.php?id=105365559504009&amp;width=260&amp;connections=8&amp;stream=false&amp;header=true&amp;height=287" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:260px; height:287px;" allowTransparency="true"></iframe>
