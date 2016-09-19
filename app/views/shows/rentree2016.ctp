@@ -61,15 +61,15 @@
     <td width="33%">
       <h3 class="dblue">Par chaîne :</h3> <br /><br />
       <ul class="playe lblue">
-        <li><?php echo $ajax->link('Les séries d\'ABC (Lost, Grey\'s Anatomy, Murder, Modern Family, Once Upon a Time...)', array('controller' => 'shows', 'action' => 'rentree2016', 'abc'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de HBO (Six Feet Under, The Wire, Game of Thrones, The Leftovers, True Detective...)', array('controller' => 'shows', 'action' => 'rentree2016', 'hbo'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de NBC (Community, Scrubs, Chuck, The Blacklist, Chicago P.D...)', array('controller' => 'shows', 'action' => 'rentree2016', 'nbc'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de CW (Vampire Diaries, Supernatural, The 100, Flash, Arrow...)', array('controller' => 'shows', 'action' => 'rentree2016', 'cw'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de CBS (NCIS, How I Met Your Mother, The Big Bang Theory, Esprits Criminels...)', array('controller' => 'shows', 'action' => 'rentree2016', 'cbs'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de FOX (Dr. House, Simpsons, Bones, Empire, New Girl...)', array('controller' => 'shows', 'action' => 'rentree2016', 'fox'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de Netflix (House of Cards, Orange Is The New Black, Sense8, Daredevil, Stranger Things...)', array('controller' => 'shows', 'action' => 'rentree2016', 'netflix'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de SYFY (Stargate, Battlestar Galactica, Z Nation, The Expanse...)', array('controller' => 'shows', 'action' => 'rentree2016', 'syfy'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries de Amazon (Transparent, Mozart in the Jungle, The Man in The High Castle...)', array('controller' => 'shows', 'action' => 'rentree2016', 'amazon'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries d\'ABC (Lost, Murder, Modern Family...)', array('controller' => 'shows', 'action' => 'rentree2016', 'abc'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de HBO (The Wire, Game of Thrones, The Leftovers...)', array('controller' => 'shows', 'action' => 'rentree2016', 'hbo'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de NBC (Community, The Blacklist, Chicago P.D...)', array('controller' => 'shows', 'action' => 'rentree2016', 'nbc'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de CW (Supernatural, The 100, Flash, Arrow...)', array('controller' => 'shows', 'action' => 'rentree2016', 'cw'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de CBS (NCIS, The Big Bang Theory, Esprits Criminels...)', array('controller' => 'shows', 'action' => 'rentree2016', 'cbs'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de FOX (Dr. House, Simpsons, Bones, Empire...)', array('controller' => 'shows', 'action' => 'rentree2016', 'fox'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de Netflix (House of Cards, Sense8, Daredevil...)', array('controller' => 'shows', 'action' => 'rentree2016', 'netflix'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de SYFY (Battlestar Galactica, Z Nation, The Expanse...)', array('controller' => 'shows', 'action' => 'rentree2016', 'syfy'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
+        <li><?php echo $ajax->link('Les séries de Amazon (Transparent, Mozart in the Jungle...)', array('controller' => 'shows', 'action' => 'rentree2016', 'amazon'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
       </ul>
     </td>
     </tr>

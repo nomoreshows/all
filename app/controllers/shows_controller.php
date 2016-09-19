@@ -638,32 +638,32 @@ class ShowsController extends AppController {
 			break;
 		
 		case 'abc':
-			$filterTitle = 'Les séries d\'ABC (Lost, Grey\'s Anatomy, Murder, Modern Family, Once Upon a Time...)';
+			$filterTitle = 'Les séries d\'ABC (Lost, Murder, Modern Family...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'ABC'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 		
 		case 'hbo':
-			$filterTitle = 'Les séries de HBO (Six Feet Under, The Wire, Game of Thrones, The Leftovers, True Detective...)';
+			$filterTitle = 'Les séries de HBO (The Wire, Game of Thrones, The Leftovers...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'HBO'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 
 		case 'syfy':
-			$filterTitle = 'Les séries de SYFY (Stargate, Battlestar Galactica, Z Nation, The Expanse...)';
+			$filterTitle = 'Les séries de SYFY (Battlestar Galactica, Z Nation, The Expanse...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'Syfy'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 
 		case 'amazon':
-			$filterTitle = 'Les séries de Amazon (Transparent, Mozart in the Jungle, The Man in The High Castle...)';
+			$filterTitle = 'Les séries de Amazon (Transparent, Mozart in the Jungle...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'Amazon'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 		
 		case 'nbc':
-			$filterTitle = 'Les séries de NBC (Community, Scrubs, Chuck, The Blacklist, Chicago P.D...)';
+			$filterTitle = 'Les séries de NBC (Community, The Blacklist, Chicago P.D...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'NBC'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 		
 		case 'cw':
-			$filterTitle = 'Les séries de CW (Vampire Diaries, Supernatural, The 100, Flash, Arrow...)';
+			$filterTitle = 'Les séries de CW (Supernatural, The 100, Flash, Arrow...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus LIKE "%CW%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 		
@@ -673,17 +673,17 @@ class ShowsController extends AppController {
 			break;
 		
 		case 'cbs':
-			$filterTitle = 'Les séries de CBS (NCIS, How I Met Your Mother, The Big Bang Theory, Esprits Criminels...)';
+			$filterTitle = 'Les séries de CBS (NCIS, The Big Bang Theory, Esprits Criminels...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'CBS'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 			
 		case 'fox':
-			$filterTitle = 'Les séries de FOX (Dr. House, Simpsons, Bones, Empire, New Girl...)';
+			$filterTitle = 'Les séries de FOX (Dr. House, Simpsons, Bones, Empire...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus LIKE "%FOX%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 		
 		case 'netflix':
-			$filterTitle = 'Les séries de Netflix (House of Cards, Orange Is The New Black, Sense8, Daredevil, Stranger Things...)';
+			$filterTitle = 'Les séries de Netflix (House of Cards, Sense8...)';
 			$shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus LIKE "%Netflix%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
 			break;
 			
