@@ -33,7 +33,7 @@
 	echo $form->input('scenaristes', array('label' => 'Scénaristes :<br /><span class="notes">(séparés par virgule)</span>', 'size' => '50'));
 
 	echo $form->input('chainefr', array('label' => 'Chaîne VF :', 'size' => '10'));
-	echo $form->input('diffusionfr', array('label' => 'Première diffusion VF :', 'dateFormat' => 'DMY', 'selected' => '2000-01-01'));
+	echo $form->input('diffusionfr', array('label' => 'Première diffusion VF :', 'dateFormat' => 'DMY', 'selected' => '2000-01-01', 'minYear' => '1950'));
 
 	/*
 	echo $form->input('chaineus', array('label' => 'Chaîne VO :', 'size' => '10'));
