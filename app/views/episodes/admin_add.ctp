@@ -20,8 +20,8 @@
 	echo $form->input('season_id', array( 'type' => 'select', 'label' => 'Saison :', 'empty' => '-- Choisir --'));
 	echo $form->input('numero', array('label' => 'Numéro épisode :', 'size' => '2'));
 	
-	echo $form->input('diffusionus', array('label' => 'Diffusion US :', 'selected' => '2000-01-01'));
-	echo $form->input('diffusionfr', array('label' => 'Diffusion FR :', 'selected' => '2000-01-01'));
+	echo $form->input('diffusionus', array('label' => 'Diffusion US :', 'selected' => '2000-01-01', 'minYear' => '1950'));
+	echo $form->input('diffusionfr', array('label' => 'Diffusion FR :', 'selected' => '2000-01-01', 'minYear' => '1950'));
 	echo $form->input('guests', array('label' => 'Guests<br /><span class="notes">(séparés par virgule)</span>:', 'size' => '50'));
 	echo $form->input('ba', array('label' => 'Trailer :<br /><span class="notes">(copier le code &lt;embed&gt; d\'une vidéo Youtube)', 'cols' => '65'));
 	echo $form->input('bo', array('label' => 'BO :<br /><span class="notes">(copier le code &lt;embed&gt; d\'une playlist Deezer)', 'cols' => '65'));
