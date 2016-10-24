@@ -121,6 +121,7 @@ $(function() {
 				}
 				elseif($cat == 'critique')
 				{
+					echo '<br />';
 					echo $form->input('podcast', array('rows' => '2', 'cols' => '65', 'label' => 'Code iframe :'));
 				}?>
             <br /><br />
