@@ -136,9 +136,13 @@ $(function() {
 			<?php echo $form->input('text', array('rows' => '30', 'cols' => '131', 'label' => false, 'class' => 'mceAdvanced')); ?>
             <br />
             <?php
-				if($cat == 'podcast'){			
+			if($cat == 'podcast'){
 					echo $form->input('podcast', array('rows' => '2', 'cols' => '65', 'label' => 'Podcast (code iframe) :'));
-				}?> 
+				}
+				elseif($cat == 'critique')
+				{
+					echo $form->input('podcast', array('rows' => '2', 'cols' => '65', 'label' => 'Code iframe :'));
+				}?>
             <?php echo $form->end('Sauvegarder'); ?>
         </div>
         <div id="tabs-2">
