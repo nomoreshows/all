@@ -49,6 +49,7 @@
         	<br /><br />
         	<?php echo $article['Article']['text']; ?>
             <?php if (!empty($article['Article']['podcast'])){
+                echo '<br />';
                 echo $article['Article']['podcast'];
             }?>
         </div>
