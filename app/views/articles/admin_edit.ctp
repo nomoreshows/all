@@ -118,6 +118,10 @@ $(function() {
             <?php
 				if($cat == 'podcast'){			
 					echo $form->input('podcast', array('rows' => '2', 'cols' => '65', 'label' => 'Podcast (code iframe) :'));
+				}
+				elseif($cat == 'critique')
+				{
+					echo $form->input('podcast', array('rows' => '2', 'cols' => '65', 'label' => 'Code iframe :'));
 				}?>
             <br /><br />
             Rédacteur : <?php echo $form->input('user_id', array('label' => false, 'div' => false));?> 
