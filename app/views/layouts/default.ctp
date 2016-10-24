@@ -218,9 +218,7 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
         <td width="15%" class="td-borderleft">
         	<strong>Partenaires</strong> <br /><br />
             <ul style="list-style-type:none">
-            	<li><?php echo $html->link('Bande annonce', 'http://trailerhd.tv', array('title' => 'Bande annonce')); ?></li>
-            	<li><?php echo $html->link('Dzik', 'http://dzik.fr', array('title' => 'Dzik')); ?></li>
-                <li><?php echo $html->link('Mes Webséries', 'http://www.meswebseries.fr/', array('title' => 'Mes Webséries')); ?></li>
+            	<li><?php echo $html->link('Vodd', 'https://vodd.co', array('title' => 'Vodd')); ?></li>
             </ul>
         </td>
         <td width="30%">
