@@ -23,7 +23,7 @@
 	*/
 	echo $form->input('Genre');
 
-	echo $form->input('nationalite', array('label' => 'Nationalité :', 'options' => array('Américaine' => 'Américaine','Anglaise' => 'Anglaise','Française' => 'Française','Canadienne' => 'Canadienne','Coréenne'=>'Coréenne','Belge' => 'Belge','Espagnole' => 'Espagnole','Allemande' => 'Allemande','Italienne' => 'Italienne', 'Japonaise' => 'Japonaise', 'Danoise' => 'Danoise', 'Australienne' => 'Australienne', 'Norvégienne' => 'Norvégienne' )));
+	echo $form->input('nationalite', array('label' => 'Nationalité :', 'options' => array('Américaine' => 'Américaine','Anglaise' => 'Anglaise','Française' => 'Française','Canadienne' => 'Canadienne','Coréenne'=>'Coréenne','Belge' => 'Belge','Espagnole' => 'Espagnole','Allemande' => 'Allemande','Italienne' => 'Italienne', 'Japonaise' => 'Japonaise', 'Danoise' => 'Danoise', 'Australienne' => 'Australienne', 'Norvégienne' => 'Norvégienne', 'Suédoise' => 'Suédoise' )));
 
 	/*
 	echo $form->input('annee', array('label' => 'Année création :', 'size' => '4'));
