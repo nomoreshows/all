@@ -1235,7 +1235,7 @@ class ArticlesController extends AppController {
 					$this->set('show', 0);
 				} else {
 					$show = $this->Article->Show->findById($show_id);
-					$shows = $this->Article->Show->find('list');
+					$shows = $this->Article->Show->find('list', array('conditions' => array('Show.id =' => $show_id), 'fields' => array('Show.id', 'Show.name', 'Show.menu'), 'order' => 'Show.name ASC'));
 					$this->set(compact('shows'));
 					$this->set(compact('show'));
 				}
