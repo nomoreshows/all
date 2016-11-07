@@ -1141,6 +1141,16 @@ class ArticlesController extends AppController {
 			
 		case 'news':
 		case 'dossier':
+			$show_id = $this->data['Article']['show_id'];
+			$this->loadModel('Show');
+			$show = $this->Show->find('first',
+				array(
+					'conditions' => array('Show.id =' => $show_id),
+					'fields' => array('Show.id', 'Show.name', 'Show.menu'),
+					'contain' => false
+				));
+			$this->set('show', $show);
+			break;
 		case 'video':
 		case 'podcast':
 			$show_id = $this->data['Article']['show_id'];
