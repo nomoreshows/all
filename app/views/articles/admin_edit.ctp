@@ -50,6 +50,7 @@ $(function() {
 	case 'critique':
 		// Ajout des 3 id + du titre et URL prérempli
 		echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
+		echo $form->input('rss_podcast', array('label' => 'Ajout au flux RSS Podcast :'));
 		echo $form->input('episode_id');
 		echo $form->input('caption');
 		break;
