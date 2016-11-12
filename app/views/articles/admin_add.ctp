@@ -47,7 +47,7 @@ $(function() {
 	case 'critique':
 		// Ajout des 3 id + du titre et URL prérempli
 		echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
-		echo $form->input('rss_podcast', array('label' => 'Ajout au flux RSS Podcast :'));
+		echo $form->input('rss_podcast', array('label' => 'RSS Podcast :'));
 		echo $form->input('Episode.name', array('label' => 'Episode :', 'value' => $episode['Episode']['name'], 'disabled' => true));
 		echo $form->input('episode_id', array('type' => 'hidden', 'value' => $episode['Episode']['id'] ));
 		echo $form->input('season_id', array('type' => 'hidden', 'value' => $season['Season']['id'] ));
@@ -64,6 +64,7 @@ $(function() {
 		// Ajout de show_id + titre et URL vides
 		if ($show != 0) {
 			echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
+			echo $form->input('rss_podcast', array('label' => 'RSS Podcast :'));
 			echo $form->input('Show.name', array('label' => 'Série :', 'value' => $show['Show']['name'], 'disabled' => true));
 			echo $form->input('show_id', array('type' => 'hidden', 'value' => $show['Show']['id'] ));
 			echo $form->input('name', array('label' => 'Titre :', 'size' => '50'));
@@ -90,6 +91,7 @@ $(function() {
 	case 'focus':
 		// Ajout de show_id + titre et URL préremplis
 		echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
+		echo $form->input('rss_podcast', array('label' => 'RSS Podcast :'));
 		echo $form->input('caption', array('type' => 'hidden', 'value' => 'Focus'));
 		echo $form->input('Show.name', array('label' => 'Série :', 'value' => $show['Show']['name'], 'disabled' => true));
 		echo $form->input('show_id', array('type' => 'hidden', 'value' => $show['Show']['id'] ));
@@ -99,6 +101,7 @@ $(function() {
 	case 'bilan':
 		// Ajout de show_id et season_id + titre et URL préremplis
 		echo $form->input('une', array('label' => 'A la une :', 'type' => 'select', 'options' => array( 0 => 'Non', 1 => 'Oui', 2 => 'Spécial')));
+		echo $form->input('rss_podcast', array('label' => 'RSS Podcast :'));
 		echo $form->input('Season.name', array('label' => 'Saison :', 'value' => $season['Season']['name'], 'disabled' => true));
 		echo $form->input('show_id', array('type' => 'hidden', 'value' => $show['Show']['id'] ));
 		echo $form->input('season_id', array('type' => 'hidden', 'value' => $season['Season']['id'] ));
@@ -109,6 +112,7 @@ $(function() {
 	case 'portrait':
 		// Ajout de role_id + titre et URL préremplis
 		echo $form->input('une', array('type' => 'hidden', 'value' => 0));
+		echo $form->input('rss_podcast', array('label' => 'RSS Podcast :'));
 		echo $form->input('Actor.name', array('label' => 'Acteur :', 'value' => $role['Role']['name'], 'disabled' => true));
 		echo $form->input('role_id', array('type' => 'hidden', 'value' => $role['Role']['id'] ));
 		echo $form->input('actor_id', array('type' => 'hidden', 'value' => $role['Actor']['id'] ));
