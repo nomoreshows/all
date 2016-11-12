@@ -30,6 +30,22 @@ class ArticlesController extends AppController {
 		$this->set(compact('articles', 'channel'));
 	}
 
+	function flux_podcast() {
+		$this->layout = 'default';
+		$articles = $this->Article->find('all',	array(	'order' => 'Article.id DESC',
+				'conditions' => array('etat' => 1, 'rss_podcast' => 1), 'contain' => false,
+				'limit' => 10
+			)
+		);
+		$channel = array(
+			'title' => utf8_encode("Série-All - Webzine séries tv"),
+			'description' => utf8_encode("Les derniers podcasts de serieall.fr"),
+			'language' => 'fr',
+			'webMaster' => 'serieall.fr@gmail.com'
+		);
+		$this->set(compact('articles', 'channel'));
+	}
+
 	
 	
 	function display($url) {
