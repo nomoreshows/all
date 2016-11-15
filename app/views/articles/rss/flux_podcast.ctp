@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle = 'Derniers podcasts de serieall.fr';
+$this->pageTitle = 'Podcasts de Série-All';
 
 echo $rss->items($articles, 'sortieRSS');
 
