@@ -15,7 +15,7 @@ function sortieRSS($article) {
 		'title' => $article['Article']['name'],
 		'link'  => 'http://www.serieall.fr/article/'.$article['Article']['url'] . '.html',
 		'guid' => array('url' => 'http://www.serieall.fr/article/'.$article['Article']['url'] . '.html', 'isPermaLink' => 'true'),
-		'description' => $article['Article']['chapo']. '<br /><br />' .$article['Article']['text'],
+		'description' => $article['Article']['chapo'],
 		'pubDate' => $article['Article']['created']
 	  );
 }
