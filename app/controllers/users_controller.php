@@ -571,14 +571,14 @@ class UsersController extends AppController {
 				|| strpos($this->data['User']['email'],"yahoo.com")
 				|| strpos($this->data['User']['email'],"dnset.com"))){
 					// Si les mots de passes correspondent
-					if ($this->data['User']['password'] == $this->Auth->password($this->data['User']['password_confirm'])) {
+					//if ($this->data['User']['password'] == $this->Auth->password($this->data['User']['password_confirm'])) {
 					
 						// Vérifier si le login est unique
 						$login = $this->data['User']['login'];
 						$nblogin = $this->User->find('count', array('conditions' => array('User.login' => $login)));
 						if ($nblogin == 0) {
 						
-							/* Générer mot de passe
+							/* Générer mot de passe*/
 							$string = "";
 							$car = 6;
 							$chaine = "abcdefghijklmnpqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -590,12 +590,13 @@ class UsersController extends AppController {
 							$this->data['User']['role'] = 4;
 							
 							$email = $this->data['User']['email'];
-							*/
+							/**/
 							
 							// Enregistrer dans bdd
-	
+							/*
 							$this->data['User']['role'] = 4;
 							$this->data['User']['password'] = md5($this->data['User']['password_confirm']);
+							*/
 							
 							//Sauvegarde de l'ip de l'utilisateur
 							$this->data['User']['ip'] = $this->RequestHandler->getClientIp();
@@ -606,7 +607,7 @@ class UsersController extends AppController {
 							$resultat = $this->User->save($this->data);
 							if ($resultat) {
 								
-								/* Envoyer un mail
+								/* Envoyer un mail */
 								$headers ='From: "Série-All"<noreply@serieall.fr>'."\n"; 
 								$headers .='Content-Type: text/html; charset="iso-8859-1"'."\n"; 
 								$objet = 'Inscription à Serie All';
@@ -626,7 +627,7 @@ class UsersController extends AppController {
 								} else {
 									$this->redirect('/users/confirm');	
 								}
-								*/
+								/**/
 								
 								//Recup la litse des admins
 								/*
@@ -644,7 +645,7 @@ class UsersController extends AppController {
 									$this->User->Notification->save($notif);
 								}
 	
-								*/
+								/**/
 								$this->redirect('/users/confirm');
 								
 							} else {
@@ -653,9 +654,9 @@ class UsersController extends AppController {
 						} else {
 							$this->Session->setFlash('Ce login est déjà utilisé.', 'growl');
 						}
-					} else {
-						$this->Session->setFlash('Les mots de passe ne correspondent pas.', 'growl');
-					}
+					//} else {
+						//$this->Session->setFlash('Les mots de passe ne correspondent pas.', 'growl');
+					//}
 				} else {
 						$this->Session->setFlash('Email invalide', 'growl');
 					}
