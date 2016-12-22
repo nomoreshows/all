@@ -8,7 +8,9 @@ echo $javascript->link('perso.signup', false);
 <div class="padl15">
     <br />
     <h2 class="red">Inscription à Série-All</h2><br /><br />
-    
+    <p>
+		Saisissez les informations nécéssaires à l'inscription. Un email vous sera ensuite envoyé pour finaliser l'inscription.
+	</p>
     <table>
     <tr>
     <td width="50%">
@@ -18,8 +20,8 @@ echo $javascript->link('perso.signup', false);
         <?php echo $form->input('role', array('label' => false, 'type' => 'hidden')); ?>
         
         <?php echo $form->input('login', array('label' => '<span class="notes">*</span> Pseudo :<br /><span class="notes">http://serieall.fr/profil/<strong>pseudo</strong></span>')); ?>
-        <?php echo $form->input('password', array('label' => '<span class="notes">*</span> Mot de passe :<br /><span class="notes">lettres et chiffres uniquement</span>')); ?>
-        <?php echo $form->input('password_confirm', array('label' => '<span class="notes">*</span> Confirmer  :<br /><span class="notes">confirmer le mot de passe</span>', 'type' => 'password')); ?>
+        <?php //echo $form->input('password', array('label' => '<span class="notes">*</span> Mot de passe :<br /><span class="notes">lettres et chiffres uniquement</span>')); ?>
+        <?php //echo $form->input('password_confirm', array('label' => '<span class="notes">*</span> Confirmer  :<br /><span class="notes">confirmer le mot de passe</span>', 'type' => 'password')); ?>
         <?php echo $form->input('email', array('label' => '<span class="notes">*</span> Adresse mail :<br /><span class="notes">n\'est pas affichée ni diffusée</span>')); ?>
         <br /><br />
         <?php echo $form->input('cap', array('label' => '<span class="notes">*</span> Combien font 3+2<br /><span class="notes">contre les robots</span>', 'size' => 2)); ?>
