@@ -62,8 +62,8 @@
         susceptibles d'être intentés par quiconque à l'encontre de Série-All. 
 	    </p><p>
         Série-All se réserve le droit de modifier, supprimer ce contenu sans avoir à vous donner de raison 
-        préalablement. Cela concerne notamment (et de façon non axhaustive) les commentaires diffamatoires, racistes, injurieux 
-        ou discriminants en général mais aussi le contenu mal orthographiés, plagié, 
+        préalablement. Cela concerne notamment (et de façon non exhaustive) les commentaires diffamatoires, racistes, injurieux 
+        ou discriminants en général mais aussi le contenu mal orthographié, plagié, 
         contenant des spoilers uniquement dans le but de nuire à d'autres membres, 
         de la désinformation ou de la publicité déguisée.
         </p>
