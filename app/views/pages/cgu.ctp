@@ -47,31 +47,51 @@
 		<p>
 		Il est d'ailleurs précisé que la création de plusieurs comptes pour une même personne n'est pas autorisée 
 		sur Série-All. En cas de problème d'accès à un compte (oubli de mot de passe), vous pouvez nous contacter 
-		par mail (voir <a href="/contacts/index">page contact</a>). Série-All se réserve le droit de supprimer 
-		tout compte dérogeant à ces règles, particulièrement les comptes multiples utilisés pour 
-		sur-noter/sous-noter une série, spoiler d'autres membres ou tout autre comportement similaire.
+		par mail (voir <a href="/contacts/index">page contact</a>). 
+			
+	    </p>
+	    <p>
+		    Série-All se réserve le droit de supprimer 
+		tout compte dérogeant à ces règles sans vous donner de raison préalablement, 
+		particulièrement (et de façon non exhaustive) les comptes multiples utilisés pour 
+		sur-noter/sous-noter une série, spoiler d'autres membres ou tout autre comportement similaire.<br/>
+		    Série-All se réserve également le droit de supprimer les comptes inactifs depuis plus d'un an.
 		</p><p>
-        De plus, dans vos avis et commentaires, <b>vous vous engagez à être le seul responsable de vos propos</b>. 
+        De plus, dans le contenu sur vous publiez, <b>vous vous engagez à être le seul responsable de vos propos</b>. 
         A ce titre, il garantit Série-All contre tout recours, fondés directement ou indirectement sur ces propos, 
         susceptibles d'être intentés par quiconque à l'encontre de Série-All. 
-        Série-All se réserve le droit de modifier, supprimer ces commentaires sans avoir à vous donner de raison 
-        préalablement. Cela concerne notamment les commentaires diffamatoires, racistes, injurieux 
-        ou discriminants en général mais aussi les commentaires mal orthographiés, 
+	    </p><p>
+        Série-All se réserve le droit de modifier, supprimer ce contenu sans avoir à vous donner de raison 
+        préalablement. Cela concerne notamment (et de façon non axhaustive) les commentaires diffamatoires, racistes, injurieux 
+        ou discriminants en général mais aussi le contenu mal orthographiés, plagié, 
         contenant des spoilers uniquement dans le but de nuire à d'autres membres, 
         de la désinformation ou de la publicité déguisée.
         </p>
-		<p>
-			Vous pouvez demander la suppression de votre compte en nous contactant par mail (voir <a href="/contacts/index">page contact</a>). 
-		</p>
         
 		<br /><br />
-        <h2 class="red">Données personnelles</h2>
+        <h2 class="red">Données personnelles et contenu utilisateur</h2>
 		<br /><br />
 		<p>
         Les données personnelles récoltées lors de votre inscription ne seront transmises à aucune société tierce. 
-        Si vous souhaitez que vos informations personnelles soient supprimées (compte, avis, notes), 
+        Si vous souhaitez que vos informations personnelles soient supprimées, 
         il suffit de nous contacter.
 		</p>
+	    <p>
+		    En déposant des avis, notes, réactions ou tout autre contenu sur le site, 
+		    le membre accorde une licence de droit d'auteur non exclusive à titre gratuit à serieall.fr portant sur 
+		    le dit contenu. La licence est accordée pour toute la durée des droits d'auteurs, pour une utilisation en France et à l'étranger.
+		    La licence est également accordée pour une utilisation commerciale et publicitaire.
+		    </p>
+	    <p>
+		    Cette licence autorise Série-All a communiquer ce contenu au public sur le site serieall.fr ou dans d'éventuelles newsletter.
+		    Le membre autorise également Série-All à reproduire ce contenu sur tout support de communication dans le but de promouvoir serieall.
+		    Le membre autorise le contenu à être utilisé, dans les mêmes finalités, par les partenaires éventuels de Série-All.
+		    Enfin, le membre autorise Série-All a effectuer toute modification technique nécéssaires à l'exploitation de ce contenu.
+	    </p>
+	    <p>
+		    Ce contenu ne pouvant être considéré comme des données personnelles et sa suppression pouvant porté préjudice à la continuité du service,
+		    toute suppression de compte entraîne une anonymisation de ce contenu, sans forcément entraîner sa suppression. 
+	    </p>
 		<br /><br />
 		<h2 class="red">Cookies</h2><br /><br />
 		
@@ -133,6 +153,9 @@
 		Les présentes mentions légales et conditions générales peuvent être modifiées à tout moment par serieall.fr. 
 		Les conditions générales applicables au visiteur sont celles en vigueur au jour de sa connexion sur le serieall.fr, la continuation de la navigation valant pour acceptation des nouvelles conditions générales.
 		</p>
+	<p>
+			Date de dernière modification : 22/12/2016 à 18h50
+	</p>
 	</div>
     </div>
 
