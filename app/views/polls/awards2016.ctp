@@ -25,7 +25,6 @@
             </ul><br />
             </p>
             <p>
-            	<strong>Les votes sont clos, les résultats seront annoncés prochainement.</strong>
             </p>
             <br /><br />
             
@@ -37,7 +36,7 @@
                     <?php foreach($question['Answer'] as $j => $answer):
                     // images
 					if (!empty($answer['img'])) {
-						//echo $ajax->link($html->image($answer['img'], array('class' => 'answer-img')), array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false));
+						echo $ajax->link($html->image($answer['img'], array('class' => 'answer-img')), array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false));
 						echo $html->image($answer['img'], array('class' => 'answer-img'));
 					}
                     endforeach; 
@@ -52,7 +51,7 @@
                         <?php if($answer['winner'] == 1) echo '<strong>' . $answer['name'] . '</strong>'; else echo $answer['name'];
 												echo '<span class="grey"> (' . $answer['porcent'] . '%)</span>';
 												
-												//echo $ajax->link($answer['name'], array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false, 'class' => 'nodeco')); ?>
+												echo $ajax->link($answer['name'], array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false, 'class' => 'nodeco')); ?>
 						
                         <div id="answer<?php echo $answer['id']; ?>" class="answers-vote"></div>
 						</li>
