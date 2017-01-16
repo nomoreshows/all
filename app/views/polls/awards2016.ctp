@@ -48,7 +48,7 @@
                     <?php foreach($question['Answer'] as $j => $answer): ?>
                     	<li>
                         <?php echo $html->image('icons/checkbox.png', array('class' => 'absmiddle')); ?>
-                        <?php if($answer['winner'] == 1) echo '<strong>' . $answer['name'] . '</strong>'; else echo $answer['name'];
+                          <?php #if($answer['winner'] == 1) echo '<strong>' . $answer['name'] . '</strong>'; else echo $answer['name'];
 												#echo '<span class="grey"> (' . $answer['porcent'] . '%)</span>';
 												
 												echo $ajax->link($answer['name'], array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false, 'class' => 'nodeco')); ?>
