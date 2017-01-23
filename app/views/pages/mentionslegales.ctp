@@ -53,7 +53,7 @@
 		<br /><br />
 		<p>
         Les données personnelles récoltées lors de votre inscription ne seront transmises à aucune société tierce. 
-        Si vous souhaitez que vos informations personnelles soient supprimées (compte, avis, notes), 
+        Si vous souhaitez que vos informations personnelles soient supprimées (du compte, des avis, des notes, des articles), 
         il suffit de nous contacter.
 		</p>
 		<p>
