@@ -10,19 +10,26 @@
 			<?php echo $this->element('partage-reseau-sociaux'); ?>
 			<br />
             <p>
-            	Pour contrer les taux d'abstention indécents du premier tour des dernières régionales, l’équipe de Série-All a décidé de réitérer en 2015 votre moment préféré de l’année&nbsp;: les Série-All Awards !
-                <br /><br />
-                Pour cette quatrième édition, le principe est resté le même (on ne change pas une équipe qui… euh… qui ne perd pas trop) : les rédacteurs du site se sont <del>battus comme des chiens</del> concertés de manière civilisée et courtoise pour vous proposer des candidats dans chacune des catégories.
-            
-            <br /><br />
-		Maintenant que la liste est établie, c’est à vous de voter pour vos chouchous. Quelques rappels des règles :
-            <ul>
-           		<li>il faut <a href="/inscription">être inscrit</a> pour participer <em>(environ 30 secondes si on est Steve Jobs, environ 1h30 si on est ma Mamie Paulette),</em>
-                <li>les votes sont ouverts jusqu’au 31 janvier 2016, 20h00,</li>
-                <li>les nominés ont été choisis sur l’année 2015 (toutes les séries ayant eu au moins un épisode diffusé en 2015),</li>
-                <li>vous pouvez changer vos votes à tout moment en choisissant un autre candidat,</li>
-                <li>vous pouvez nous faire part de vos remarques (ou nous faire des bisous sur le cul) sur <a href="http://serieall.fr/article/votez-pour-les-serie-all-awards-2015_a3557.html">cet article</a>, dans les commentaires.</li>
-            </ul><br />
+
+                En 2017, un vote important a lieu. Celui qui déterminera l'avenir de notre communauté. J'ai nommé bien évidemment, les Série-All Awards, édition 2016.<br />
+
+                Comme d'habitude, nos rédacteurs ont débattu des heures durant, du sang a coulé et des amitiés se sont brisées afin de ne retenir que les meilleurs des meilleurs. C'est maintenant à vous de départager les candidats retenus ! <br /><br />
+
+                Rappel de la démarche à suivre :<br />
+                <ul>
+                    <li>
+                        S'inscrire sur le site. Promis, aucun numéro de carte bleue ne sera demandé.
+                    </li>
+                    <li>
+                        Sélectionner vos préférés sur cette page. Vous pouvez changer de vote à tout moment. Les votes seront clôs le Samedi 18 février, à 23h59. Les résultats seront annoncés peu après.
+                    </li>
+                </ul>
+
+                Nouveauté de cette année : si vous le souhaitez, pour pouvoir gagner un véritable paquet de pépitos envoyé chez vous, rendez-vous sur le forum pour faire vos pronostics sur les gagnants des awards. <br />
+
+
+
+                Pour toute question ou remarque, rendez-vous en commentaires de <a href="http://serieall.fr/article/votez-pour-les-serie-all-awards-2016-_a3857">cet article</a>.<br />
             </p>
             <p>
             </p>
