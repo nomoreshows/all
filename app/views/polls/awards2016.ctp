@@ -24,8 +24,9 @@
                         Sélectionner vos préférés sur cette page. Vous pouvez changer de vote à tout moment. Les votes seront clos le samedi 18 février, à 23h59. Les résultats seront annoncés peu après.
                     </li>
                 </ul>
+            <br />
 
-            Nouveauté de cette année : si vous le souhaitez, pour pouvoir gagner un véritable paquet de Pépitos envoyé chez vous, rendez-vous sur le forum pour faire vos pronostics sur les gagnants des Awards.<br/>
+            Nouveauté de cette année : si vous le souhaitez, pour pouvoir gagner un véritable paquet de Pépitos envoyé chez vous, rendez-vous sur le forum pour faire vos pronostics sur les gagnants des Awards.<br/><br />
 
 
 
