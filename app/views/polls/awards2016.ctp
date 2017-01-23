@@ -11,7 +11,7 @@
 			<br />
             <p>
 
-                En 2017, un vote important a lieu. Celui qui déterminera l'avenir de notre communauté. J'ai nommé bien évidemment, les Série-All Awards, édition 2016.<br />
+                En 2017, un vote important a lieu. Celui qui déterminera l'avenir de notre communauté. J'ai nommé, bien évidemment, les Série-All Awards, édition 2016.<br /><br />
 
                 Comme d'habitude, nos rédacteurs ont débattu des heures durant, du sang a coulé et des amitiés se sont brisées afin de ne retenir que les meilleurs des meilleurs. C'est maintenant à vous de départager les candidats retenus ! <br /><br />
 
@@ -21,11 +21,11 @@
                         S'inscrire sur le site. Promis, aucun numéro de carte bleue ne sera demandé.
                     </li>
                     <li>
-                        Sélectionner vos préférés sur cette page. Vous pouvez changer de vote à tout moment. Les votes seront clôs le Samedi 18 février, à 23h59. Les résultats seront annoncés peu après.
+                        Sélectionner vos préférés sur cette page. Vous pouvez changer de vote à tout moment. Les votes seront clos le samedi 18 février, à 23h59. Les résultats seront annoncés peu après.
                     </li>
                 </ul>
 
-                Nouveauté de cette année : si vous le souhaitez, pour pouvoir gagner un véritable paquet de pépitos envoyé chez vous, rendez-vous sur le forum pour faire vos pronostics sur les gagnants des awards. <br />
+            Nouveauté de cette année : si vous le souhaitez, pour pouvoir gagner un véritable paquet de Pépitos envoyé chez vous, rendez-vous sur le forum pour faire vos pronostics sur les gagnants des Awards.<br/>
 
 
 
