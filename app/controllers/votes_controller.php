@@ -40,7 +40,7 @@ class VotesController extends AppController {
 			
 			
 		}  else {
-			$result = 'Vous devez vous avoir un compte pour participer. <a href="/inscription">Incrivez-vous</a> en 30 secondes chrono.';	
+			$result = 'Vous devez avoir un compte pour participer. <a href="/inscription">Inscrivez-vous</a> en 30 secondes chrono.';
 		}
 		
 		
