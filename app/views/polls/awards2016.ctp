@@ -30,7 +30,7 @@
 
 
 
-                Pour toute question ou remarque, rendez-vous en commentaires de <a href="http://serieall.fr/article/votez-pour-les-serie-all-awards-2016-_a3857">cet article</a>.<br />
+                Pour toute question ou remarque, rendez-vous en commentaires de <a href="http://serieall.fr/article/votez-pour-les-serie-all-awards-2016-_a3857.html">cet article</a>.<br />
             </p>
             <p>
             </p>
