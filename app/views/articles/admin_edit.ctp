@@ -44,7 +44,7 @@ $(function() {
 	echo $form->input('id', array('type' => 'hidden'));
 	
 	echo $form->input('name', array('label' => 'Titre :', 'size' => '50'));
-	echo $form->input('url', array('label' => 'Titre URL:<br /><span class="notes">(<a href="http://serieall.fr/article/'.$this->data['Article']['url'].'">Voir le rendu</a>)</span>', 'size' => '50'));
+	echo $form->input('url', array('label' => 'Titre URL:<br /><span class="notes">(<a href="https://serieall.fr/article/'.$this->data['Article']['url'].'">Voir le rendu</a>)</span>', 'size' => '50'));
 	
 	switch($cat) {
 	case 'critique':
