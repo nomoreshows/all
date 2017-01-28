@@ -41,10 +41,10 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
     <link rel="apple-touch-icon" href="/favicons/touch-icon-iphone.png"/>
 	<link rel="apple-touch-icon" sizes="72x72" href="/favicons/touch-icon-ipad.png" />
 	<link rel="apple-touch-icon" sizes="114x114" href="/favicons/touch-icon-iphone4.png" />
-    <link rel="canonical" href="http://serieall.fr/<?php echo $this->params['url']['url']; ?>" />
+    <link rel="canonical" href="https://serieall.fr/<?php echo $this->params['url']['url']; ?>" />
     
 	<?php
-		echo $html->meta('rss', 'http://feeds.feedburner.com/SerieAllArticles', array('title' => "Série-All"));
+		echo $html->meta('rss', 'https://feeds.feedburner.com/SerieAllArticles', array('title' => "Série-All"));
 		echo $html->meta('icon');
 		//echo $html->css('jquery-ui-1.7.2');
 		echo $html->css('general');
@@ -305,6 +305,6 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
 
 	</script> 
 	
-	<script type="text/javascript">(function () {var s = document.createElement('script');var t = document.getElementsByTagName('script')[0];s.type = 'text/javascript';s.async = true;s.src = 'http://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js';t.parentNode.insertBefore(s, t);})();</script></body>
+	<script type="text/javascript">(function () {var s = document.createElement('script');var t = document.getElementsByTagName('script')[0];s.type = 'text/javascript';s.async = true;s.src = 'https://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js';t.parentNode.insertBefore(s, t);})();</script></body>
 </html>
 
