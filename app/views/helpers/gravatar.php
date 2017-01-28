@@ -2,8 +2,8 @@
 class GravatarHelper extends Helper {
 
     var $helpers = array('Html');
-	var $grav_url = "http://www.gravatar.com/avatar.php?"; // Url to gravatar service
-	var $default = "http://serieall.fr/img/gravatar.png"; // Url to the default picture (ie if  the user has no gravatar)
+	var $grav_url = "https://www.gravatar.com/avatar.php?"; // Url to gravatar service
+	var $default = "https://serieall.fr/img/gravatar.png"; // Url to the default picture (ie if  the user has no gravatar)
     
 
     
