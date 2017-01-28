@@ -157,6 +157,37 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 				<div class="block-name">
 					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Gizmo', '/profil/'. 'Gizmo', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('josselint@hotmail.fr', 53, array('alt' => 'Gizmo', 'class' => 'ppic'), false), '/profil/'. 'Gizmo', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédacteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Il est la touche vintage du site : <strong>Hercule Poirot</strong> et <strong>Arabesque</strong> n'ont aucun secret pour lui. Ajoutez à ça sa passion déraisonnée pour Laurent Ruquier, et il devient instantanément le meilleur ami de votre grand-mère !
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
 						<span class="pseudo"><?php echo $html->link('Jojo76', '/profil/'. 'jojo76', array('escape' => false, 'class' => 'nodeco'))?></span>
 					</p>
 					<div class="name-separator">
