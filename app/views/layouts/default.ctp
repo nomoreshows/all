@@ -59,7 +59,7 @@ if($_SERVER['HTTP_HOST'] == 'serieall.easy-hebergement.info') {
         
 		
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<script type="text/javascript" src="http://serieall.fr/js/jquery.cookies.js"></script>
+	<script type="text/javascript" src="https://serieall.fr/js/jquery.cookies.js"></script>
 <script type="application/x-social-share-privacy-settings">{"path_prefix":"http://panzi.github.io/SocialSharePrivacy/","layout":"line","services":{"buffer":{"status":false},"delicious":{"status":false},"disqus":{"status":false},"fbshare":{"status":false},"flattr":{"status":false},"hackernews":{"status":false},"linkedin":{"status":false},"mail":{"status":false},"pinterest":{"status":false},"reddit":{"status":false},"stumbleupon":{"status":false},"tumblr":{"status":false},"xing":{"status":false}}}</script>
 </head>
 
