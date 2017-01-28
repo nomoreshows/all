@@ -52,40 +52,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 			</div>
 
 			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Cail1', '/profil/'. 'Cail1', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('cail1@hotmail.fr', 53, array('alt' => 'Cail1', 'class' => 'ppic'), false), '/profil/'. 'cail1', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Chinois en chef
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Le sang et les luttes acharnées, c'est sa passion. C'est donc sans surprise qu'il critique <strong>The Walking Dead</strong> et
-							se bat avec le site pour ajouter des séries dans la base de données. On ne sait toujours pas ce qui est le pire.
-						</blockquote>
-					</div>
-				</div>
-			</div>
-
-
-
-			<div class="redacteur">
 				<div class="block-name">
 					<p class="name">
 						<span class="pseudo"><?php echo $html->link('Elpiolito', '/profil/'. 'elpiolito', array('escape' => false, 'class' => 'nodeco'))?></span>
@@ -114,17 +80,110 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 					</div>
 				</div>
 			</div>
+			
+			<div class="redacteur">
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Youkoulayley', '/profil/'. 'Youkoulayley', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('bmayelle@hotmail.fr', 53, array('alt' => 'Youkoulayley', 'class' => 'ppic'), false), '/profil/'. 'Youkoulayley', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Webmaster Junior
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Entre deux épisodes des <strong>Sopranos</strong>, il travaille avec amour, disponibilité et d'arrache pied à créer la légendaire Version 2 du site. Inutile de préciser que lui, il a un accès illimité à la boîte de Pépitos !
+						</blockquote>
+					</div>
+				</div>
+			</div>
 
 			<h2 class="title dblue">La rédaction</h2>
 			<br /><br />
 			<p>
 				Ils distillent avec intelligence et savoir-faire leur analyse des séries et des actualités : plus leur critique est pertinente et plus leur
-				rémunération en pépito est importante. Autant dire qu’ils font plutôt du bon travail !
+				rémunération en Pépitos est importante. Autant dire qu’ils font plutôt du bon travail !
 			</p>
 			<br />
 
 
 
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Cail1', '/profil/'. 'Cail1', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('cail1@hotmail.fr', 53, array('alt' => 'Cail1', 'class' => 'ppic'), false), '/profil/'. 'cail1', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Chinois et Rédacteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Le sang et les luttes acharnées, c'est sa passion. C'est donc sans surprise qu'il critique <strong>The Walking Dead</strong> et
+							se bat avec le site pour ajouter des séries dans la base de données. On ne sait toujours pas ce qui est le pire.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Gizmo', '/profil/'. 'Gizmo', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('josselint@hotmail.fr', 53, array('alt' => 'Gizmo', 'class' => 'ppic'), false), '/profil/'. 'Gizmo', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédacteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Il est la touche vintage du site : <strong>Hercule Poirot</strong> et <strong>Arabesque</strong> n'ont aucun secret pour lui. Ajoutez à ça sa passion déraisonnée pour Laurent Ruquier, et il devient instantanément le meilleur ami de votre grand-mère !
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
 			<div class="redacteur">
 
 				<div class="block-name">
@@ -155,7 +214,38 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 					</div>
 				</div>
 			</div>
+			
+			<div class="redacteur">
 
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Koss', '/profil/'. 'Koss', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('costheboss_007@hotmail.com', 53, array('alt' => 'Koss', 'class' => 'ppic'), false), '/profil/'. 'Koss', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédacteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Koss a deux passions dans la vie : écrire des trucs sur le web et troller. Surtout troller en fait. Mais personne n'est dupe : on sait bien qu'il aime
+							<strong>Breaking Bad</strong>.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
 			<div class="redacteur">
 				<div class="block-name">
 					<p class="name">
@@ -181,36 +271,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 					<div class="status">
 						<blockquote>
 							Relectrice dé article, L traque lé fOtes d'ortograf ke peuve fèr lé rédacteur. L ésite pas a lé... ouille... frappé ...aïe... avec son foué ... ouille - j'arrête ... en cuir s'ils ne rendent pas une copie impecabl... aïe...
-						</blockquote>
-					</div>
-				</div>
-			</div>
-
-			<div class="redacteur">
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Maxou140', '/profil/'. 'maxou140', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('maxoudu14620@hotmail.fr', 53, array('alt' => 'Maxou140', 'class' => 'ppic'), false), '/profil/'. 'maxou140', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Rédacteur
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Pourquoi 140 ? Peut-être parce qu'il aime passer en revue la liste des 140 pilotes de séries pour la saison prochaine ? Ou qu'il regarde 140 fois les taux érectiles ? C'est un mystère.
 						</blockquote>
 					</div>
 				</div>
@@ -753,37 +813,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 					<div class="status">
 						<blockquote>
 							Fan des beaux gosses vampires de <strong>The Vampire Diaries</strong>, elle a finalement succombé à leur charme et est partie les rejoindre.
-						</blockquote>
-					</div>
-				</div>
-			</div>
-
-			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Koss', '/profil/'. 'Koss', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('costheboss_007@hotmail.com', 53, array('alt' => 'Koss', 'class' => 'ppic'), false), '/profil/'. 'Koss', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Rédacteur
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Koss a deux passions dans la vie : écrire des trucs sur le web et troller. Surtout troller en fait. Mais personne n'est dupe : on sait bien qu'il aime
-							<strong>Breaking Bad</strong>.
 						</blockquote>
 					</div>
 				</div>
