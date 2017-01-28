@@ -28,7 +28,7 @@
  <div id="edit-avatar" style="display:none;">
      <h2 class="red">Ajouter/Changer son avatar</h2>
      <br /><br />
- 	 <p class="suite">Série All utilise le systême <?php echo $html->link('Gravatar', 'http://fr.gravatar.com'); ?> pour les avatars de ses utilisateurs. <?php echo $html->link('Gravatar', 'http://fr.gravatar.com'); ?> est un site qui permet d'associer votre avatar à votre adresse mail. <br /><br />Ainsi sur n'importe quel site qui utilise <?php echo $html->link('Gravatar', 'http://fr.gravatar.com'); ?>, il suffira de lui indiquer votre adresse mail afin qu'il affiche votre avatar.</p>
+ 	 <p class="suite">Série All utilise le systême <?php echo $html->link('Gravatar', 'http://fr.gravatar.com'); ?> pour les avatars de ses utilisateurs. <?php echo $html->link('Gravatar', 'https://fr.gravatar.com'); ?> est un site qui permet d'associer votre avatar à votre adresse mail. <br /><br />Ainsi sur n'importe quel site qui utilise <?php echo $html->link('Gravatar', 'https://fr.gravatar.com'); ?>, il suffira de lui indiquer votre adresse mail afin qu'il affiche votre avatar.</p>
     <br />
     <ul class="play">
     	<li>Rendez-vous sur <?php echo $html->link('cette page', 'http://fr.gravatar.com/site/signup', array('target' => '_blank', 'class' => 'decoblue')); ?> pour créér votre compte Gravatar</li>
