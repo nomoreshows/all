@@ -55,7 +55,7 @@
                     <ul class="answers-poll">
                     <?php foreach($question['Answer'] as $j => $answer): ?>
                     	<li>
-                        <?php echo $html->image('icons/checkbox2.png', array('class' => 'absmiddle')); ?>
+                        <?php echo $html->image('icons/checkbox.png', array('class' => 'absmiddle')); ?>
                           <?php #if($answer['winner'] == 1) echo '<strong>' . $answer['name'] . '</strong>'; else echo $answer['name'];
 												#echo '<span class="grey"> (' . $answer['porcent'] . '%)</span>';
                                                 echo $answer['name'];
