@@ -1,5 +1,5 @@
-﻿	<?php $this->pageTitle = 'Série-All Awards - Election des meilleurs séries de 2015'; 
-    echo $html->meta('description', 'Participez à l\'élection des meilleurs séries, acteurs, nouveautés de 2014 et des pires...', array('type'=>'description'), false); 
+﻿	<?php $this->pageTitle = 'Série-All Awards - Election des meilleurs séries de 2016';
+    echo $html->meta('description', 'Participez à l\'élection des meilleurs séries, acteurs, nouveautés de 2016 et des pires...', array('type'=>'description'), false);
 	?>
     
 
@@ -44,8 +44,8 @@
                     <?php foreach($question['Answer'] as $j => $answer):
                     // images
 					if (!empty($answer['img'])) {
-						echo $ajax->link($html->image($answer['img'], array('class' => 'answer-img')), array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false));
-						#echo $html->image($answer['img'], array('class' => 'answer-img'));
+						#echo $ajax->link($html->image($answer['img'], array('class' => 'answer-img')), array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false));
+						echo $html->image($answer['img'], array('class' => 'answer-img'));
 					}
                     endforeach; 
 					?>   
@@ -58,8 +58,8 @@
                         <?php echo $html->image('icons/checkbox2.png', array('class' => 'absmiddle')); ?>
                           <?php #if($answer['winner'] == 1) echo '<strong>' . $answer['name'] . '</strong>'; else echo $answer['name'];
 												#echo '<span class="grey"> (' . $answer['porcent'] . '%)</span>';
-												
-												echo $ajax->link($answer['name'], array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false, 'class' => 'nodeco')); ?>
+                                                echo $html->image($answer['name']);
+												#echo $ajax->link($answer['name'], array('controller' => 'votes','action' => 'add', $answer['id'], $question['id'], $polls['Poll']['id'], $session->read('Auth.User.id')), array('update' => 'answer' . $answer['id'], 'escape' => false, 'class' => 'nodeco')); ?>
 						
                         <div id="answer<?php echo $answer['id']; ?>" class="answers-vote"></div>
 						</li>
