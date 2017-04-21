@@ -51,35 +51,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 				</div>
 			</div>
 
-			<div class="redacteur">
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Elpiolito', '/profil/'. 'elpiolito', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('jojo.jumper@hotmail.fr', 53, array('alt' => 'elpiolito', 'class' => 'ppic'), false), '/profil/'. 'elpiolito', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Webmaster à la retraite
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Le saviez-vous ? C'est une marmotte qui est aux commandes du site. Et une marmotte susceptible en plus, surtout quand on critique le brushing de <strong>MacGyver</strong>. Mais personne n'est dupe : sous ses airs de vieux ronchon se cache en fait un c&oelig;ur en guimauve...
-						</blockquote>
-					</div>
-				</div>
-			</div>
 			
 			<div class="redacteur">
 				<div class="block-name">
@@ -394,7 +365,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="block-role">
 						<p class="role">
-							Webmaster
+							Webmaster à la retraite
 						</p>
 						<div class="dot">
 						</div>
@@ -404,6 +375,36 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 						<blockquote>
 							Capable de pirater les serveurs du FBI avec une Gameboy, il a créé le site actuel avant d'en devenir le responsable officiel. Depuis, il a délégué tout le boulot et passe
 							la journée assis dans son fauteuil en cuir, à regarder son empire.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
+			<div class="redacteur">
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Elpiolito', '/profil/'. 'elpiolito', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('jojo.jumper@hotmail.fr', 53, array('alt' => 'elpiolito', 'class' => 'ppic'), false), '/profil/'. 'elpiolito', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Webmaster à la retraite
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Le saviez-vous ? C'est une marmotte qui est aux commandes du site. Et une marmotte susceptible en plus, surtout quand on critique le brushing de <strong>MacGyver</strong>. Mais personne n'est dupe : sous ses airs de vieux ronchon se cache en fait un c&oelig;ur en guimauve...
 						</blockquote>
 					</div>
 				</div>
