@@ -404,7 +404,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Le saviez-vous ? C'est une marmotte qui est aux commandes du site. Et une marmotte susceptible en plus, surtout quand on critique le brushing de <strong>MacGyver</strong>. Mais personne n'est dupe : sous ses airs de vieux ronchon se cache en fait un c&oelig;ur en guimauve...
+							Le saviez-vous ? Jadis, une marmotte était aux commandes du site. Et une marmotte susceptible en plus, surtout quand on critiquait le brushing de <strong>MacGyver</strong>. Mais personne n'était dupe : sous ses airs de vieux ronchon se cachait en fait un c&oelig;ur en guimauve...
 						</blockquote>
 					</div>
 				</div>
