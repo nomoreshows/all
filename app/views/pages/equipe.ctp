@@ -505,36 +505,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 				</div>
 			</div>
 
-			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Arnoglas', '/profil/'. 'Arnoglas', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('arnoglas@hotmail.com', 53, array('alt' => 'Arnoglas', 'class' => 'ppic'), false), '/profil/'. 'Arnoglas', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Rédacteur
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Challenger d'Alanparish pour le record du nombre de critiques publiées à la bourre, il aimait aussi se lancer des défis de l'impossible comme regarder l'intégrale <strong>Doctor Who</strong> en un mois. Oui, on est des fous à Série-All.
-						</blockquote>
-					</div>
-				</div>
-			</div>
 
 			<div class="redacteur">
 
