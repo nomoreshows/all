@@ -301,7 +301,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Passionné de séries (et surtout celles de super-héros), le nombre considérable d'articles qu'il écrit nous fait supposer deux choses : soit il exploite des enfants chinois dans son grenier, soit il porte lui-même un masque et des collants.
+							Passionné de séries de super-héros, le nombre considérable d'articles qu'il écrit nous fait supposer deux choses : soit il exploite des enfants chinois dans son grenier, soit il porte lui-même un masque et des collants.
 						</blockquote>
 					</div>
 				</div>
