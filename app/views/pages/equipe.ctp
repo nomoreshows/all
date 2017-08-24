@@ -96,6 +96,37 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 				<div class="block-name">
 					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Blip', '/profil/'. 'Blip', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('blip@hotmail.fr', 53, array('alt' => 'Blip', 'class' => 'ppic'), false), '/profil/'. 'Blip', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Relecteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Personnage mystérieux, chasseur de fautes d'orthographe, son amour pour les <strong>Shadoks</strong> n'a d'égale que sa passion pour les E dans l'O.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
 						<span class="pseudo"><?php echo $html->link('Cail1', '/profil/'. 'Cail1', array('escape' => false, 'class' => 'nodeco'))?></span>
 					</p>
 					<div class="name-separator">
