@@ -104,7 +104,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 				<div class="profil">
 					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('blip@hotmail.fr', 53, array('alt' => 'Blip', 'class' => 'ppic'), false), '/profil/'. 'Blip', array('escape' => false));   ?>
+						<?php  echo $html->link($gravatar->image('filinn.blip@gmail.com', 53, array('alt' => 'Blip', 'class' => 'ppic'), false), '/profil/'. 'Blip', array('escape' => false));   ?>
 					</div>
 
 					<div class="block-role">
