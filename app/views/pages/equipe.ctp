@@ -96,6 +96,37 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 				<div class="block-name">
 					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Blip', '/profil/'. 'Blip', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('blip@hotmail.fr', 53, array('alt' => 'Blip', 'class' => 'ppic'), false), '/profil/'. 'Blip', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Relecteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Personnage mystérieux, chasseur de fautes d'orthographe, son amour pour les <strong>Shadoks</strong> n'a d'égale que sa passion pour les E dans l'O.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
 						<span class="pseudo"><?php echo $html->link('Cail1', '/profil/'. 'Cail1', array('escape' => false, 'class' => 'nodeco'))?></span>
 					</p>
 					<div class="name-separator">
@@ -301,7 +332,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Passionné de séries (et surtout celles de super-héros), le nombre considérable d'articles qu'il écrit nous fait supposer deux choses : soit il exploite des enfants chinois dans son grenier, soit il porte lui-même un masque et des collants.
+							Passionné de séries de super-héros, le nombre considérable d'articles qu'il écrit nous fait supposer deux choses : soit il exploite des enfants chinois dans son grenier, soit il porte lui-même un masque et des collants.
 						</blockquote>
 					</div>
 				</div>
@@ -404,7 +435,7 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 					<div class="status">
 						<blockquote>
-							Le saviez-vous ? C'est une marmotte qui est aux commandes du site. Et une marmotte susceptible en plus, surtout quand on critique le brushing de <strong>MacGyver</strong>. Mais personne n'est dupe : sous ses airs de vieux ronchon se cache en fait un c&oelig;ur en guimauve...
+							Le saviez-vous ? Jadis, une marmotte était aux commandes du site. Et une marmotte susceptible en plus, surtout quand on critiquait le brushing de <strong>MacGyver</strong>. Mais personne n'était dupe : sous ses airs de vieux ronchon se cachait en fait un c&oelig;ur en guimauve...
 						</blockquote>
 					</div>
 				</div>
@@ -505,36 +536,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 				</div>
 			</div>
 
-			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Arnoglas', '/profil/'. 'Arnoglas', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('arnoglas@hotmail.com', 53, array('alt' => 'Arnoglas', 'class' => 'ppic'), false), '/profil/'. 'Arnoglas', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Rédacteur
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Challenger d'Alanparish pour le record du nombre de critiques publiées à la bourre, il aimait aussi se lancer des défis de l'impossible comme regarder l'intégrale <strong>Doctor Who</strong> en un mois. Oui, on est des fous à Série-All.
-						</blockquote>
-					</div>
-				</div>
-			</div>
 
 			<div class="redacteur">
 
