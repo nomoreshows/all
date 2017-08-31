@@ -44,7 +44,7 @@ $('a[rel*=facebox]').facebox();
         if ($te > 80) echo "On a hâte !" ;
         ?>
 
-      // Taux érectile : <span><?php echo $te; ?>%</span></p>
+      #Taux érectile : <span><?php echo $te; ?>%</span></p>
 	  <?php  }?>
 		</div>
 		
@@ -63,7 +63,7 @@ $('a[rel*=facebox]').facebox();
                         if ($te > 60 && $te <= 80) A surveiller de près ;
                         if ($te > 80) On a hâte ! ;
                         ?>
-			  //Taux érectile : <strong><?php echo $te; ?>%</strong>
+			  #Taux érectile : <strong><?php echo $te; ?>%</strong>
 			</span></div><br /><br />
   		<?php  }?>
 		
