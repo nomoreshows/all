@@ -43,6 +43,7 @@ $('a[rel*=facebox]').facebox();
         if ($te > 60 && $te <= 80) echo "A surveiller de près" ;
         if ($te > 80) echo "On a hâte !" ;
         ?>
+      </p>
 
       #Taux érectile : <span><?php echo $te; ?>%</span></p>
 	  <?php  }?>
@@ -101,6 +102,8 @@ $('a[rel*=facebox]').facebox();
 				$date = 'Automne-Hiver 2016-2017';
 			}elseif($show['Show']['diffusionus'] == '2017-06-01') {
 				$date = 'Printemps-Été 2017';
+		    }elseif($show['Show']['diffusionus'] == '2017-12-01') {
+                $date = 'Automne-Hiver 2017-2018';
 			}else {
   				$timestamp = strtotime($show['Show']['diffusionus']); 
   				$date = 'A partir du ' . strftime("%d %B %Y", $timestamp); 
