@@ -35,7 +35,14 @@ $('a[rel*=facebox]').facebox();
 			<h2><span><?php echo $html->link($show['Show']['name'], '/serie/' . $show['Show']['menu'], array('class' => 'nodeco')); ?></span></h2>
       <p class="chanel"><span><?php echo $show['Show']['chaineus']; ?></span></p>
 	  <?php if($te){?>
-      <p class="teshow teshow<?php echo $te_color; ?>">Taux érectile : <span><?php echo $te; ?>%</span></p>
+      <p class="teshow teshow<?php echo $te_color; ?>">
+        if ($te <= 20) A éviter à tout prix ;
+        if ($te > 20 && $te <= 40) Ça sent pas bon ;
+        if ($te > 40 && $te <= 60) Bof, Bof ;
+        if ($te > 60 && $te <= 80) A surveiller de près ;
+        if ($te > 80) On a hâte ! ;
+
+      // Taux érectile : <span><?php echo $te; ?>%</span></p>
 	  <?php  }?>
 		</div>
 		
