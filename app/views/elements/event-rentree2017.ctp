@@ -45,7 +45,6 @@ $('a[rel*=facebox]').facebox();
         ?>
       </p>
 
-      #Taux érectile : <span><?php echo $te; ?>%</span></p>
 	  <?php  }?>
 		</div>
 		
@@ -58,13 +57,12 @@ $('a[rel*=facebox]').facebox();
 		<?php if($te){?>
 			<div id="te"><span class="expand <?php echo $te_color; ?>">
                 <?php
-                        if ($te <= 20) A éviter à tout prix ;
-                        if ($te > 20 && $te <= 40) Ça sent pas bon ;
-                        if ($te > 40 && $te <= 60) Bof, Bof ;
-                        if ($te > 60 && $te <= 80) A surveiller de près ;
-                        if ($te > 80) On a hâte ! ;
+                        if ($te <= 20) echo "A éviter à tout prix" ;
+                        if ($te > 20 && $te <= 40) echo "Ça sent pas bon" ;
+                        if ($te > 40 && $te <= 60) echo "Bof, Bof" ;
+                        if ($te > 60 && $te <= 80) echo "A surveiller de près" ;
+                        if ($te > 80) echo "On a hâte" ! ;
                         ?>
-			  #Taux érectile : <strong><?php echo $te; ?>%</strong>
 			</span></div><br /><br />
   		<?php  }?>
 		
