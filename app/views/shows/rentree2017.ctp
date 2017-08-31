@@ -76,7 +76,7 @@
     </table>
     
     <div id="listeSerieRentree">
-    	<?php echo $this->element('event-rentree2017'); ?>
+    	<?php echo $this->element('event-rentree2012'); ?>
     </div>
     
     </div>
