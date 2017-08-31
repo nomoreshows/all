@@ -776,7 +776,7 @@ function rentree2017($filter)
     $this->set('filterTitle', $filterTitle);
     if ($filter != 'start') {
         $this->layout = 'none';
-        $this->render('/elements/event-rentree2012');
+        $this->render('/elements/event-rentree2017');
     }
 }
 	
