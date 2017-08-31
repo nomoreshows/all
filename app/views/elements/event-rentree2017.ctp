@@ -35,7 +35,17 @@ $('a[rel*=facebox]').facebox();
 			<h2><span><?php echo $html->link($show['Show']['name'], '/serie/' . $show['Show']['menu'], array('class' => 'nodeco')); ?></span></h2>
       <p class="chanel"><span><?php echo $show['Show']['chaineus']; ?></span></p>
 	  <?php if($te){?>
-      <p class="teshow teshow<?php echo $te_color; ?>">Taux érectile : <span><?php echo $te; ?>%</span></p>
+      <p class="teshow teshow<?php echo $te_color; ?>">
+
+      <?php
+          if ($te <= 20) echo "A éviter à tout prix" ;
+          if ($te > 20 && $te <= 40) echo "Ça sent pas bon" ;
+          if ($te > 40 && $te <= 60) echo "Bof, Bof" ;
+          if ($te > 60 && $te <= 80) echo "A surveiller de près" ;
+          if ($te > 80) echo "On a hâte !" ;
+      ?>
+
+      </p>
 	  <?php  }?>
 		</div>
 
@@ -47,7 +57,13 @@ $('a[rel*=facebox]').facebox();
 
 		<?php if($te){?>
 			<div id="te"><span class="expand <?php echo $te_color; ?>">
-			  Taux érectile : <strong><?php echo $te; ?>%</strong>
+			  <?php
+                  if ($te <= 20) echo "A éviter à tout prix" ;
+                  if ($te > 20 && $te <= 40) echo "Ça sent pas bon" ;
+                  if ($te > 40 && $te <= 60) echo "Bof, Bof" ;
+                  if ($te > 60 && $te <= 80) echo "A surveiller de près" ;
+                  if ($te > 80) echo "On a hâte !" ;
+              ?>
 			</span></div><br /><br />
   		<?php  }?>
 
