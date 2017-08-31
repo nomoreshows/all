@@ -576,56 +576,37 @@ class ShowsController extends AppController {
 	}
 
 // RENTREE 2017
-function rentree2017($filter) {
+function rentree2017($filter)
+{
     $this->layout = 'default';
     $contain = array('Season', 'Article');
 
-    switch($filter) {
+    switch ($filter) {
 
         case 'all':
             $filterTitle = 'Toutes les nouveautés';
-            $shows = $this->Show->find('all', array(
-                'conditions' => array('Show.is_rentree2017' => true),
-                'contain' => $contain,
-                'order' => 'diffusionus ASC'
-            ));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true), 'contain' => $contain, 'order' => 'diffusionus ASC'));
             break;
 
         case 'start':
         case 'tePositif':
             $filterTitle = 'Les séries les plus prometteuses';
-            $shows = $this->Show->find('all', array(
-                'conditions' => array('Show.is_rentree2017 = 1 AND Show.te_rentree > 49'),
-                'contain' => $contain,
-                'order' => 'diffusionus ASC'
-            ));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017 = 1 AND Show.te_rentree > 49'), 'contain' => $contain, 'order' => 'diffusionus ASC'));
             break;
 
         case 'teNeutre':
             $filterTitle = 'Les séries dont on n\'attend pas grand-chose';
-            $shows = $this->Show->find('all', array(
-                'conditions' => array('Show.is_rentree2017 = 1 AND Show.te_rentree < 50 AND Show.te_rentree > 19'),
-                'contain' => $contain,
-                'order' => 'diffusionus ASC'
-            ));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017 = 1 AND Show.te_rentree < 50 AND Show.te_rentree > 19'), 'contain' => $contain, 'order' => 'diffusionus ASC'));
             break;
 
         case 'teNegatif':
             $filterTitle = 'On vous conseille vivement d\'éviter de les croiser';
-            $shows = $this->Show->find('all', array(
-                'conditions' => array('Show.is_rentree2017 = 1 AND Show.te_rentree < 20 AND Show.te_rentree >= 0'),
-                'contain' => $contain,
-                'order' => 'diffusionus ASC'
-            ));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017 = 1 AND Show.te_rentree < 20 AND Show.te_rentree >= 0'), 'contain' => $contain, 'order' => 'diffusionus ASC'));
             break;
 
         case 'teNone':
             $filterTitle = 'On ne se prononce pas';
-            $shows = $this->Show->find('all', array(
-                'conditions' => array('Show.is_rentree2017 = 1 AND Show.te_rentree IS NULL'),
-                'contain' => $contain,
-                'order' => 'diffusionus ASC'
-            ));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017 = 1 AND Show.te_rentree IS NULL'), 'contain' => $contain, 'order' => 'diffusionus ASC'));
             break;
 
         case 'popular':
@@ -692,7 +673,7 @@ function rentree2017($filter) {
             $filterTitle = 'Les nouvelles séries policières';
             $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 10), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
-            foreach($shows as $i => $show) {
+            foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
                 unset($shows[$i]);
                 $shows[$i]['Show'] = $tmpshow;
@@ -702,7 +683,7 @@ function rentree2017($filter) {
             $filterTitle = 'Les nouveaux animés';
             $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 15), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
-            foreach($shows as $i => $show) {
+            foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
                 unset($shows[$i]);
                 $shows[$i]['Show'] = $tmpshow;
@@ -712,7 +693,7 @@ function rentree2017($filter) {
             $filterTitle = 'Les nouvelles séries d\'horreur';
             $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 16), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
-            foreach($shows as $i => $show) {
+            foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
                 unset($shows[$i]);
                 $shows[$i]['Show'] = $tmpshow;
@@ -722,7 +703,7 @@ function rentree2017($filter) {
             $filterTitle = 'Les nouvelles séries de science-fiction';
             $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 11), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
-            foreach($shows as $i => $show) {
+            foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
                 unset($shows[$i]);
                 $shows[$i]['Show'] = $tmpshow;
@@ -733,7 +714,7 @@ function rentree2017($filter) {
             $filterTitle = 'Les nouvelles comédies';
             $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 3), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
-            foreach($shows as $i => $show) {
+            foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
                 unset($shows[$i]);
                 $shows[$i]['Show'] = $tmpshow;
@@ -744,7 +725,7 @@ function rentree2017($filter) {
             $filterTitle = 'Les nouveaux dramas';
             $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 5), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
-            foreach($shows as $i => $show) {
+            foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
                 unset($shows[$i]);
                 $shows[$i]['Show'] = $tmpshow;
@@ -755,7 +736,7 @@ function rentree2017($filter) {
             $filterTitle = 'Les nouvelles séries fantastiques';
             $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id = 7'), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
-            foreach($shows as $i => $show) {
+            foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
                 unset($shows[$i]);
                 $shows[$i]['Show'] = $tmpshow;
@@ -797,6 +778,7 @@ function rentree2017($filter) {
         $this->layout = 'none';
         $this->render('/elements/event-rentree2012');
     }
+}
 	
 	// RENTREE 2016
 	function rentree2016($filter) {
