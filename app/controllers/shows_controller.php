@@ -621,57 +621,57 @@ function rentree2017($filter)
 
         case 'abc':
             $filterTitle = 'Les séries d\'ABC (Lost, Murder, Modern Family...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'ABC (US)'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus' => 'ABC (US)'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'hbo':
             $filterTitle = 'Les séries de HBO (The Wire, Game of Thrones, The Leftovers...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'HBO'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus' => 'HBO'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'syfy':
             $filterTitle = 'Les séries de SYFY (Battlestar Galactica, Z Nation, The Expanse...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'Syfy'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus' => 'Syfy'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'amazon':
             $filterTitle = 'Les séries de Amazon (Transparent, Mozart in the Jungle...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'Amazon'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus' => 'Amazon'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'nbc':
             $filterTitle = 'Les séries de NBC (Community, The Blacklist, Chicago P.D...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'NBC'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus' => 'NBC'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'cw':
             $filterTitle = 'Les séries de CW (Supernatural, The 100, Flash, Arrow...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus LIKE "%CW%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus LIKE "%CW%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'showtime':
             $filterTitle = 'Les séries de Showtime (Dexter, Californication...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'Showtime'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus' => 'Showtime'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'cbs':
             $filterTitle = 'Les séries de CBS (NCIS, The Big Bang Theory, Esprits Criminels...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus' => 'CBS'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus' => 'CBS'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'fox':
             $filterTitle = 'Les séries de FOX (Dr. House, Simpsons, Bones, Empire...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus LIKE "%FOX%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus LIKE "%FOX%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'netflix':
             $filterTitle = 'Les séries de Netflix (House of Cards, Sense8...)';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.chaineus LIKE "%Netflix%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.chaineus LIKE "%Netflix%"'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'police':
             $filterTitle = 'Les nouvelles séries policières';
-            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 10), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
+            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 10), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2017' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
             foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
@@ -681,7 +681,7 @@ function rentree2017($filter)
             break;
         case 'anime':
             $filterTitle = 'Les nouveaux animés';
-            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 15), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
+            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 15), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2017' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
             foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
@@ -691,7 +691,7 @@ function rentree2017($filter)
             break;
         case 'horreur':
             $filterTitle = 'Les nouvelles séries d\'horreur';
-            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 16), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
+            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 16), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2017' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
             foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
@@ -701,7 +701,7 @@ function rentree2017($filter)
             break;
         case 'sf':
             $filterTitle = 'Les nouvelles séries de science-fiction';
-            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 11), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
+            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 11), 'contain' => array('Season', 'Show' => array('conditions' => array('Show.is_rentree2017' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
             foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
@@ -712,7 +712,7 @@ function rentree2017($filter)
 
         case 'comic':
             $filterTitle = 'Les nouvelles comédies';
-            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 3), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
+            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 3), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2017' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
             foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
@@ -723,7 +723,7 @@ function rentree2017($filter)
 
         case 'drama':
             $filterTitle = 'Les nouveaux dramas';
-            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 5), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
+            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id' => 5), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2017' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
             foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
@@ -734,7 +734,7 @@ function rentree2017($filter)
 
         case 'fantas':
             $filterTitle = 'Les nouvelles séries fantastiques';
-            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id = 7'), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2016' => true), 'order' => 'diffusionus ASC'))));
+            $shows = $this->Show->Genre->find('all', array('conditions' => array('Genre.id = 7'), 'contain' => array('Season', 'User', 'Role', 'Show' => array('conditions' => array('Show.is_rentree2017' => true), 'order' => 'diffusionus ASC'))));
             $shows = $shows[0]['Show'];
             foreach ($shows as $i => $show) {
                 $tmpshow = $shows[$i];
@@ -745,27 +745,27 @@ function rentree2017($filter)
 
         case 'uk':
             $filterTitle = 'Les séries anglaises';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.nationalite' => 'Anglaise'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.nationalite' => 'Anglaise'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'us':
             $filterTitle = 'Les séries américaines';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.nationalite' => 'Américaine'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.nationalite' => 'Américaine'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'ca':
             $filterTitle = 'Les séries canadiennes';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.nationalite' => 'Canadienne'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.nationalite' => 'Canadienne'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'fr':
             $filterTitle = 'Les séries françaises';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.nationalite' => 'Française'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.nationalite' => 'Française'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         case 'au':
             $filterTitle = 'Les séries australiennes';
-            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2016' => true, 'Show.nationalite' => 'Australienne'), 'order' => 'diffusionus ASC', 'contain' => $contain));
+            $shows = $this->Show->find('all', array('conditions' => array('Show.is_rentree2017' => true, 'Show.nationalite' => 'Australienne'), 'order' => 'diffusionus ASC', 'contain' => $contain));
             break;
 
         default:
