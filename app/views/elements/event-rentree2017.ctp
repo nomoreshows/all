@@ -56,12 +56,13 @@ $('a[rel*=facebox]').facebox();
   		
 		<?php if($te){?>
 			<div id="te"><span class="expand <?php echo $te_color; ?>">
-                if ($te <= 20) A éviter à tout prix ;
-                if ($te > 20 && $te <= 40) Ça sent pas bon ;
-                if ($te > 40 && $te <= 60) Bof, Bof ;
-                if ($te > 60 && $te <= 80) A surveiller de près ;
-                if ($te > 80) On a hâte ! ;
-
+                <?php
+                        if ($te <= 20) A éviter à tout prix ;
+                        if ($te > 20 && $te <= 40) Ça sent pas bon ;
+                        if ($te > 40 && $te <= 60) Bof, Bof ;
+                        if ($te > 60 && $te <= 80) A surveiller de près ;
+                        if ($te > 80) On a hâte ! ;
+                        ?>
 			  //Taux érectile : <strong><?php echo $te; ?>%</strong>
 			</span></div><br /><br />
   		<?php  }?>
