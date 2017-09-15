@@ -51,7 +51,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 				</div>
 			</div>
 
-			
 			<div class="redacteur">
 				<div class="block-name">
 					<p class="name">
@@ -92,6 +91,69 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 
 
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Altair', '/profil/'. 'altair', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('aurelie_bm@yahoo.fr', 53, array('alt' => 'altair', 'class' => 'ppic'), false), '/profil/'. 'altair', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédactrice
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Avec sa collègue Puck, elle se bat chaque jour pour que Série-All devienne une terre d'égalité entre hommes et femmes. Mais comme on dit : "on en reparlera quand il faudra porter des choses lourdes" (non, pas taper, désolé).
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Antofisherb', '/profil/'. 'antofisherb', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('antoninbonneau@hotmail.fr', 53, array('alt' => 'antofisherb', 'class' => 'ppic'), false), '/profil/'. 'antofisherb', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédacteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Il aime des mauvaises séries, mais il en regarde tellement que personne ne le voit. Il est également notre reporter de l'extrême,
+							capable de prouesses de ninja pour nous récupérer un scoop !
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
 			<div class="redacteur">
 
 				<div class="block-name">
@@ -150,6 +212,38 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 						<blockquote>
 							Le sang et les luttes acharnées, c'est sa passion. C'est donc sans surprise qu'il critique <strong>The Walking Dead</strong> et
 							se bat avec le site pour ajouter des séries dans la base de données. On ne sait toujours pas ce qui est le pire.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('CaptainFreeFrag', '/profil/'. 'CaptainFreeFrag', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('rob.zen@hotmail.fr', 53, array('alt' => 'CaptainFreeFrag', 'class' => 'ppic'), false), '/profil/'. 'CaptainFreeFrag', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédacteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Sur le forum, il est de toutes les discussions. Tant et si bien qu'on a eu l'impression qu'il était un rédacteur prolifique. En fait, il n'a
+							critiqué que <strong>The Playboy Club</strong> et <strong>Boss</strong>.
 						</blockquote>
 					</div>
 				</div>
@@ -309,6 +403,38 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 			</div>
 
 			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Puck', '/profil/'. 'Puck', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('absinthe5@free.fr', 53, array('alt' => 'Puck', 'class' => 'ppic'), false), '/profil/'. 'Puck', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédactrice
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Chevalier de l'ordre du Larousse et gardienne du Petit Robert, elle traquait sans relâche les fautes d'ortographe et de grammaire. Aujourd'hui, elle critique quelques
+							séries, pour peu que John Simm soit au casting.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+
+			<div class="redacteur">
 				<div class="block-name">
 					<p class="name">
 						<span class="pseudo"><?php echo $html->link('RasAlGhul', '/profil/'. 'RasAlGhul', array('escape' => false, 'class' => 'nodeco'))?></span>
@@ -333,6 +459,38 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 					<div class="status">
 						<blockquote>
 							Passionné de séries de super-héros, le nombre considérable d'articles qu'il écrit nous fait supposer deux choses : soit il exploite des enfants chinois dans son grenier, soit il porte lui-même un masque et des collants.
+						</blockquote>
+					</div>
+				</div>
+			</div>
+			
+			<div class="redacteur">
+
+				<div class="block-name">
+					<p class="name">
+						<span class="pseudo"><?php echo $html->link('Tan', '/profil/'. 'Tan', array('escape' => false, 'class' => 'nodeco'))?></span>
+					</p>
+					<div class="name-separator">
+					</div>
+				</div>
+
+				<div class="profil">
+					<div class="bg-avatar">
+						<?php  echo $html->link($gravatar->image('morlak_ncr@hotmail.com', 53, array('alt' => 'Tan', 'class' => 'ppic'), false), '/profil/'. 'Tan', array('escape' => false));   ?>
+					</div>
+
+					<div class="block-role">
+						<p class="role">
+							Rédacteur
+						</p>
+						<div class="dot">
+						</div>
+					</div>
+
+					<div class="status">
+						<blockquote>
+							Son rêve absolu est de se transformer en Pinkie Pie, l'un des poneys de <strong>My Little Pony : Friendship is Magic</strong>. En dehors de ça, c'est un garçon
+							plutôt normal.
 						</blockquote>
 					</div>
 				</div>
@@ -473,69 +631,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 				</div>
 			</div>
 
-			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Altair', '/profil/'. 'altair', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('aurelie_bm@yahoo.fr', 53, array('alt' => 'altair', 'class' => 'ppic'), false), '/profil/'. 'altair', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Rédactrice
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Avec sa collègue Puck, elle se battait chaque jour pour que Série-All devienne une terre d'égalité entre hommes et femmes. Mais comme on dit : "on en reparlera quand il faudra porter des choses lourdes" (non, pas taper, désolé).
-						</blockquote>
-					</div>
-				</div>
-			</div>
-
-			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Antofisherb', '/profil/'. 'antofisherb', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('antoninbonneau@hotmail.fr', 53, array('alt' => 'antofisherb', 'class' => 'ppic'), false), '/profil/'. 'antofisherb', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Rédacteur
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Il aimait des mauvaises séries, mais il en regardait tellement que personne ne le voyait. Il était également notre reporter de l'extrême,
-							capable de prouesses de ninja pour nous récupérer un scoop !
-						</blockquote>
-					</div>
-				</div>
-			</div>
-
 
 			<div class="redacteur">
 
@@ -596,38 +691,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 					<div class="status">
 						<blockquote>
 							Ancien critique et Shérif du site (on raconte qu'il avait inspiré Morris pour Lucky Luke), il a été muté dans une autre province que celle de Série-All.
-						</blockquote>
-					</div>
-				</div>
-			</div>
-
-			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('CaptainFreeFrag', '/profil/'. 'CaptainFreeFrag', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('rob.zen@hotmail.fr', 53, array('alt' => 'CaptainFreeFrag', 'class' => 'ppic'), false), '/profil/'. 'CaptainFreeFrag', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Rédacteur
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Sur le forum, il était de toutes les discussions. Tant et si bien qu'on a eu l'impression qu'il était un rédacteur prolifique. En fait, il n'a
-							critiqué que <strong>The Playboy Club</strong> et <strong>Boss</strong>.
 						</blockquote>
 					</div>
 				</div>
@@ -1021,38 +1084,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 
 				<div class="block-name">
 					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Puck', '/profil/'. 'Puck', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('absinthe5@free.fr', 53, array('alt' => 'Puck', 'class' => 'ppic'), false), '/profil/'. 'Puck', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Relectrice
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Chevalier de l'ordre du Larousse et gardienne du Petit Robert, elle traquait sans relâche les fautes d'ortographe et de grammaire. Elle critiquait aussi quelques
-							séries, pour peu que John Simm soit au casting.
-						</blockquote>
-					</div>
-				</div>
-			</div>
-
-			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
 						<span class="pseudo"><?php echo $html->link('OSS', '/profil/'. 'OSS', array('escape' => false, 'class' => 'nodeco'))?></span>
 					</p>
 					<div class="name-separator">
@@ -1174,38 +1205,6 @@ echo $html->meta('description', "Le but premier de Série-All est de vous donner
 						<blockquote>
 							Il fut un temps où il a critiqué <strong>Sons of Anarchy</strong> et <strong>Gossip Girl</strong>, soi-disant une preuve d'ouverture d'esprit.
 							Depuis, il s'est rendu compte de son erreur et s'est exilé dans un monastère.
-						</blockquote>
-					</div>
-				</div>
-			</div>
-
-			<div class="redacteur">
-
-				<div class="block-name">
-					<p class="name">
-						<span class="pseudo"><?php echo $html->link('Tan', '/profil/'. 'Tan', array('escape' => false, 'class' => 'nodeco'))?></span>
-					</p>
-					<div class="name-separator">
-					</div>
-				</div>
-
-				<div class="profil">
-					<div class="bg-avatar">
-						<?php  echo $html->link($gravatar->image('morlak_ncr@hotmail.com', 53, array('alt' => 'Tan', 'class' => 'ppic'), false), '/profil/'. 'Tan', array('escape' => false));   ?>
-					</div>
-
-					<div class="block-role">
-						<p class="role">
-							Rédacteur
-						</p>
-						<div class="dot">
-						</div>
-					</div>
-
-					<div class="status">
-						<blockquote>
-							Son rêve absolu était de se transformer en Pinkie Pie, l'un des poneys de <strong>My Little Pony : Friendship is Magic</strong>. En dehors de ça, c'était un garçon
-							plutôt normal.
 						</blockquote>
 					</div>
 				</div>
