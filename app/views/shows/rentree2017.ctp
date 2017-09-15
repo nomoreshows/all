@@ -48,16 +48,6 @@
 
 		<ul>
     </td>
-    <td width="17%">
-      <h3 class="dblue">Par nationalité :</h3> <br /><br />
-      <ul class="playe lblue">
-        <li><?php echo $ajax->link('Les séries américaines', array('controller' => 'shows', 'action' => 'rentree2017', 'us'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li> 
-        <li><?php echo $ajax->link('Les séries françaises', array('controller' => 'shows', 'action' => 'rentree2017', 'fr'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li> 
-        <li><?php echo $ajax->link('Les séries anglaises', array('controller' => 'shows', 'action' => 'rentree2017', 'uk'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li> 
-        <li><?php echo $ajax->link('Les séries canadiennes', array('controller' => 'shows', 'action' => 'rentree2017', 'ca'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-        <li><?php echo $ajax->link('Les séries australiennes', array('controller' => 'shows', 'action' => 'rentree2017', 'au'), array('class' => 'decoblue', 'update' => 'listeSerieRentree')); ?></li>
-      </ul>
-    </td>
     <td width="33%">
       <h3 class="dblue">Par chaîne :</h3> <br /><br />
       <ul class="playe lblue">
