@@ -85,7 +85,11 @@ $('a[rel*=facebox]').facebox();
 				$date = 'Automne-Hiver 2016-2017';
 			}elseif($show['Show']['diffusionus'] == '2017-06-01') {
 				$date = 'Printemps-Été 2017';
-			}else {
+			}elseif($show['Show']['diffusionus'] == '2017-12-01') {
+            	$date = 'Automne-Hiver 2017-2018';
+            }elseif($show['Show']['diffusionus'] == '2018-06-01') {
+             	$date = 'Printemps-Été 2018';
+            }else {
   				$timestamp = strtotime($show['Show']['diffusionus']); 
   				$date = 'A partir du ' . strftime("%d %B %Y", $timestamp); 
   			} ?>
