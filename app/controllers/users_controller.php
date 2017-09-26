@@ -307,8 +307,8 @@ class UsersController extends AppController {
 				// todo > pagination
 				$notifications = $this->User->Notification->find('all', array('contain'=>false,'conditions' => array('Notification.user_id' => $user['User']['id']), 'limit' => 40));
 				
-				$topepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name >' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name DESC', 'limit' => 10));
-				$flopepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name <' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name ASC', 'limit' => 10));
+// 				$topepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name >' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name DESC', 'limit' => 10));
+// 				$flopepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name <' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name ASC', 'limit' => 10));
 				
 				$this->User->Notification->updateAll (
 					array('Notification.read' => '1'),
@@ -317,8 +317,8 @@ class UsersController extends AppController {
 	
 				$this->set(compact('user'));
 				$this->set(compact('notifications'));
-				$this->set(compact('topepisodes'));
-				$this->set(compact('flopepisodes'));
+// 				$this->set(compact('topepisodes'));
+// 				$this->set(compact('flopepisodes'));
 				
 				$this->render('profil_notifications');
 				
