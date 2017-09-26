@@ -303,7 +303,7 @@ class UsersController extends AppController {
 		case 'notifications':
 			if($this->params['login'] == $this->Auth->user('login')) {
 			
-				$user = $this->User->find('first', array('contain' => array('Comment', 'Rate'), 'conditions' => array('login' => $this->params['login'])));
+// 				$user = $this->User->find('first', array('contain' => array('Comment', 'Rate'), 'conditions' => array('login' => $this->params['login'])));
 				// todo > pagination
 				$notifications = $this->User->Notification->find('all', array('contain'=>false,'conditions' => array('Notification.user_id' => $user['User']['id']), 'limit' => 40));
 				
