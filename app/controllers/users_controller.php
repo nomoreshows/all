@@ -192,7 +192,7 @@ class UsersController extends AppController {
 				$this->render('edit_edito');
 				
 			} else {
-				$moyennes = $this->User->Show->Rate->find('all', array('contain'=>false,'conditions' => array('Rate.user_id' => $user['User']['id']), 'fields' => array('COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
+				$moyennes = $this->User->Show->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id']), 'fields' => array('COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
 				$this->set(compact('moyennes'));
 				
 				$articlescount = $this->User->Article->find('count', array('contain' => false, 'conditions' => array('Article.user_id' => $user['User']['id'])));
