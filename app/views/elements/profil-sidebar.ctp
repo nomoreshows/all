@@ -77,8 +77,8 @@
         </div>
        
        <br />
-       <?php if($cat != 'avis') { ?>
+       <?php /* if($cat != 'avis') { ?>
     	<iframe src="http://www.facebook.com/plugins/likebox.php?id=105365559504009&amp;width=305&amp;connections=15&amp;stream=false&amp;header=true&amp;height=375" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:305px; height:375px; padding-left:5px;" allowTransparency="true"></iframe>
-      <?php } ?>
+      <?php } */?>
         
     </div>
