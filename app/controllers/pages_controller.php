@@ -89,16 +89,16 @@ class PagesController extends AppController {
 			$this->loadModel('Rate');
 			$this->loadModel('Comment');
 			$this->loadModel('Reaction');
-			$limitMaxItemCommu = 38; //Nombre d'items maxi pouvant être affiché dans le volet communauté
+			$limitMaxItemCommu = 38; //Nombre d'items maxi pouvant Ãªtre affichÃ© dans le volet communautÃ©
 
-			// Dernières notes
+			// DerniÃ¨res notes
 			$rates = $this->Rate->find('all', array('order' => array('Rate.created DESC'), 'limit' => $limitMaxItemCommu, 'fields' => array('Rate.name', 'User.login', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero', 'Rate.created')));
 
-            // Dernières avis
+            // DerniÃ¨res avis
 			$lastcomments = $this->Comment->find('all', array('order' => 'Comment.created DESC', 'limit' => $limitMaxItemCommu, 'fields' => array('Comment.thumb', 'User.login', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero', 'Article.id', 'Article.name', 'Article.url', 'Comment.id', 'Comment.text', 'Comment.spoiler','Comment.created')));
 
-			//Dernières réactions
-			//Custom request pour éviter de se payer 300 requetes en plus (cakephp ne fait pas les jointures naturellement)
+			//DerniÃ¨res rÃ©actions
+			//Custom request pour Ã©viter de se payer 300 requetes en plus (cakephp ne fait pas les jointures naturellement)
 			
 			$lastreactions = $this->Reaction->query("SELECT Reaction.created, User.login, User2.login, Sh.name, Sh.menu, Season.name, Episode.numero
 							FROM reactions AS Reaction 
@@ -118,17 +118,17 @@ class PagesController extends AppController {
 			$idreactions = 0;
 			$commuDataToShow = array();
 			
-			//Tant que l'on a pas le nombre d'items (notes, avis, reactions) désirées pour remplir la colonne communauté
+			//Tant que l'on a pas le nombre d'items (notes, avis, reactions) dÃ©sirÃ©es pour remplir la colonne communautÃ©
 			while($nbCommuDataToShow < $limitMaxItemCommu){
-				if($rates[$idRates]['Rate']['created'] < $lastcomments[$idComments]['Comment']['created'] && $lastreactions[$idreactions]['Reaction']['created'] < $lastcomments[$idComments]['Comment']['created']){
+				if($rates[$idRates]['Rate']['created'] <= $lastcomments[$idComments]['Comment']['created'] && $lastreactions[$idreactions]['Reaction']['created'] <= $lastcomments[$idComments]['Comment']['created']){
 					//commentaire
 					$commuDataToShow[] = $lastcomments[$idComments];
-					$idComments ++;
 					if(empty($lastcomments[$idComments]['Article']['id'])) {
 						//Les avis comptent pour deux places
 						$nbCommuDataToShow++;
 					}
-				}else if($rates[$idRates]['Rate']['created'] > $lastcomments[$idComments]['Comment']['created'] && $lastreactions[$idreactions]['Reaction']['created'] < $rates[$idRates]['Rate']['created']){
+					$idComments ++;
+				}else if($lastcomments[$idComments]['Comment']['created'] <= $rates[$idRates]['Rate']['created'] && $lastreactions[$idreactions]['Reaction']['created'] <= $rates[$idRates]['Rate']['created']){
 					//note
 					$commuDataToShow[] = $rates[$idRates];
 					$idRates ++;
@@ -140,7 +140,7 @@ class PagesController extends AppController {
 				$nbCommuDataToShow++;
 			}
 			
-			//tableau des elemnst pour la colonne communauté
+			//tableau des elemnst pour la colonne communautÃ©
 			$this->set(compact('commuDataToShow'));
 			
 			// Notes de l'utilisateur + Avis
@@ -191,7 +191,7 @@ class PagesController extends AppController {
 			));
 			
 
-			// A la une : article une et articles spéciaux
+			// A la une : article une et articles spÃ©ciaux
 			// $articlesspecial = $this->Article->find('all', array('conditions' => array('Article.etat' = 1, 'Article.une' = 2));
 			$articlesdoubleune = $this->Article->find('all', array(
 				'conditions' => array('Article.etat' => 1, 'Article.une' => 2),
@@ -207,7 +207,7 @@ class PagesController extends AppController {
 				'limit' => $reste
 			));
 			
-			//News et vidéows
+			//News et vidÃ©ows
 			$news = $this->Article->find('all', array(
 				'conditions' => array('Article.category' => array('news', 'video'), 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
@@ -215,7 +215,7 @@ class PagesController extends AppController {
 				'limit' => 5
 			));
 			
-			//Tous les articles sauf critiques, news et vidéos
+			//Tous les articles sauf critiques, news et vidÃ©os
 			$articles = $this->Article->find('all', array(
 				'conditions' => '(Article.category = "dossier" OR Article.category = "chronique" OR Article.category = "bilan" OR Article.category = "podcast" OR Article.category = "focus" OR Article.category = "critique") AND Article.etat = 1',
 				'fields' => array('Show.name', 'Show.menu', 'Article.url', 'Article.caption', 'Article.name', 'Article.created', 'Article.chapo', 'Article.photo', 'Article.show_id'),
@@ -246,7 +246,7 @@ class PagesController extends AppController {
 			
 			// si la lecture s'est bien passee, on lit les elements 
 			if (is_array($rss->items)) { 
-				// on ne récupère que les éléments les plus récents 
+				// on ne rÃ©cupÃ¨re que les Ã©lÃ©ments les plus rÃ©cents 
 				$items = array_slice($rss->items, 0, $nb_items_affiches); 
 				
 				// debut de la liste
@@ -254,13 +254,13 @@ class PagesController extends AppController {
 				$html = "<ul class='playe'>\n"; // boucle sur tous les elements 
 				foreach ($items as $item) { 
 					$html .= "<li><a class='decoblue' href='". $item['link']."'>"; 
-					$html .= $item['title']."</a> <span class='grey'>". strftime("créé le %d/%m/%Y", $item['date_timestamp'])." </li>\n";
+					$html .= $item['title']."</a> <span class='grey'>". strftime("crÃ©Ã© le %d/%m/%Y", $item['date_timestamp'])." </li>\n";
 				} 
 				$html .= "</ul>\n"; 
 			} 
 			*/
 			
-			// retourne le code HTML à inclure dans la page 
+			// retourne le code HTML Ã  inclure dans la page 
 			$this->set('rssforum', '');
 			
 			break;
