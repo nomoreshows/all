@@ -179,8 +179,8 @@ class RatesController extends AppController {
 		
 		// Si la note est remplie
 		if (!empty($this->data) && !empty($this->data['Rate']['name'])) {
-			$note = $this->data['Rate']['name'] ;
-			if($note >= 0 && $note <= 20){
+// 			$note = $this->data['Rate']['name'] ;
+// 			if($note >= 0 && $note <= 20){
 				// Si note > 15 et < 10
 				if($this->data['Rate']['name'] > 15 or $this->data['Rate']['name'] < 10) {
 
@@ -202,11 +202,11 @@ class RatesController extends AppController {
 					// note normale, on autorise
 					$continue = true;
 				}
-			}else{
-				//Note non comprise entre 0 et 20 (modification via outils de développement)
-				$continue = false;
-				$result = "Votre note doit être comprise entre 0 et 20.";
-			}
+// 			}else{
+// 				//Note non comprise entre 0 et 20 (modification via outils de développement)
+// 				$continue = false;
+// // 				$result = "Votre note doit être comprise entre 0 et 20.";
+// 			}
 		} else {
 			// pas de note sélectionnée
 			$continue = false;
