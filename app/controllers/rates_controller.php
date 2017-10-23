@@ -22,12 +22,11 @@ class RatesController extends AppController {
 			if($note >= 0 && $note <= 20){
 				// Si note > 15 et < 10
 				if($note  > 15 or $note  < 10) {
-
 					$alreadyavis = $this->Rate->Episode->Comment->find('all', array('conditions' => array('Comment.user_id' => $this->data['Rate']['user_id'], 'Comment.show_id' => $this->data['Rate']['show_id'], 'Comment.season_id' => $this->data['Rate']['season_id'], 'Comment.episode_id' => $this->data['Rate']['episode_id'])));	
 					if (count($alreadyavis) == 0) {
 						// doit d'abord écrire un avis
 						$continue = false;
-						if($note > 15) {
+						if($this->data['Rate']['name'] > 15) {
 							$result = "Vous devez d'abord écrire un avis justifiant votre note haute.";
 						} else {
 							$result = "Vous devez d'abord écrire un avis justifiant votre note basse.";
@@ -36,7 +35,6 @@ class RatesController extends AppController {
 						// avis écrit, good to go
 						$continue = true;
 					}
-
 				} else {
 					// note normale, on autorise
 					$continue = true;
