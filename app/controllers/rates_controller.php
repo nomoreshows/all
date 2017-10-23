@@ -172,7 +172,7 @@ class RatesController extends AppController {
 		$continue = false;
 		
 		// Si la note est remplie
-		if (!empty($this->data) && !empty($this->data['Rate']['name'])) {
+		if (!empty($this->data) && (!empty($this->data['Rate']['name']) || $this->data['Rate']['name'] == 0) ) {
 			$note = $this->data['Rate']['name'] ;
 			if($note >= 0 && $note <= 20){
 				// Si note > 15 et < 10
