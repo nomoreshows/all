@@ -27,7 +27,7 @@ class RatesController extends AppController {
 					if (count($alreadyavis) == 0) {
 						// doit d'abord écrire un avis
 						$continue = false;
-						if($this->data['Rate']['name'] > 15) {
+						if($note > 15) {
 							$result = "Vous devez d'abord écrire un avis justifiant votre note haute.";
 						} else {
 							$result = "Vous devez d'abord écrire un avis justifiant votre note basse.";
