@@ -18,27 +18,31 @@ class RatesController extends AppController {
 		
 		// Si la note est remplie
 		if (!empty($this->data) && !empty($this->data['Rate']['name'])) {
-			
-			// Si note > 15 et < 10
-			if($this->data['Rate']['name'] > 15 or $this->data['Rate']['name'] < 10) {
-				
-				$alreadyavis = $this->Rate->Episode->Comment->find('all', array('conditions' => array('Comment.user_id' => $this->data['Rate']['user_id'], 'Comment.show_id' => $this->data['Rate']['show_id'], 'Comment.season_id' => $this->data['Rate']['season_id'], 'Comment.episode_id' => $this->data['Rate']['episode_id'])));	
-				if (count($alreadyavis) == 0) {
-					// doit d'abord écrire un avis
-					$continue = false;
-					if($this->data['Rate']['name'] > 15) {
-						$result = "Vous devez d'abord écrire un avis justifiant votre note haute.";
+			$note = $this->data['Rate']['name'] ;
+			if($note >= 0 && $note <= 20){
+				// Si note > 15 et < 10
+				if($note  > 15 or $note  < 10) {
+					$alreadyavis = $this->Rate->Episode->Comment->find('all', array('conditions' => array('Comment.user_id' => $this->data['Rate']['user_id'], 'Comment.show_id' => $this->data['Rate']['show_id'], 'Comment.season_id' => $this->data['Rate']['season_id'], 'Comment.episode_id' => $this->data['Rate']['episode_id'])));	
+					if (count($alreadyavis) == 0) {
+						// doit d'abord écrire un avis
+						$continue = false;
+						if($this->data['Rate']['name'] > 15) {
+							$result = "Vous devez d'abord écrire un avis justifiant votre note haute.";
+						} else {
+							$result = "Vous devez d'abord écrire un avis justifiant votre note basse.";
+						}
 					} else {
-						$result = "Vous devez d'abord écrire un avis justifiant votre note basse.";
+						// avis écrit, good to go
+						$continue = true;
 					}
 				} else {
-					// avis écrit, good to go
+					// note normale, on autorise
 					$continue = true;
 				}
-				
-			} else {
-				// note normale, on autorise
-				$continue = true;
+			}else{
+				//Note non comprise entre 0 et 20 (modification via outils de développement)
+				$continue = false;
+				$result = "Votre note doit être comprise entre 0 et 20.";
 			}
 			
 		} else {
@@ -80,12 +84,10 @@ class RatesController extends AppController {
 					$this->Rate->Season->saveField('nbnotes', $totalnotes);
 					
 					/* ajout +1 aux total des notes series*/
-
 					$show = $this->Rate->Show->find('first', array('conditions' => array('Show.id' => $this->data['Rate']['show_id']), array('contain' => false), 'fields' => array('Show.id', 'Show.nbnotes')));
 					$nbRates = $this->Rate->find('count', array('conditions' => array('Show.id' => $this->data['Rate']['show_id'])));
 			
 					$totalnotes = $nbRates + 1;
-
 					$this->Rate->Show->id = $this->data['Rate']['show_id'];
 					$this->Rate->Show->saveField('nbnotes', $totalnotes);
 										
@@ -170,28 +172,33 @@ class RatesController extends AppController {
 		$continue = false;
 		
 		// Si la note est remplie
-		if (!empty($this->data) && !empty($this->data['Rate']['name'])) {
-			
-			// Si note > 15 et < 10
-			if($this->data['Rate']['name'] > 15 or $this->data['Rate']['name'] < 10) {
-				
-				$alreadyavis = $this->Rate->Episode->Comment->find('all', array('conditions' => array('Comment.user_id' => $this->data['Rate']['user_id'], 'Comment.show_id' => $this->data['Rate']['show_id'], 'Comment.season_id' => $this->data['Rate']['season_id'], 'Comment.episode_id' => $this->data['Rate']['episode_id'])));	
-				if (count($alreadyavis) == 0) {
-					// doit d'abord écrire un avis
-					$continue = false;
-					if($this->data['Rate']['name'] > 15) {
-						$result = "Vous devez d'abord écrire un avis justifiant votre note haute.";
+		if (!empty($this->data) && (!empty($this->data['Rate']['name']) || $this->data['Rate']['name'] == 0) ) {
+			$note = $this->data['Rate']['name'] ;
+			if($note >= 0 && $note <= 20){
+				// Si note > 15 et < 10
+				if($this->data['Rate']['name'] > 15 or $this->data['Rate']['name'] < 10) {
+
+					$alreadyavis = $this->Rate->Episode->Comment->find('all', array('conditions' => array('Comment.user_id' => $this->data['Rate']['user_id'], 'Comment.show_id' => $this->data['Rate']['show_id'], 'Comment.season_id' => $this->data['Rate']['season_id'], 'Comment.episode_id' => $this->data['Rate']['episode_id'])));	
+					if (count($alreadyavis) == 0) {
+						// doit d'abord écrire un avis
+						$continue = false;
+						if($this->data['Rate']['name'] > 15) {
+							$result = "Vous devez d'abord écrire un avis justifiant votre note haute.";
+						} else {
+							$result = "Vous devez d'abord écrire un avis justifiant votre note basse.";
+						}
 					} else {
-						$result = "Vous devez d'abord écrire un avis justifiant votre note basse.";
+						// avis écrit, good to go
+						$continue = true;
 					}
+
 				} else {
-					// avis écrit, good to go
+					// note normale, on autorise
 					$continue = true;
 				}
-				
-			} else {
-				// note normale, on autorise
-				$continue = true;
+			}else{
+				$continue = false;
+				$result = "Votre note doit être comprise entre 0 et 20.";
 			}
 			
 		} else {
@@ -234,7 +241,6 @@ class RatesController extends AppController {
 					/* ajout +1 aux total des notes series*/
 					$show = $this->Rate->Show->find('first', array('conditions' => array('Show.id' => $this->data['Rate']['show_id']), array('contain' => false), 'fields' => array('Show.id', 'Show.nbnotes')));
 					$totalnotes = $show['Show']['nbnotes'] + 1;
-
 					$this->Rate->Show->id = $this->data['Rate']['show_id'];
 					$this->Rate->Show->saveField('nbnotes', $totalnotes);
 					//
@@ -307,7 +313,6 @@ class RatesController extends AppController {
 		//var_dump($rate);
 		
 		//Recalcule du nb de notes total
-
 		// ajout -1 aux total des notes épisodes
 		$nbnotes = $this->Rate->find('count', array('conditions'=>array('Rate.episode_id' =>$myRate['Rate']['episode_id'])));
 		$this->Rate->Episode->id = $myRate['Rate']['episode_id'];
@@ -326,7 +331,6 @@ class RatesController extends AppController {
 		// ajout +1 aux total des notes series
 		$show = $this->Rate->Show->find('first', array('conditions' => array('Show.id' => $myRate['Rate']['show_id']), array('contain' => false), 'fields' => array('Show.id', 'Show.nbnotes')));
 		$totalnotes = $show['Show']['nbnotes'] - 1;
-
 		$this->Rate->Show->id = $myRate['Rate']['show_id'];
 		$this->Rate->Show->saveField('nbnotes', $totalnotes);
 		
@@ -396,7 +400,6 @@ class RatesController extends AppController {
 	*/
 	function admin_index() {
 		$users = $this->Rate->User->find('list', array('order' => 'login ASC'));
-
 		$this->set(compact('users'));
 	}
 	

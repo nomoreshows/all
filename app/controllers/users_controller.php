@@ -192,7 +192,7 @@ class UsersController extends AppController {
 				$this->render('edit_edito');
 				
 			} else {
-				$moyennes = $this->User->Show->Rate->find('all', array('contain'=>false,'conditions' => array('Rate.user_id' => $user['User']['id']), 'fields' => array('COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
+				$moyennes = $this->User->Show->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id']), 'fields' => array('COUNT(Rate.name) as Somme', 'Rate.name', 'Rate.show_id', 'Show.id', 'Show.format'), 'group' => 'Rate.show_id', 'order' => 'Show.menu ASC'));
 				$this->set(compact('moyennes'));
 				
 				$articlescount = $this->User->Article->find('count', array('contain' => false, 'conditions' => array('Article.user_id' => $user['User']['id'])));
@@ -303,12 +303,12 @@ class UsersController extends AppController {
 		case 'notifications':
 			if($this->params['login'] == $this->Auth->user('login')) {
 			
-				$user = $this->User->find('first', array('contain' => array('Comment', 'Rate'), 'conditions' => array('login' => $this->params['login'])));
+// 				$user = $this->User->find('first', array('contain' => array('Comment', 'Rate'), 'conditions' => array('login' => $this->params['login'])));
 				// todo > pagination
 				$notifications = $this->User->Notification->find('all', array('contain'=>false,'conditions' => array('Notification.user_id' => $user['User']['id']), 'limit' => 40));
 				
-				$topepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name >' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name DESC', 'limit' => 10));
-				$flopepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name <' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name ASC', 'limit' => 10));
+// 				$topepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name >' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name DESC', 'limit' => 10));
+// 				$flopepisodes = $this->User->Rate->find('all', array('conditions' => array('Rate.user_id' => $user['User']['id'], 'Rate.name <' => 11), 'fields' => array('Rate.name', 'Rate.episode_id', 'Rate.season_id', 'Rate.show_id', 'Show.name', 'Show.menu', 'Season.name', 'Episode.numero'), 'order' => 'Rate.name ASC', 'limit' => 10));
 				
 				$this->User->Notification->updateAll (
 					array('Notification.read' => '1'),
@@ -317,8 +317,8 @@ class UsersController extends AppController {
 	
 				$this->set(compact('user'));
 				$this->set(compact('notifications'));
-				$this->set(compact('topepisodes'));
-				$this->set(compact('flopepisodes'));
+// 				$this->set(compact('topepisodes'));
+// 				$this->set(compact('flopepisodes'));
 				
 				$this->render('profil_notifications');
 				
