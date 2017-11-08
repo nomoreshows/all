@@ -4,7 +4,7 @@
 
 <div id="col1">
     <div class="padl15">
-    <h1 class="red title">CGU - Mentions légales</h1><br /><br /><br />
+    <h1 class="red title">Conditions Générales d'Utilisation - Mentions légales</h1><br /><br /><br />
     
     <div class="article">
     	
