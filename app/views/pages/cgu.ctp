@@ -113,4 +113,4 @@
 <p>La dur&eacute;e des pr&eacute;sentes CGU est ind&eacute;termin&eacute;e. Elles produisent leurs effets &agrave; l'&eacute;gard de l'Utilisateur et du Membre &agrave; compter de l'utilisation du service.</p>
 <p>Les pr&eacute;sentes Mentions l&eacute;gales et CGU peuvent &ecirc;tre modifi&eacute;es &agrave; tout moment par S&eacute;rie-All. Les CGU applicables &agrave; l&rsquo;Utilisateur et au Membre sont celles en vigueur au jour de leur connexion sur le site S&eacute;rie-All, la continuation de la navigation valant pour acceptation des nouvelles CGU.</p>
 <p>&nbsp;</p>
-<p>Date de derni&egrave;re modification : 15/02/2018 &agrave; 10:00</p>
+<p>Date de derni&egrave;re modification : 15/02/2018 &agrave; 14:30</p>
