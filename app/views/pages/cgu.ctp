@@ -114,3 +114,8 @@
 <p>Les pr&eacute;sentes Mentions l&eacute;gales et CGU peuvent &ecirc;tre modifi&eacute;es &agrave; tout moment par S&eacute;rie-All. Les CGU applicables &agrave; l&rsquo;Utilisateur et au Membre sont celles en vigueur au jour de leur connexion sur le site S&eacute;rie-All, la continuation de la navigation valant pour acceptation des nouvelles CGU.</p>
 <p>&nbsp;</p>
 <p>Date de derni&egrave;re modification : 15/02/2018 &agrave; 14:30</p>
+	    
+    </div>
+
+    
+</div>
