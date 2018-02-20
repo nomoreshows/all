@@ -43,9 +43,9 @@
         </div>
         <br />
          <?php } ?>
-        <div class="article">
+        <article class="article">
         	<?php echo $article['Article']['text']; ?>
-        </div>
+        </article>
         <br />
         
 		<!-- J'aime -->
