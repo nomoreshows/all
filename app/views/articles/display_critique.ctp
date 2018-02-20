@@ -45,7 +45,7 @@
         </div>
         <br />
         
-        <div class="article">
+        <article class="article">
         	<br /><br />
         	<?php echo $article['Article']['text']; ?>
             <?php if (!empty($article['Article']['podcast'])){
@@ -53,7 +53,7 @@
                 echo '<br />';
                 echo $article['Article']['podcast'];
             }?>
-        </div>
+        </article>
         <br />
                 
         <br /><br />
