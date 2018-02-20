@@ -36,10 +36,10 @@
             </table>
         </div>
         <br />
-        <div class="article">
+        <article class="article">
         	<?php echo $article['Article']['text']; ?>
         
-        </div>
+        </article>
     </div>
     </div>
     

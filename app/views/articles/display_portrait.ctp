@@ -29,9 +29,9 @@
             </table>
         </div>
         <br />
-        <div class="article">
+        <article class="article">
         	<?php echo $article['Article']['text']; ?>
-        </div>
+        </article>
         <br />
         
         <fb:like show_faces="false" width="450" font="tahoma"></fb:like>
