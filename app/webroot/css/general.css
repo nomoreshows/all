@@ -91,15 +91,17 @@ p {
 }
 
 .chapo {
-    font: lighter 130% Tahoma, Arial sans-serif
+    font: lighter 1rem "open_sansregular", Tahoma, Arial sans-serif;
+	line-height : 1.4;
 }
 
 .subtitle {
-    color: #006eb2
+    color: #006eb2;
 }
 
 .article {
-    font: lighter 120% Tahoma, Arial sans-serif
+    font: lighter 0.9rem "open_sansregular", Tahoma, Arial sans-serif;
+	line-height : 1.4;
 }
 
 .article strong {
@@ -139,7 +141,7 @@ p {
 }
 
 .article h2 {
-    font: lighter 200% Avenir45BookRegular, "Trebuchet MS", Arial sans-serif
+    font: lighter 1.8rem "open_sansregular", Avenir45BookRegular, "Trebuchet MS", Arial sans-serif
 }
 
 .article img {
@@ -247,7 +249,7 @@ html>body ul.noflow li {
 h1.title,
 h2.title {
     font-family: Avenir45BookRegular, Arial, Helvetica, sans-serif;
-    font-size: 25px
+    font-size: 1.8rem;
 }
 
 .staring {
