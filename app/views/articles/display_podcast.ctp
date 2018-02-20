@@ -43,10 +43,10 @@
         </div>
         <br />
          <?php } ?>
-        <div class="article">
+        <article class="article">
         	<?php echo $article['Article']['text']; ?>
 			<?php echo $article['Article']['podcast']; ?>
-        </div>
+        </article>
         <br />
         
 		<!-- J'aime -->
