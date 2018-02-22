@@ -231,8 +231,8 @@
         
         <?php } else { 
 		// ESPACE INSCRIPTION?>
-		<strong class="lblue">Bienvenue</strong> sur Série-All, cher visiteur ! <br /><br />
-        Vous pouvez dès à présent vous <?php echo $html->link('créér un compte', '/inscription', array('class' => 'decoblue')); ?> afin de profiter de tous les avantages du site. <br />Notez les épisodes, laissez des avis, créez votre planning personnalisé, organisez votre collection...<br /><br />
+		<strong class="lblue">Bienvenue</strong> sur Série-All, cher visiteur ! <br />
+        Vous pouvez dès à présent vous <?php echo $html->link('créér un compte', '/inscription', array('class' => 'decoblue')); ?> afin de profiter de tous les avantages du site. <br />Notez les épisodes, laissez des avis, créez votre planning personnalisé, organisez votre collection...<br />
         Découvrez toutes les raisons de vous créer un compte en détails sur <?php echo $html->link('cette page', '/inscription', array('class' => 'decoblue')); ?>.
         <?php } ?>
         <br /> <br />
