@@ -40,7 +40,7 @@
         
         <span class="chapo"><?php echo $article['Article']['chapo']; ?></span>
         <br /><br /><br />
-        <div class="article">
+        <article class="article">
         	<?php 
 			if (!empty($article['Article']['video'])) { ?>
             <!-- Lecteur vidéo -->
@@ -55,7 +55,7 @@
             <?php } ?>
             
         	<?php echo $article['Article']['text']; ?>
-        </div>
+        </article>
         <?php 
 		// Source
 		if (!empty($article['Article']['source']) and $article['Article']['source'] != 'http://') { ?>
