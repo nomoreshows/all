@@ -87,7 +87,7 @@ h4 {
 }
 
 p {
-    margin-bottom: 10px
+    margin-bottom: 25px
 }
 
 .chapo {
@@ -1977,7 +1977,8 @@ td.td-rssforum {
 .comments-serie td.td-com-text {
     color: #313131;
     width: 88%;
-    text-align: left
+    text-align: left;
+    font: lighter 0.9rem "open_sansregular", Tahoma, Arial sans-serif;
 }
 
 .avis-infos-article,
