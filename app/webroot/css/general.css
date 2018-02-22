@@ -1432,7 +1432,8 @@ h3 a:hover {
 .bg-serie {
     background: url(../img/bg-serie.png);
     width: 645px;
-    height: 237px
+    height: 237px;
+    margin-top : 10px
 }
 
 .bg-serie img {
