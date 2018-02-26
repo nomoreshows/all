@@ -77,7 +77,7 @@
 				 	 ?>
                   </h2>
                   <span class="lblue"><?php echo 'par ' . $article['User']['login']; ?></span>
-                  <p><?php echo $text->truncate($article['Article']['chapo'], 190, ' ...', false); ?></p>
+                  <p><?php echo $text->truncate($article['Article']['chapo'], 150, ' ...', false); ?></p>
                 </div>
               </div>
               <?php } ?>
