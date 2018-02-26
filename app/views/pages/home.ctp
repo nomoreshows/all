@@ -184,7 +184,7 @@
         </td>
         <td width="23%">
         	<strong>Statistiques</strong>
-            <br /><br />
+            <br />
             <?php echo $critiquesuser; ?> critiques<br />
             <?php echo $commentsuser; ?> avis<br />
             <?php echo count($ratesuser); ?> notes<br />
@@ -216,7 +216,7 @@
 				foreach ($user['Show'] as $show) {
 					if($show['Followedshows']['etat']==1){
 						echo '&raquo; ' . $html->link($show['name'], '/serie/' . $show['menu'], array('escape' => false)) . '<br />'; 
-						if($i == 6) break;
+						if($i == 5) break;
 						$i++;
 					}
 				}
