@@ -212,7 +212,7 @@ class PagesController extends AppController {
 				'conditions' => array('Article.category' => array('news', 'video'), 'Article.etat' => 1),
 				'fields' => array('Article.name', 'Article.photo', 'Article.url', 'Article.show_id', 'Article.chapo', 'Show.menu', 'Article.created'),
 				'order' => 'Article.id DESC', 
-				'limit' => 5
+				'limit' => 6
 			));
 			
 			//Tous les articles sauf critiques, news et vidéos
@@ -220,7 +220,7 @@ class PagesController extends AppController {
 				'conditions' => '(Article.category = "dossier" OR Article.category = "chronique" OR Article.category = "bilan" OR Article.category = "podcast" OR Article.category = "focus" OR Article.category = "critique") AND Article.etat = 1',
 				'fields' => array('Show.name', 'Show.menu', 'Article.url', 'Article.caption', 'Article.name', 'Article.created', 'Article.chapo', 'Article.photo', 'Article.show_id'),
 					'order' => 'Article.modified DESC', 
-				'limit' => 14
+				'limit' => 13
 			));
 			
 			//$this->set(compact('randomuser'));
