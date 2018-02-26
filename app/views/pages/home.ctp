@@ -173,7 +173,6 @@
         <tr>
         <td width="45%">
         	<strong>Bienvenue</strong> <strong class="decoblue"><?php echo $user['User']['login']; ?></strong>. <br />
-            <br />
             <?php echo $html->link($gravatar->image($user['User']['email'], 70, array('alt' => $user['User']['login'], 'class' => 'imgleft'), false), '/profil/'. $user['User']['login'], array('class' => 'nodeco', 'escape' => false));  ?> 
             <?php if($session->read('Auth.User.role') < 4) { ?>
             	&raquo; <?php echo $html->link('Administration', '/admin', array('class' => 'nodeco2')); ?> <br /> 
