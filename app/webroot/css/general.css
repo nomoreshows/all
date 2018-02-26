@@ -955,7 +955,9 @@ h2.red a {
     width: 455px;
     padding: 5px 13px;
     color: #fff;
-    height: 108px
+    height: 108px;
+    font-size : 12px;
+	    
 }
 
 .emembre-footer {
