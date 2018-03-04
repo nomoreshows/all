@@ -77,7 +77,7 @@
 				 	 ?>
                   </h2>
                   <span class="lblue"><?php echo 'par ' . $article['User']['login']; ?></span>
-                  <p><?php echo $text->truncate($article['Article']['chapo'], 150, ' ...', false); ?></p>
+                  <p><?php echo $text->truncate($article['Article']['chapo'], 190, ' ...', false); ?></p>
                 </div>
               </div>
               <?php } ?>
@@ -118,7 +118,7 @@
 				 	 ?>
                   </h2>
                   <span class="lblue"><?php echo 'par ' . $article['User']['login']; ?></span>
-                  <p><?php echo $text->truncate($article['Article']['chapo'], 150, ' ...', false); ?></p>
+                  <p><?php echo $text->truncate($article['Article']['chapo'], 190, ' ...', false); ?></p>
                 </div>
               </div>
               <?php } ?>
@@ -173,6 +173,7 @@
         <tr>
         <td width="45%">
         	<strong>Bienvenue</strong> <strong class="decoblue"><?php echo $user['User']['login']; ?></strong>. <br />
+            <br />
             <?php echo $html->link($gravatar->image($user['User']['email'], 70, array('alt' => $user['User']['login'], 'class' => 'imgleft'), false), '/profil/'. $user['User']['login'], array('class' => 'nodeco', 'escape' => false));  ?> 
             <?php if($session->read('Auth.User.role') < 4) { ?>
             	&raquo; <?php echo $html->link('Administration', '/admin', array('class' => 'nodeco2')); ?> <br /> 
@@ -184,7 +185,7 @@
         </td>
         <td width="23%">
         	<strong>Statistiques</strong>
-            <br />
+            <br /><br />
             <?php echo $critiquesuser; ?> critiques<br />
             <?php echo $commentsuser; ?> avis<br />
             <?php echo count($ratesuser); ?> notes<br />
@@ -216,7 +217,7 @@
 				foreach ($user['Show'] as $show) {
 					if($show['Followedshows']['etat']==1){
 						echo '&raquo; ' . $html->link($show['name'], '/serie/' . $show['menu'], array('escape' => false)) . '<br />'; 
-						if($i == 5) break;
+						if($i == 6) break;
 						$i++;
 					}
 				}
@@ -230,8 +231,8 @@
         
         <?php } else { 
 		// ESPACE INSCRIPTION?>
-		<strong class="lblue">Bienvenue</strong> sur Série-All, cher visiteur ! <br />
-        Vous pouvez dès à présent vous <?php echo $html->link('créér un compte', '/inscription', array('class' => 'decoblue')); ?> afin de profiter de tous les avantages du site. <br />Notez les épisodes, laissez des avis, créez votre planning personnalisé, organisez votre collection...<br />
+		<strong class="lblue">Bienvenue</strong> sur Série-All, cher visiteur ! <br /><br />
+        Vous pouvez dès à présent vous <?php echo $html->link('créér un compte', '/inscription', array('class' => 'decoblue')); ?> afin de profiter de tous les avantages du site. <br />Notez les épisodes, laissez des avis, créez votre planning personnalisé, organisez votre collection...<br /><br />
         Découvrez toutes les raisons de vous créer un compte en détails sur <?php echo $html->link('cette page', '/inscription', array('class' => 'decoblue')); ?>.
         <?php } ?>
         <br /> <br />

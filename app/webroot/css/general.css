@@ -35,6 +35,13 @@ table.register {
     margin: auto;
     padding: 0
 }
+
+body {
+    background-color: #e8e8e8;
+    font: 11px Tahoma, Arial, sans-serif;
+    color: #1c1c1c
+}
+
 @font-face {
     font-family: 'open_sansregular';
     src: url('../Fonts/OpenSans-Regular-webfont.eot');
@@ -65,21 +72,13 @@ table.register {
     font-style: normal
 }
 
-body {
-    background-color: #e8e8e8;
-    font: 13px "open_sansregular", Arial, sans-serif;
-    color: #1c1c1c
-}
-
-
 h1 {
     font: lighter 140% Tahoma, Arial sans-serif;
     color: #00325f
 }
 
 h2 {
-font-weight : normal;
-font-size : 1rem;
+    font: lighter 160% "Trebuchet MS", Arial sans-serif
 }
 
 h3,
@@ -639,7 +638,7 @@ button:active span {
 
 #menu {
     height: 35px;
-    width: 1160px;
+    width: 1015px;
     margin: auto;
     padding-top: 16px
 }
@@ -654,6 +653,7 @@ button:active span {
 }
 
 #menu ul {
+    font: 12px Arial, sans-serif
 }
 
 #menu ul.menu li {
@@ -675,6 +675,7 @@ button:active span {
     display: block;
     float: left;
     text-transform: uppercase;
+    font: 400 12px tahoma, sans-serif;
     height: 49px;
     padding-right: 14px;
     outline: 0
@@ -918,18 +919,11 @@ table.footer tr td {
 }
 
 div.panel p {
+    font: 11px Tahoma, Arial, sans-serif
 }
 
 .panel-overlay {
-    margin-top: 10px!important;
-    height: 140px !important;
-    top: 140px !important;
-
-}
-
-.overlay {
-    height: 140px !important;
-    top: 140px !important;
+    margin-top: 10px!important
 }
 
 .panel-overlay p {
@@ -955,9 +949,7 @@ h2.red a {
     width: 455px;
     padding: 5px 13px;
     color: #fff;
-    height: 108px;
-    font-size : 12px;
-	    
+    height: 108px
 }
 
 .emembre-footer {
@@ -1034,6 +1026,7 @@ p.suite a {
 ul.play li,
 ul.playe li {
     background: url(../img/icons/li.png) no-repeat;
+    font: 11px Tahoma
 }
 
 ul.play {
@@ -1043,8 +1036,8 @@ ul.play {
 
 ul.play li {
     padding-left: 21px;
-    min-height : 25px;
     overflow: hidden;
+    height: 23px;
     margin-bottom: 5px;
     margin-top: 5px
 }
@@ -1111,7 +1104,7 @@ ul.path li.start {
 }
 
 ul.play li.avisHome {
-    height: 75px;
+    height: 50px;
     background: #f5f5ff;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
@@ -1141,6 +1134,8 @@ ul.play li.avisHome {
 
 .onenews h2 a {
     color: #00325f;
+    font-size: 15px;
+    font-family: Tahoma, Arial sans-serif;
     display: inline
 }
 
@@ -1274,12 +1269,15 @@ ul.class {
 }
 
 ul.class li {
+    font: 11px Tahoma;
     height: 20px
 }
 
 #articles h2 a,
 #newsVideos h2 a {
     color: #00325f;
+    font-size: 15px;
+    font-family: Tahoma, Arial sans-serif;
     text-decoration: none
 }
 
@@ -1885,6 +1883,11 @@ td.td-rssforum {
     text-decoration: none;
     font-size: 16px;
     font-family: Avenir45BookRegular, Tahoma, Arial
+}
+
+.comments table,
+.comments-serie table {
+    font: lighter 120% Tahoma, Arial sans-serif
 }
 
 .onenews2 h2 a:hover {
