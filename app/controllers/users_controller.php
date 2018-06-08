@@ -346,6 +346,7 @@ class UsersController extends AppController {
 					// Si le mot de passe est renseigné, ajout du pass au tableau 
 					if (!empty($this->data['User']['password_confirm'])) {
 						$fields[] = 'password';
+                        $this->data['User']['password'] = md5($this->data['User']['password']);
 					}
 					
 					// Si les mots de passes correspondent ou que les 2 mots de passe ne sont pas renseignés, on save
