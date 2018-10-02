@@ -77,6 +77,7 @@
 	Router::connect('/nouvelles-series-2015-2016', array('controller' => 'shows', 'action' => 'rentree2015', 'start'));
 	Router::connect('/nouvelles-series-2016-2017', array('controller' => 'shows', 'action' => 'rentree2016', 'start'));
 	Router::connect('/nouvelles-series-2017-2018', array('controller' => 'shows', 'action' => 'rentree2017', 'start'));
+	Router::connect('/nouvelles-series-2018-2019', '/article/les-series-de-la-rentree-2018_a3976.html');
 	
 	
 	// Mobile
